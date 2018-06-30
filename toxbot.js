@@ -44,7 +44,7 @@ bot.on("message", async message => {
     bot.on("guildMemberAdd",(member)=>{
         let channel = member.guild.channels.get("439880541043425290")
         if(!channel) return
-        channel.send(`<@${member.user.id}> Willkommen in der ${member.guild.name}! Bitte wirf einen Blick auf die <#406946551538253830> und benimm dich. \nWenn du fragen hast kannst du gerne auf die Mods, Supporter oder auch auf Newtox zugehen. \nEs schadet auch nicht einen blick in das <#427916685413187604> zu werfen ${GlumandaHi}`)
+        message.channel.send(`<@${member.user.id}> Willkommen in der ${member.guild.name}! Bitte wirf einen Blick auf die <#406946551538253830> und benimm dich. \nWenn du fragen hast kannst du gerne auf die Mods, Supporter oder auch auf Newtox zugehen. \nEs schadet auch nicht einen blick in das <#427916685413187604> zu werfen ${GlumandaHi}`)
         member.addRole("406952857917456395")
     })  
 
@@ -52,7 +52,7 @@ bot.on("message", async message => {
     bot.on("guildMemberRemove",(member)=>{
         let channel = member.guild.channels.get("439880541043425290")
         if(!channel) return
-        channel.send(`${member.user.username}#${member.user.discriminator} hat die ${member.guild.name} verlassen...`)
+        message.channel.send(`${member.user.username}#${member.user.discriminator} hat die ${member.guild.name} verlassen...`)
     })  
 
 
