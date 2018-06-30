@@ -96,7 +96,7 @@ bot.on("message", async message => {
 
         if(message.startsWith ==`${BotSettings.prefix}play`) {
             if(!args[0]) return message.channel.send(`${message.author} Aktuell gibt es folgende Songs: \ntx!play PikaSong`)
-            if(args == "PikaSong") {
+            if(args[0] == "PikaSong") {
                 const connection = await message.member.voiceChannel.join();
                 connection.playFile("./PikaSong.mp3") 
                 message.channel.send("Ich spiele nun folgenden Song: \n`PikaSong`")
