@@ -36,22 +36,19 @@ bot.on("message", async message => {
     let GlumandaHi = message.guild.emojis.find("name", "Glumanda_Hi")
     let partyparrot = message.guild.emojis.find("name", "party_parrot") 
        
+    // //Welcome Message
+    // bot.on("guildMemberAdd", async member=> {
+    //     bot.channels.get("439880541043425290").send(`${member} Willkommen in der ${member.guild.name}! Bitte wirf einen Blick auf die <#406946551538253830> und benimm dich. \nWenn du fragen hast kannst du gerne auf die Mods, Supporter oder auch auf Newtox zugehen. \nEs schadet auch nicht einen blick in das <#427916685413187604> zu werfen ${bot.emojis.find("name","Glumanda_Hi")}`)
+    //     member.addRole("406952857917456395")
+    // })
 
-    
 
+     
 
-    //Welcome Message
-    bot.on("guildMemberAdd",(member)=>{
-        let channel = member.guild.channels.get("439880541043425290")
-        message.channel.send(`<@${member.user.id}> Willkommen in der ${member.guild.name}! Bitte wirf einen Blick auf die <#406946551538253830> und benimm dich. \nWenn du fragen hast kannst du gerne auf die Mods, Supporter oder auch auf Newtox zugehen. \nEs schadet auch nicht einen blick in das <#427916685413187604> zu werfen ${GlumandaHi}`)
-        member.addRole("406952857917456395")
-    });  
-
-    //Goodbye Message
-    bot.on("guildMemberRemove",(member)=>{
-        let channel = member.guild.channels.get("439880541043425290")
-        message.channel.send(`${member.user.username}#${member.user.discriminator} hat die ${member.guild.name} verlassen...`) 
-    });  
+    // //Goodbye Message
+    // bot.on("guildMemberRemove", async member =>{
+    //     bot.channels.get("439880541043425290").send(`${member.user.username}#${member.user.discriminator} hat die ${member.guild.name} verlassen...`) 
+    // }); 
 
 
 
@@ -63,9 +60,9 @@ bot.on("message", async message => {
         
         const deleteCount = parseInt(args[0], 10);
     
-        if(!deleteCount || deleteCount < 2 || deleteCount > 1000)
+        if(!deleteCount || deleteCount < 2 || deleteCount > 100)
     
-          return message.reply("Bitte gib eine Zahl zwischen 2 und 1000 an.");
+          return message.reply("Bitte gib eine Zahl zwischen 2 und 100 an.");
     
         const fetched = await message.channel.fetchMessages({limit: deleteCount});
     
@@ -770,5 +767,4 @@ bot.on("message", async message => {
 
 });
 
-bot.login(process.env.BOT_TOKEN
-)
+bot.login(BotSettings.token)
