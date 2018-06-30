@@ -94,7 +94,7 @@ bot.on("message", async message => {
                 const connection = await message.member.voiceChannel.leave();
               } 
 
-        if(message.content==`${BotSettings.prefix}play`) {
+        if(message.startsWith ==`${BotSettings.prefix}play`) {
             if(!args[0]) return message.channel.send(`${message.author} Aktuell gibt es folgende Songs: \ntx!play PikaSong`)
             if(args == "PikaSong") {
                 const connection = await message.member.voiceChannel.join();
