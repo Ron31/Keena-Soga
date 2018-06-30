@@ -63,9 +63,9 @@ bot.on("message", async message => {
         
         const deleteCount = parseInt(args[0], 10);
     
-        if(!deleteCount || deleteCount < 2 || deleteCount > 100)
+        if(!deleteCount || deleteCount < 2 || deleteCount > 1000)
     
-          return message.reply("Bitte gib eine Zahl zwischen 2 und 100 an.");
+          return message.reply("Bitte gib eine Zahl zwischen 2 und 1000 an.");
     
         const fetched = await message.channel.fetchMessages({limit: deleteCount});
     
