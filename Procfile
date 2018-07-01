@@ -1,1 +1,1 @@
-worker toxbot.js
+ worker= toxbot.js
