@@ -11,7 +11,7 @@ bot.on("ready", async () => {
     //.discriminator ist die Zahl des Tags, die nach dem # kommt.
     console.log(`\nBot ist online.\nName + Tag: ${bot.user.username}#${bot.user.discriminator}\nPrefix: ${BotSettings.prefix}`)
     bot.user.setStatus("online")//online, idle, dnd, invisible
-    bot.user.setActivity(`${BotSettings.prefix}help | Version: 2.0 | ${bot.guilds.size} Server!`, {
+    bot.user.setActivity(`${BotSettings.prefix}help | Version: 2.0`, {
         //Solltest du type: STREAMING nutzen, dann musst du bei url: "", nen Twitch-Kanal-Link angeben. Ansonsten kannst du das so lassen
         type: "PLAYING" //PLAYING, STREAMING, LISTENING, WATCHING
     })
