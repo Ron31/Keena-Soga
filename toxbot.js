@@ -47,7 +47,7 @@ bot.on("message", async message => {
 
     // //Goodbye Message
     // bot.on("guildMemberRemove", async member =>{
-    //     bot.channels.get("439880541043425290").send(`${member.user.username}#${member.user.discriminator} hat die ${member.guild.name} verlassen...`) 
+    //     bot.channels.get("439880541043425290").send(`${member.user.username}#${member.user.discriminator} hat die ${member.guild.name} verlassen...`)
     // }); 
 
 
@@ -767,4 +767,4 @@ bot.on("message", async message => {
 
 });
 
-bot.login(process.env.BOT_TOKEN)
+bot.login(BotSettings.token)
