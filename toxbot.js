@@ -11,7 +11,7 @@ bot.on("ready", async () => {
     //.discriminator ist die Zahl des Tags, die nach dem # kommt.
     console.log(`\nBot ist online.\nName + Tag: ${bot.user.username}#${bot.user.discriminator}\nPrefix: ${BotSettings.prefix}`)
     bot.user.setStatus("online")//online, idle, dnd, invisible
-    bot.user.setActivity(`${BotSettings.prefix}help | Version: 2.0 | ${bot.guilds.size} Server!`, {
+    bot.user.setActivity(`${BotSettings.prefix}help | Version: 1.0 | ${bot.guilds.size} Server!`, {
         //Solltest du type: STREAMING nutzen, dann musst du bei url: "", nen Twitch-Kanal-Link angeben. Ansonsten kannst du das so lassen
         type: "PLAYING" //PLAYING, STREAMING, LISTENING, WATCHING
     })
@@ -29,6 +29,7 @@ bot.on("ready", async () => {
 
     //Goodbye Message
     bot.on("guildMemberRemove", async member => { 
+        if(message.guild.id!=`406946551538253828`) 
         bot.channels.get("439880541043425290").send(`${member} hat die ${member.guild.name} verlassen...`)
     });
     bot.on("message", async message => { }) 
@@ -36,6 +37,7 @@ bot.on("ready", async () => {
 
     //Welcome Message
     bot.on("guildMemberAdd", async member => { 
+        if(message.guild.id!=`406946551538253828`) 
         bot.channels.get("439880541043425290").send(`${member} Willkommen in der ${member.guild.name}! Bitte wirf einen Blick auf die <#406946551538253830> und benimm dich. \nWenn du fragen hast kannst du gerne auf die Mods, Supporter oder auch auf Newtox zugehen. \nEs schadet auch nicht einen blick in das <#427916685413187604> zu werfen ${bot.emojis.find("name","Glumanda_Hi")}`)
             member.addRole("406952857917456395")
     });
