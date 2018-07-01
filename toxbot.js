@@ -93,7 +93,7 @@ bot.on("message", async message => {
             if(!args[0]) return message.channel.send(`${message.author} Aktuell gibt es folgende Songs: \ntx!play PikaSong`)
             const connection =  message.member.voiceChannel.join();
             if(args[0] == "PikaSong") {
-                const dispatcher = playFile('./PikaSong.mp3');
+                const dispatcher = playFile('bot/PikaSong.mp3');
                 message.channel.send("Ich spiele nun folgenden Song: \n`PikaSong`")
             }
         }      
@@ -767,5 +767,4 @@ bot.on("message", async message => {
 
 });
 
-bot.login(process.env.BOT_TOKEN
-)
+bot.login(process.env.BOT_TOKEN)
