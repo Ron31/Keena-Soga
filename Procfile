@@ -1,1 +1,0 @@
-worker = toxbot.js
