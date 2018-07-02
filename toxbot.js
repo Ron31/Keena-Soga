@@ -25,7 +25,7 @@ bot.on("ready", async () => {
 
     //Goodbye Message
     bot.on("guildMemberRemove", async member => { 
-        if(message.guild.id!= ServerID)
+        if(message.guild.id!= SID)
         bot.channels.get("439880541043425290").send(`${member} hat die ${member.guild.name} verlassen...`)
     });
     bot.on("message", async message => { }) 
@@ -33,7 +33,7 @@ bot.on("ready", async () => {
 
     //Welcome Message
     bot.on("guildMemberAdd", async member => { 
-        if(message.guild.id!= ServerID)
+        if(message.guild.id!= SID)
         bot.channels.get("439880541043425290").send(`${member} Willkommen in der ${member.guild.name}! Bitte wirf einen Blick auf die <#406946551538253830> und benimm dich. \nWenn du fragen hast kannst du gerne auf die Mods, Supporter oder auch auf Newtox zugehen. \nEs schadet auch nicht einen blick in das <#427916685413187604> zu werfen ${bot.emojis.find("name","Glumanda_Hi")}`)
             member.addRole("406952857917456395")
     });
@@ -49,6 +49,7 @@ bot.on("ready", async () => {
         mention = message.mentions.members.first()
         FooterLogo = "https://cdn.discordapp.com/avatars/402483602094555138/9c65aed0d263922c1bb6812f77b4f86a.png?size=1024"
         EmbedFooter = "Bot des Newtox - Community Servers"
+        ServerID = "406946551538253828"
         
         
        
@@ -353,7 +354,7 @@ bot.on("ready", async () => {
 
         //Rollen Adds
         if(message.content ==`${BotSettings.prefix}pc`) { 
-            if(message.guild.id!= `406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`413580045098024970`)
             message.channel.send(`${message.author} Ich habe dir die pc Rolle hinzugefügt`)
         }
@@ -362,7 +363,7 @@ bot.on("ready", async () => {
 
         
         if(message.content ==`${BotSettings.prefix}ps4`) {
-            if(message.guild.id!== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`413580070112985089`)
             message.channel.send(`${message.author} Ich habe dir die ps4 Rolle hinzugefügt`)
         }
@@ -386,7 +387,7 @@ bot.on("ready", async () => {
         }
 
         if(message.content ==`${BotSettings.prefix}Handy`) {
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`414010034582716416`)
             message.channel.send(`${message.author} Ich habe dir die Handy Rolle hinzugefügt`)
         }
