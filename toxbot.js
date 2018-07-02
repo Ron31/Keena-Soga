@@ -353,7 +353,7 @@ bot.on("ready", async () => {
 
         //Rollen Adds
         if(message.content ==`${BotSettings.prefix}pc`) { 
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= `406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`413580045098024970`)
             message.channel.send(`${message.author} Ich habe dir die pc Rolle hinzugefügt`)
         }
