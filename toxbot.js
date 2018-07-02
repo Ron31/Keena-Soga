@@ -353,7 +353,7 @@ bot.on("ready", async () => {
 
         //Rollen Adds
         if(message.content ==`${BotSettings.prefix}pc`) { 
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`413580045098024970`)
             message.channel.send(`${message.author} Ich habe dir die pc Rolle hinzugefügt`)
         }
@@ -362,115 +362,115 @@ bot.on("ready", async () => {
 
         
         if(message.content ==`${BotSettings.prefix}ps4`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`413580070112985089`)
             message.channel.send(`${message.author} Ich habe dir die ps4 Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}NintendoSwitch`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`414010109237133312`)
             message.channel.send(`${message.author} Ich habe dir die Nintendo Switch Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}xbox`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`413580109417676800`)
             message.channel.send(`${message.author} Ich habe dir die xbox Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}nsfw`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`429035655188709377`)
             message.channel.send(`${message.author} Ich habe dir die nsfw Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Handy`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`414010034582716416`)
             message.channel.send(`${message.author} Ich habe dir die Handy Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Gamer`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`413663967051907072`)
             message.channel.send(`${message.author} Ich habe dir die Gamer Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}MuteChannel`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`407089763137486859`)
             message.channel.send(`${message.author} Ich habe dir die Mute Channel Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Splatoon2`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`417278894069121045`)
             message.channel.send(`${message.author} Ich habe dir die Splatoon 2 Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}RocketLeague`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`417271014146441228`)
             message.channel.send(`${message.author} Ich habe dir die Rocket League Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Overwatch`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`415897143350657034`)
             message.channel.send(`${message.author} Ich habe dir die Overwatch Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Fortnite`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`413579568474095626`)
             message.channel.send(`${message.author} Ich habe dir die Fortnite Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}CSGO`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`438622438218268672`)
             message.channel.send(`${message.author} Ich habe dir die CSGO Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Minecraft`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`421711163873820674`)
             message.channel.send(`${message.author} Ich habe dir die Minecraft Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}12+`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`459361825113243649`)
             message.channel.send(`${message.author} Ich habe dir die 12+ Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}14+`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`459361824005947413`)
             message.channel.send(`${message.author} Ich habe dir die 14+ Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}16+`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`459361819627225108`)
             message.channel.send(`${message.author} Ich habe dir die 16+ Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}18+`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`459361816989138965`)
             message.channel.send(`${message.author} Ich habe dir die 18+ Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Männlich`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`460860422250168320`)
             message.channel.send(`${message.author} Ich habe dir die Männlich Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Weiblich`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`460860488155267072`)
             message.channel.send(`${message.author} Ich habe dir die Weiblich Rolle hinzugefügt`)
         }
@@ -481,20 +481,20 @@ bot.on("ready", async () => {
         //Rollen Removes
        
         if(message.content ==`${BotSettings.prefix}pcremove`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.removeRole(`413580045098024970`)
             message.channel.send(`${message.author} Ich habe dir die pc Rolle entfernt`)
         }
 
 
         if(message.content ==`${BotSettings.prefix}ps4remove`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.removeRole(`413580070112985089`)
             message.channel.send(`${message.author} Ich habe dir die ps4 Rolle entfernt`)
         }
 
         if(message.content ==`${BotSettings.prefix}NintendoSwitchremove`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.removeRole(`414010109237133312`)
             message.channel.send(`${message.author} Ich habe dir die Nintendo Switch Rolle entfernt`)
         }
@@ -506,97 +506,97 @@ bot.on("ready", async () => {
         }
 
         if(message.content ==`${BotSettings.prefix}nsfwremove`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.removeRole(`429035655188709377`)
             message.channel.send(`${message.author} Ich habe dir die nsfw Rolle entfernt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Handyremove`) { 
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.removeRole(`414010034582716416`)
             message.channel.send(`${message.author} Ich habe dir die Handy Rolle entfernt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Gamerremove`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.removeRole(`413663967051907072`)
             message.channel.send(`${message.author} Ich habe dir die Gamer Rolle entfernt`)
         }
 
         if(message.content ==`${BotSettings.prefix}MuteChannelremove`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.removeRole(`407089763137486859`)
               message.channel.send(`${message.author} Ich habe dir die Mute Channel Rolle entfernt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Splatoon2remove`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.removeRole(`417278894069121045`)
             message.channel.send(`${message.author} Ich habe dir die Splatoon 2 Rolle entfernt`)
         }
 
         if(message.content ==`${BotSettings.prefix}RocketLeagueremove`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.remvoveRole(`417271014146441228`)
             message.channel.send(`${message.author} Ich habe dir die Rocket League Rolle entfernt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Overwatchremove`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.removeRole(`415897143350657034`)
             message.channel.send(`${message.author} Ich habe dir die Overwatch Rolle entfernt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Fortniteremove`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.removeRole(`413579568474095626`)
             message.channel.send(`${message.author} Ich habe dir die Fortnite Rolle entfernt`)
         }
 
         if(message.content ==`${BotSettings.prefix}CSGOremove`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.removeRole(`438622438218268672`)
             message.channel.send(`${message.author} Ich habe dir die CSGO Rolle entfernt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Minecraftremove`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.removeRole(`421711163873820674`)
             message.channel.send(`${message.author} Ich habe dir die Minecraft Rolle entfernt`)
         }
 
         if(message.content ==`${BotSettings.prefix}12+remove`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.removeRole(`459361816989138965`)
             message.channel.send(`${message.author} Ich habe dir die 12+ Rolle entfernt`)
         }
 
         if(message.content ==`${BotSettings.prefix}14+remove`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.removeRole(`459361824005947413`)
             message.channel.send(`${message.author} Ich habe dir die 14+ Rolle entfernt`)
         }
 
         if(message.content ==`${BotSettings.prefix}16+remove`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.removeRole(`459361819627225108`)
             message.channel.send(`${message.author} Ich habe dir die 16+ Rolle entfernt`)
         }
 
         if(message.content ==`${BotSettings.prefix}18+remove`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.removeRole(`459361816989138965`)
             message.channel.send(`${message.author} Ich habe dir die 18+ Rolle entfernt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Männlichremove`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.removeRole(`460860422250168320`)
             message.channel.send(`${message.author} Ich habe dir die Männlich Rolle entfernt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Weiblichremove`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.removeRole(`460860488155267072`)
             message.channel.send(`${message.author} Ich habe dir die Weiblich Rolle entfernt`)
         }
@@ -623,7 +623,7 @@ bot.on("ready", async () => {
         }
             
         if(message.content ==`${BotSettings.prefix}conbotprofil`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
 
             message.channel.send("Hier findest du Hilfe und Beispiele zu deinem Profil. \n FC: ?profile switch 6969-6969-6969 \n Beschreibung: ?profile description (Text) `du fügst eine Beschreinung hinzu!` \n Profil: ?profile rufst du dein Profil auf. Und mit ?profile (Name) das Profil eines anderen.`")
         }
@@ -648,7 +648,7 @@ bot.on("ready", async () => {
                 
 
         if(message.content == `${BotSettings.prefix}Team`) {
-            if(message.guild.id!=`406946551538253828`) return message.channel.send("Dieser Command ist nur in der Newtox - Community verfügbar \nhttps://discord.gg/HDbRWvG")
+            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             var embed = new Discord.RichEmbed()
             .setColor("#ff0000")
             .setTimestamp()
