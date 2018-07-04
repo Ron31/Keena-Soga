@@ -357,7 +357,7 @@ bot.on("ready", async () => {
 
         //Rollen Adds
         if(message.content ==`${BotSettings.prefix}pc`) { 
-            if(message.guild.id != ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`413580045098024970`)
             message.channel.send(`${message.author} Ich habe dir die pc Rolle hinzugefügt`)
         }
@@ -366,115 +366,115 @@ bot.on("ready", async () => {
 
         
         if(message.content ==`${BotSettings.prefix}ps4`) {
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`413580070112985089`)
             message.channel.send(`${message.author} Ich habe dir die ps4 Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}NintendoSwitch`) {
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`414010109237133312`)
             message.channel.send(`${message.author} Ich habe dir die Nintendo Switch Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}xbox`) {
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`413580109417676800`)
             message.channel.send(`${message.author} Ich habe dir die xbox Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}nsfw`) {
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`429035655188709377`)
             message.channel.send(`${message.author} Ich habe dir die nsfw Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Handy`) {
-            if(message.guild.id!== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`414010034582716416`)
             message.channel.send(`${message.author} Ich habe dir die Handy Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Gamer`) {
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`413663967051907072`)
             message.channel.send(`${message.author} Ich habe dir die Gamer Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}MuteChannel`) {
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`407089763137486859`)
             message.channel.send(`${message.author} Ich habe dir die Mute Channel Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Splatoon2`) {
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`417278894069121045`)
             message.channel.send(`${message.author} Ich habe dir die Splatoon 2 Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}RocketLeague`) {
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`417271014146441228`)
             message.channel.send(`${message.author} Ich habe dir die Rocket League Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Overwatch`) {
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`415897143350657034`)
             message.channel.send(`${message.author} Ich habe dir die Overwatch Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Fortnite`) {
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`413579568474095626`)
             message.channel.send(`${message.author} Ich habe dir die Fortnite Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}CSGO`) {
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`438622438218268672`)
             message.channel.send(`${message.author} Ich habe dir die CSGO Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Minecraft`) {
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`421711163873820674`)
             message.channel.send(`${message.author} Ich habe dir die Minecraft Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}12+`) {
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`459361825113243649`)
             message.channel.send(`${message.author} Ich habe dir die 12+ Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}14+`) {
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`459361824005947413`)
             message.channel.send(`${message.author} Ich habe dir die 14+ Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}16+`) {
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`459361819627225108`)
             message.channel.send(`${message.author} Ich habe dir die 16+ Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}18+`) {
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`459361816989138965`)
             message.channel.send(`${message.author} Ich habe dir die 18+ Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Männlich`) {
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`460860422250168320`)
             message.channel.send(`${message.author} Ich habe dir die Männlich Rolle hinzugefügt`)
         }
 
         if(message.content ==`${BotSettings.prefix}Weiblich`) {
-            if(message.guild.id!= ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id !== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`460860488155267072`)
             message.channel.send(`${message.author} Ich habe dir die Weiblich Rolle hinzugefügt`)
         }
