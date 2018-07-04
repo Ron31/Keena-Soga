@@ -776,7 +776,7 @@ bot.on("ready", async () => {
 
         
 
-    
+    }
 
        
     
