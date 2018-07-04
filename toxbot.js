@@ -244,7 +244,7 @@ bot.on("ready", async () => {
 
         //OPadd
         if(command.toLowerCase() == `opgiverole`) {
-        if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("ADMINISTRATOR")) {
+        if(message.author.id == BotSettings.OwnerID || BotSettings.OwnerID2 || message.member.hasPermission("ADMINISTRATOR"))  {
 
             var Rolle = args.join(" ")
             if(Rolle) {
@@ -267,7 +267,7 @@ bot.on("ready", async () => {
 
     //Opremove
     if(command.toLowerCase() == `opremoverole`) {
-    if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("ADMINISTRATOR")) {
+    if(message.author.id == BotSettings.OwnerID || BotSettings.OwnerID2 || message.member.hasPermission("ADMINISTRATOR")) {
             if(Rolle) {
                 if(message.guild.roles.find("name", Rolle)) {
                     message.member.removeRole(message.guild.roles.find("name", Rolle).id).catch(err => {
