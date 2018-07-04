@@ -269,6 +269,7 @@ bot.on("ready", async () => {
     //Opremove
     if(command.toLowerCase() == `opremoverole`) {
     if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("ADMINISTRATOR")) {
+            var Rolle = args.join(" ")
             if(Rolle) {
                 if(message.guild.roles.find("name", Rolle)) {
                     message.member.removeRole(message.guild.roles.find("name", Rolle).id).catch(err => {
