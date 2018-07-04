@@ -51,7 +51,6 @@ bot.on("ready", async () => {
         mention = message.mentions.members.first()
         FooterLogo = "https://cdn.discordapp.com/avatars/402483602094555138/9c65aed0d263922c1bb6812f77b4f86a.png?size=1024"
         EmbedFooter = "Bot des Newtox - Community Servers"
-        ServerID = "406946551538253828"
         
         
        
@@ -253,6 +252,7 @@ bot.on("ready", async () => {
                     message.member.addRole(message.guild.roles.find("name", Rolle).id).catch(err => {
                         if(err) message.channel.send(`Hm. Da ist was schiefgelaufen. ${message.author}.\n\nError-Bericht: ${err}`)
                     });
+                    message.channel.send(`Du hast jetzt die Rolle ${Rolle}. `)
                 } else {
                     message.channel.send(`Diese Rolle existiert auf dem Server nicht. ${message.author}`)
                 }
@@ -268,14 +268,12 @@ bot.on("ready", async () => {
     //Opremove
     if(command.toLowerCase() == `opremoverole`) {
     if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("ADMINISTRATOR")) {
-
-            var Rolle = args.join(" ")
             if(Rolle) {
                 if(message.guild.roles.find("name", Rolle)) {
                     message.member.removeRole(message.guild.roles.find("name", Rolle).id).catch(err => {
                         if(err) message.channel.send(`Hm. Da ist was schiefgelaufen. ${message.author}.\n\nError-Bericht: ${err}`)
                     });
-                    message.channel.send(`Dir wurde die Rolle ${Rolle} entfernt. ${message.author}`)
+                    message.channel.send(`Dir wurde die Rolle ${Rolle} entfernt. `)
                 } else {
                     message.channel.send(`Diese Rolle existiert auf dem Server nicht. ${message.author}`)
                 }
