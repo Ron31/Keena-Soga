@@ -253,7 +253,6 @@ bot.on("ready", async () => {
                     message.member.addRole(message.guild.roles.find("name", Rolle).id).catch(err => {
                         if(err) message.channel.send(`Hm. Da ist was schiefgelaufen. ${message.author}.\n\nError-Bericht: ${err}`)
                     });
-                    message.channel.send(`Du hast jetzt die Rolle ${Rolle}. ${message.author}`)
                 } else {
                     message.channel.send(`Diese Rolle existiert auf dem Server nicht. ${message.author}`)
                 }
