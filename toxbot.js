@@ -781,4 +781,4 @@ bot.on("ready", async () => {
 
 });
 
-bot.loginprocess.env.BOT_TOKEN)
+bot.login(process.env.BOT_TOKEN)
