@@ -8,11 +8,11 @@ const Discord = require("discord.js"),
 
 //Start-Up
 bot.on("ready", async () => {
-    //.discriminator ist die Zahl des Tags, die nach dem # kommt.
+
     console.log(`\nBot ist online.\nName + Tag: ${bot.user.username}#${bot.user.discriminator}\nPrefix: ${BotSettings.prefix}`)
     bot.user.setStatus("online")//online, idle, dnd, invisible
-    bot.user.setActivity(`${BotSettings.prefix}help | Version: 2.0 | ${bot.guilds.size} Server!`, {
-        //Solltest du type: STREAMING nutzen, dann musst du bei url: "", nen Twitch-Kanal-Link angeben. Ansonsten kannst du das so lassen
+    bot.user.setActivity(`${BotSettings.prefix}help | Version: 1.0 | ${bot.guilds.size} Server!`, {
+        //Solltest du type: STREAMING nutzen, dann musst du bei url: "", nen Twitch-Kanal-Link angeben.
         type: "PLAYING" //PLAYING, STREAMING, LISTENING, WATCHING
     })
     //Name + Avatar
@@ -51,6 +51,7 @@ bot.on("ready", async () => {
         mention = message.mentions.members.first()
         FooterLogo = "https://cdn.discordapp.com/avatars/402483602094555138/9c65aed0d263922c1bb6812f77b4f86a.png?size=1024"
         EmbedFooter = "Bot des Newtox - Community Servers"
+        RandomColour = Arrays.Colours[Math.floor(Math.random() * Arrays.Colours.length)]
         
         
        
@@ -89,6 +90,10 @@ bot.on("ready", async () => {
     
       } 
     
+
+
+
+
 
       //Musik Feature
       if(message.content ==`${BotSettings.prefix}connect`) {
@@ -195,24 +200,21 @@ bot.on("ready", async () => {
 
     //Verbotene Zeichen/Wörter
     
-       
-
-
-    // if(message.content.includes("卍")) {
-    //     message.delete()
-    //     message.channel.send(`Das verwenden rassistischer Zeichen ist verboten! ${message.author}`)
-    //     return
-    // }
-    // if(message.content.includes("卐")) {
-    //     message.delete()
-    //     message.channel.send(`Das verwenden rassistischer Zeichen ist verboten! ${message.author}`)
-    //     return
-    // }
-    // if(message.content.includes("ϟϟ")) {
-    //     message.delete()
-    //     message.channel.send(`Das verwenden rassistischer Zeichen ist verboten! ${message.author}`)
-    //     return
-    // }
+    if(message.content.includes("卍")) {
+        message.delete()
+        message.channel.send(`Das verwenden rassistischer Zeichen ist verboten! ${message.author}`)
+        return
+    }
+    if(message.content.includes("卐")) {
+        message.delete()
+        message.channel.send(`Das verwenden rassistischer Zeichen ist verboten! ${message.author}`)
+        return
+    }
+    if(message.content.includes("ϟϟ")) {
+        message.delete()
+        message.channel.send(`Das verwenden rassistischer Zeichen ist verboten! ${message.author}`)
+        return
+    }
 
 
     
@@ -229,14 +231,14 @@ bot.on("ready", async () => {
             .setTimestamp()
             .setFooter(EmbedFooter, FooterLogo)
             .setTitle("Hier siehst du alle Commands des Bots.")
-            .addField("tx!Rollen","Zeig dir alle Rollen die du dir adden kannst.")
-            .addField("tx!Nachrichten","Zeigt dir die Anzahl der Nachrichten an, die du bis jetzt versendet hast.\nDu kannst dies auch bei anderen sehen, dazu einfach tx!Nachrichten **(Erwähnung)** schreiben.")
-            .addField("tx!botinfo","Gibt euch einige Informationen über den Bot")
-            .addField("tx!Team","Gibt dir Informationen über die aktuellen Teammitglieder")
-            .addField("tx!Teamhelp","Zeigt ein paar Moderations Befehle \n (Nur für Teammitglieder)")
-            .addField("tx!conbotprofil","Zeigt dir hilfreiche Befehle zu deinem eigenen Profil")
-            .addField("tx!Fun", "Zeigt dir ein bisschen Quatch den man mit dem Bot anstellen kann")
-            .addField("tx!invite","Gibt dir eine Einladung zu dem Server von Newtox, \n**teilen ist erlaubt :P**")
+            .addField(`${BotSettings.prefix}Rollen`,"Zeig dir alle Rollen die du dir adden kannst.")
+            .addField(`${BotSettings.prefix}Nachrichten`,"Zeigt dir die Anzahl der Nachrichten an, die du bis jetzt versendet hast.\nDu kannst dies auch bei anderen sehen, dazu einfach tx!Nachrichten **(Erwähnung)** schreiben.")
+            .addField(`${BotSettings.prefix}botinfo`,"Gibt euch einige Informationen über den Bot")
+            .addField(`${BotSettings.prefix}Team`,"Gibt dir Informationen über die aktuellen Teammitglieder")
+            .addField(`${BotSettings.prefix}Teamhelp`,"Zeigt ein paar Moderations Befehle \n (Nur für Teammitglieder)")
+            .addField(`${BotSettings.prefix}conbotprofil`,"Zeigt dir hilfreiche Befehle zu deinem eigenen Profil")
+            .addField(`${BotSettings.prefix}Fun`, "Zeigt dir ein bisschen Quatch den man mit dem Bot anstellen kann")
+            .addField(`${BotSettings.prefix}invite`,"Gibt dir eine Einladung zu dem Server von Newtox, \n**teilen ist erlaubt :P**")
             .setThumbnail("https://cdn.discordapp.com/attachments/451007157933047829/456150799316287499/AskForHelp_Logo_2.png")
             message.channel.send(embed)
         }
@@ -339,7 +341,7 @@ bot.on("ready", async () => {
             .addField("Name und Tag",`**${bot.user.username}**#${bot.user.discriminator}`,false)
             .addField("Entwickler:",`**${message.guild.member("402483602094555138").user.username}**#${message.guild.member("402483602094555138").user.discriminator}`, true)
             .addField("Programmiert mit:","Discord.js 11.3.2",false)
-            .addField("Prefix des Bots","Der Prefix des Bots ist **tx!**", false)
+            .addField(`Prefix des Bots","Der Prefix des Bots ist ${BotSettings.prefix} `, false)
             .addField("Erstellungsdatum","Der Bot wurde am **22 März 2018** erstellt!",false)
             .setTimestamp()
             .setFooter(EmbedFooter, FooterLogo)
@@ -607,16 +609,15 @@ bot.on("ready", async () => {
 
 
 
-
         //Wichtige Befehle
         if(message.content ==`${BotSettings.prefix}Rollen`) { 
 
             var embed = new Discord.RichEmbed()
-            .setColor("#518ef1")
+            .setColor(RandomColour)
             .setTimestamp()
             .setFooter(EmbedFooter, FooterLogo)
             .setTitle("Hier seht ihr alle verfügbaren Rollen")
-            .setDescription("tx!pc \ntx!ps4 \ntx!NintendoSwitch \ntx!xbox \ntx!nsfw \ntx!Handy \ntx!Gamer \ntx!MuteChannel \ntx!Splatoon2 \ntx!RocketLeague \ntx!Overwatch \ntx!Fortnite \ntx!CSGO \ntx!Minecraft \ntx!12+ \ntx!14+ \ntx!16+ \ntx!18+ \ntx!Männlich \ntx!Weiblich")
+            .setDescription(`${BotSettings.prefix}pc \n${BotSettings.prefix}ps4 \n${BotSettings.prefix}NintendoSwitch \n${BotSettings.prefix}xbox \n${BotSettings.prefix}nsfw \n${BotSettings.prefix}Handy \n${BotSettings.prefix}Gamer \n${BotSettings.prefix}MuteChannel \n${BotSettings.prefix}Splatoon2 \n${BotSettings.prefix}RocketLeague \n${BotSettings.prefix}Overwatch \n${BotSettings.prefix}Fortnite \n${BotSettings.prefix}CSGO \n${BotSettings.prefix}Minecraft \n${BotSettings.prefix}12+ \n${BotSettings.prefix}14+ \n${BotSettings.prefix}16+ \n${BotSettings.prefix}18+ \n${BotSettings.prefix}Männlich \n${BotSettings.prefix}Weiblich`)
             .addBlankField()
             .addField("Um die Rolle wieder zu entfernen gebt ihr genau das selbe wie oben ein, nur mit `remove` dahinter. Das würde dann so aussehen: `tx!pcremove`", "owo")
             .setThumbnail("https://cdn.discordapp.com/attachments/451007157933047829/457499833121636352/Discord.jpg")
@@ -632,15 +633,15 @@ bot.on("ready", async () => {
         if(message.content ==`${BotSettings.prefix}Teamhelp`) { 
                     
             var embed = new Discord.RichEmbed()
-            .setColor("#ff9000")
+            .setColor(RandomColour)
             .setTimestamp()
             .setFooter(EmbedFooter, FooterLogo)
             .setTitle("Hier seht ihr einige Moderations Befehle",)
-            .addField("tx!kick", "Kickt den markierten Nutzer")
-            .addField("tx!ban","Bannt den markierten Nutzer")
-            .addField("tx!opgiverole","Gibt euch eine Bestimmte Rolle")
-            .addField("tx!opremoverole","Entfernt euch eine Bestimmte Rolle")
-            .addField("tx!clear","Löscht eine beliebige Anzahl an Nachrichten")
+            .addField(`${BotSettings.prefix}kick`, "Kickt den markierten Nutzer")
+            .addField(`${BotSettings.prefix}ban`,"Bannt den markierten Nutzer")
+            .addField(`${BotSettings.prefix}opgiverole`,"Gibt euch eine Bestimmte Rolle")
+            .addField(`${BotSettings.prefix}opremoverole`,"Entfernt euch eine Bestimmte Rolle")
+            .addField(`${BotSettings.prefix}clear`,"Löscht eine beliebige Anzahl an Nachrichten")
             
             message.channel.send(embed)
         }
@@ -667,20 +668,19 @@ bot.on("ready", async () => {
         }
 
 
-
         
         //Fun Befehle
 
         if(message.content == `${BotSettings.prefix}Fun`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#71ec07")
+            .setColor(RandomColour)
             .setTimestamp()
             .setTitle("Hier seht ihr alle Fun Befehle", true)
             .addBlankField()
-            .addField("tx!Nudes", "schickt ein lustiges .gif", false)
-            .addField("tx!GiveAF", "schickt ein lustiges Meme", false)
-            .addField("tx!splatoon2perks", "zeigt die Vor und Nachteile der Marken in Splatoon 2", false)
-            .addField("tx!binNewtox", "*schaut selber was passiert ( ͡° ͜ʖ ͡°)*", false)
+            .addField(`${BotSettings.prefix}Nudes`, "schickt ein lustiges .gif", false)
+            .addField(`${BotSettings.prefix}GiveAF`, "schickt ein lustiges Meme", false)
+            .addField(`${BotSettings.prefix}splatoon2perks`, "zeigt die Vor und Nachteile der Marken in Splatoon 2", false)
+            .addField(`${BotSettings.prefix}binNewtox`, "*schaut selber was passiert ( ͡° ͜ʖ ͡°)*", false)
             .setDescription("Falls ihr Ideen für weitere lustige Commands habt, dürft ihr euch gerne bei <@402483602094555138> melden.")
             .setThumbnail("https://cdn.discordapp.com/attachments/451007157933047829/457489426784845825/fun.png")
             .setFooter(EmbedFooter, FooterLogo)
@@ -722,14 +722,16 @@ bot.on("ready", async () => {
         }
 
         if(message.content ==`${BotSettings.prefix}invite`) {
-            message.channel.send(`Hier ist die Einladung zu Newtox seinem Server \nhttps://discord.gg/HDbRWvG`)
-        }
+            message.channel.send(`Hier ist die Einladung zu dem Server von ${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator} \nhttps://discord.gg/HDbRWvG`)
+        }  
 
-        
 
     }
 
        
+
+
+
     
 
 });
