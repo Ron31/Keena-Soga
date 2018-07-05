@@ -722,7 +722,7 @@ bot.on("ready", async () => {
         }
 
         if(message.content ==`${BotSettings.prefix}invite`) {
-            message.channel.send(`Hier ist die Einladung zu dem Server von ${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator} \nhttps://discord.gg/HDbRWvG`)
+            message.channel.send(`Hier ist die Einladung zu dem Server von ${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator} \nhttps://discord.gg/tUfNuD5`)
         }  
 
 
