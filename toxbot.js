@@ -51,7 +51,6 @@ bot.on("ready", async () => {
         mention = message.mentions.members.first()
         FooterLogo = "https://cdn.discordapp.com/avatars/402483602094555138/9c65aed0d263922c1bb6812f77b4f86a.png?size=1024"
         EmbedFooter = "Bot des Newtox - Community Servers"
-        RandomColour = Arrays.Colours[Math.floor(Math.random() * Arrays.Colours.length)]
         
         
        
@@ -613,7 +612,7 @@ bot.on("ready", async () => {
         if(message.content ==`${BotSettings.prefix}Rollen`) { 
 
             var embed = new Discord.RichEmbed()
-            .setColor(RandomColour)
+            .setColor("#f9ff00")
             .setTimestamp()
             .setFooter(EmbedFooter, FooterLogo)
             .setTitle("Hier seht ihr alle verfügbaren Rollen")
@@ -633,7 +632,7 @@ bot.on("ready", async () => {
         if(message.content ==`${BotSettings.prefix}Teamhelp`) { 
                     
             var embed = new Discord.RichEmbed()
-            .setColor(RandomColour)
+            .setColor("#ff9000")
             .setTimestamp()
             .setFooter(EmbedFooter, FooterLogo)
             .setTitle("Hier seht ihr einige Moderations Befehle",)
@@ -673,7 +672,7 @@ bot.on("ready", async () => {
 
         if(message.content == `${BotSettings.prefix}Fun`) {
             var embed = new Discord.RichEmbed()
-            .setColor(RandomColour)
+            .setColor("#71ec07")
             .setTimestamp()
             .setTitle("Hier seht ihr alle Fun Befehle", true)
             .addBlankField()
