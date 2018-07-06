@@ -59,7 +59,56 @@ bot.on("ready", async () => {
     let partyparrot = message.guild.emojis.find("name", "party_parrot") 
        
 
-    
+    //Userinfo
+    if(message.content ==`${BotSettings.prefix}Userinfo`) {
+
+            
+            
+        var embed = new Discord.RichEmbed()
+
+        .setColor(message.member.highestRole.color)
+        .setTitle(` Userinfo von ${message.author.username}`)
+        .addField(`ID`,`${message.author.id}`,true)
+        .addField(`Name`, `${message.author.username}`)
+        .addField(`Account Erstellt`,`${message.author.createdAt}`)
+        
+
+        if(message.author.username != message.member.displayName)
+        embed.addField(`Nickname`, `${message.member.displayName}`)
+        .addField(`Server beigetreten am`,`${message.guild.joinedAt}`)
+        if(message.author.username == message.member.displayName)
+        embed.addField(`Nickname`, `Kein Nickname`)
+        .addField(`Server beigetreten am`,`${message.guild.joinedAt}`)
+
+        .setThumbnail(`${message.author.avatarURL}`)
+
+        message.channel.send(embed)
+    }
+
+    if(message.content ==`${BotSettings.prefix}Userinfo ${mention}`) {
+
+            
+            
+        var embed = new Discord.RichEmbed()
+
+        .setColor(message.member.highestRole.color)
+        .setTitle(` Userinfo von ${message.author.username}`)
+        .addField(`ID`,`${message.author.id}`,true)
+        .addField(`Name`, `${message.author.username}`)
+        .addField(`Account Erstellt`,`${message.author.createdAt}`)
+        
+
+        if(message.author.username != message.member.displayName)
+        embed.addField(`Nickname`, `${message.member.displayName}`)
+        .addField(`Server beigetreten am`,`${message.guild.joinedAt}`)
+        if(message.author.username == message.member.displayName)
+        embed.addField(`Nickname`, `Kein Nickname`)
+        .addField(`Server beigetreten am`,`${message.guild.joinedAt}`)
+
+        .setThumbnail(`${message.author.avatarURL}`)
+
+        message.channel.send(embed)
+    }
 
 
      
@@ -231,8 +280,9 @@ bot.on("ready", async () => {
             .setFooter(EmbedFooter, FooterLogo)
             .setTitle("Hier siehst du alle Commands des Bots.")
             .addField(`${BotSettings.prefix}Rollen`,"Zeig dir alle Rollen die du dir adden kannst.")
-            .addField(`${BotSettings.prefix}Nachrichten`,"Zeigt dir die Anzahl der Nachrichten an, die du bis jetzt versendet hast.\nDu kannst dies auch bei anderen sehen, dazu einfach tx!Nachrichten **(Erwähnung)** schreiben.")
+            .addField(`${BotSettings.prefix}Nachrichten`,`Zeigt dir die Anzahl der Nachrichten an, die du bis jetzt versendet hast.\nDu kannst dies auch bei anderen sehen, dazu einfach ${BotSettings.prefix}Nachrichten **(Erwähnung)** schreiben.`)
             .addField(`${BotSettings.prefix}botinfo`,"Gibt euch einige Informationen über den Bot")
+            .addField(`${BotSettings.prefix}Userinfo`,`Gibt dir eineige Informationen zu deinem Account. \nDu kannst dies auch bei anderen sehen, dazu einfach ${BotSettings.prefix}Userinfo **(Erwähnung)** schreiben.`)
             .addField(`${BotSettings.prefix}Team`,"Gibt dir Informationen über die aktuellen Teammitglieder")
             .addField(`${BotSettings.prefix}Teamhelp`,"Zeigt ein paar Moderations Befehle \n (Nur für Teammitglieder)")
             .addField(`${BotSettings.prefix}conbotprofil`,"Zeigt dir hilfreiche Befehle zu deinem eigenen Profil")
@@ -656,7 +706,7 @@ bot.on("ready", async () => {
             .setFooter(EmbedFooter, FooterLogo)
             .setTitle("Hier seht ihr alle Teammitglieder", true)
             .addField("Owner","<@402483602094555138>", false )
-            .addField("Admins","<@327538014630838282> \n<@402072495743696897>", false)
+            .addField("Admins","<@327538014630838282> \n<@402072495743696897> \n<@373857433380061184>", false)
             .addField("Moderatoren", "<@403540876585861130> \n<@162149564101427200>", false)
             .addField("Youtube Moderatoren","*Aktuell gibt es keine Youtube Moderatoren* ",false)
             .addField("Test Moderatoren","<@281440097855995904> \n<@413323318461071360>", false)
