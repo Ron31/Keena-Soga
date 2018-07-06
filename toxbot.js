@@ -66,6 +66,7 @@ bot.on("ready", async () => {
             
         var embed = new Discord.RichEmbed()
 
+        .setColor(message.member.highestRole.color)
         .setTitle(` Userinfo von ${message.author.username}`)
         .addField(`ID`,`${message.author.id}`,true)
         .addField(`Name`, `${message.author.username}`)
