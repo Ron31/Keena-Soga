@@ -709,7 +709,7 @@ bot.on("ready", async () => {
             .addField("Admins","<@327538014630838282> \n<@402072495743696897>", false)
             .addField("Moderatoren", "<@403540876585861130> \n<@162149564101427200>", false)
             .addField("Youtube Moderatoren","*Aktuell gibt es keine Youtube Moderatoren* ",false)
-            .addField("Test Moderatoren","<@281440097855995904> \n<@413323318461071360>", false)
+            .addField("Test Moderatoren","<@281440097855995904>", false)
             .addField("Supporter","*Aktuell gibt es keine Supporter* ", false)
             .addField("Test Supporter","*Vielleicht ja du ( ͡° ͜ʖ ͡°) , für mehr schaut in <#444501822351212556>* ", false)
 
