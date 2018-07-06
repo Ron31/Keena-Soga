@@ -91,17 +91,17 @@ bot.on("ready", async () => {
             
         var embed = new Discord.RichEmbed()
 
-        .setColor(message.member.highestRole.color)
+        .setColor(mention.user.highestRole.color)
         .setTitle(` Userinfo von ${mention.user.username}`)
         .addField(`ID`,`${mention.user.id}`,true)
         .addField(`Name`, `${mention.user.username}`)
         .addField(`Account Erstellt`,`${mention.user.createdAt}`)
         
 
-        if(mention.user.username != mention.user.displayName)
-        embed.addField(`Nickname`, `${mention.user.displayName}`)
+        if(mention.user.username != mention.displayName)
+        embed.addField(`Nickname`, `${mention.displayName}`)
         .addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
-        if(mention.user.username == message.member.displayName)
+        if(mention.user.username == mention.displayName)
         embed.addField(`Nickname`, `Kein Nickname`)
         .addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
 
