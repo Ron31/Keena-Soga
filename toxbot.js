@@ -91,7 +91,7 @@ bot.on("ready", async () => {
             
         var embed = new Discord.RichEmbed()
 
-        .setColor(mention.member.highestRole.color)
+        .setColor(mention.member.color)
         .setTitle(` Userinfo von ${mention.user.username}`)
         .addField(`ID`,`${mention.user.id}`,true)
         .addField(`Name`, `${mention.user.username}`)
