@@ -78,7 +78,7 @@ bot.on("ready", async () => {
         .addField(`Server beigetreten am`,`${message.guild.joinedAt}`)
         if(message.author.username == message.member.displayName)
         embed.addField(`Nickname`, `Kein Nickname`)
-        .addField(`Server beigetreten am`,`${message.author.guild.joinedAt}`)
+        .addField(`Server beigetreten am`,`${message.guild.joinedAt}`)
 
         .setThumbnail(`${message.author.avatarURL}`)
 
