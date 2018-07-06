@@ -26,7 +26,7 @@ bot.on("ready", async () => {
     //Goodbye Message
     bot.on("guildMemberRemove", async member => { 
         if(member.guild.id == `406946551538253828`) {
-        bot.channels.get("439880541043425290").send(`${member} hat die ${member.guild.name} verlassen...`)
+        bot.channels.get("439880541043425290").send(`${member.user.username}#${member.user.discriminator} hat die ${member.guild.name} verlassen...`)
         }
     });
     bot.on("message", async message => { }) 
