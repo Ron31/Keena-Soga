@@ -91,9 +91,9 @@ bot.on("ready", async () => {
             
         var embed = new Discord.RichEmbed()
 
-        
+        .setColor(mention.member.highestRole.color)
         .setTitle(` Userinfo von ${mention.user.username}`)
-        .addField(`ID`,`${mention.user.id}`,true)
+        .addField(`ID`,`${mention.member.id}`,true)
         .addField(`Name`, `${mention.user.username}`)
         .addField(`Account Erstellt`,`${mention.user.createdAt}`)
         
