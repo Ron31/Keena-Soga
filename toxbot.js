@@ -98,14 +98,14 @@ bot.on("ready", async () => {
         .addField(`Account Erstellt`,`${mention.user.createdAt}`)
         
 
-        if(mention.user.username != mention.displayName)
-        embed.addField(`Nickname`, `${mention.displayName}`)
+        if(mention.user.username != mention.member.displayName)
+        embed.addField(`Nickname`, `${mention.member.displayName}`)
         .addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
-        if(mention.user.username == mention.displayName)
+        if(mention.user.username == mention.member.displayName)
         embed.addField(`Nickname`, `Kein Nickname`)
         .addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
 
-        .setThumbnail(`${mention.user.avatarURL}`)
+        .setThumbnail(`${mention.member.avatarURL}`)
 
         message.channel.send(embed)
     }
