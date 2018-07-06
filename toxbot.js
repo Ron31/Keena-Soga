@@ -92,10 +92,10 @@ bot.on("ready", async () => {
         var embed = new Discord.RichEmbed()
 
         .setColor(message.member.highestRole.color)
-        .setTitle(` Userinfo von ${message.author.username}`)
-        .addField(`ID`,`${message.author.id}`,true)
-        .addField(`Name`, `${message.author.username}`)
-        .addField(`Account Erstellt`,`${message.author.createdAt}`)
+        .setTitle(` Userinfo von ${mention.user.username}`)
+        .addField(`ID`,`${mention.user.id}`,true)
+        .addField(`Name`, `${mention.user.username}`)
+        .addField(`Account Erstellt`,`${mention.user.createdAt}`)
         
 
         if(message.author.username != message.member.displayName)
