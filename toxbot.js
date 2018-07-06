@@ -73,12 +73,12 @@ bot.on("ready", async () => {
         .addField(`Account Erstellt`,`${message.author.createdAt}`)
         
 
-        if(message.author.username != message.author.displayName)
-        embed.addField(`Nickname`, `${message.author.displayName}`)
+        if(message.author.username != message.member.displayName)
+        embed.addField(`Nickname`, `${message.member.displayName}`)
         .addField(`Server beigetreten am`,`${message.guild.joinedAt}`)
-        if(message.author.username == message.author.displayName)
+        if(message.author.username == message.member.displayName)
         embed.addField(`Nickname`, `Kein Nickname`)
-        .addField(`Server beigetreten am`,`${message.guild.joinedAt}`)
+        .addField(`Server beigetreten am`,`${message.author.guild.joinedAt}`)
 
         .setThumbnail(`${message.author.avatarURL}`)
 
