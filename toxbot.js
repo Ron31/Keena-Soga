@@ -85,30 +85,30 @@ bot.on("ready", async () => {
         message.channel.send(embed)
     }
 
-    if(message.content ==`${BotSettings.prefix}Userinfo ${mention}`) {
+    // if(message.content ==`${BotSettings.prefix}Userinfo ${mention}`) {
 
             
             
-        var embed = new Discord.RichEmbed()
+    //     var embed = new Discord.RichEmbed()
 
-        .setColor(mention.member.highestRole.color)
-        .setTitle(` Userinfo von ${mention.user.username}`)
-        .addField(`ID`,`${mention.member.id}`,true)
-        .addField(`Name`, `${mention.user.username}`)
-        .addField(`Account Erstellt`,`${mention.user.createdAt}`)
+    //     .setColor(mention.member.highestRole.color)
+    //     .setTitle(` Userinfo von ${mention.user.username}`)
+    //     .addField(`ID`,`${mention.member.id}`,true)
+    //     .addField(`Name`, `${mention.user.username}`)
+    //     .addField(`Account Erstellt`,`${mention.user.createdAt}`)
         
 
-        if(mention.user.username != mention.member.displayName)
-        embed.addField(`Nickname`, `${mention.member.displayName}`)
-        .addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
-        if(mention.user.username == mention.member.displayName)
-        embed.addField(`Nickname`, `Kein Nickname`)
-        .addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
+    //     if(mention.user.username != mention.member.displayName)
+    //     embed.addField(`Nickname`, `${mention.member.displayName}`)
+    //     .addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
+    //     if(mention.user.username == mention.member.displayName)
+    //     embed.addField(`Nickname`, `Kein Nickname`)
+    //     .addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
 
-        .setThumbnail(`${mention.member.avatarURL}`)
+    //     .setThumbnail(`${mention.member.avatarURL}`)
 
-        message.channel.send(embed)
-    }
+    //     message.channel.send(embed)
+    // }
 
 
      
@@ -706,10 +706,10 @@ bot.on("ready", async () => {
             .setFooter(EmbedFooter, FooterLogo)
             .setTitle("Hier seht ihr alle Teammitglieder", true)
             .addField("Owner","<@402483602094555138>", false )
-            .addField("Admins","<@327538014630838282> \n<@402072495743696897>", false)
+            .addField("Admins","<@327538014630838282> \n<@402072495743696897> \n<@373857433380061184>", false)
             .addField("Moderatoren", "<@403540876585861130> \n<@162149564101427200>", false)
             .addField("Youtube Moderatoren","*Aktuell gibt es keine Youtube Moderatoren* ",false)
-            .addField("Test Moderatoren","<@281440097855995904>", false)
+            .addField("Test Moderatoren","<@281440097855995904> \n<@413323318461071360>", false)
             .addField("Supporter","*Aktuell gibt es keine Supporter* ", false)
             .addField("Test Supporter","*Vielleicht ja du ( ͡° ͜ʖ ͡°) , für mehr schaut in <#444501822351212556>* ", false)
 
