@@ -393,7 +393,6 @@ bot.on("ready", async () => {
             .addField("Entwickler:",`**${message.guild.member("402483602094555138").user.username}**#${message.guild.member("402483602094555138").user.discriminator}`, true)
             .addField("Programmiert mit:","Discord.js 11.3.2",false)
             .addField(`Prefix des Bots","Der Prefix des Bots ist ${BotSettings.prefix} `, false)
-            .addField(`Ihr wollt den Bot auf eurem Server haben?`,`Nutzt diesen Link: \nhttps://discordapp.com/api/oauth2/authorize?client_id=463336117723201546&permissions=8&scope=bot`,false)
             .addField("Erstellungsdatum","Der Bot wurde am **22 März 2018** erstellt!",false)
             .setTimestamp()
             .setFooter(EmbedFooter, FooterLogo)
@@ -733,6 +732,7 @@ bot.on("ready", async () => {
             .addField(`${BotSettings.prefix}GiveAF`, "schickt ein lustiges Meme", false)
             .addField(`${BotSettings.prefix}splatoon2perks`, "zeigt die Vor und Nachteile der Marken in Splatoon 2", false)
             .addField(`${BotSettings.prefix}binNewtox`, "*schaut selber was passiert ( ͡° ͜ʖ ͡°)*", false)
+            .addField(`${BotSettings.prefix}botinvite`,"Gibt euch einen Link womit ihr den Bot auf euren Server einladen könnt.",false)
             .setDescription("Falls ihr Ideen für weitere lustige Commands habt, dürft ihr euch gerne bei <@402483602094555138> melden.")
             .setThumbnail("https://cdn.discordapp.com/attachments/451007157933047829/457489426784845825/fun.png")
             .setFooter(EmbedFooter, FooterLogo)
@@ -776,6 +776,10 @@ bot.on("ready", async () => {
         if(message.content ==`${BotSettings.prefix}invite`) {
             message.channel.send(`Hier ist die Einladung zu dem Server von ${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator} \nhttps://discord.gg/tUfNuD5`)
         }  
+
+        if(message.content ==`${BotSettings.prefix}botinvite`) {
+            message.channel.send(`Ihr wollt den Bot auf eurem Server haben? \nNutzt diesen Link: \nhttps://discordapp.com/api/oauth2/authorize?client_id=463336117723201546&permissions=8&scope=bot`)
+        }
 
 
     }
