@@ -209,6 +209,7 @@ bot.on("ready", async () => {
     
         if(!reason) reason = `${message.author} Bitte gib einen Grund an!`;
     
+        if(member.user.id == BotSettings.OwnerID) return message.channel.send(`Der Bot-Owner kann **nicht** gekickt werden!`)
         await member.kick(reason)
     
     
@@ -240,6 +241,7 @@ bot.on("ready", async () => {
     
         if(!reason) reason = `${message.author} Bitte gib einen Grund an!`;
     
+        if(member.user.id == BotSettings.OwnerID) return message.channel.send(`Der Bot-Owner kann **nicht** gebannt werden!`)
         await member.ban(reason)
     
     
