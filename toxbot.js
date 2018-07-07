@@ -85,30 +85,30 @@ bot.on("ready", async () => {
         message.channel.send(embed)
     }
 
-    // if(message.content ==`${BotSettings.prefix}Userinfo ${mention}`) {
+    if(message.content ==`${BotSettings.prefix}Userinfo ${mention}`) {
 
             
             
-    //     var embed = new Discord.RichEmbed()
+        var embed = new Discord.RichEmbed()
 
-    //     .setColor(mention.member.highestRole.color)
-    //     .setTitle(` Userinfo von ${mention.user.username}`)
-    //     .addField(`ID`,`${mention.member.id}`,true)
-    //     .addField(`Name`, `${mention.user.username}`)
-    //     .addField(`Account Erstellt`,`${mention.user.createdAt}`)
+        .setColor(mention.highestRole.color)
+        .setTitle(` Userinfo von ${mention.user.username}`)
+        .addField(`ID`,`${mention.member.id}`,true)
+        .addField(`Name`, `${mention.user.username}`)
+        .addField(`Account Erstellt`,`${mention.user.createdAt}`)
         
 
-    //     if(mention.user.username != mention.member.displayName)
-    //     embed.addField(`Nickname`, `${mention.member.displayName}`)
-    //     .addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
-    //     if(mention.user.username == mention.member.displayName)
-    //     embed.addField(`Nickname`, `Kein Nickname`)
-    //     .addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
+        if(mention.user.username != mention.member.displayName)
+        embed.addField(`Nickname`, `${mention.member.displayName}`)
+        .addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
+        if(mention.user.username == mention.member.displayName)
+        embed.addField(`Nickname`, `Kein Nickname`)
+        .addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
 
-    //     .setThumbnail(`${mention.member.avatarURL}`)
+        .setThumbnail(`${mention.member.avatarURL}`)
 
-    //     message.channel.send(embed)
-    // }
+        message.channel.send(embed)
+    }
 
 
      
