@@ -393,7 +393,7 @@ bot.on("ready", async () => {
             .addField("Entwickler:",`**${message.guild.member("402483602094555138").user.username}**#${message.guild.member("402483602094555138").user.discriminator}`, true)
             .addField("Programmiert mit:","Discord.js 11.3.2",false)
             .addField(`Prefix des Bots","Der Prefix des Bots ist ${BotSettings.prefix} `, false)
-            .addField(`Ihr wollt den Bot auf eurem Server haben?`,`**Hier ist eine Einladung** \nhttps://discordapp.com/api/oauth2/authorize?client_id=463336117723201546&permissions=8&scope=bot`)
+            .addField(`Ihr wollt den Bot auf eurem Server haben?`,`**Hier ist eine Einladung** \nhttps://discordapp.com/api/oauth2/authorize?client_id=463336117723201546&permissions=8&scope=bot`, false)
             .addField("Erstellungsdatum","Der Bot wurde am **22 März 2018** erstellt!",false)
             .setTimestamp()
             .setFooter(EmbedFooter, FooterLogo)
