@@ -93,19 +93,19 @@ bot.on("ready", async () => {
 
         .setColor(mention.highestRole.color)
         .setTitle(` Userinfo von ${mention.user.username}`)
-        .addField(`ID`,`${mention.member.id}`,true)
+        .addField(`ID`,`${mention.id}`,true)
         .addField(`Name`, `${mention.user.username}`)
         .addField(`Account Erstellt`,`${mention.user.createdAt}`)
         
 
-        if(mention.user.username != mention.member.displayName)
-        embed.addField(`Nickname`, `${mention.member.displayName}`)
+        if(mention.user.username != mention.displayName)
+        embed.addField(`Nickname`, `${mention.displayName}`)
         .addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
-        if(mention.user.username == mention.member.displayName)
+        if(mention.user.username == mention.displayName)
         embed.addField(`Nickname`, `Kein Nickname`)
         .addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
 
-        .setThumbnail(`${mention.member.avatarURL}`)
+        .setThumbnail(`${mention.avatarURL}`)
 
         message.channel.send(embed)
     }
