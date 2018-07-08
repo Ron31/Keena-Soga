@@ -75,7 +75,8 @@ bot.on("ready", async () => {
 
         if(message.member.username != message.member.displayName) {
             embed.addField(`Nickname`, `${message.member.displayName}`)
-        }
+        } 
+    
 
          embed.addField(`Server beigetreten am`,`${message.member.joinedAt}`)
 
