@@ -73,7 +73,7 @@ bot.on("ready", async () => {
         .addField(`Account Erstellt`,`${message.author.createdAt}`)
         
 
-        if(message.member.username != message.member.displayName) {
+        if(message.author.username != message.member.displayName) {
             embed.addField(`Nickname`, `${message.member.displayName}`)
         } 
     
