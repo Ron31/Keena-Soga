@@ -73,12 +73,12 @@ bot.on("ready", async () => {
         .addField(`Account Erstellt`,`${message.author.createdAt}`)
         
 
-        if(message.author.username != message.member.displayName) {
+        if(message.member.username != message.member.displayName) {
             embed.addField(`Nickname, ${message.member.displayName}`)
         } else {
-        embed.addField("Nickname, Kein Nickname")
+        embed.addField(`Nickname`, `${mention.displayName}`)
         }
-         embed.addField(`Server beigetreten am,${message.member.joinedAt}`)
+         embed.addField(`Server beigetreten am`,`${message.member.joinedAt}`)
 
         .setThumbnail(`${message.author.avatarURL}`)
 
@@ -99,11 +99,11 @@ bot.on("ready", async () => {
         
 
         if(mention.user.username != mention.displayName) {
-            embed.addField(`Nickname, ${mention.displayName}`)
+            embed.addField(`Nickname`, `${mention.displayName}`)
         } else {
-        embed.addField("Nickname, Kein Nickname")
+        embed.addField(`Nickname`, `${mention.displayName}`)
         }
-         embed.addField(`Server beigetreten am,${mention.guild.joinedAt}`)
+         embed.addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
     
 
         .setThumbnail(`${mention.user.avatarURL}`)
