@@ -73,12 +73,12 @@ bot.on("ready", async () => {
         .addField(`Account Erstellt`,`${message.author.createdAt}`)
         
 
-        if(message.author.username != message.member.displayName)
-        embed.addField(`Nickname`, `${message.member.displayName}`)
-        .addField(`Server beigetreten am`,`${message.guild.joinedAt}`)
-        if(message.author.username == message.member.displayName)
-        embed.addField(`Nickname`, `Kein Nickname`)
-        .addField(`Server beigetreten am`,`${message.guild.joinedAt}`)
+        if(message.author.username != message.member.displayName) {
+            embed.addField(`Nickname, ${message.member.displayName}`)
+        } else {
+        embed.addField("Nickname, Kein Nickname")
+        }
+         embed.addField(`Server beigetreten am,${message.member.joinedAt}`)
 
         .setThumbnail(`${message.author.avatarURL}`)
 
@@ -98,14 +98,15 @@ bot.on("ready", async () => {
         .addField(`Account Erstellt`,`${mention.user.createdAt}`)
         
 
-        if(mention.user.username != mention.displayName)
-        embed.addField(`Nickname`, `${mention.displayName}`)
-        .addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
-        if(mention.user.username == mention.displayName)
-        embed.addField(`Nickname`, `Kein Nickname`)
-        .addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
+        if(mention.user.username != mention.displayName) {
+            embed.addField(`Nickname, ${mention.displayName}`)
+        } else {
+        embed.addField("Nickname, Kein Nickname")
+        }
+         embed.addField(`Server beigetreten am,${mention.guild.joinedAt}`)
+    
 
-        .setThumbnail(`${mention.avatarURL}`)
+        .setThumbnail(`${mention.user.avatarURL}`)
 
         message.channel.send(embed)
     }
