@@ -74,10 +74,9 @@ bot.on("ready", async () => {
         
 
         if(message.member.username != message.member.displayName) {
-            embed.addField(`Nickname, ${message.member.displayName}`)
-        } else {
-        embed.addField(`Nickname`, `${mention.displayName}`)
+            embed.addField(`Nickname`, `${message.member.displayName}`)
         }
+
          embed.addField(`Server beigetreten am`,`${message.member.joinedAt}`)
 
         .setThumbnail(`${message.author.avatarURL}`)
@@ -100,8 +99,6 @@ bot.on("ready", async () => {
 
         if(mention.user.username != mention.displayName) {
             embed.addField(`Nickname`, `${mention.displayName}`)
-        } else {
-        embed.addField(`Nickname`, `${mention.displayName}`)
         }
          embed.addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
     
