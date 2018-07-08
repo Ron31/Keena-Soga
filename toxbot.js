@@ -265,7 +265,12 @@ bot.on("ready", async () => {
         return
     }
 
-
+    // if(message.content.includes("discord.gg")) {
+    //     if (!message.member.roles.some(r => ['406951441182359553', '406951345460084736', '406951586326118420'].includes(r.id))) return
+    //     message.delete()
+    //     message.channel.send(`Soforteinladungen sind hier nicht erlaubt! ${message.author}`)
+    //     return
+    // }
     
 
     //Schutz vor Bots
@@ -707,7 +712,7 @@ bot.on("ready", async () => {
             .setFooter(EmbedFooter, FooterLogo)
             .setTitle("Hier seht ihr alle Teammitglieder", true)
             .addField("Owner","<@402483602094555138>", false )
-            .addField("Admins","<@327538014630838282> \n<@402072495743696897> \n<@373857433380061184>", false)
+            .addField("Admins","<@327538014630838282> \n<@402072495743696897>", false)
             .addField("Moderatoren", "<@403540876585861130> \n<@162149564101427200>", false)
             .addField("Youtube Moderatoren","*Aktuell gibt es keine Youtube Moderatoren* ",false)
             .addField("Test Moderatoren","<@281440097855995904>", false)
