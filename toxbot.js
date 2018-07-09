@@ -396,7 +396,7 @@ bot.on("ready", async () => {
             .addField("Name und Tag",`**${bot.user.username}**#${bot.user.discriminator}`,false)
             .addField("Entwickler:",`**${message.guild.member("402483602094555138").user.username}**#${message.guild.member("402483602094555138").user.discriminator}`, true)
             .addField("Programmiert mit:","Discord.js 11.3.2",false)
-            .addField(`Prefix des Bots","Der Prefix des Bots ist ${BotSettings.prefix} `, false)
+            .addField(`Prefix des Bots`,`Der Prefix des Bots ist ${BotSettings.prefix}`, false)
             .addField("Erstellungsdatum","Der Bot wurde am **22 März 2018** erstellt!",false)
             .setTimestamp()
             .setFooter(EmbedFooter, FooterLogo)
