@@ -159,7 +159,7 @@ bot.on("ready", async () => {
             if(!args[0]) return message.channel.send(`${message.author} Aktuell gibt es folgende Songs: \ntx!play PikaSong`)
             const connection =  message.member.voiceChannel.join();
             if(args[0] == "PikaSong") {
-                const dispatcher = playFile('bot/PikaSong.mp3');
+                const dispatcher = playFile('Toxbot/PikaSong.mp3');
                 message.channel.send("Ich spiele nun folgenden Song: \n`PikaSong`")
             }
         }      
@@ -713,9 +713,9 @@ bot.on("ready", async () => {
             .setTitle("Hier seht ihr alle Teammitglieder", true)
             .addField("Owner","<@402483602094555138>", false )
             .addField("Admins","<@327538014630838282> \n<@402072495743696897>", false)
-            .addField("Moderatoren", "<@403540876585861130> \n<@162149564101427200>", false)
+            .addField("Moderatoren", "<@403540876585861130> \n<@162149564101427200> \n<@281440097855995904>", false)
             .addField("Youtube Moderatoren","*Aktuell gibt es keine Youtube Moderatoren* ",false)
-            .addField("Test Moderatoren","<@281440097855995904>", false)
+            .addField("Test Moderatoren","*Aktuell gibt es keine Test Moderatoren*", false)
             .addField("Supporter","*Aktuell gibt es keine Supporter* ", false)
             .addField("Test Supporter","*Vielleicht ja du ( ͡° ͜ʖ ͡°) , für mehr schaut in <#444501822351212556>* ", false)
 
