@@ -63,7 +63,7 @@ bot.on("ready", async () => {
     //Serverliste
     if(message.content ==`${BotSettings.prefix}Serverliste`) {
 
-    string.prototype.replaceAll = function (search, replacement) {
+    String.prototype.replaceAll = function (search, replacement) {
         var target = this;
         return target.replace(new RegExp(search, 'g'), replacement);
     };
@@ -72,7 +72,7 @@ bot.on("ready", async () => {
     .addField("Serveranzahl", `${client.guilds.size}`)
     .addField("Server Namen", client.guilds.array().toString().replaceAll(",", "\n"))
     .setFooter(FooterLogo,EmbedFooter)
-    .setColor("#56F21B")
+    .setColor("#dcf74e")
 
     message.channel.send(embed)
 
