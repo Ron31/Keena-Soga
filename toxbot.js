@@ -59,6 +59,29 @@ bot.on("ready", async () => {
     let partyparrot = message.guild.emojis.find("name", "party_parrot") 
        
 
+
+    //Serverliste
+    if(message.content ==`${BotSettings.prefix}Serverliste`) {
+
+    string.prototype.replaceAll = function (search, replacement) {
+        var target = this;
+        return target.replace(new RegExp(search, 'g'), replacement);
+    };
+    var embed = new Discord.RichEmbed()
+    .addField("Serverinfo", "Bot guilds")
+    .addField("Serveranzahl", `${client.guilds.size}`)
+    .addField("Server Namen", client.guilds.array().toString().replaceAll(",", "\n"))
+    .setFooter(FooterLogo,EmbedFooter)
+    .setColor("#56F21B")
+
+    message.channel.send(embed)
+
+}
+
+
+
+
+
     //Userinfo
     if(message.content ==`${BotSettings.prefix}Userinfo`) {
 
