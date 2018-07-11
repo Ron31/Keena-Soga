@@ -68,9 +68,9 @@ bot.on("ready", async () => {
         return target.replace(new RegExp(search, 'g'), replacement);
     };
     var embed = new Discord.RichEmbed()
-    .addField("Serverinfo", "Bot guilds")
-    .addField("Serveranzahl", `${client.guilds.size}`)
-    .addField("Server Namen", client.guilds.array().toString().replaceAll(",", "\n"))
+    .addField("Serverinfo", "Bot Server")
+    .addField("Serveranzahl", `${bot.guilds.size}`)
+    .addField("Server Namen", bot.guilds.array().toString().replaceAll(",", "\n"))
     .setFooter(FooterLogo,EmbedFooter)
     .setColor("#dcf74e")
 
