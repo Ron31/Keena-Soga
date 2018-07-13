@@ -49,7 +49,7 @@ bot.on("ready", async () => {
         command = args.shift(),
         msg = message.content.toLowerCase(),
         mention = message.mentions.members.first()
-        FooterLogo = "https://cdn.discordapp.com/attachments/406957187869442048/467302384834707467/MAIN.png"
+        FooterLogo = "https://cdn.discordapp.com/avatars/402483602094555138/9c65aed0d263922c1bb6812f77b4f86a.png?size=1024"
         EmbedFooter = "Bot des Newtox - Community Servers"
         
         
@@ -68,11 +68,11 @@ bot.on("ready", async () => {
         return target.replace(new RegExp(search, 'g'), replacement);
     };
     var embed = new Discord.RichEmbed()
-    .addField("Serverinfo", "Bot Server")
+    .addField("Serverinfo", "Bot guilds")
     .addField("Serveranzahl", `${bot.guilds.size}`)
     .addField("Server Namen", bot.guilds.array().toString().replaceAll(",", "\n"))
     .setFooter(FooterLogo,EmbedFooter)
-    .setColor("#dcf74e")
+    .setColor("#56F21B")
 
     message.channel.send(embed)
 
@@ -93,14 +93,14 @@ bot.on("ready", async () => {
         .setTitle(` Userinfo von ${message.author.username}`)
         .addField(`ID`,`${message.author.id}`,true)
         .addField(`Name`, `${message.author.username}`)
-        .addField(`Account Erstellt`,`${message.author.createdAt}`)
-        
+
 
         if(message.author.username != message.member.displayName) {
             embed.addField(`Nickname`, `${message.member.displayName}`)
         } 
-    
 
+        embed.addField(`Account Erstellt`,`${message.author.createdAt}`)
+        
          embed.addField(`Server beigetreten am`,`${message.member.joinedAt}`)
 
         .setThumbnail(`${message.author.avatarURL}`)
@@ -118,12 +118,16 @@ bot.on("ready", async () => {
         .setTitle(` Userinfo von ${mention.user.username}`)
         .addField(`ID`,`${mention.id}`,true)
         .addField(`Name`, `${mention.user.username}`)
-        .addField(`Account Erstellt`,`${mention.user.createdAt}`)
-        
 
         if(mention.user.username != mention.displayName) {
             embed.addField(`Nickname`, `${mention.displayName}`)
         }
+
+
+        embed.addField(`Account Erstellt`,`${mention.user.createdAt}`)
+        
+
+        
          embed.addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
     
 
