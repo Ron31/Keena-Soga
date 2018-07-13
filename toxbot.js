@@ -49,7 +49,7 @@ bot.on("ready", async () => {
         command = args.shift(),
         msg = message.content.toLowerCase(),
         mention = message.mentions.members.first()
-        FooterLogo = "https://cdn.discordapp.com/avatars/402483602094555138/9c65aed0d263922c1bb6812f77b4f86a.png?size=1024"
+        FooterLogo = "https://cdn.discordapp.com/attachments/406957187869442048/467368016250667018/MAIN.png"
         EmbedFooter = "Bot des Newtox - Community Servers"
         
         
