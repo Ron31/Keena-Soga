@@ -101,8 +101,8 @@ bot.on("ready", async () => {
 
         embed.addField(`Account Erstellt`,`${message.author.createdAt}`)
         
-         embed.addField(`Server beigetreten am`,`${message.member.joinedAt}`)
-
+          embed.addField("Server beigtreten am", `${message.member.joinedAt.toString().split(" ")[2]} ${message.member.joinedAt.toString().split(" ")[1]} ${message.member.joinedAt.toString().split(" ")[3]}`, false) 
+        
         .setThumbnail(`${message.author.avatarURL}`)
 
         message.channel.send(embed)
@@ -126,9 +126,8 @@ bot.on("ready", async () => {
 
         embed.addField(`Account Erstellt`,`${mention.user.createdAt}`)
         
-
+         embed.addField("Server beigtreten am", `${message.member.joinedAt.toString().split(" ")[2]} ${message.member.joinedAt.toString().split(" ")[1]} ${message.member.joinedAt.toString().split(" ")[3]}`, false) 
         
-         embed.addField(`Server beigetreten am`,`${mention.guild.joinedAt}`)
     
 
         .setThumbnail(`${mention.user.avatarURL}`)
