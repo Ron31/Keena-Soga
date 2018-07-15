@@ -478,7 +478,7 @@ bot.on("ready", async () => {
 
         if(message.content ==`${BotSettings.prefix}Gamer`) {
             if(message.guild.id!== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
-            message.member.addRole(`413663967051907072`)
+            message.member.addRole(`468000600848596998`)
             message.channel.send(`${message.author} Ich habe dir die Gamer Rolle hinzugefügt`)
         }
 
@@ -604,7 +604,7 @@ bot.on("ready", async () => {
 
         if(message.content ==`${BotSettings.prefix}Gamerremove`) {
             if(message.guild.id!== BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
-            message.member.removeRole(`413663967051907072`)
+            message.member.removeRole(`468000600848596998`)
             message.channel.send(`${message.author} Ich habe dir die Gamer Rolle entfernt`)
         }
 
