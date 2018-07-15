@@ -101,7 +101,7 @@ bot.on("ready", async () => {
 
         embed.addField("Account erstellt am", `${message.member.user.createdAt.toString().split(" ")[2]} ${message.member.user.createdAt.toString().split(" ")[1]} ${message.member.user.createdAt.toString().split(" ")[3]}`, false) 
         
-          embed.addField("Server beigtreten am", `${message.member.user.joinedAt.toString().split(" ")[2]} ${message.member.user.joinedAt.toString().split(" ")[1]} ${message.member.user.joinedAt.toString().split(" ")[3]}`, false) 
+          embed.addField("Server beigtreten am", `${message.member.joinedAt.toString().split(" ")[2]} ${message.member.joinedAt.toString().split(" ")[1]} ${message.member.joinedAt.toString().split(" ")[3]}`, false) 
         
         .setThumbnail(`${message.author.avatarURL}`)
 
