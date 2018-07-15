@@ -99,7 +99,7 @@ bot.on("ready", async () => {
             embed.addField(`Nickname`, `${message.member.displayName}`)
         } 
 
-        embed.addField(`Account Erstellt`,`${message.author.createdAt}`)
+        embed.addField("Account erstellt am", `${message.member.createdAt.toString().split(" ")[2]} ${message.member.createdAt.toString().split(" ")[1]} ${message.member.creadetAt.toString().split(" ")[3]}`, false) 
         
           embed.addField("Server beigtreten am", `${message.member.joinedAt.toString().split(" ")[2]} ${message.member.joinedAt.toString().split(" ")[1]} ${message.member.joinedAt.toString().split(" ")[3]}`, false) 
         
@@ -124,7 +124,7 @@ bot.on("ready", async () => {
         }
 
 
-        embed.addField(`Account Erstellt`,`${mention.user.createdAt}`)
+        embed.addField("Account erstellt am", `${mention.user.createdAt.toString().split(" ")[2]} ${mention.user.createdAt.toString().split(" ")[1]} ${mention.user.createdAt.toString().split(" ")[3]}`, false) 
         
          embed.addField("Server beigtreten am", `${mention.joinedAt.toString().split(" ")[2]} ${mention.joinedAt.toString().split(" ")[1]} ${mention.joinedAt.toString().split(" ")[3]}`, false) 
         
