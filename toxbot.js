@@ -126,7 +126,7 @@ bot.on("ready", async () => {
 
         embed.addField(`Account Erstellt`,`${mention.user.createdAt}`)
         
-         embed.addField("Server beigtreten am", `${mention.user.joinedAt.toString().split(" ")[2]} ${mention.user.joinedAt.toString().split(" ")[1]} ${mention.user.joinedAt.toString().split(" ")[3]}`, false) 
+         embed.addField("Server beigtreten am", `${mention.joinedAt.toString().split(" ")[2]} ${mention.joinedAt.toString().split(" ")[1]} ${mention.joinedAt.toString().split(" ")[3]}`, false) 
         
     
 
