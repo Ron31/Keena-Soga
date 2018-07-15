@@ -99,9 +99,9 @@ bot.on("ready", async () => {
             embed.addField(`Nickname`, `${message.member.displayName}`)
         } 
 
-        embed.addField("Account erstellt am", `${message.author.createdAt.toString().split(" ")[2]} ${message.author.createdAt.toString().split(" ")[1]} ${message.author.createdAt.toString().split(" ")[3]}`, false) 
+        embed.addField("Account erstellt am", `${message.membrr.createdAt.toString().split(" ")[2]} ${message.member.createdAt.toString().split(" ")[1]} ${message.member.createdAt.toString().split(" ")[3]}`, false) 
         
-          embed.addField("Server beigtreten am", `${message.author.joinedAt.toString().split(" ")[2]} ${message.author.joinedAt.toString().split(" ")[1]} ${message.author.joinedAt.toString().split(" ")[3]}`, false) 
+          embed.addField("Server beigtreten am", `${message.member.joinedAt.toString().split(" ")[2]} ${message.member.joinedAt.toString().split(" ")[1]} ${message.member.joinedAt.toString().split(" ")[3]}`, false) 
         
         .setThumbnail(`${message.author.avatarURL}`)
 
