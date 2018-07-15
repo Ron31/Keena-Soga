@@ -99,7 +99,7 @@ bot.on("ready", async () => {
             embed.addField(`Nickname`, `${message.member.displayName}`)
         } 
 
-        embed.addField("Account erstellt am", `${message.member.createdAt.toString().split(" ")[2]} ${message.member.createdAt.toString().split(" ")[1]} ${message.member.creadetAt.toString().split(" ")[3]}`, false) 
+        embed.addField("Account erstellt am", `${message.member.createdAt.toString().split(" ")[2]} ${message.member.createdAt.toString().split(" ")[1]} ${message.member.createdAt.toString().split(" ")[3]}`, false) 
         
           embed.addField("Server beigtreten am", `${message.member.joinedAt.toString().split(" ")[2]} ${message.member.joinedAt.toString().split(" ")[1]} ${message.member.joinedAt.toString().split(" ")[3]}`, false) 
         
