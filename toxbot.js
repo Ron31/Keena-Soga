@@ -477,7 +477,7 @@ bot.on("ready", async () => {
         }
 
         if(message.content ==`${BotSettings.prefix}Gamer`) {
-            if(message.guild.id!== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!== BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.addRole(`468000600848596998`)
             message.channel.send(`${message.author} Ich habe dir die Gamer Rolle hinzugefügt`)
         }
