@@ -813,7 +813,7 @@ bot.on("ready", async () => {
 
 
           if(message.content ==`${BotSettings.prefix}test`) {
-       message.reply("Jo, ich bin aktiv!")
+       message.channel.send("Jo, ich bin aktiv!")
    }
           
           
