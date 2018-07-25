@@ -77,28 +77,6 @@ bot.on("ready", async () => {
     message.channel.send(embed)
 
 }
-
-
-
-  
-   //Rollenfarbe
- if(command == "rolecolor") {
-    if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("ADMINISTRATOR")) { 
-    var Rolle = args.join (" ")
-    if(message.guild.roles.find("name", Rolle)) {
-        message.channel.send(`Die Rolle **${Rolle}** hat die RGB-Farbe **${message.guild.roles.find("name", Rolle).hexColor.toUpperCase()}**. ${message.author}`)
-    } else {
-        message.channel.send(`Bitte gebe eine Rolle an. ${message.author}`)
-   
-    }
-
-} else {
-    message.channel.send(`Das ist keine Rolle auf dem Server. ${message.author}`)
-}
-
- } else {
-     message.channel.send(`Nur der Bot-Owner oder eine Person mit Admin Rechten kann diesen Command nutzen. ${message.author}`)
- }     return
   
            
            
@@ -405,6 +383,21 @@ bot.on("ready", async () => {
         } else {
             message.channel.send(`Nur der Bot-Owner oder eine Person mit Admin Rechten kann diesen Command nutzen. ${message.author}`)
         }
+    }
+          
+    //Rollenfarbe
+    if(command.toLowerCase() == rolecolour) {
+        var Rolle = args.join(" ")
+        if(Rolle) {
+            if(message.guild.roles.find("name", Rolle)) {
+                message.channel.send(`Die Rolle **${Rolle}** hat die RGB-Farbe **${message.guild.roles.find("name", Rolle).hexColor.toUpperCase()}**. ${message.author}`)
+            } else {
+                message.channel.send(`Das ist keine Rolle auf dem Server. ${message.author}`)
+            }
+        } else {
+            message.channel.send(`Bitte gebe eine Rolle an. ${message.author}`)
+        }
+        return
     }
 
 
