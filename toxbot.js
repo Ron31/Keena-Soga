@@ -92,6 +92,7 @@ bot.on("ready", async () => {
             }
         } else {
             message.channel.send(`Bitte gebe eine Rolle an. ${message.author}`)
+              }
         } else {
               message.channel.send(`Nur eine Person mit Admin Rechten oder der Bot-Owner können diesen Befehl nutzen. ${message.author}`)
               }
