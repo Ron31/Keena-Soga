@@ -387,26 +387,28 @@ bot.on("ready", async () => {
         return
     }
           
-    //Rollenfarbe
-    if(command == "rolecolor") {    
+
+         
+      //Rollenfarbe 
+        if(command == "rolecolor") {
         if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("ADMINISTRATOR")) {
-        var Rolle = args.join(" ")
-        if(Rolle) {
-            if(message.guild.roles.find("name", Rolle)) {
+            var Rolle = args.join (" ")
+            if(Rolle) {
+                if(message.guild.roles.find("name",Rolle)) {      
                 message.channel.send(`Die Rolle **${Rolle}** hat die RGB-Farbe **${message.guild.roles.find("name", Rolle).hexColor.toUpperCase()}**. ${message.author}`)
+                } else {
+                    message.channel.send(`${message.author} Das ist keine Rolle, die auf dem Server existiert.`)
+                }
             } else {
-                message.channel.send(`Das ist keine Rolle auf dem Server. ${message.author}`)
-            }
-        } else {
-            message.channel.send(`Bitte gebe eine Rolle an. ${message.author}`)
+                message.channel.send(`${message.author} Bitte gib eine verfügbare Rolle an.`)
             }
         } else {
             message.channel.send(`Nur der Bot-Owner oder eine Person mit Admin Rechten kann diesen Command nutzen. ${message.author}`)
         }
         return
     }
-
-
+         
+          
         //Messagecounter
         if(!profile[message.author.id]) {
             profile[message.author.id] = {Nachricht: 0}
