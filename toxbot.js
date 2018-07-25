@@ -85,12 +85,8 @@ bot.on("ready", async () => {
         if(command == "rolecolor") {
             if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("ADMINISTRATOR")) { 
             var Rolle = args.join (" ")
-            if (!Rolle) return  message.channel.send(`${message.author} Bitte gib eine verfügbare Rolle an.`)
-            if(Rolle) {
-                if(message.guild.roles.find("name",Rolle)) {
-                    message.channel.send(`Die Rolle **${Rolle}** hat die RGB-Farbe **${message.guild.roles.find("name", Rolle).hexColor.toUpperCase()}**. ${message.author}`)
-
-                }
+            if(message.guild.roles.find("name", Rolle)) {
+                message.channel.send(`Die Rolle **${Rolle}** hat die RGB-Farbe **${message.guild.roles.find("name", Rolle).hexColor.toUpperCase()}**. ${message.author}`)
             } else {
                 message.channel.send(`Das ist keine Rolle auf dem Server. ${message.author}`)
             }
