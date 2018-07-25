@@ -96,6 +96,7 @@ bot.on("ready", async () => {
               }
         return
         }
+      }
     }
 
 
