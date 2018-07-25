@@ -84,12 +84,12 @@ bot.on("ready", async () => {
         var Rolle = args.join(" ")
         if(Rolle) {
             if(message.guild.roles.find("name", Rolle)) {
-                message.channel.send(Die Rolle **${Rolle}** hat die RGB-Farbe **${message.guild.roles.find("name", Rolle).hexColor.toUpperCase()}**. ${message.author})
+                message.channel.send(`Die Rolle **${Rolle}** hat die RGB-Farbe **${message.guild.roles.find("name", Rolle).hexColor.toUpperCase()}**. ${message.author}`)
             } else {
-                message.channel.send(Das ist keine Rolle auf dem Server. ${message.author})
+                message.channel.send(`Das ist keine Rolle auf dem Server. ${message.author}`)
             }
         } else {
-            message.channel.send(Bitte gebe eine Rolle an. ${message.author})
+            message.channel.send(`Bitte gebe eine Rolle an. ${message.author}`)
         }
         return
     }
