@@ -88,7 +88,7 @@ bot.on("ready", async () => {
             if (!Rolle) return  message.channel.send(`${message.author} Bitte gib eine verfügbare Rolle an.`)
             if(Rolle) {
                 if(message.guild.roles.find("name",Rolle)) {
-                    message.channel.send(`Die Rolle **${Rolle}** hat die RGB-Farbe **${message.guild.roles.find("name", Rolle).hexColor.toUpperCase()}**. ${message.author}
+                    message.channel.send(`Die Rolle **${Rolle}** hat die RGB-Farbe **${message.guild.roles.find("name", Rolle).hexColor.toUpperCase()}**. ${message.author}`)
 
                 }
             } 
