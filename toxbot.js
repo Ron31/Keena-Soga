@@ -81,7 +81,7 @@ bot.on("ready", async () => {
 
 
 //Rollenfarbe
-    if(command.toLowerCase() == rolecolor) {
+    if(command.toLowerCase() == "rolecolor") {
           if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("ADMINISTRATOR")) {
         var Rolle = args.join(" ")
         if(Rolle) {
