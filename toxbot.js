@@ -368,21 +368,23 @@ bot.on("ready", async () => {
         
     }
 
-
-        //RollenID
-        if (command == "roleID") {
-            if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("ADMINISTRATOR")) { 
+        //Rollen-ID
+        if(command == "roleID") {
+        if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("ADMINISTRATOR")) {
             var Rolle = args.join (" ")
-            if (!Rolle) return  message.channel.send(`${message.author} Bitte gib eine verfügbare Rolle an.`)
             if(Rolle) {
                 if(message.guild.roles.find("name",Rolle)) {
-                    message.channel.send(`Die ID der Rolle ${Rolle} ist ${message.guild.roles.find("name",Rolle).id}`) 
-
+                    message.channel.send(`Die ID der Rolle ${Rolle} ist ${message.guild.roles.find("name",Rolle).id}`)
+                } else {
+                    message.channel.send(`${message.author} Das ist keine Rolle, die auf dem Server existiert.`)
                 }
-            } 
+            } else {
+                message.channel.send(`${message.author} Bitte gib eine verfügbare Rolle an.`)
+            }
         } else {
             message.channel.send(`Nur der Bot-Owner oder eine Person mit Admin Rechten kann diesen Command nutzen. ${message.author}`)
         }
+        return
     }
           
     //Rollenfarbe
