@@ -388,7 +388,8 @@ bot.on("ready", async () => {
     }
           
     //Rollenfarbe
-    if(command.toLowerCase() == rolecolour) {
+    if(command.toLowerCase() == rolecolor) {    
+        if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("ADMINISTRATOR")) {
         var Rolle = args.join(" ")
         if(Rolle) {
             if(message.guild.roles.find("name", Rolle)) {
@@ -398,6 +399,8 @@ bot.on("ready", async () => {
             }
         } else {
             message.channel.send(`Bitte gebe eine Rolle an. ${message.author}`)
+        } else {
+            message.channel.send(`Nur der Bot-Owner oder eine Person mit Admin Rechten kann diesen Command nutzen. ${message.author}`)
         }
         return
     }
