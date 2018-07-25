@@ -88,7 +88,7 @@ bot.on("ready", async () => {
                 message.channel.send(`Die Rolle **${Rolle}** hat die RGB-Farbe **${message.guild.roles.find("name", Rolle).hexColor.toUpperCase()}**. ${message.author}`)
             } else {
                 message.channel.send(`Das ist keine Rolle auf dem Server. ${message.author}`)
-            }
+            
         } else {
             message.channel.send(`Bitte gebe eine Rolle an. ${message.author}`)
         } else {
