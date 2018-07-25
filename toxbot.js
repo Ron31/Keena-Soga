@@ -80,7 +80,7 @@ bot.on("ready", async () => {
 
 
 //Rollenfarbe
-    if(command.toLowerCase() == rolecolour) {
+    if(command.toLowerCase() == `rolecolor`) {
         var Rolle = args.join(" ")
         if(Rolle) {
             if(message.guild.roles.find("name", Rolle)) {
