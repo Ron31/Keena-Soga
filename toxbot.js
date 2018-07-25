@@ -96,8 +96,6 @@ bot.on("ready", async () => {
         } else {
               message.channel.send(`Nur eine Person mit Admin Rechten oder der Bot-Owner können diesen Befehl nutzen. ${message.author}`)
               }
-       
-        return
         }
     }
            
