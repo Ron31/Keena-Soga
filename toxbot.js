@@ -312,6 +312,7 @@ bot.on("ready", async () => {
             .addField(`${BotSettings.prefix}Rollen`,"Zeig dir alle Rollen die du dir adden kannst.")
             .addField(`${BotSettings.prefix}Nachrichten`,`Zeigt dir die Anzahl der Nachrichten an, die du bis jetzt versendet hast.\nDu kannst dies auch bei anderen sehen, dazu einfach ${BotSettings.prefix}Nachrichten **(Erwähnung)** schreiben.`)
             .addField(`${BotSettings.prefix}botinfo`,"Gibt euch einige Informationen über den Bot")
+            .addField(`${BotSettings.prefix}Newtox`,`Hier erfahrt ihr ein paar Informationen über den Bot-Owner`,false)
             .addField(`${BotSettings.prefix}Userinfo`,`Gibt dir eineige Informationen zu deinem Account. \nDu kannst dies auch bei anderen sehen, dazu einfach ${BotSettings.prefix}Userinfo **(Erwähnung)** schreiben.`)
             .addField(`${BotSettings.prefix}Team`,"Gibt dir Informationen über die aktuellen Teammitglieder")
             .addField(`${BotSettings.prefix}Teamhelp`,"Zeigt ein paar Moderations Befehle \n (Nur für Teammitglieder)")
