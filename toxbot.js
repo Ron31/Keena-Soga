@@ -319,6 +319,7 @@ bot.on("ready", async () => {
             .addField(`${BotSettings.prefix}conbotprofil`,"Zeigt dir hilfreiche Befehle zu deinem eigenen Profil")
             .addField(`${BotSettings.prefix}Fun`, "Zeigt dir ein bisschen Quatch den man mit dem Bot anstellen kann")
             .addField(`${BotSettings.prefix}invite`,"Gibt dir eine Einladung zu dem Server von Newtox, \n**teilen ist erlaubt :P**")
+            .addField(`${BotSettings.prefix}botinvite`,"Gibt euch einen Link womit ihr den Bot auf euren Server einladen könnt.",false)
             .setThumbnail("https://cdn.discordapp.com/attachments/451007157933047829/456150799316287499/AskForHelp_Logo_2.png")
             message.channel.send(embed)
         }
@@ -803,7 +804,6 @@ bot.on("ready", async () => {
             .addField(`${BotSettings.prefix}GiveAF`, "schickt ein lustiges Meme", false)
             .addField(`${BotSettings.prefix}splatoon2perks`, "zeigt die Vor und Nachteile der Marken in Splatoon 2", false)
             .addField(`${BotSettings.prefix}binNewtox`, "*schaut selber was passiert ( ͡° ͜ʖ ͡°)*", false)
-            .addField(`${BotSettings.prefix}botinvite`,"Gibt euch einen Link womit ihr den Bot auf euren Server einladen könnt.",false)
             .setDescription("Falls ihr Ideen für weitere lustige Commands habt, dürft ihr euch gerne bei <@402483602094555138> melden.")
             .setThumbnail("https://cdn.discordapp.com/attachments/451007157933047829/457489426784845825/fun.png")
             .setFooter(EmbedFooter, FooterLogo)
