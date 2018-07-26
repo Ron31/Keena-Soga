@@ -11,7 +11,7 @@ bot.on("ready", async () => {
 
     console.log(`\nBot ist online.\nName + Tag: ${bot.user.username}#${bot.user.discriminator}\nPrefix: ${BotSettings.prefix}`)
     bot.user.setStatus("online")//online, idle, dnd, invisible
-    bot.user.setActivity(`${BotSettings.prefix}help | Version: 2.0 | ${bot.guilds.size} Server!`, {
+    bot.user.setActivity(`${BotSettings.prefix}help | Version: 1.1 | ${bot.guilds.size} Server!`, {
         //Solltest du type: STREAMING nutzen, dann musst du bei url: "", nen Twitch-Kanal-Link angeben.
         type: "PLAYING" //PLAYING, STREAMING, LISTENING, WATCHING
     })
@@ -50,7 +50,7 @@ bot.on("ready", async () => {
         msg = message.content.toLowerCase(),
         mention = message.mentions.members.first()
         FooterLogo = "https://cdn.discordapp.com/attachments/406957187869442048/467368016250667018/MAIN.png"
-        EmbedFooter = "Bot des Newtox - Community Servers"
+        EmbedFooter = "Bot des Newtox - Community Servers | V.1.1"
         
         
        
