@@ -458,6 +458,24 @@ bot.on("ready", async () => {
         }
 
         
+          
+     //Newtox
+        if(message.content ==`${BotSettings.prefix}Newtox`) {
+            var embed = new Discord.RichEmbed()
+            .setColor("#71ec07")
+            .setTitle("Hier erfahrt ihr ein paar Informationen über den Bot-Owner")
+            .setTimestamp()
+            .addField(`Name`,`Justin`,true)
+            .addField(`Nickname`,`${message.guild.member("402483602094555138").user.username}`,false)
+            .addField(`Alter`,`Justin ist 14 Jahre alt.`,false)
+            .addField(`Schule`,`Er besucht zurzeit eine Realschule.`,false)
+            .addField(`Wann hat Newtox mit dem programmieren angefangen?`,`Newtox hat mit dem programmieren am **20 März 2018** angefangen.`,false)
+            .setFooter(EmbedFooter,FooterLogo)
+            .setThumbnail(`${message.guild.members.get("402483602094555138").user.avatarURL}`)
+
+            message.channel.send(embed)
+        }     
+          
 
         //Rollen Adds
         if(message.content ==`${BotSettings.prefix}pc`) { 
