@@ -743,6 +743,7 @@ bot.on("ready", async () => {
             .addField(`${BotSettings.prefix}ban`,"Bannt den markierten Nutzer")
             .addField(`${BotSettings.prefix}opgiverole`,"Gibt euch eine Bestimmte Rolle")
             .addField(`${BotSettings.prefix}opremoverole`,"Entfernt euch eine Bestimmte Rolle")
+            .addField(`${BotSettings.prefix}rolecolor`,"Gibt euch den Farbencode einer Bestimmten Rolle")
             .addField(`${BotSettings.prefix}clear`,"Löscht eine beliebige Anzahl an Nachrichten")
             
             message.channel.send(embed)
