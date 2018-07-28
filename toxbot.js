@@ -529,13 +529,13 @@ bot.on("ready", async () => {
 
 
         if(message.content ==`${BotSettings.prefix}Nachrichten`) {
-            message.channel.send(`${message.author} Du hast bis jetzt ${profile[message.author.id] .Nachricht} Nachrichten versendet.`)
-        }
+            message.channel.send(`${message.author} Du hast bis jetzt **${profile[message.author.id] .Nachricht}** Nachrichten versendet.`)
+        } 
 
 
 
         if(message.content ==`${BotSettings.prefix}Nachrichten ${mention}`) {
-            message.channel.send(`**${mention.displayName}** hat bis jetzt ${profile[mention.id] .Nachricht} Nachrichten versendet.`)
+            message.channel.send(`**${mention.displayName}** hat bis jetzt **${profile[mention.id] .Nachricht}** Nachrichten versendet.`)
         } 
 
 
