@@ -919,7 +919,6 @@ bot.on("ready", async () => {
         }
 
         //Wichtige Befehle
-
         if(message.content ==`${BotSettings.prefix}Rollen`) { 
 
             var embed = new Discord.RichEmbed()
@@ -959,7 +958,7 @@ bot.on("ready", async () => {
             .setTitle("Hier seht ihr einige Moderations Befehle",)
             .addField(`${BotSettings.prefix}kick`, "Kickt den markierten Nutzer")
             .addField(`${BotSettings.prefix}ban`,"Bannt den markierten Nutzer")
-            .addField(`${BotSettings.prefix}support`,"Gibt dir die Support Rolle, \nWomit andere Mitglieder euch markieren können. \nIhr könnt euch die Rolle auch weieder entfernen lassen, dazu einfach `tx!supportremove` eingeben")
+            .addField(`${BotSettings.prefix}support`,"Gibt dir die Support Rolle, \nWomit andere Mitglieder euch markieren können. \nIhr könnt euch die Rolle auch wieder entfernen lassen, dazu einfach `tx!supportremove` eingeben")
             .addField(`${BotSettings.prefix}roleID`,"Gibt dir die ID einer bestimmten Rolle")
             .addField(`${BotSettings.prefix}emojiID`,"Gibt dir die ID eines bestimmten Emoji")
             .addField(`${BotSettings.prefix}opgiverole`,"Gibt euch eine Bestimmte Rolle")
@@ -1007,7 +1006,7 @@ bot.on("ready", async () => {
             .setTitle("Hier seht ihr alle Teammitglieder", true)
             .addField("Owner","<@402483602094555138>", false )
             .addField("Admins","*Aktuell gibt es keine Admins*", false)
-            .addField("Moderatoren", "<@403540876585861130> \n<@162149564101427200> \n<@281440097855995904>", false)
+            .addField("Moderatoren", "<@162149564101427200> \n<@281440097855995904>", false)
             .addField("Youtube Moderatoren","*Aktuell gibt es keine Youtube Moderatoren* ",false)
             .addField("Test Moderatoren","*Aktuell gibt es keine Test Moderatoren*", false)
             .addField("Supporter","*Aktuell gibt es keine Supporter* ", false)
@@ -1024,8 +1023,6 @@ bot.on("ready", async () => {
         
 
         //Fun Befehle
-
-
 
         if(message.content == `${BotSettings.prefix}Fun`) {
 
@@ -1091,11 +1088,7 @@ bot.on("ready", async () => {
             message.channel.send(`Ihr wollt den Bot auf eurem Server haben? \nNutzt diesen Link: \nhttps://discordapp.com/api/oauth2/authorize?client_id=463336117723201546&permissions=8&scope=bot`)
         }
 
-          if(message.content ==`${BotSettings.prefix}test`) {
-       message.channel.send("Jo, ich bin aktiv!")
-
-   }
-          
+                  
 
     }
 
