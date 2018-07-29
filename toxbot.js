@@ -558,7 +558,7 @@ bot.on("ready", async () => {
             .addField("Name und Tag",`**${bot.user.username}**#${bot.user.discriminator}`,false)
             .addField("Entwickler:",`**${message.guild.member("402483602094555138").user.username}**#${message.guild.member("402483602094555138").user.discriminator}`, true)
             .addField("Programmiert mit:","Discord.js 11.3.2",false)
-            .addField(`Prefix des Bots`,`Der Prefix des Bots ist ${BotSettings.prefix}`, false)
+            .addField(`Prefix des Bots`,`Der Prefix des Bots ist **${BotSettings.prefix}**`, false)
             .addField("Erstellungsdatum","Der Bot wurde am **22 März 2018** erstellt!",false)
             .setTimestamp()
             .setFooter(EmbedFooter, FooterLogo)
@@ -571,18 +571,17 @@ bot.on("ready", async () => {
         }
 
 
-     //Newtox
+        //Newtox
         if(message.content ==`${BotSettings.prefix}Newtox`) {
 
             var embed = new Discord.RichEmbed()
 
-            .setColor("#71ec07")
+            .setColor("#ccf0de")
             .setTitle("Hier erfahrt ihr ein paar Informationen über den Bot-Owner")
             .setTimestamp()
             .addField(`Name`,`Justin`,true)
             .addField(`Nickname`,`${message.guild.member("402483602094555138").user.username}`,false)
             .addField(`Alter`,`Justin ist 14 Jahre alt.`,false)
-            .addField(`Schule`,`Er besucht zurzeit eine Realschule.`,false)
             .addField(`Wann hat Newtox mit dem programmieren angefangen?`,`Newtox hat mit dem programmieren am **20 März 2018** angefangen.`,false)
             .setFooter(EmbedFooter,FooterLogo)
             .setThumbnail(`${message.guild.members.get("402483602094555138").user.avatarURL}`)
@@ -960,6 +959,7 @@ bot.on("ready", async () => {
             .setTitle("Hier seht ihr einige Moderations Befehle",)
             .addField(`${BotSettings.prefix}kick`, "Kickt den markierten Nutzer")
             .addField(`${BotSettings.prefix}ban`,"Bannt den markierten Nutzer")
+            .addField(`${BotSettings.prefix}support`,"Gibt dir die Support Rolle, \nWomit andere Mitglieder euch markieren können. \nIhr könnt euch die Rolle auch weieder entfernen lassen, dazu einfach `tx!supportremove` eingeben")
             .addField(`${BotSettings.prefix}roleID`,"Gibt dir die ID einer bestimmten Rolle")
             .addField(`${BotSettings.prefix}emojiID`,"Gibt dir die ID eines bestimmten Emoji")
             .addField(`${BotSettings.prefix}opgiverole`,"Gibt euch eine Bestimmte Rolle")
@@ -973,9 +973,26 @@ bot.on("ready", async () => {
 
 
 
-        
+        if(message.content ==`${BotSettings.prefix}support`) {
+            if(message.member.roles.has("406951441182359553")  || message.member.roles.has("406951586326118420")  || message.member.roles.has("409338551990353923")  || message.member.roles.has("406951724612321290") || message.member.hasPermission("ADMINISTRATOR")) {
+                message.member.addRole(`406951923477118997`)
+                message.channel.send(`${message.author} Ich habe dir die Support Rolle hinzugefügt`) 
+                 
+            } else {
+                message.channel.send(`${message.author} Dieser Befehl ist nur für Teammitglieder`)
+            }
+     }
 
-                
+
+     if(message.content ==`${BotSettings.prefix}supportremove`) {
+        if(message.member.roles.has("406951441182359553")  || message.member.roles.has("406951586326118420")  || message.member.roles.has("409338551990353923")  || message.member.roles.has("406951724612321290") || message.member.hasPermission("ADMINISTRATOR")) {
+            message.member.removeRole(`406951923477118997`)
+            message.channel.send(`${message.author} Ich habe dir die Support Rolle entfernt`) 
+             
+        } else {
+            message.channel.send(`${message.author} Dieser Befehl ist nur für Teammitglieder`)
+        }
+ }
 
 
 
@@ -984,7 +1001,7 @@ bot.on("ready", async () => {
             if(message.guild.id!= BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
 
             var embed = new Discord.RichEmbed()
-            .setColor("#ff0000")
+            .setColor("#bb1700")
             .setTimestamp()
             .setFooter(EmbedFooter, FooterLogo)
             .setTitle("Hier seht ihr alle Teammitglieder", true)
@@ -1084,6 +1101,7 @@ bot.on("ready", async () => {
 
 
 });
+
 
 
 
