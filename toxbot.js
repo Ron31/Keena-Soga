@@ -304,7 +304,7 @@ bot.on("ready", async () => {
         if(message.content ==`${BotSettings.prefix}help`) { 
             var embed = new Discord.RichEmbed() 
 
-            .setColor("#9f7fff")
+            .setColor("#71ec07")
             .setTimestamp()
             .setFooter(EmbedFooter, FooterLogo)
             .setTitle("Hier siehst du alle Commands des Bots.")
@@ -529,7 +529,7 @@ bot.on("ready", async () => {
 
             var embed = new Discord.RichEmbed() 
 
-            .setColor("#3e83a7")
+            .setColor("#ff9564")
             .setTitle("Info über Toxbot")
             .addField("Name und Tag",`**${bot.user.username}**#${bot.user.discriminator}`,false)
             .addField("Entwickler:",`**${message.guild.member("402483602094555138").user.username}**#${message.guild.member("402483602094555138").user.discriminator}`, true)
