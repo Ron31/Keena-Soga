@@ -78,30 +78,6 @@ bot.on("ready", async () => {
 
        
 
-
-
-    //Serverliste
-
-    if(message.content ==`${BotSettings.prefix}Serverliste`) {
-
-    String.prototype.replaceAll = function (search, replacement) {
-
-        var target = this;
-
-        return target.replace(new RegExp(search, 'g'), replacement);
-
-    };
-
-    var embed = new Discord.RichEmbed()
-    .addField("Serverinfo", "Bot guilds")
-    .addField("Serveranzahl", `${bot.guilds.size}`)
-    .addField("Server Namen", bot.guilds.array().toString().replaceAll(",", "\n"))
-    .setFooter(FooterLogo,EmbedFooter)
-    .setColor("#56F21B")
-
-    message.channel.send(embed)
-}
-
   
 
     //Userinfo
