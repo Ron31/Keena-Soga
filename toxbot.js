@@ -78,6 +78,10 @@ bot.on("ready", async () => {
 
        
 
+
+
+    
+
   
 
     //Userinfo
