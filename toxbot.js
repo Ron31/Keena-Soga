@@ -1087,7 +1087,7 @@ bot.on("ready", async () => {
         
             var embed = new Discord.RichEmbed()
             .setColor(message.member.highestRole.color)
-            .setTitle(`Instagram Account von ${message.guild.member("406729042717442049").user.username} ${Instagram}`)
+            .setTitle(`Instagram Account von ${message.guild.member("406729042717442049").user.username}`)
             .setDescription("https://www.instagram.com/project_evil_inkling_c/", false)
             .addField("*bitte alle folgen*",`${GlumandaHi}`, false)
             .setFooter(EmbedFooter,FooterLogo)
