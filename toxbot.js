@@ -75,6 +75,7 @@ bot.on("ready", async () => {
     //Emojis | Bei Emojis empfehle ich dir anstat const oder var let zu nutzen.
     let GlumandaHi = message.guild.emojis.find("name", "Glumanda_Hi")
     let partyparrot = message.guild.emojis.find("name", "party_parrot") 
+    let Instagram = message.guild.emojis.find("name","instagram")
 
        
 
@@ -1004,6 +1005,28 @@ bot.on("ready", async () => {
 
         //Fun Befehle
 
+        // //Vote-Test
+        // if(command == "vote") {
+        //     if(message.author.id == BotSettings.OwnerID) { 
+        //         var vote = args.join(" ") 
+        //         if(vote) {
+        //             await message.channel.send(vote) 
+        //             .then(() => message.react(`408349478857211906`))
+        //         } else { 
+        //             message.channel.send(`Was soll ich bitte sagen? ${message.author}`)
+        //         }
+        //     } else { 
+        //         message.channel.send(`Nur der Bot-Owner kann diesen Command nutzen. ${message.author}`)
+
+        //     }
+            
+        // }
+
+
+
+
+
+
         if(message.content == `${BotSettings.prefix}Fun`) {
 
             var embed = new Discord.RichEmbed()
@@ -1015,6 +1038,7 @@ bot.on("ready", async () => {
             .addField(`${BotSettings.prefix}GiveAF`, "schickt ein lustiges Meme", false)
             .addField(`${BotSettings.prefix}splatoon2perks`, "zeigt die Vor und Nachteile der Marken in Splatoon 2", false)
             .addField(`${BotSettings.prefix}binNewtox`, "*schaut selber was passiert ( ͡° ͜ʖ ͡°)*", false)
+            .addField(`${BotSettings.prefix}Inkling c`,`Zeigt euch einen coolen ${Instagram} Account`)
             .setDescription("Falls ihr Ideen für weitere lustige Commands habt, dürft ihr euch gerne bei <@402483602094555138> melden.")
             .setThumbnail("https://cdn.discordapp.com/attachments/451007157933047829/457489426784845825/fun.png")
             .setFooter(EmbedFooter, FooterLogo)
@@ -1058,6 +1082,21 @@ bot.on("ready", async () => {
 
         }
 
+
+        if(message.content ==`${BotSettings.prefix}Inkling c`) {
+        
+            var embed = new Discord.RichEmbed()
+            .setColor(message.member.highestRole.color)
+            .setTitle(`Instagram Account von ${message.guild.member("406729042717442049").user.username} ${Instagram}`)
+            .setDescription("https://www.instagram.com/project_evil_inkling_c/", false)
+            .addField("*bitte alle folgen*",`${GlumandaHi}`, false)
+            .setFooter(EmbedFooter,FooterLogo)
+            .setThumbnail(`${message.guild.members.get("406729042717442049").user.avatarURL}`)
+
+
+
+            message.channel.send(embed)
+        }
 
 
         if(message.content ==`${BotSettings.prefix}invite`) {
