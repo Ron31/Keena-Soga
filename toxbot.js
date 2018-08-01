@@ -903,7 +903,7 @@ bot.on("ready", async () => {
         if(message.content ==`${BotSettings.prefix}Rollen`) { 
 
             var embed = new Discord.RichEmbed()
-            .setColor("#f9ff00")
+            .setColor("#3E83A7")
             .setTimestamp()
             .setFooter(EmbedFooter, FooterLogo)
             .setTitle("Hier seht ihr alle verfügbaren Rollen")
