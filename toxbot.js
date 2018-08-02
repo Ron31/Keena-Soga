@@ -1030,7 +1030,7 @@ bot.on("ready", async () => {
         if(message.content == `${BotSettings.prefix}Fun`) {
 
             var embed = new Discord.RichEmbed()
-            .setColor("#FF9000")
+            .setColor("#2C8B32")
             .setTimestamp()
             .setTitle("Hier seht ihr alle Fun Befehle", true)
             .addBlankField()
