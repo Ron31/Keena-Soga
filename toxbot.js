@@ -537,7 +537,7 @@ bot.on("ready", async () => {
             .setColor("#ff9564")
             .setTitle("Info über Toxbot")
             .addField("Name und Tag",`**${bot.user.username}**#${bot.user.discriminator}`,false)
-            .addField("Entwickler:",`**${message.guild.member("402483602094555138").user.username}**#${message.guild.member("402483602094555138").user.discriminator}`, true)
+            .addField("Entwickler:",`**${message.guild.member("313317658441285633").user.username}**#${message.guild.member("313317658441285633").user.discriminator}`, true)
             .addField("Programmiert mit:","Discord.js 11.3.2",false)
             .addField(`Prefix des Bots`,`Der Prefix des Bots ist **${BotSettings.prefix}**`, false)
             .addField("Erstellungsdatum","Der Bot wurde am **22 März 2018** erstellt!",false)
@@ -561,7 +561,7 @@ bot.on("ready", async () => {
             .setTitle("Hier erfahrt ihr ein paar Informationen über den Bot-Owner")
             .setTimestamp()
             .addField(`Name`,`Justin`,true)
-            .addField(`Nickname`,`${message.guild.member("402483602094555138").user.username}`,false)
+            .addField(`Nickname`,`${message.guild.member("313317658441285633").user.username}`,false)
             .addField(`Alter`,`Justin ist 14 Jahre alt.`,false)
             .addField(`Wann hat Newtox mit dem programmieren angefangen?`,`Newtox hat mit dem programmieren am **20 März 2018** angefangen.`,false)
             .setFooter(EmbedFooter,FooterLogo)
@@ -985,7 +985,7 @@ bot.on("ready", async () => {
             .setTimestamp()
             .setFooter(EmbedFooter, FooterLogo)
             .setTitle("Hier seht ihr alle Teammitglieder", true)
-            .addField("Owner","<@402483602094555138>", false )
+            .addField("Owner","<@313317658441285633>", false )
             .addField("Admins","*Aktuell gibt es keine Admins*", false)
             .addField("Moderatoren", "<@162149564101427200> \n<@281440097855995904>", false)
             .addField("Youtube Moderatoren","*Aktuell gibt es keine Youtube Moderatoren* ",false)
@@ -1039,7 +1039,7 @@ bot.on("ready", async () => {
             .addField(`${BotSettings.prefix}splatoon2perks`, "zeigt die Vor und Nachteile der Marken in Splatoon 2", false)
             .addField(`${BotSettings.prefix}binNewtox`, "*schaut selber was passiert ( ͡° ͜ʖ ͡°)*", false)
             .addField(`${BotSettings.prefix}Inkling c`,`Zeigt euch einen coolen ${Instagram} Account`)
-            .setDescription("Falls ihr Ideen für weitere lustige Commands habt, dürft ihr euch gerne bei <@402483602094555138> melden.")
+            .setDescription("Falls ihr Ideen für weitere lustige Commands habt, dürft ihr euch gerne bei <@313317658441285633> melden.")
             .setThumbnail("https://cdn.discordapp.com/attachments/451007157933047829/457489426784845825/fun.png")
             .setFooter(EmbedFooter, FooterLogo)
 
@@ -1051,10 +1051,6 @@ bot.on("ready", async () => {
         if(message.content ==`${BotSettings.prefix}splatoon2perks`) {
             message.channel.send(`https://pro-rankedboost.netdna-ssl.com/wp-content/uploads/2017/07/Splatoon-2-Abilities-List.png`)
 
-        }
-
-        if(message.content == `${BotSettings.prefix}pingtox`) {
-            message.channel.send(`<@402483602094555138> <@402483602094555138> <@402483602094555138> <@402483602094555138> <@402483602094555138>`)
         }
 
         if(message.content ==`${BotSettings.prefix}Party`) {
@@ -1072,7 +1068,7 @@ bot.on("ready", async () => {
 
 
         if(message.content == `${BotSettings.prefix}binNewtox`) {
-        if(message.author.id == "402483602094555138") {
+        if(message.author.id == "313317658441285633") {
 
             message.channel.send(`Hey ${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}, mein Meister :3`)
 
