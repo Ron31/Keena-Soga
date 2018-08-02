@@ -120,7 +120,7 @@ bot.on("ready", async () => {
         .addField(`ID`,`${mention.id}`,true)
         .addField(`Name`, `${mention.user.username}`)
 
-        if(mention.user.username != mention.member.displayName) {
+        if(mention.member.username != mention.member.displayName) {
             embed.addField(`Nickname`, `${mention.member.displayName}`)
 
         }
