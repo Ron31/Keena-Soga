@@ -99,6 +99,11 @@ bot.on("ready", async () => {
             embed.addField(`Nickname`, `${message.member.displayName}`)
         } 
 
+        if(message.author.username == message.member.displayName) {
+            embed.addField(`Nickname`, `-`)
+
+        }
+
         embed.addField("Account erstellt am", `${message.member.user.createdAt.toString().split(" ")[2]} ${message.member.user.createdAt.toString().split(" ")[1]} ${message.member.user.createdAt.toString().split(" ")[3]}`, false) 
 
           embed.addField("Server beigtreten am", `${message.member.joinedAt.toString().split(" ")[2]} ${message.member.joinedAt.toString().split(" ")[1]} ${message.member.joinedAt.toString().split(" ")[3]}`, false) 
@@ -120,8 +125,13 @@ bot.on("ready", async () => {
         .addField(`ID`,`${mention.id}`,true)
         .addField(`Name`, `${mention.user.username}`)
 
-        if(mention.user.username != mention.user.displayName) {
-            embed.addField(`Nickname`, `${mention.member.displayName}`)
+        if(mention.user.username != mention.displayName) {
+            embed.addField(`Nickname`, `${mention.displayName}`)
+
+        }
+
+        if(mention.user.username == mention.displayName) {
+            embed.addField(`Nickname`, `-`)
 
         }
 
@@ -173,7 +183,7 @@ bot.on("ready", async () => {
 
 
 
-        if(message.startsWith ==`${BotSettings.prefix}play`) {
+        if(message.content ==`${BotSettings.prefix}play`) {
             if(!args[0]) return message.channel.send(`${message.author} Aktuell gibt es folgende Songs: \ntx!play PikaSong`)
             const connection =  message.member.voiceChannel.join();
             if(args[0] == "PikaSong") {
@@ -317,7 +327,7 @@ bot.on("ready", async () => {
             .addField(`${BotSettings.prefix}Nachrichten`,`Zeigt dir die Anzahl der Nachrichten an, die du bis jetzt versendet hast.\nDu kannst dies auch bei anderen sehen, dazu einfach ${BotSettings.prefix}Nachrichten **(Erwähnung)** schreiben.`)
             .addField(`${BotSettings.prefix}botinfo`,"Gibt euch einige Informationen über den Bot")
             .addField(`${BotSettings.prefix}Newtox`,`Hier erfahrt ihr ein paar Informationen über den Bot-Owner`,false)
-            .addField(`${BotSettings.prefix}Userinfo`,`Gibt dir einige Informationen zu deinem Account. \nDu kannst dies auch bei anderen sehen, dazu einfach ${BotSettings.prefix}Userinfo **(Erwähnung)** schreiben.`)
+            .addField(`${BotSettings.prefix}Userinfo`,`Gibt dir eineige Informationen zu deinem Account. \nDu kannst dies auch bei anderen sehen, dazu einfach ${BotSettings.prefix}Userinfo **(Erwähnung)** schreiben.`)
             .addField(`${BotSettings.prefix}Team`,"Gibt dir Informationen über die aktuellen Teammitglieder")
             .addField(`${BotSettings.prefix}Teamhelp`,"Zeigt ein paar Moderations Befehle \n (Nur für Teammitglieder)")
             .addField(`${BotSettings.prefix}conbotprofil`,"Zeigt dir hilfreiche Befehle zu deinem eigenen Profil")
@@ -485,7 +495,30 @@ bot.on("ready", async () => {
         return
     }
 
-    
+    //Rollen-Edit
+    if(command.toLowerCase() == `roleedit`) {
+        if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("MANAGE_ROLES")) {
+        if(args[0] && args[1]) {
+            if(Number(parseInt(args[1].toString(10), 16)) < 16777215) {
+                if(message.guild.roles.find("name", args[0])) {
+                    await message.guild.roles.find("name", args[0]).setColor(`#${args[1].toUpperCase()}`)
+                    message.channel.send(`Die Farbe der Rolle **${args[0]}** wurde zu **0x${args[1]}** geändert. ${message.author}`)
+                } else {
+                    message.channel.send(`Diese Rolle ist auf dem Server nicht vorhanden. ${message.author}`)
+                }
+            } else {
+                message.channel.send(`Das ist keine RGB-Value. ${message.author}`)
+            }
+        } else {
+            message.channel.send(`Bitte gebe eine **verfügbare** Rolle und eine Farbe an. ${message.author}`)
+        }
+    } else {
+         message.channel.send(`Nur der Bot-Owner oder eine Person mit **Rollen Verwalten** Rechten kann diesen Command nutzen. ${message.author}`)
+    }
+        return
+    }
+  
+        
           
 
         //Messagecounter
@@ -510,13 +543,21 @@ bot.on("ready", async () => {
 
 
         if(message.content ==`${BotSettings.prefix}Nachrichten`) {
-            message.channel.send(`${message.author} Du hast bis jetzt **${profile[message.author.id] .Nachricht}** Nachrichten versendet.`)
+            var embed = new Discord.RichEmbed()
+            .setColor(message.member.highestRole.color)
+            .setDescription(`${message.author} Du hast bis jetzt **${profile[message.author.id] .Nachricht}** Nachrichten versendet.`)
+
+            message.channel.send(embed)
         } 
 
 
 
         if(message.content ==`${BotSettings.prefix}Nachrichten ${mention}`) {
-            message.channel.send(`**${mention.displayName}** hat bis jetzt **${profile[mention.id] .Nachricht}** Nachrichten versendet.`)
+            var embed = new Discord.RichEmbed()
+            .setColor(mention.highestRole.color)
+            .setDescription(`**${mention.displayName}** hat bis jetzt **${profile[mention.id] .Nachricht}** Nachrichten versendet.`)
+
+            message.channel.send(embed)
         } 
 
 
@@ -909,7 +950,7 @@ bot.on("ready", async () => {
             .setTitle("Hier seht ihr alle verfügbaren Rollen")
             .setDescription(`${BotSettings.prefix}pc \n${BotSettings.prefix}ps4 \n${BotSettings.prefix}NintendoSwitch \n${BotSettings.prefix}xbox \n${BotSettings.prefix}nsfw \n${BotSettings.prefix}Handy \n${BotSettings.prefix}Gamer \n${BotSettings.prefix}MuteChannel \n${BotSettings.prefix}Splatoon2 \n${BotSettings.prefix}RocketLeague \n${BotSettings.prefix}Overwatch \n${BotSettings.prefix}Fortnite \n${BotSettings.prefix}CSGO \n${BotSettings.prefix}Minecraft \n${BotSettings.prefix}12+ \n${BotSettings.prefix}14+ \n${BotSettings.prefix}16+ \n${BotSettings.prefix}18+ \n${BotSettings.prefix}Männlich \n${BotSettings.prefix}Weiblich`)
             .addBlankField()
-            .addField("Um die Rolle wieder zu entfernen gebt ihr genau das selbe wie oben ein, nur mit `remove` dahinter. Das würde dann so aussehen: `tx!pcremove`", "owo")
+            .addField("Um die Rolle wieder zu entfernen gebt ihr genau das selbe wie oben ein, nur mit `remove` dahinter.", "Das würde dann so aussehen: `tx!pcremove`")
             .setThumbnail("https://cdn.discordapp.com/attachments/451007157933047829/457499833121636352/Discord.jpg")
 
             message.channel.send(embed)
@@ -945,6 +986,7 @@ bot.on("ready", async () => {
             .addField(`${BotSettings.prefix}opgiverole`,"Gibt euch eine Bestimmte Rolle")
             .addField(`${BotSettings.prefix}opremoverole`,"Entfernt euch eine Bestimmte Rolle")
             .addField(`${BotSettings.prefix}rolecolor`,"Gibt euch den Farbencode einer Bestimmten Rolle")
+            .addField(`${BotSettings.prefix}roleedit`,"Damit könnt ihr die Farbe einer Rolle per Bot ändern lassen.")
             .addField(`${BotSettings.prefix}clear`,"Löscht eine beliebige Anzahl an Nachrichten")
 
             message.channel.send(embed)
@@ -954,6 +996,8 @@ bot.on("ready", async () => {
 
 
         if(message.content ==`${BotSettings.prefix}support`) {
+            if(message.guild.id!= BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+
             if(message.member.roles.has("406951441182359553")  || message.member.roles.has("406951586326118420")  || message.member.roles.has("409338551990353923")  || message.member.roles.has("406951724612321290") || message.member.hasPermission("ADMINISTRATOR")) {
                 message.member.addRole(`406951923477118997`)
                 message.channel.send(`${message.author} Ich habe dir die Support Rolle hinzugefügt`) 
@@ -965,6 +1009,8 @@ bot.on("ready", async () => {
 
 
      if(message.content ==`${BotSettings.prefix}supportremove`) {
+        if(message.guild.id!= BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+
         if(message.member.roles.has("406951441182359553")  || message.member.roles.has("406951586326118420")  || message.member.roles.has("409338551990353923")  || message.member.roles.has("406951724612321290") || message.member.hasPermission("ADMINISTRATOR")) {
             message.member.removeRole(`406951923477118997`)
             message.channel.send(`${message.author} Ich habe dir die Support Rolle entfernt`) 
@@ -1030,7 +1076,7 @@ bot.on("ready", async () => {
         if(message.content == `${BotSettings.prefix}Fun`) {
 
             var embed = new Discord.RichEmbed()
-            .setColor("#2C8B32")
+            .setColor("#71ec07")
             .setTimestamp()
             .setTitle("Hier seht ihr alle Fun Befehle", true)
             .addBlankField()
@@ -1051,6 +1097,10 @@ bot.on("ready", async () => {
         if(message.content ==`${BotSettings.prefix}splatoon2perks`) {
             message.channel.send(`https://pro-rankedboost.netdna-ssl.com/wp-content/uploads/2017/07/Splatoon-2-Abilities-List.png`)
 
+        }
+
+        if(message.content == `${BotSettings.prefix}pingtox`) {
+            message.channel.send(`<@402483602094555138> <@402483602094555138> <@402483602094555138> <@402483602094555138> <@402483602094555138>`)
         }
 
         if(message.content ==`${BotSettings.prefix}Party`) {
@@ -1087,6 +1137,7 @@ bot.on("ready", async () => {
             .setDescription("https://www.instagram.com/project_evil_inkling_c/", false)
             .addField("*bitte alle folgen*",`${GlumandaHi}`, false)
             .setFooter(EmbedFooter,FooterLogo)
+            .setTimestamp()
             .setThumbnail(`${message.guild.members.get("406729042717442049").user.avatarURL}`)
 
 
