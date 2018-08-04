@@ -357,7 +357,7 @@ bot.on("ready", async () => {
         if(message.content ==`${BotSettings.prefix}Nachrichten ${mention}`) {
             var embed = new Discord.RichEmbed()
             .setColor(mention.highestRole.color)
-            .setDescription(`**${mention.displayName}** hat bis jetzt **${profile[mention.id] .Nachricht}** Nachrichten versendet.`)
+            .setDescription(`**${mention}** hat bis jetzt **${profile[mention.id] .Nachricht}** Nachrichten versendet.`)
 
             message.channel.send(embed)
         } 
