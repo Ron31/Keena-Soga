@@ -4,6 +4,7 @@ const Discord = require("discord.js"),
       fs = require("fs"),
      profile = JSON.parse(fs.readFileSync("profil/message.json","utf8"))
 
+
     
 
    
@@ -77,204 +78,6 @@ bot.on("ready", async () => {
     let partyparrot = message.guild.emojis.find("name", "party_parrot") 
     let Instagram = message.guild.emojis.find("name","instagram")
 
-       
-
-
-
-    
-
-  
-
-    //Userinfo
-    if(message.content ==`${BotSettings.prefix}Userinfo`) {
-
-        var embed = new Discord.RichEmbed()
-
-        .setColor(message.member.highestRole.color)
-        .setTitle(` Userinfo von ${message.author.username}`)
-        .addField(`ID`,`${message.author.id}`,true)
-        .addField(`Name`, `${message.author.username}`)
-
-        if(message.author.username != message.member.displayName) {
-            embed.addField(`Nickname`, `${message.member.displayName}`)
-        } 
-
-        if(message.author.username == message.member.displayName) {
-            embed.addField(`Nickname`, `-`)
-
-        }
-
-        embed.addField("Account erstellt am", `${message.member.user.createdAt.toString().split(" ")[2]} ${message.member.user.createdAt.toString().split(" ")[1]} ${message.member.user.createdAt.toString().split(" ")[3]}`, false) 
-
-          embed.addField("Server beigtreten am", `${message.member.joinedAt.toString().split(" ")[2]} ${message.member.joinedAt.toString().split(" ")[1]} ${message.member.joinedAt.toString().split(" ")[3]}`, false) 
-
-        .setThumbnail(`${message.author.avatarURL}`)
-
-        message.channel.send(embed)
-
-    }
-
-
-
-    if(message.content ==`${BotSettings.prefix}Userinfo ${mention}`) {   
-
-        var embed = new Discord.RichEmbed()
-
-        .setColor(mention.highestRole.color)
-        .setTitle(` Userinfo von ${mention.user.username}`)
-        .addField(`ID`,`${mention.id}`,true)
-        .addField(`Name`, `${mention.user.username}`)
-
-        if(mention.user.username != mention.displayName) {
-            embed.addField(`Nickname`, `${mention.displayName}`)
-
-        }
-
-        if(mention.user.username == mention.displayName) {
-            embed.addField(`Nickname`, `-`)
-
-        }
-
-        embed.addField("Account erstellt am", `${mention.user.createdAt.toString().split(" ")[2]} ${mention.user.createdAt.toString().split(" ")[1]} ${mention.user.createdAt.toString().split(" ")[3]}`, false) 
-
-         embed.addField("Server beigtreten am", `${mention.joinedAt.toString().split(" ")[2]} ${mention.joinedAt.toString().split(" ")[1]} ${mention.joinedAt.toString().split(" ")[3]}`, false) 
-
-        .setThumbnail(`${mention.user.avatarURL}`)
-
-
-        message.channel.send(embed)
-
-    }
-
-
-    //Clear
-    if(command === "clear") {
-       
-        if(!message.member.hasPermission("MANAGE_MESSAGES")) 
-
-            return message.reply("Sorry, du hast keine Rechte um diesen Befehl auszuführen");
-
-        const deleteCount = parseInt(args[0], 10);
-
-        if(!deleteCount || deleteCount < 2 || deleteCount > 100)
-
-          return message.reply("Bitte gib eine Zahl zwischen 2 und 100 an.");
-
-        const fetched = await message.channel.fetchMessages({limit: deleteCount});
-
-        message.channel.bulkDelete(fetched)
-
-          .catch(error => message.reply(`Konnte Nachrichten nicht löschen wegen: ${error}`));
-
-      } 
-
-
-      //Musik Feature
-      if(message.content ==`${BotSettings.prefix}connect`) {
-        if(message.member.voiceChannel) {
-            const connection = await message.member.voiceChannel.join();
-          } else {
-            message.reply('Du musst zuerst einem Voice Channel joinen!');
-          }
-        }
-        if(message.content ==`${BotSettings.prefix}disconnect`) {
-                const connection = await message.member.voiceChannel.leave();
-              } 
-
-
-
-        if(message.content ==`${BotSettings.prefix}play`) {
-            if(!args[0]) return message.channel.send(`${message.author} Aktuell gibt es folgende Songs: \ntx!play PikaSong`)
-            const connection =  message.member.voiceChannel.join();
-            if(args[0] == "PikaSong") {
-                const dispatcher = playFile('Toxbot/PikaSong.mp3');
-                message.channel.send("Ich spiele nun folgenden Song: \n`PikaSong`")
-            }
-        }      
-
-
-        
-
-      //Say-Command
-
-        if(command == "say") {
-            if(message.author.id == BotSettings.OwnerID) { 
-                var Say = args.join(" ") 
-                if(Say) {
-                    message.channel.send(Say) 
-                } else { 
-                    message.channel.send(`Was soll ich bitte sagen? ${message.author}`)
-                }
-            } else { 
-                message.channel.send(`Nur der Bot-Owner kann diesen Command nutzen. ${message.author}`)
-
-            }
-            message.delete();
-        }
-
-
-
-
-
-
-
-    //Kick
-    if(command === "kick") {
-
-        if(!message.member.hasPermission("KICK_MEMBERS") )
-          return message.reply("Sorry, du hast keine Rechte um diesen Befehl auszuführen");
-
-        let member = message.mentions.members.first() || message.guild.members.get(args[0]);
-
-        if(!member)
-
-          return message.reply(` Bitte gib ein Mitglied an, das sich auf dem Server befindet.`);
-
-        if(!member.kickable) 
-
-          return message.reply("Dieses Mitglied kann ich nicht kicken, tut mir leid.");
-
-        let reason = args.slice(1).join(' ');
-
-        if(!reason) reason = `${message.author} Bitte gib einen Grund an!`;
-
-        if(member.user.id == BotSettings.OwnerID) return message.channel.send(`Der Bot-Owner kann **nicht** gekickt werden!`)
-
-        await member.kick(reason)
-
-        message.reply(`${member.user.tag} wurde wegen ${reason} vom Server gekickt`);
-
-      }
-
-      //Bann
-      if(command === "ban") {
-
-        if(!message.member.hasPermission("BAN_MEMBERS") )
-          return message.reply("Sorry, du hast keine Rechte um diesen Befehl auszuführen");
-    
-        let member = message.mentions.members.first() || message.guild.members.get(args[0]);
-
-        if(!member)
-
-          return message.reply(` Bitte gib ein Mitglied an, das sich auf dem Server befindet.`);
-
-        if(!member.bannable) 
-
-          return message.reply("Dieses Mitglied kann ich nicht bannen, tut mir leid.");
-    
-
-        let reason = args.slice(1).join(' ');
-
-
-        if(!reason) reason = `${message.author} Bitte gib einen Grund an!`;
-
-        if(member.user.id == BotSettings.OwnerID) return message.channel.send(`Der Bot-Owner kann **nicht** gebannt werden!`)
-
-        await member.ban(reason)
-    
-        message.reply(`${member.user.tag} wurde wegen ${reason} vom Server gebannt`);
-
-      }  
 
 
 
@@ -540,8 +343,7 @@ bot.on("ready", async () => {
 
         }   
 
-
-
+    
         if(message.content ==`${BotSettings.prefix}Nachrichten`) {
             var embed = new Discord.RichEmbed()
             .setColor(message.member.highestRole.color)
@@ -940,6 +742,13 @@ bot.on("ready", async () => {
             message.channel.send(`${message.author} Ich habe dir die Weiblich Rolle entfernt`)
         }
 
+
+
+        if(message.content ==`${BotSettings.prefix}mute ${mention}`) {
+            mention.user.addRole(`408933646612037632`)
+            message.channel.send(`${mention.user.username} wurde gemutet`)
+        }
+
         //Wichtige Befehle
         if(message.content ==`${BotSettings.prefix}Rollen`) { 
 
@@ -957,7 +766,204 @@ bot.on("ready", async () => {
 
         }
 
-            
+        //Userinfo
+        if(message.content ==`${BotSettings.prefix}Userinfo`) {
+
+        var embed = new Discord.RichEmbed()
+
+        .setColor(message.member.highestRole.color)
+        .setTimestamp()
+        .setTitle(` Userinfo von ${message.author.username}`)
+        .addField(`ID`,`${message.author.id}`,true)
+        .addField(`Name`, `${message.author.username}`)
+
+        if(message.author.username != message.member.displayName) {
+            embed.addField(`Nickname`, `${message.member.displayName}`)
+        } 
+
+        if(message.author.username == message.member.displayName) {
+            embed.addField(`Nickname`, `-`)
+
+        }
+
+        embed.addField(`Rollen`,`${message.member.roles.map(roles => roles).splice(1).join(", ")}`)
+
+        embed.addField("Account erstellt am", `${message.member.user.createdAt.toString().split(" ")[2]} ${message.member.user.createdAt.toString().split(" ")[1]} ${message.member.user.createdAt.toString().split(" ")[3]}`, false) 
+
+          embed.addField("Server beigtreten am", `${message.member.joinedAt.toString().split(" ")[2]} ${message.member.joinedAt.toString().split(" ")[1]} ${message.member.joinedAt.toString().split(" ")[3]}`, false) 
+
+        .setFooter(EmbedFooter,FooterLogo)
+        .setThumbnail(`${message.author.avatarURL}`)
+
+        message.channel.send(embed)
+
+    }
+
+
+
+        if(message.content ==`${BotSettings.prefix}Userinfo ${mention}`) {   
+
+        var embed = new Discord.RichEmbed()
+
+        .setColor(mention.highestRole.color)
+        .setTimestamp()
+        .setTitle(` Userinfo von ${mention.user.username}`)
+        .addField(`ID`,`${mention.id}`,true)
+        .addField(`Name`, `${mention.user.username}`)
+
+        if(mention.user.username != mention.displayName) {
+            embed.addField(`Nickname`, `${mention.displayName}`)
+
+        }
+
+        if(mention.user.username == mention.displayName) {
+            embed.addField(`Nickname`, `-`)
+
+        }
+
+        embed.addField(`Rollen`,`${mention.roles.map(roles => roles).splice(1).join(", ")}`)
+
+        embed.addField("Account erstellt am", `${mention.user.createdAt.toString().split(" ")[2]} ${mention.user.createdAt.toString().split(" ")[1]} ${mention.user.createdAt.toString().split(" ")[3]}`, false) 
+
+         embed.addField("Server beigtreten am", `${mention.joinedAt.toString().split(" ")[2]} ${mention.joinedAt.toString().split(" ")[1]} ${mention.joinedAt.toString().split(" ")[3]}`, false) 
+
+        .setFooter(EmbedFooter,FooterLogo)
+        .setThumbnail(`${mention.user.avatarURL}`)
+
+
+        message.channel.send(embed)
+
+    }
+
+
+        //Clear
+        if(command === "clear") {
+       
+        if(!message.member.hasPermission("MANAGE_MESSAGES")) 
+
+            return message.reply("Sorry, du hast keine Rechte um diesen Befehl auszuführen");
+
+        const deleteCount = parseInt(args[0], 10);
+
+        if(!deleteCount || deleteCount < 2 || deleteCount > 100)
+
+          return message.reply("Bitte gib eine Zahl zwischen 2 und 100 an.");
+
+        const fetched = await message.channel.fetchMessages({limit: deleteCount});
+
+        message.channel.bulkDelete(fetched)
+
+          .catch(error => message.reply(`Konnte Nachrichten nicht löschen wegen: ${error}`));
+
+      } 
+
+
+        //Musik Feature
+        if(message.content ==`${BotSettings.prefix}connect`) {
+        if(message.member.voiceChannel) {
+            const connection = await message.member.voiceChannel.join();
+          } else {
+            message.reply('Du musst zuerst einem Voice Channel joinen!');
+          }
+        }
+        if(message.content ==`${BotSettings.prefix}disconnect`) {
+                const connection = await message.member.voiceChannel.leave();
+              } 
+
+
+
+        if(message.content ==`${BotSettings.prefix}play`) {
+            if(!args[0]) return message.channel.send(`${message.author} Aktuell gibt es folgende Songs: \ntx!play PikaSong`)
+            const connection =  message.member.voiceChannel.join();
+            if(args[0] == "PikaSong") {
+                const dispatcher = playFile('Toxbot/PikaSong.mp3');
+                message.channel.send("Ich spiele nun folgenden Song: \n`PikaSong`")
+            }
+        }      
+
+
+        
+
+        //Say-Command
+
+        if(command == "say") {
+            if(message.author.id == BotSettings.OwnerID) { 
+                var Say = args.join(" ") 
+                if(Say) {
+                    message.channel.send(Say) 
+                } else { 
+                    message.channel.send(`Was soll ich bitte sagen? ${message.author}`)
+                }
+            } else { 
+                message.channel.send(`Nur der Bot-Owner kann diesen Command nutzen. ${message.author}`)
+
+            }
+            message.delete();
+        }
+
+
+
+
+
+
+
+        //Kick
+        if(command === "kick") {
+
+        if(!message.member.hasPermission("KICK_MEMBERS") )
+          return message.reply("Sorry, du hast keine Rechte um diesen Befehl auszuführen");
+
+        let member = message.mentions.members.first() || message.guild.members.get(args[0]);
+
+        if(!member)
+
+          return message.reply(` Bitte gib ein Mitglied an, das sich auf dem Server befindet.`);
+
+        if(!member.kickable) 
+
+          return message.reply("Dieses Mitglied kann ich nicht kicken, tut mir leid.");
+
+        let reason = args.slice(1).join(' ');
+
+        if(!reason) reason = `${message.author} Bitte gib einen Grund an!`;
+
+        if(member.user.id == BotSettings.OwnerID) return message.channel.send(`Der Bot-Owner kann **nicht** gekickt werden!`)
+
+        await member.kick(reason)
+
+        message.reply(`${member.user.tag} wurde wegen ${reason} vom Server gekickt`);
+
+      }
+
+        //Bann
+        if(command === "ban") {
+
+        if(!message.member.hasPermission("BAN_MEMBERS") )
+          return message.reply("Sorry, du hast keine Rechte um diesen Befehl auszuführen");
+    
+        let member = message.mentions.members.first() || message.guild.members.get(args[0]);
+
+        if(!member)
+
+          return message.reply(` Bitte gib ein Mitglied an, das sich auf dem Server befindet.`);
+
+        if(!member.bannable) 
+
+          return message.reply("Dieses Mitglied kann ich nicht bannen, tut mir leid.");
+    
+
+        let reason = args.slice(1).join(' ');
+
+
+        if(!reason) reason = `${message.author} Bitte gib einen Grund an!`;
+
+        if(member.user.id == BotSettings.OwnerID) return message.channel.send(`Der Bot-Owner kann **nicht** gebannt werden!`)
+
+        await member.ban(reason)
+    
+        message.reply(`${member.user.tag} wurde wegen ${reason} vom Server gebannt`);
+
+      } 
 
         if(message.content ==`${BotSettings.prefix}conbotprofil`) {
 
