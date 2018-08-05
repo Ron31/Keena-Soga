@@ -17,7 +17,7 @@ bot.on("ready", async () => {
 
 
     console.log(`\nBot ist online.\nName + Tag: ${bot.user.username}#${bot.user.discriminator}\nPrefix: ${BotSettings.prefix}`)
-    bot.user.setStatus("dnd")//online, idle, dnd, invisible
+    bot.user.setStatus("online")//online, idle, dnd, invisible
     bot.user.setActivity(`${BotSettings.prefix}help | Version: 1.1 | ${bot.guilds.size} Server!`, {
         //Solltest du type: STREAMING nutzen, dann musst du bei url: "", nen Twitch-Kanal-Link angeben.
         type: "PLAYING" //PLAYING, STREAMING, LISTENING, WATCHING
@@ -26,8 +26,6 @@ bot.on("ready", async () => {
     // bot.user.setUsername("Toxbot")
     // bot.user.setAvatar("")
 });
-
-
 
 
 
@@ -131,7 +129,7 @@ bot.on("ready", async () => {
             .addField(`${BotSettings.prefix}botinfo`,"Gibt euch einige Informationen über den Bot")
             .addField(`${BotSettings.prefix}Newtox`,`Hier erfahrt ihr ein paar Informationen über den Bot-Owner`,false)
             .addField(`${BotSettings.prefix}Userinfo`,`Gibt dir eineige Informationen zu deinem Account. \nDu kannst dies auch bei anderen sehen, dazu einfach ${BotSettings.prefix}Userinfo **(Erwähnung)** schreiben.`)
-            .addField(`${BotSettings.prefix}Team`,"Gibt dir Informationen über die aktuellen Teammitglieder")
+            // .addField(`${BotSettings.prefix}Team`,"Gibt dir Informationen über die aktuellen Teammitglieder")
             .addField(`${BotSettings.prefix}Teamhelp`,"Zeigt ein paar Moderations Befehle \n (Nur für Teammitglieder)")
             .addField(`${BotSettings.prefix}conbotprofil`,"Zeigt dir hilfreiche Befehle zu deinem eigenen Profil")
             .addField(`${BotSettings.prefix}Fun`, "Zeigt dir ein bisschen Quatch den man mit dem Bot anstellen kann")
@@ -270,6 +268,34 @@ bot.on("ready", async () => {
 }
 
 
+    //Emoji-Search
+    if(command == "emojiSearch") {
+
+        if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("MANAGE_EMOJIS")) {
+    
+            var Emote = args.join (" ")
+    
+            if(Emote) {
+    
+                if(message.guild.emojis.find("name",Emote)) {
+    
+                    message.channel.send(`Hier ist der Emoji **${Emote}** als Datei. ${message.guild.emojis.find("name",Emote).url} ${message.author}`)
+    
+                } else {
+                    message.channel.send(`${message.author} Das ist kein Emoji, der auf dem Server existiert.`)
+                }
+    
+            } else {
+                message.channel.send(`${message.author} Bitte gib einen verfügbaren Emoji an.`)
+            }
+    
+        } else {
+            message.channel.send(`Nur der Bot-Owner oder eine Person mit **Emojis Verwalten** Rechten kann diesen Command nutzen. ${message.author}`)
+        }
+        return
+    }
+
+
          
 
       //Rollenfarbe 
@@ -360,7 +386,8 @@ bot.on("ready", async () => {
             .setDescription(`**${mention}** hat bis jetzt **${profile[mention.id] .Nachricht}** Nachrichten versendet.`)
 
             message.channel.send(embed)
-        } 
+        }
+        
 
 
 
@@ -639,8 +666,8 @@ bot.on("ready", async () => {
 
 
         if(message.content ==`${BotSettings.prefix}MuteChannelremove`) {
-            if(message.guild.id!== ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
-            message.member.removeRole(`407089763137486859`)
+            if(message.guild.id!== BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+              message.member.removeRole(`407089763137486859`)
               message.channel.send(`${message.author} Ich habe dir die Mute Channel Rolle entfernt`)
         }
 
@@ -688,7 +715,6 @@ bot.on("ready", async () => {
 
 
         if(message.content ==`${BotSettings.prefix}Minecraftremove`) {
-
             if(message.guild.id!== BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
             message.member.removeRole(`421711163873820674`)
             message.channel.send(`${message.author} Ich habe dir die Minecraft Rolle entfernt`)
@@ -745,7 +771,7 @@ bot.on("ready", async () => {
 
 
         if(message.content ==`${BotSettings.prefix}mute ${mention}`) {
-            mention.user.addRole(`408933646612037632`)
+            mention.addRole(`408933646612037632`)
             message.channel.send(`${mention.user.username} wurde gemutet`)
         }
 
@@ -765,6 +791,26 @@ bot.on("ready", async () => {
             message.channel.send(embed)
 
         }
+
+        // //Serverinfo
+        // if(message.content ==`${BotSettings.prefix}Serverinfo`) {
+
+        //     var embed = new Discord.RichEmbed()
+        //     .setTitle(`Server-Info von ${message.guild.name}`)
+        //     .addField(`ID`,`${message.guild.id}`,true)
+        //     .addField(`Eigentümer`,`${message.guild.owner}`,true)
+        //     .addField(`Verification Level`,`${message.guild.verificationLevel}`,true)
+        //     .addField(`Mitglieder`,`${message.guild.memberCount}`,true)
+        //     .addField(`Text-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "text").size}`)
+        //     .addField(`Sprach-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "voice").size}`)
+        //     .addField(`Rollen`, `${message.guild.roles.map(role => role.toString()).join(", ")}`)
+        //     .addField(`Server erstellt am`,`${message.guild.createdAt.toString().split(" ")[2]} ${message.guild.createdAt.toString().split(" ")[1]} ${message.guild.createdAt.toString().split(" ")[3]}`, true)
+        //     .setThumbnail(`${message.guild.iconURL}`)
+
+        //     message.channel.send(embed)
+        // }
+
+
 
         //Userinfo
         if(message.content ==`${BotSettings.prefix}Userinfo`) {
@@ -903,7 +949,7 @@ bot.on("ready", async () => {
 
 
 
-
+        
 
 
 
@@ -989,6 +1035,7 @@ bot.on("ready", async () => {
             .addField(`${BotSettings.prefix}support`,"Gibt dir die Support Rolle, \nWomit andere Mitglieder euch markieren können. \nIhr könnt euch die Rolle auch wieder entfernen lassen, dazu einfach `tx!supportremove` eingeben")
             .addField(`${BotSettings.prefix}roleID`,"Gibt dir die ID einer bestimmten Rolle")
             .addField(`${BotSettings.prefix}emojiID`,"Gibt dir die ID eines bestimmten Emoji")
+            .addField(`${BotSettings.prefix}emojiSearch`,"Gibt dir einen bestimmten Emoji als Datei.")
             .addField(`${BotSettings.prefix}opgiverole`,"Gibt euch eine Bestimmte Rolle")
             .addField(`${BotSettings.prefix}opremoverole`,"Entfernt euch eine Bestimmte Rolle")
             .addField(`${BotSettings.prefix}rolecolor`,"Gibt euch den Farbencode einer Bestimmten Rolle")
@@ -1028,26 +1075,27 @@ bot.on("ready", async () => {
 
 
 
-        if(message.content == `${BotSettings.prefix}Team`) {
+        // if(message.content == `${BotSettings.prefix}Team`) {
 
-            if(message.guild.id!= BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+        //     if(message.guild.id!= BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
 
-            var embed = new Discord.RichEmbed()
-            .setColor("#bb1700")
-            .setTimestamp()
-            .setFooter(EmbedFooter, FooterLogo)
-            .setTitle("Hier seht ihr alle Teammitglieder", true)
-            .addField("Owner","<@402483602094555138>", false )
-            .addField("Admins","*Aktuell gibt es keine Admins*", false)
-            .addField("Moderatoren", "<@162149564101427200> \n<@281440097855995904>", false)
-            .addField("Youtube Moderatoren","*Aktuell gibt es keine Youtube Moderatoren* ",false)
-            .addField("Test Moderatoren","*Aktuell gibt es keine Test Moderatoren*", false)
-            .addField("Supporter","*Aktuell gibt es keine Supporter* ", false)
-            .addField("Test Supporter","*Vielleicht ja du ( ͡° ͜ʖ ͡°) , für mehr schaut in <#444501822351212556>* ", false)
+        //     var embed = new Discord.RichEmbed()
+        //     .setColor("#bb1700")
+        //     .setTimestamp()
+        //     .setFooter(EmbedFooter, FooterLogo)
+        //     .setTitle("Hier seht ihr alle Teammitglieder", true)
+        //     .addField("Owner",`${message.guild.members.filter(members => members.roles.has("406951345460084736")).map(members => members).join(", ")}`, false)
+        //     .addField("Admins",`${message.guild.members.filter(members => members.roles.has("406951441182359553")).map(members => members).join(", ")}`, false)
+        //     .addField("Moderatoren",`${message.guild.members.filter(members => members.roles.has("406951586326118420")).map(members => members).join(", ")}`, false)
+        //     .addField("Youtube Moderatoren",`${message.guild.members.filter(members => members.roles.has("454282390999793665")).map(members => members).join(", ")}`, false)
+        //     .addField("Test Moderatoren",`${message.guild.members.filter(members => members.roles.has("409338551990353923")).map(members => members).join(", ")}`, false)
+        //     .addField("Supporter",`${message.guild.members.filter(members => members.roles.has("406951724612321290")).map(members => members).join(", ")}`, false)
+        //     .addField("Test Supporter","*Vielleicht ja du ( ͡° ͜ʖ ͡°) , für mehr schaut in <#444501822351212556>* ", false)
 
 
-            message.channel.send(embed)
-        }
+        //     message.channel.send(embed)
+        // }
+        
 
 
 
