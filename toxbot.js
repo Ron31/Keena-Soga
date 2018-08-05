@@ -129,7 +129,7 @@ bot.on("ready", async () => {
             .addField(`${BotSettings.prefix}botinfo`,"Gibt euch einige Informationen über den Bot")
             .addField(`${BotSettings.prefix}Newtox`,`Hier erfahrt ihr ein paar Informationen über den Bot-Owner`,false)
             .addField(`${BotSettings.prefix}Userinfo`,`Gibt dir eineige Informationen zu deinem Account. \nDu kannst dies auch bei anderen sehen, dazu einfach ${BotSettings.prefix}Userinfo **(Erwähnung)** schreiben.`)
-            // .addField(`${BotSettings.prefix}Team`,"Gibt dir Informationen über die aktuellen Teammitglieder")
+            .addField(`${BotSettings.prefix}Team`,"Gibt dir Informationen über die aktuellen Teammitglieder")
             .addField(`${BotSettings.prefix}Teamhelp`,"Zeigt ein paar Moderations Befehle \n (Nur für Teammitglieder)")
             .addField(`${BotSettings.prefix}conbotprofil`,"Zeigt dir hilfreiche Befehle zu deinem eigenen Profil")
             .addField(`${BotSettings.prefix}Fun`, "Zeigt dir ein bisschen Quatch den man mit dem Bot anstellen kann")
