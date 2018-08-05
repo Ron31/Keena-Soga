@@ -1075,27 +1075,26 @@ bot.on("ready", async () => {
 
 
 
-        // if(message.content == `${BotSettings.prefix}Team`) {
+        if(message.content == `${BotSettings.prefix}Team`) {
 
-        //     if(message.guild.id!= BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+            if(message.guild.id!= BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
 
-        //     var embed = new Discord.RichEmbed()
-        //     .setColor("#bb1700")
-        //     .setTimestamp()
-        //     .setFooter(EmbedFooter, FooterLogo)
-        //     .setTitle("Hier seht ihr alle Teammitglieder", true)
-        //     .addField("Owner",`${message.guild.members.filter(members => members.roles.has("406951345460084736")).map(members => members).join(", ")}`, false)
-        //     .addField("Admins",`${message.guild.members.filter(members => members.roles.has("406951441182359553")).map(members => members).join(", ")}`, false)
-        //     .addField("Moderatoren",`${message.guild.members.filter(members => members.roles.has("406951586326118420")).map(members => members).join(", ")}`, false)
-        //     .addField("Youtube Moderatoren",`${message.guild.members.filter(members => members.roles.has("454282390999793665")).map(members => members).join(", ")}`, false)
-        //     .addField("Test Moderatoren",`${message.guild.members.filter(members => members.roles.has("409338551990353923")).map(members => members).join(", ")}`, false)
-        //     .addField("Supporter",`${message.guild.members.filter(members => members.roles.has("406951724612321290")).map(members => members).join(", ")}`, false)
-        //     .addField("Test Supporter","*Vielleicht ja du ( ͡° ͜ʖ ͡°) , für mehr schaut in <#444501822351212556>* ", false)
+            var embed = new Discord.RichEmbed()
+            .setColor("#bb1700")
+            .setTimestamp()
+            .setFooter(EmbedFooter, FooterLogo)
+            .setTitle("Hier seht ihr alle Teammitglieder", true)
+            .addField("Owner",`${message.guild.members.filter(members => members.roles.has("406951345460084736")).map(members => members).join(", ") || `*Aktuell gibt es keinen Owner*`}`, false)
+            .addField("Admins",`${message.guild.members.filter(members => members.roles.has("406951441182359553")).map(members => members).join(", ") || `*Aktuell gibt es keine Admins*`}`, false)
+            .addField("Moderatoren",`${message.guild.members.filter(members => members.roles.has("406951586326118420")).map(members => members).join(", ") || `*Aktuell gibt es keine Moderatoren*`}`, false)
+            .addField("Youtube Moderatoren",`${message.guild.members.filter(members => members.roles.has("454282390999793665")).map(members => members).join(", ") || `*Aktuell gibt es keine Youtube Moderatoren*`}`, false)
+            .addField("Test Moderatoren",`${message.guild.members.filter(members => members.roles.has("409338551990353923")).map(members => members).join(", ") || `*Aktuell gibt es keine Test Moderatoren*`}`, false)
+            .addField("Supporter",`${message.guild.members.filter(members => members.roles.has("406951724612321290")).map(members => members).join(", ") || `*Aktuell gibt es keine Supporter*`}`, false)
+            .addField("Test Supporter",`${message.guild.members.filter(members => members.roles.has("409019143166099460")).map(members => members).join(", ") || `*Aktuell gibt es keine Test Supporter*, für mehr schau in <#444501822351212556> `}`, false)
 
 
-        //     message.channel.send(embed)
-        // }
-        
+            message.channel.send(embed)
+        }
 
 
 
