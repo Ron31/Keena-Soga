@@ -65,7 +65,8 @@ bot.on("ready", async () => {
         msg = message.content.toLowerCase(),
         mention = message.mentions.members.first()
         FooterLogo = "https://cdn.discordapp.com/attachments/406957187869442048/467368016250667018/MAIN.png"
-        EmbedFooter = "Bot des Newtox - Community Servers | V1.1"
+        EmbedFooter = `Bot des Newtox - Community Servers | V1.1`
+        HelpFooter = `Schreibe ${BotSettings.prefix}help <command> für mehr Informationen über einen Command.`
 
         
 
@@ -135,7 +136,7 @@ bot.on("ready", async () => {
             .addField(`${BotSettings.prefix}Fun`, "Zeigt dir ein bisschen Quatch den man mit dem Bot anstellen kann")
             .addField(`${BotSettings.prefix}invite`,"Gibt dir eine Einladung zu dem Server von Newtox, \n**teilen ist erlaubt :P**")
             .addField(`${BotSettings.prefix}botinvite`,"Gibt euch einen Link womit ihr den Bot auf euren Server einladen könnt.",false)
-            .setThumbnail("https://cdn.discordapp.com/attachments/451007157933047829/456150799316287499/AskForHelp_Logo_2.png")
+            .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/476098810460766229/help2.png")
             message.channel.send(embed)
         }
 
@@ -171,6 +172,15 @@ bot.on("ready", async () => {
 
         
 
+    }
+
+    //Help-opgiverole
+    if(message.content ==`${BotSettings.prefix}help opgiverole`) {
+        var embed = new Discord.RichEmbed()
+        .setColor("#819bff")
+        .addField(`Verwendung`,"`tx!opgiverole [Rolle]`")
+
+        message.channel.send(embed)
     }
 
 
@@ -210,6 +220,15 @@ bot.on("ready", async () => {
         
     }
 
+    //Help-opremoverole
+    if(message.content ==`${BotSettings.prefix}help opremoverole`) {
+        var embed = new Discord.RichEmbed()
+        .setColor("#819bff")
+        .addField(`Verwendung`,"`tx!opremoverole [Rolle]`")
+
+        message.channel.send(embed)
+    }
+
 
 
         //Rollen-ID
@@ -237,6 +256,15 @@ bot.on("ready", async () => {
             message.channel.send(`Nur der Bot-Owner oder eine Person mit **Rollen Verwalten** Rechten kann diesen Command nutzen. ${message.author}`)
         }
         return
+    }
+
+    //Help-roleID
+    if(message.content ==`${BotSettings.prefix}help roleID`) {
+        var embed = new Discord.RichEmbed()
+        .setColor("#819bff")
+        .addField(`Verwendung`,"`tx!roleID [Rolle]`")
+
+        message.channel.send(embed)
     }
 
           
@@ -267,6 +295,15 @@ bot.on("ready", async () => {
     return
 }
 
+    //Help-EmojiID
+    if(message.content ==`${BotSettings.prefix}help emojiID`) {
+        var embed = new Discord.RichEmbed()
+        .setColor("#819bff")
+        .addField(`Verwendung`,"`tx!emojiID [Emoji]`")
+
+        message.channel.send(embed)
+    }
+
 
     //Emoji-Search
     if(command == "emojiSearch") {
@@ -293,6 +330,15 @@ bot.on("ready", async () => {
             message.channel.send(`Nur der Bot-Owner oder eine Person mit **Emojis Verwalten** Rechten kann diesen Command nutzen. ${message.author}`)
         }
         return
+    }
+
+    //Help-emojiSearch
+    if(message.content ==`${BotSettings.prefix}help emojiSearch`) {
+        var embed = new Discord.RichEmbed()
+        .setColor("#819bff")
+        .addField(`Verwendung`,"`tx!emojiSearch [Emoji]`")
+
+        message.channel.send(embed)
     }
 
 
@@ -324,6 +370,15 @@ bot.on("ready", async () => {
         return
     }
 
+    //Help-roleedit
+    if(message.content ==`${BotSettings.prefix}help roleedit`) {
+        var embed = new Discord.RichEmbed()
+        .setColor("#819bff")
+        .addField(`Verwendung`,"`tx!rolecolor [Rolle] [Farbe]`")
+
+        message.channel.send(embed)
+    }
+
     //Rollen-Edit
     if(command.toLowerCase() == `roleedit`) {
         if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("MANAGE_ROLES")) {
@@ -345,6 +400,15 @@ bot.on("ready", async () => {
          message.channel.send(`Nur der Bot-Owner oder eine Person mit **Rollen Verwalten** Rechten kann diesen Command nutzen. ${message.author}`)
     }
         return
+    }
+
+    //Help-roleedit
+    if(message.content ==`${BotSettings.prefix}help roleedit`) {
+        var embed = new Discord.RichEmbed()
+        .setColor("#819bff")
+        .addField(`Verwendung`,"`tx!roleedit [Rolle] [Farbe]`")
+
+        message.channel.send(embed)
     }
   
         
@@ -370,7 +434,7 @@ bot.on("ready", async () => {
         }   
 
     
-        if(message.content ==`${BotSettings.prefix}Nachrichten`) {
+        if(message.content ==`${BotSettings.prefix}Nachrichten`) {            
             var embed = new Discord.RichEmbed()
             .setColor(message.member.highestRole.color)
             .setDescription(`${message.author} Du hast bis jetzt **${profile[message.author.id] .Nachricht}** Nachrichten versendet.`)
@@ -819,8 +883,7 @@ bot.on("ready", async () => {
 
         .setColor(message.member.highestRole.color)
         .setTimestamp()
-        .setTitle(` Userinfo von ${message.author.username}`)
-        .addField(`ID`,`${message.author.id}`,true)
+        .setTitle(`Userinfo von ${message.author.username}`)
         .addField(`Name`, `${message.author.username}`)
 
         if(message.author.username != message.member.displayName) {
@@ -831,6 +894,8 @@ bot.on("ready", async () => {
             embed.addField(`Nickname`, `-`)
 
         }
+
+        embed.addField(`ID`,`${message.author.id}`,true)
 
         embed.addField(`Rollen`,`${message.member.roles.map(roles => roles).splice(1).join(", ")}`)
 
@@ -866,6 +931,7 @@ bot.on("ready", async () => {
             embed.addField(`Nickname`, `-`)
 
         }
+        
 
         embed.addField(`Rollen`,`${mention.roles.map(roles => roles).splice(1).join(", ")}`)
 
@@ -902,6 +968,16 @@ bot.on("ready", async () => {
           .catch(error => message.reply(`Konnte Nachrichten nicht löschen wegen: ${error}`));
 
       } 
+
+      //Help-clear
+        if(message.content ==`${BotSettings.prefix}help clear`) {
+            
+        var embed = new Discord.RichEmbed()
+        .setColor("#819bff")
+        .addField(`Verwendung`,"`tx!clear [Zahl]`")
+
+        message.channel.send(embed)
+    }
 
 
         //Musik Feature
@@ -981,6 +1057,15 @@ bot.on("ready", async () => {
 
       }
 
+        //Help-Kick
+        if(message.content ==`${BotSettings.prefix}help kick`) {
+            var embed = new Discord.RichEmbed()
+            .setColor("#819bff")
+            .addField(`Verwendung`,"`tx!kick [Mitglied] [Grund]`")
+
+            message.channel.send(embed)
+        }
+
         //Bann
         if(command === "ban") {
 
@@ -1021,14 +1106,22 @@ bot.on("ready", async () => {
 
         }
 
+        //Help-ban
+        if(message.content ==`${BotSettings.prefix}help ban`) {
+            var embed = new Discord.RichEmbed()
+            .setColor("#819bff")
+            .addField(`Verwendung`,"`tx!ban [Mitglied] [Grund]`")
+
+            message.channel.send(embed)
+        }
+
 
 
         if(message.content ==`${BotSettings.prefix}Teamhelp`) { 
 
             var embed = new Discord.RichEmbed()
             .setColor("#ff9000")
-            .setTimestamp()
-            .setFooter(EmbedFooter, FooterLogo)
+            .setFooter(HelpFooter, FooterLogo)
             .setTitle("Hier seht ihr einige Moderations Befehle",)
             .addField(`${BotSettings.prefix}kick`, "Kickt den markierten Nutzer")
             .addField(`${BotSettings.prefix}ban`,"Bannt den markierten Nutzer")
@@ -1207,8 +1300,14 @@ bot.on("ready", async () => {
             message.channel.send(`Ihr wollt den Bot auf eurem Server haben? \nNutzt diesen Link: \nhttps://discordapp.com/api/oauth2/authorize?client_id=463336117723201546&permissions=8&scope=bot`)
         }
 
-                  
+        if(message.content ==`${bot.user}`) {
+                var embed = new Discord.RichEmbed()
+                .setColor("#819bff")
+                .setImage("https://cdn.discordapp.com/attachments/406957187869442048/476102813705830404/ping.jpg")
 
+                message.channel.send(embed)
+        }
+ 
     }
 
 
