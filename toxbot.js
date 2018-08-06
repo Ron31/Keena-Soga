@@ -919,7 +919,6 @@ bot.on("ready", async () => {
         .setColor(mention.highestRole.color)
         .setTimestamp()
         .setTitle(` Userinfo von ${mention.user.username}`)
-        .addField(`ID`,`${mention.id}`,true)
         .addField(`Name`, `${mention.user.username}`)
 
         if(mention.user.username != mention.displayName) {
@@ -932,7 +931,8 @@ bot.on("ready", async () => {
 
         }
         
-
+        embed.addField(`ID`,`${mention.id}`,true)
+              
         embed.addField(`Rollen`,`${mention.roles.map(roles => roles).splice(1).join(", ")}`)
 
         embed.addField("Account erstellt am", `${mention.user.createdAt.toString().split(" ")[2]} ${mention.user.createdAt.toString().split(" ")[1]} ${mention.user.createdAt.toString().split(" ")[3]}`, false) 
