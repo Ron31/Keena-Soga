@@ -19,7 +19,6 @@ bot.on("ready", async () => {
     console.log(`\nBot ist online.\nName + Tag: ${bot.user.username}#${bot.user.discriminator}\nPrefix: ${BotSettings.prefix}`)
     bot.user.setStatus("online")//online, idle, dnd, invisible
     bot.user.setActivity(`${BotSettings.prefix}help | Version: 1.1 | ${bot.guilds.size} Server!`, {
-        //Solltest du type: STREAMING nutzen, dann musst du bei url: "", nen Twitch-Kanal-Link angeben.
         type: "PLAYING" //PLAYING, STREAMING, LISTENING, WATCHING
     })
     //Name + Avatar
@@ -55,6 +54,7 @@ bot.on("ready", async () => {
     bot.on("message", async message => { })
 
 
+
     bot.on("message", async message => {
 
 
@@ -76,6 +76,7 @@ bot.on("ready", async () => {
     let GlumandaHi = message.guild.emojis.find("name", "Glumanda_Hi")
     let partyparrot = message.guild.emojis.find("name", "party_parrot") 
     let Instagram = message.guild.emojis.find("name","instagram")
+    let linkowo = message.guild.emojis.find("name","linkowo")
 
 
 
@@ -109,8 +110,7 @@ bot.on("ready", async () => {
     //     return
     // }
 
-    
-
+   
 
 
     //Schutz vor Bots
@@ -121,7 +121,7 @@ bot.on("ready", async () => {
         if(message.content ==`${BotSettings.prefix}help`) { 
             var embed = new Discord.RichEmbed() 
 
-            .setColor("#71ec07")
+            .setColor(message.guild.members.get("463336117723201546").highestRole.color)
             .setTimestamp()
             .setFooter(EmbedFooter, FooterLogo)
             .setTitle("Hier siehst du alle Commands des Bots.")
@@ -139,8 +139,6 @@ bot.on("ready", async () => {
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/476098810460766229/help2.png")
             message.channel.send(embed)
         }
-
-
 
         //OPadd
         if(command.toLowerCase() == `opgiverole`) {
@@ -841,6 +839,7 @@ bot.on("ready", async () => {
 
         //Wichtige Befehle
         if(message.content ==`${BotSettings.prefix}Rollen`) { 
+            if(message.guild.id!== BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
 
             var embed = new Discord.RichEmbed()
             .setColor("#3E83A7")
@@ -856,23 +855,23 @@ bot.on("ready", async () => {
 
         }
 
-        // //Serverinfo
-        // if(message.content ==`${BotSettings.prefix}Serverinfo`) {
+        //Serverinfo
+        if(message.content ==`${BotSettings.prefix}Serverinfo`) {
 
-        //     var embed = new Discord.RichEmbed()
-        //     .setTitle(`Server-Info von ${message.guild.name}`)
-        //     .addField(`ID`,`${message.guild.id}`,true)
-        //     .addField(`Eigentümer`,`${message.guild.owner}`,true)
-        //     .addField(`Verification Level`,`${message.guild.verificationLevel}`,true)
-        //     .addField(`Mitglieder`,`${message.guild.memberCount}`,true)
-        //     .addField(`Text-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "text").size}`)
-        //     .addField(`Sprach-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "voice").size}`)
-        //     .addField(`Rollen`, `${message.guild.roles.map(role => role.toString()).join(", ")}`)
-        //     .addField(`Server erstellt am`,`${message.guild.createdAt.toString().split(" ")[2]} ${message.guild.createdAt.toString().split(" ")[1]} ${message.guild.createdAt.toString().split(" ")[3]}`, true)
-        //     .setThumbnail(`${message.guild.iconURL}`)
+            var embed = new Discord.RichEmbed()
+            .setTitle(`Server-Info von ${message.guild.name}`)
+            .addField(`ID`,`${message.guild.id}`,true)
+            .addField(`Eigentümer`,`${message.guild.owner}`,true)
+            .addField(`Verification Level`,`${message.guild.verificationLevel}`,true)
+            .addField(`Mitglieder`,`${message.guild.memberCount}`,true)
+            .addField(`Text-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "text").size}`)
+            .addField(`Sprach-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "voice").size}`)
+            .addField(`Rollen`, `${message.guild.roles.map(role => role).splice(1).join(", ")}`)
+            .addField(`Server erstellt am`,`${message.guild.createdAt.toString().split(" ")[2]} ${message.guild.createdAt.toString().split(" ")[1]} ${message.guild.createdAt.toString().split(" ")[3]}`, true)
+            .setThumbnail(`${message.guild.iconURL}`)
 
-        //     message.channel.send(embed)
-        // }
+            message.channel.send(embed)
+        } 
 
 
 
@@ -932,7 +931,7 @@ bot.on("ready", async () => {
         }
         
         embed.addField(`ID`,`${mention.id}`,true)
-              
+
         embed.addField(`Rollen`,`${mention.roles.map(roles => roles).splice(1).join(", ")}`)
 
         embed.addField("Account erstellt am", `${mention.user.createdAt.toString().split(" ")[2]} ${mention.user.createdAt.toString().split(" ")[1]} ${mention.user.createdAt.toString().split(" ")[3]}`, false) 
@@ -981,14 +980,14 @@ bot.on("ready", async () => {
 
 
         //Musik Feature
-        if(message.content ==`${BotSettings.prefix}connect`) {
+        if(message.content ==`${BotSettings.prefix}join`) {
         if(message.member.voiceChannel) {
             const connection = await message.member.voiceChannel.join();
           } else {
             message.reply('Du musst zuerst einem Voice Channel joinen!');
           }
         }
-        if(message.content ==`${BotSettings.prefix}disconnect`) {
+        if(message.content ==`${BotSettings.prefix}leave`) {
                 const connection = await message.member.voiceChannel.leave();
               } 
 
@@ -1022,11 +1021,7 @@ bot.on("ready", async () => {
             }
             message.delete();
         }
-
-
-
-        
-
+ 
 
 
         //Kick
@@ -1049,7 +1044,7 @@ bot.on("ready", async () => {
 
         if(!reason) reason = `${message.author} Bitte gib einen Grund an!`;
 
-        if(member.user.id == BotSettings.OwnerID) return message.channel.send(`Der Bot-Owner kann **nicht** gekickt werden!`)
+        if(member.user.id == BotSettings.OwnerID) return message.channel.send(`Der Bot-Owner kann nicht gekickt werden!`)
 
         await member.kick(reason)
 
@@ -1088,7 +1083,7 @@ bot.on("ready", async () => {
 
         if(!reason) reason = `${message.author} Bitte gib einen Grund an!`;
 
-        if(member.user.id == BotSettings.OwnerID) return message.channel.send(`Der Bot-Owner kann **nicht** gebannt werden!`)
+        if(member.user.id == BotSettings.OwnerID) return message.channel.send(`Der Bot-Owner kann nicht gebannt werden!`)
 
         await member.ban(reason)
     
@@ -1189,10 +1184,6 @@ bot.on("ready", async () => {
             message.channel.send(embed)
         }
 
-
-
-
-
         
 
         //Fun Befehle
@@ -1266,7 +1257,7 @@ bot.on("ready", async () => {
         if(message.content == `${BotSettings.prefix}binNewtox`) {
         if(message.author.id == "402483602094555138") {
 
-            message.channel.send(`Hey ${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}, mein Meister :3`)
+            message.channel.send(`Hey ${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}, mein Meister ${linkowo}`)
 
         }  else {
             message.channel.send(`${message.author}, was willst du von mir **?!** du bist nicht Newtox qwq`)
@@ -1293,11 +1284,11 @@ bot.on("ready", async () => {
 
 
         if(message.content ==`${BotSettings.prefix}invite`) {
-            message.channel.send(`Hier ist die Einladung zu dem Server von ${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator} \nhttps://discord.gg/tUfNuD5`)
+            message.channel.send(`Hier ist die Einladung zu dem Server von ${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator} **[Meinem Entwickler]** \nhttps://discord.gg/tUfNuD5`)
         }  
 
         if(message.content ==`${BotSettings.prefix}botinvite`) {
-            message.channel.send(`Ihr wollt den Bot auf eurem Server haben? \nNutzt diesen Link: \nhttps://discordapp.com/api/oauth2/authorize?client_id=463336117723201546&permissions=8&scope=bot`)
+            message.channel.send(`Ihr wollt mich auf eurem Server haben? \nNutzt diesen Link: \nhttps://discordapp.com/api/oauth2/authorize?client_id=463336117723201546&permissions=8&scope=bot`)
         }
 
         if(message.content ==`${bot.user}`) {
@@ -1307,7 +1298,7 @@ bot.on("ready", async () => {
 
                 message.channel.send(embed)
         }
- 
+
     }
 
 
