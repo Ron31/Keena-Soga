@@ -54,7 +54,6 @@ bot.on("ready", async () => {
     bot.on("message", async message => { })
 
 
-
     bot.on("message", async message => {
 
 
@@ -128,7 +127,6 @@ bot.on("ready", async () => {
             .addField(`${BotSettings.prefix}Rollen`,"Zeig dir alle Rollen die du dir adden kannst.")
             .addField(`${BotSettings.prefix}Nachrichten`,`Zeigt dir die Anzahl der Nachrichten an, die du bis jetzt versendet hast.\nDu kannst dies auch bei anderen sehen, dazu einfach ${BotSettings.prefix}Nachrichten **(Erwähnung)** schreiben.`)
             .addField(`${BotSettings.prefix}botinfo`,"Gibt euch einige Informationen über den Bot")
-            .addField(`${BotSettings.prefix}Newtox`,`Hier erfahrt ihr ein paar Informationen über den Bot-Owner`,false)
             .addField(`${BotSettings.prefix}Userinfo`,`Gibt dir eineige Informationen zu deinem Account. \nDu kannst dies auch bei anderen sehen, dazu einfach ${BotSettings.prefix}Userinfo **(Erwähnung)** schreiben.`)
             .addField(`${BotSettings.prefix}Team`,"Gibt dir Informationen über die aktuellen Teammitglieder")
             .addField(`${BotSettings.prefix}Teamhelp`,"Zeigt ein paar Moderations Befehle \n (Nur für Teammitglieder)")
@@ -368,11 +366,11 @@ bot.on("ready", async () => {
         return
     }
 
-    //Help-roleedit
-    if(message.content ==`${BotSettings.prefix}help roleedit`) {
+    //Help-rolecolor
+    if(message.content ==`${BotSettings.prefix}help rolecolor`) {
         var embed = new Discord.RichEmbed()
         .setColor("#819bff")
-        .addField(`Verwendung`,"`tx!rolecolor [Rolle] [Farbe]`")
+        .addField(`Verwendung`,"tx!rolecolor [Rolle]")
 
         message.channel.send(embed)
     }
@@ -384,7 +382,7 @@ bot.on("ready", async () => {
             if(Number(parseInt(args[1].toString(10), 16)) < 16777215) {
                 if(message.guild.roles.find("name", args[0])) {
                     await message.guild.roles.find("name", args[0]).setColor(`#${args[1].toUpperCase()}`)
-                    message.channel.send(`Die Farbe der Rolle **${args[0]}** wurde zu **0x${args[1]}** geändert. ${message.author}`)
+                    message.channel.send(`Die Farbe der Rolle **${args[0]}** wurde zu **#${args[1]}** geändert. ${message.author}`)
                 } else {
                     message.channel.send(`Diese Rolle ist auf dem Server nicht vorhanden. ${message.author}`)
                 }
@@ -404,7 +402,7 @@ bot.on("ready", async () => {
     if(message.content ==`${BotSettings.prefix}help roleedit`) {
         var embed = new Discord.RichEmbed()
         .setColor("#819bff")
-        .addField(`Verwendung`,"`tx!roleedit [Rolle] [Farbe]`")
+        .addField(`Verwendung`,"tx!roleedit [Rolle] [Farbe]`")
 
         message.channel.send(embed)
     }
@@ -482,29 +480,6 @@ bot.on("ready", async () => {
             message.channel.send(embed)
 
         }
-
-
-        //Newtox
-        if(message.content ==`${BotSettings.prefix}Newtox`) {
-
-            var embed = new Discord.RichEmbed()
-
-            .setColor("#ccf0de")
-            .setTitle("Hier erfahrt ihr ein paar Informationen über den Bot-Owner")
-            .setTimestamp()
-            .addField(`Name`,`Justin`,true)
-            .addField(`Nickname`,`${message.guild.member("402483602094555138").user.username}`,false)
-            .addField(`Alter`,`Justin ist 14 Jahre alt.`,false)
-            .addField(`Wann hat Newtox mit dem programmieren angefangen?`,`Newtox hat mit dem programmieren am **20 März 2018** angefangen.`,false)
-            .setFooter(EmbedFooter,FooterLogo)
-            .setThumbnail(`${message.guild.members.get("402483602094555138").user.avatarURL}`)
-
-
-            message.channel.send(embed)
-
-        }     
-
-          
 
 
 
@@ -864,14 +839,16 @@ bot.on("ready", async () => {
             .addField(`Eigentümer`,`${message.guild.owner}`,true)
             .addField(`Verification Level`,`${message.guild.verificationLevel}`,true)
             .addField(`Mitglieder`,`${message.guild.memberCount}`,true)
-            .addField(`Text-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "text").size}`)
-            .addField(`Sprach-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "voice").size}`)
+            .addField(`Text-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "text").size}`,true)
+            .addField(`Sprach-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "voice").size}`,true)
             .addField(`Rollen`, `${message.guild.roles.map(role => role).splice(1).join(", ")}`)
             .addField(`Server erstellt am`,`${message.guild.createdAt.toString().split(" ")[2]} ${message.guild.createdAt.toString().split(" ")[1]} ${message.guild.createdAt.toString().split(" ")[3]}`, true)
+            .addField(`Server-Icon`,`${message.guild.iconURL}`,true)
             .setThumbnail(`${message.guild.iconURL}`)
 
             message.channel.send(embed)
-        } 
+
+        }
 
 
 
@@ -907,7 +884,7 @@ bot.on("ready", async () => {
 
         message.channel.send(embed)
 
-    }
+    } 
 
 
 
@@ -1307,4 +1284,4 @@ bot.on("ready", async () => {
 
 
 
-bot.login(process.env.BOT_TOKEN)
+bot.login(process.env.BOT_TOKEN
