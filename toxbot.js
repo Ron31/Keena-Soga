@@ -4,6 +4,14 @@ const Discord = require("discord.js"),
       fs = require("fs"),
      profile = JSON.parse(fs.readFileSync("profil/message.json","utf8"))
 
+     const status_ger = {
+        online: "Online",
+        idle: "Abwesend",
+        dnd: "Bitte nicht stören",
+        offline: "Offline"
+    }
+    
+
 
     
 
@@ -76,6 +84,7 @@ bot.on("ready", async () => {
     let partyparrot = message.guild.emojis.find("name", "party_parrot") 
     let Instagram = message.guild.emojis.find("name","instagram")
     let linkowo = message.guild.emojis.find("name","linkowo")
+    
 
 
 
@@ -446,7 +455,7 @@ bot.on("ready", async () => {
             .setDescription(`**${mention}** hat bis jetzt **${profile[mention.id] .Nachricht}** Nachrichten versendet.`)
 
             message.channel.send(embed)
-        }
+        }  
         
 
 
@@ -859,16 +868,22 @@ bot.on("ready", async () => {
 
         .setColor(message.member.highestRole.color)
         .setTimestamp()
-        .setTitle(`Userinfo von ${message.author.username}`)
+        .setTitle(`Userinfo von ${message.author.username}#${message.author.discriminator}`)
         .addField(`Name`, `${message.author.username}`)
 
         if(message.author.username != message.member.displayName) {
             embed.addField(`Nickname`, `${message.member.displayName}`)
-        } 
-
-        if(message.author.username == message.member.displayName) {
+        } else {
             embed.addField(`Nickname`, `-`)
-
+        }
+      
+        embed.addField(`Status`,`${status_ger[message.author.presence.status]}`)
+        
+        if(message.author.presence.game) {
+            embed.addField(`Aktivität`,`${message.author.presence.game.name}`)
+        }
+        else {
+            embed.addField(`Aktivität`,`-`)
         }
 
         embed.addField(`ID`,`${message.author.id}`,true)
@@ -894,7 +909,7 @@ bot.on("ready", async () => {
 
         .setColor(mention.highestRole.color)
         .setTimestamp()
-        .setTitle(` Userinfo von ${mention.user.username}`)
+        .setTitle(`Userinfo von ${mention.user.username}#${mention.user.discriminator}`)
         .addField(`Name`, `${mention.user.username}`)
 
         if(mention.user.username != mention.displayName) {
@@ -906,7 +921,17 @@ bot.on("ready", async () => {
             embed.addField(`Nickname`, `-`)
 
         }
+
+        embed.addField(`Status`,`${status_ger[mention.user.presence.status]}`)
         
+        if(mention.user.presence.game) {
+            embed.addField(`Aktivität`,`${mention.user.presence.game.name}`)
+        }
+        else {
+            embed.addField(`Aktivität`,`-`)
+        }
+    
+
         embed.addField(`ID`,`${mention.id}`,true)
 
         embed.addField(`Rollen`,`${mention.roles.map(roles => roles).splice(1).join(", ")}`)
@@ -1165,22 +1190,24 @@ bot.on("ready", async () => {
 
         //Fun Befehle
 
-        // //Vote-Test
-        // if(command == "vote") {
-        //     if(message.author.id == BotSettings.OwnerID) { 
-        //         var vote = args.join(" ") 
-        //         if(vote) {
-        //             await message.channel.send(vote) 
-        //             .then(() => message.react(`408349478857211906`))
-        //         } else { 
-        //             message.channel.send(`Was soll ich bitte sagen? ${message.author}`)
-        //         }
-        //     } else { 
-        //         message.channel.send(`Nur der Bot-Owner kann diesen Command nutzen. ${message.author}`)
 
-        //     }
-            
-        // }
+        //Vote-Test
+        if(command == "vote") {
+            if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("ADMINISTRATOR"))  { 
+                var vote = args.join(" ") 
+                if(vote) {
+                    await message.channel.send(vote) 
+                    .then(msg => msg.react("476828079424143365").then(msg2 => msg.react("476828092078227459")))
+
+                } else { 
+                    message.channel.send(`Was für eine Abstimmung soll es sein? ${message.author}`)
+                }
+            } else { 
+                message.channel.send(`Nur eine Person mit Admin Rechten oder der Bot-Owner können diesen Befehl nutzen. ${message.author}`)
+
+            }
+            message.delete();
+        }
 
 
 
@@ -1275,6 +1302,11 @@ bot.on("ready", async () => {
 
                 message.channel.send(embed)
         }
+
+        // if(message.content ==`${BotSettings.prefix}spam`) {
+        //     setInterval(async () => { message.channel.send(`<@${BotSettings.OwnerID}>`) }, 1);
+        // }
+        
 
     }
 
