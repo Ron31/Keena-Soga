@@ -285,15 +285,12 @@ bot.on("ready", async () => {
             .setTitle(`Userinfo von ${mention.user.username}#${mention.user.discriminator}`)
             .addField(`Name`, `${mention.user.username}`)
     
-            if(mention.user.username != mention.displayName) {
+            if(mention.displayName) {
                 embed.addField(`Nickname`, `${mention.displayName}`)
     
-            }
+            } else {
+                  embed.addField(`Nickname`,`-`)
     
-            if(mention.user.username == mention.displayName) {
-                embed.addField(`Nickname`, `-`)
-    
-            }
     
             embed.addField(`Status`,`${status_ger[mention.user.presence.status]}`)
             
