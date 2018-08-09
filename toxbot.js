@@ -353,23 +353,21 @@ bot.on("ready", async () => {
         //Clear
         if(command === "clear") {
        
-            if(!message.member.hasPermission("MANAGE_MESSAGES")) 
+            if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Sorry, du hast keine Rechte um diesen Befehl auszuführen");
     
-                return message.reply("Sorry, du hast keine Rechte um diesen Befehl auszuführen");
+            const deleteCount = parseInt(args[0]);
     
-            const deleteCount = parseInt(args[0], 10);
+            if(!deleteCount || deleteCount < 1 || deleteCount > 100) return message.reply("Bitte gib eine Zahl zwischen 1 und 100 an.");
+             message.delete();
     
-            if(!deleteCount || deleteCount < 1 || deleteCount > 100)
-    
-              return message.reply("Bitte gib eine Zahl zwischen 1 und 100 an.");
-              message.delete();
-    
-            const fetched = await message.channel.fetchMessages({limit: deleteCount +1});
-    
-            message.channel.bulkDelete(fetched).catch(error => message.reply(`Konnte Nachrichten nicht löschen wegen: ${error}`));
-    
-            let msg1 = await message.channel.send(`**${deleteCount}** Nachrichten wurden gelöscht. ${message.author}`)
-            setTimeout(async () => {msg1.delete()}, 5000)
+            try {
+            let deleted = await message.channel.bulkDelete(deleteCount, +1);
+            message.reply(`**${deleted.size}** Nachrichten wurden gelöscht.`).then(m => m.delete(5000));
+                } catch(err) {
+                 message.reply(`Die Nachrichten konnten nicht gelöscht werden. Möglicherweise sind sie älter als zwei Wochen. ${message.author}`).then(m => m.delete(5000));
+            }
+
+            setTimeout(async () => {message.delete()}, 5000)
     
           } 
     
