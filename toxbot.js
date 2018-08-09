@@ -290,6 +290,7 @@ bot.on("ready", async () => {
     
             } else {
                   embed.addField(`Nickname`,`-`)
+            }
     
     
             embed.addField(`Status`,`${status_ger[mention.user.presence.status]}`)
