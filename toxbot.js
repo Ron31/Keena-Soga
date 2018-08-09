@@ -287,7 +287,7 @@ bot.on("ready", async () => {
     
             
             if(mention.user.username != mention.user.displayName) {
-                embed.addField(`Nickname`, `${mention.member.displayName}`)
+                embed.addField(`Nickname`, `${mention.user.displayName}`)
             } else {
                 embed.addField(`Nickname`, `-`)
             }
