@@ -1,0 +1,15 @@
+{
+    "Activitytypes": {
+        "0": "Spielt",
+        "1": "Streamt",
+        "2": "Hört",
+        "3": "Schaut"
+    },
+
+    "status_ger": {
+        "online": "Online",
+        "idle": "Abwesend",
+        "dnd": "Bitte nicht stören",
+        "offline": "Offline"
+    }
+}
