@@ -246,8 +246,8 @@ bot.on("ready", async () => {
     
             .setColor(message.member.highestRole.color)
             .setTimestamp()
-            .setTitle(`Userinfo von ${message.author.username}#${message.author.discriminator}`)
-            .addField(`Name`, `${message.author.username}`)
+            .setTitle(`Userinfo über ${message.author.username}`)
+            .addField(`Name + Tag`, `**${message.author.username}**#${message.author.discriminator}`)
     
             if(message.author.username != message.member.displayName) {
                 embed.addField(`Nickname`, `${message.member.displayName}`)
@@ -259,7 +259,7 @@ bot.on("ready", async () => {
             embed.addField(`Status`,`${Config.status_ger[message.author.presence.status]}`)
             
             if(message.author.presence.game) {
-                embed.addField(`Aktivität`,`${Config.Activitytypes[message.author.presence.game.type]} ${message.author.presence.game.name}`)
+                embed.addField(`Aktivität`,`${Config.Activitytypes[message.author.presence.game.type]} **${message.author.presence.game.name}**`)
             }
             else {
                 embed.addField(`Aktivität`,`-`)
@@ -287,8 +287,8 @@ bot.on("ready", async () => {
     
             .setColor(mention.highestRole.color)
             .setTimestamp()
-            .setTitle(`Userinfo von ${mention.user.username}#${mention.user.discriminator}`)
-            .addField(`Name`, `${mention.user.username}`)
+            .setTitle(`Userinfo über ${mention.user.username}`)
+            .addField(`Name + Tag`, `${mention.user.username}#${mention.user.discriminator}`)
     
             
             if(mention.user.username != mention.displayName) {
@@ -300,7 +300,7 @@ bot.on("ready", async () => {
             embed.addField(`Status`,`${Config.status_ger[mention.user.presence.status]}`)
             
             if(mention.user.presence.game) {
-                embed.addField(`Aktivität`,`${Config.Activitytypes[mention.user.presence.game.type]} ${mention.user.presence.game.name}`)
+                embed.addField(`Aktivität`,`${Config.Activitytypes[mention.user.presence.game.type]} **${mention.user.presence.game.name}**`)
             }
             else {
                 embed.addField(`Aktivität`,`-`)
@@ -362,7 +362,7 @@ bot.on("ready", async () => {
             if(command === "kick") {
     
             if(!message.member.hasPermission("KICK_MEMBERS") )
-              return message.reply(`Sorry, du hast keine Rechte um diesen Befehl auszuführen \nDieser Befehl benötigt die folgenden Server Rechte: **Mitglieder kicken**. ${message.author}`);
+              return message.reply(`Sorry, du hast keine Rechte um diesen Befehl auszuführen \nDieser Befehl benötigt die folgenden Server Rechte: **Mitglieder kicken**.`);
     
             let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     
@@ -400,7 +400,7 @@ bot.on("ready", async () => {
             if(command === "ban") {
     
             if(!message.member.hasPermission("BAN_MEMBERS") )
-              return message.reply(`Sorry, du hast keine Rechte um diesen Befehl auszuführen \nDieser Befehl benötigt die folgenden Server Rechte: **Mitglieder bannen**. ${message.author}`);
+              return message.reply(`Sorry, du hast keine Rechte um diesen Befehl auszuführen \nDieser Befehl benötigt die folgenden Server Rechte: **Mitglieder bannen**.`);
         
             let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     
