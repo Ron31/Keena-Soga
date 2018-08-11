@@ -34,7 +34,7 @@ bot.on("ready", async () => {
     //Goodbye Message
     bot.on("guildMemberRemove", async member => { 
         if(member.guild.id == `406946551538253828`) {
-        bot.channels.get("439880541043425290").send(`${member.user.username}#${member.user.discriminator} hat die ${member.guild.name} verlassen...`)
+        bot.channels.get("439880541043425290").send(`${member.user.username}#${member.user.discriminator} hat den ${member.guild.name} verlassen...`)
         }
     });
     bot.on("message", async message => { }) 
@@ -46,20 +46,20 @@ bot.on("ready", async () => {
     //Welcome Message
     bot.on("guildMemberAdd", async member => { 
         if(member.guild.id == `406946551538253828`) {
-        bot.channels.get("439880541043425290").send(`${member} Willkommen in der ${member.guild.name}! Bitte wirf einen Blick auf die <#406946551538253830> und benimm dich. \nWenn du fragen hast kannst du gerne auf die Mods, Supporter oder auch auf Newtox zugehen. \nEs schadet auch nicht einen blick in das <#427916685413187604> zu werfen ${bot.emojis.find("name","Glumanda_Hi")}`)
+        bot.channels.get("439880541043425290").send(`${member} Willkommen auf dem ${member.guild.name}! Bitte wirf einen Blick auf die <#406946551538253830> und benimm dich. \nWenn du fragen hast kannst du gerne auf die Mods, Supporter oder auch auf Newtox zugehen. \nEs schadet auch nicht einen blick in das <#477222309787205674> zu werfen ${bot.emojis.find("name","Glumanda_Hi")}`)
             member.addRole("406952857917456395")
         }
     });
     bot.on("message", async message => { })
 
-    //Welcome Message Vestely
-    bot.on("guildMemberAdd", async member => { 
-        if(member.guild.id == `476141530596507658`) { 
-        bot.channels.get("476402587021737984").send(`Hallo ${member}, Willkommen in der ${member.guild.name} sei doch so nett und nimm dir die Zeit dich mit unseren <#476355676021719041> vertraut zumachen, damit keine Missverständnisse auftreten. \nDanke :ok_hand:`)
-            member.addRole("476350775728275458")
-        }
-    });
-    bot.on("message", async message => { })
+    // //Welcome Message Vestely
+    // bot.on("guildMemberAdd", async member => { 
+    //     if(member.guild.id == `476141530596507658`) { 
+    //     bot.channels.get("476402587021737984").send(`Hallo ${member}, Willkommen in der ${member.guild.name} sei doch so nett und nimm dir die Zeit dich mit unseren <#476355676021719041> vertraut zumachen, damit keine Missverständnisse auftreten. \nDanke :ok_hand:`)
+    //         member.addRole("476350775728275458")
+    //     }
+    // });
+    // bot.on("message", async message => { })
 
 
     //Welcome Message Xami
@@ -219,7 +219,7 @@ bot.on("ready", async () => {
             .addField("Entwickler:",`**${message.guild.member("402483602094555138").user.username}**#${message.guild.member("402483602094555138").user.discriminator}`, true)
             .addField("Programmiert mit:","Discord.js 11.3.2",false)
             .addField(`Prefix des Bots`,`Der Prefix des Bots ist **${BotSettings.prefix}**`, false)
-            .addField("Erstellungsdatum","Der Bot wurde am **22 März 2018** erstellt!",false)
+            .addField("Erstellungsdatum","Der Bot wurde am **2 Juli 2018** erstellt!",false)
             .setTimestamp()
             .setThumbnail(bot.user.avatarURL)
 
@@ -288,7 +288,7 @@ bot.on("ready", async () => {
             .setColor(mention.highestRole.color)
             .setTimestamp()
             .setTitle(`Userinfo über ${mention.user.username}`)
-            .addField(`Name + Tag`, `${mention.user.username}#${mention.user.discriminator}`)
+            .addField(`Name + Tag`, `**${mention.user.username}**#${mention.user.discriminator}`)
     
             
             if(mention.user.username != mention.displayName) {
@@ -297,10 +297,10 @@ bot.on("ready", async () => {
                 embed.addField(`Nickname`, `-`)
             }
     
-            embed.addField(`Status`,`${Config.status_ger[mention.user.presence.status]}`)
+            embed.addField(`Status`,`${Config.status_ger[mention.presence.status]}`)
             
             if(mention.user.presence.game) {
-                embed.addField(`Aktivität`,`${Config.Activitytypes[mention.user.presence.game.type]} **${mention.user.presence.game.name}**`)
+                embed.addField(`Aktivität`,`${Config.Activitytypes[mention.presence.game.type]} **${mention.presence.game.name}**`)
             }
             else {
                 embed.addField(`Aktivität`,`-`)
