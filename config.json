@@ -11,5 +11,21 @@
         "idle": "Abwesend",
         "dnd": "Bitte nicht stören",
         "offline": "Offline"
+    },
+
+    "Acc_Server": {
+        "Jan": "Januar",
+        "Feb": "Februar",
+        "Mar": "März",
+        "Apr": "April",
+        "May": "Mai",
+        "Jun": "Juni",
+        "Jul": "Juli",
+        "Aug": "August",
+        "Sep": "September",
+        "Okt": "Oktober",
+        "Nov": "November",
+        "Dec": "Dezember"
     }
+
 }
