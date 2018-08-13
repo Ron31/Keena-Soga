@@ -13,7 +13,7 @@
         "offline": "Offline"
     },
 
-    "Acc_Server": {
+    "Date_Name": {
         "Jan": "Januar",
         "Feb": "Februar",
         "Mar": "März",
@@ -26,6 +26,16 @@
         "Okt": "Oktober",
         "Nov": "November",
         "Dec": "Dezember"
+    },
+
+    "Verification_Name": {
+        "0": "Keine",
+        "1": "Niedrig",
+        "2": "Mittelmäßig",
+        "3": "Hard",
+        "4": "Extrem"
+        
     }
+
 
 }
