@@ -18,14 +18,13 @@ bot.on("ready", async () => {
 
     console.log(`\nBot ist online.\nName + Tag: ${bot.user.username}#${bot.user.discriminator}\nPrefix: ${BotSettings.prefix}`)
     bot.user.setStatus("online")//online, idle, dnd, invisible
-    bot.user.setActivity(`${BotSettings.prefix}help | Version: 1.5 | ${bot.guilds.size} Server!`, {
+    bot.user.setActivity(`${BotSettings.prefix}help | Version: 1.5 | ${bot.guilds.size} Server! | ${bot.guilds.memberCount}`, {
         type: "PLAYING" //PLAYING, STREAMING, LISTENING, WATCHING
     })
     //Name + Avatar
     // bot.user.setUsername("Toxbot")
     // bot.user.setAvatar("")
 });
-
 
 
 
@@ -39,7 +38,19 @@ bot.on("ready", async () => {
     });
     bot.on("message", async message => { }) 
 
-
+    // //Welcome Message
+    // bot.on("guildMemberAdd", async member => { 
+    //     if(member.guild.id == `Deine Server ID`) {
+    //     bot.channels.get("Deine Channel ID").send(embed)
+    //     var embed = new Discord.RichEmbed()
+    //     .setColor("Farbe")
+    //     .setTitle("Server Name")
+    //     .addField("Text")
+    //     .addField("Text")
+        
+    // }
+    // });
+    // bot.on("message", async message => { })
 
 
 
@@ -52,26 +63,23 @@ bot.on("ready", async () => {
     });
     bot.on("message", async message => { })
 
-    // //Welcome Message Vestely
-    // bot.on("guildMemberAdd", async member => { 
-    //     if(member.guild.id == `476141530596507658`) { 
-    //     bot.channels.get("476402587021737984").send(`Hallo ${member}, Willkommen in der ${member.guild.name} sei doch so nett und nimm dir die Zeit dich mit unseren <#476355676021719041> vertraut zumachen, damit keine Missverständnisse auftreten. \nDanke :ok_hand:`)
-    //         member.addRole("476350775728275458")
-    //     }
-    // });
-    // bot.on("message", async message => { })
-
-
+    
     //Welcome Message Xami
     bot.on("guildMemberAdd", async member => { 
         if(member.guild.id == `361532938816585730`) { 
-        bot.channels.get("361534773778317312").send(`${member} Willkommen in der ${member.guild.name}! ,Wir wünschen dir hier viel Spaß. Lies dir aber bitte die <#361534673098375169> durch.`)
+        bot.channels.get("478552771734536192").send(`${member} Willkommen in der ${member.guild.name}! ,Wir wünschen dir hier viel Spaß. Lies dir aber bitte die <#361534673098375169> durch.`)
             member.addRole("473485307950530560")
         }
     });
     bot.on("message", async message => { })
 
-
+    //Welcome Message Nindo
+    bot.on("guildMemberAdd", async member => { 
+        if(member.guild.id == `467038040875991050`) {
+        bot.channels.get("467038040875991053").send(`${member} Willkommen auf dem ${member.guild.name}`)
+       }
+    });
+bot.on("message", async message => { })
 
 
     bot.on("message", async message => {
@@ -83,8 +91,6 @@ bot.on("ready", async () => {
         command = args.shift(),
         msg = message.content.toLowerCase(),
         mention = message.mentions.members.first()
-        FooterLogo = "https://cdn.discordapp.com/attachments/406957187869442048/467368016250667018/MAIN.png"
-        EmbedFooter = `Bot des Newtox - Community Servers | V1.3`
         HelpFooter = `Schreibe ${BotSettings.prefix}help <command> für mehr Informationen über einen Command.`
         NewtoxFooter = `${message.guild.member("402483602094555138").user.avatarURL}`
         
@@ -98,9 +104,6 @@ bot.on("ready", async () => {
     let linkowo = message.guild.emojis.find("name","linkowo")
     let twitch = message.guild.emojis.find("name","twitch")
     
-
-
-
 
     //Verbotene Zeichen/Wörter
     if(message.content.includes("卍")) {
@@ -121,6 +124,7 @@ bot.on("ready", async () => {
         return
 
     }
+
 
 
 
@@ -146,19 +150,19 @@ bot.on("ready", async () => {
             .setTimestamp()
             .setFooter(HelpFooter,NewtoxFooter)
             .setTitle("Hier siehst du alle Commands des Bots.")
-            .addField(`**Info**`,"`Userinfo`,`Serverinfo`,`Nachrichten`,`botinfo`,`botinvite`")
+            .addField(`**Info**`,"`userinfo`,`serverinfo`,`messages`,`botinfo`,`botinvite`")
             .addField(`**Moderation**`,"`kick`,`ban`,`roleID`,`emojiID`,`emojiSearch`,`opgiverole`,`opremoverole`,`rolecolor`,`roleedit`,`clear`")
             .addField(`**Newtox-Server**`,"`Rollen`,`Team`,`conbotprofil`,`Newtoxinvite`")
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/476098810460766229/help2.png")
             message.channel.send(embed)
-        }
+        } 
 
-        //Help-Nachrichten
-        if(message.content ==`${BotSettings.prefix}help Nachrichten`) {
+        //Help-messages
+        if(message.content ==`${BotSettings.prefix}help messages`) {
             var embed = new Discord.RichEmbed()
             .setColor("#7e95eb")
-            .addField(`Nachrichten`,"`Zeigt dir die Anzahl der Nachrichten an, die du bis jetzt versendet hast. Du kannst dies auch bei anderen sehen.`",false)
-            .addField(`Verwendung`,"`tx!Nachrichten \nOder tx!Nachrichten [Mitglied]`")
+            .addField(`messages`,"`Zeigt dir die Anzahl der Nachrichten an, die du bis jetzt versendet hast. Du kannst dies auch bei anderen sehen.`",false)
+            .addField(`Verwendung`,"`tx!messages \nOder tx!messages [Mitglied]`")
             message.channel.send(embed)
         }
 
@@ -182,7 +186,7 @@ bot.on("ready", async () => {
         }   
 
     
-        if(message.content ==`${BotSettings.prefix}Nachrichten`) {            
+        if(message.content ==`${BotSettings.prefix}messages`) {            
             var embed = new Discord.RichEmbed()
             .setColor(message.member.highestRole.color)
             .setDescription(`${message.author} Du hast bis jetzt **${profile[message.author.id] .Nachricht}** Nachrichten versendet.`)
@@ -192,7 +196,7 @@ bot.on("ready", async () => {
 
 
 
-        if(message.content ==`${BotSettings.prefix}Nachrichten ${mention}`) {
+        if(message.content ==`${BotSettings.prefix}messages ${mention}`) {
             var embed = new Discord.RichEmbed()
             .setColor(mention.highestRole.color)
             .setDescription(`**${mention}** hat bis jetzt **${profile[mention.id] .Nachricht}** Nachrichten versendet.`)
@@ -220,7 +224,7 @@ bot.on("ready", async () => {
             .addField("Entwickler:",`**${message.guild.member("402483602094555138").user.username}**#${message.guild.member("402483602094555138").user.discriminator}`, true)
             .addField("Programmiert mit:","Discord.js 11.3.2",false)
             .addField(`Prefix des Bots`,`Der Prefix des Bots ist **${BotSettings.prefix}**`, false)
-            .addField("Erstellungsdatum","Der Bot wurde am **2 Juli 2018** erstellt!",false)
+            .addField("Erstellungsdatum",`Der Bot wurde am **${bot.user.createdAt.toString().split(" ")[2]}** **${Config.Date_Name[bot.user.createdAt.toString().split(" ")[1]]}** **${bot.user.createdAt.toString().split(" ")[3]}** erstellt!`,false)
             .setTimestamp()
             .setThumbnail(bot.user.avatarURL)
 
@@ -231,17 +235,17 @@ bot.on("ready", async () => {
         }
 
 
-        //Help-Userinfo
-        if(message.content ==`${BotSettings.prefix}help Userinfo`) {
+        //Help-userinfo
+        if(message.content ==`${BotSettings.prefix}help userinfo`) {
             var embed = new Discord.RichEmbed()
             .setColor("#7e95eb")
             .addField(`Userinfo`,"`Gibt dir einige Informationen zu deinem Account. Du kannst dies auch bei anderen sehen.`",false)
-            .addField(`Verwendung`,"`tx!Userinfo \nOder tx!Userinfo [Mitglied]`")
+            .addField(`Verwendung`,"`tx!userinfo \nOder tx!userinfo [Mitglied]`")
             message.channel.send(embed)
         }
 
         //Userinfo
-        if(message.content ==`${BotSettings.prefix}Userinfo`) {
+        if(message.content ==`${BotSettings.prefix}userinfo`) {
 
             var embed = new Discord.RichEmbed()
     
@@ -270,9 +274,9 @@ bot.on("ready", async () => {
     
             embed.addField(`Rollen`,`${message.member.roles.map(roles => roles).splice(1).join(", ")}`)
     
-            embed.addField("Account erstellt am", `**${message.member.user.createdAt.toString().split(" ")[2]}** **${Config.Acc_Server[message.member.user.createdAt.toString().split(" ")[1]]}** **${message.member.user.createdAt.toString().split(" ")[3]}**`, false) 
+            embed.addField("Erstellungsdatum des Accounts", `Du hast deinen Account am **${message.member.user.createdAt.toString().split(" ")[2]}** **${Config.Date_Name[message.member.user.createdAt.toString().split(" ")[1]]}** **${message.member.user.createdAt.toString().split(" ")[3]}** erstellt.`, false) 
     
-              embed.addField("Server zuletzt beigetreten am", `**${message.member.joinedAt.toString().split(" ")[2]}** **${Config.Acc_Server[message.member.joinedAt.toString().split(" ")[1]]}** **${message.member.joinedAt.toString().split(" ")[3]}**`, false) 
+              embed.addField("Joindatum", `Du bist dem Server zuletzt am **${message.member.joinedAt.toString().split(" ")[2]}** **${Config.Date_Name[message.member.joinedAt.toString().split(" ")[1]]}** **${message.member.joinedAt.toString().split(" ")[3]}** gejoint!`, false) 
     
             .setThumbnail(`${message.author.avatarURL}`)
     
@@ -280,9 +284,24 @@ bot.on("ready", async () => {
     
         } 
     
+        // if(command === `userinfo`) {
+        
+        //     var embed = new Discord.RichEmbed()
+        //          .setColor("0x1E90FF")
+        //          .setAuthor(`${message.author.username}`)
+        //          .setDescription("Das sind deine Daten:")
+        //          .addField("Username", `${message.author.username}`)
+        //          .addField("ID",`${message.author.id}`)
+        //          .addField("Beigetreten am",`${message.member.user.createdAt.toString().split(" ")[2]} ${message.member.user.createdAt.toString().split(" ")[1]} ${message.member.user.createdAt.toString().split(" ")[3]}`)
+        //          .setFooter('Offizieller Marv Bot©', "https://images-ext-2.discordapp.net/external/pCcO3TTBPGjkn5fGyoBzqrg4r1SNgcdikYH1CzU2aL8/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/476702517963653120/9956cf3e677fcee29e73c471170e4fbe.png");
+     
+        //          message.channel.send(embed)
+     
+        // }
+
     
     
-            if(message.content ==`${BotSettings.prefix}Userinfo ${mention}`) {   
+            if(message.content ==`${BotSettings.prefix}userinfo ${mention}`) {   
     
             var embed = new Discord.RichEmbed()
     
@@ -312,9 +331,9 @@ bot.on("ready", async () => {
     
             embed.addField(`Rollen`,`${mention.roles.map(roles => roles).splice(1).join(", ")}`)
     
-            embed.addField(`Account erstellt am`,`**${mention.user.createdAt.toString().split(" ")[2]}** **${Config.Acc_Server[mention.user.createdAt.toString().split(" ")[1]]}** **${mention.user.createdAt.toString().split(" ")[3]}**`, false) 
+            embed.addField(`Erstellungsdatum des Accounts`,`**${mention.displayName}** hat seinen/ihren Account am **${mention.user.createdAt.toString().split(" ")[2]}** **${Config.Date_Name[mention.user.createdAt.toString().split(" ")[1]]}** **${mention.user.createdAt.toString().split(" ")[3]}** erstellt!`, false) 
     
-             embed.addField(`Server zuletzt beigetreten am`, `**${mention.joinedAt.toString().split(" ")[2]}** **${Config.Acc_Server[mention.joinedAt.toString().split(" ")[1]]}** **${mention.joinedAt.toString().split(" ")[3]}**`, false) 
+             embed.addField(`Joindatum`, `**${mention.displayName}** ist dem Server zuletzt am **${mention.joinedAt.toString().split(" ")[2]}** **${Config.Date_Name[mention.joinedAt.toString().split(" ")[1]]}** **${mention.joinedAt.toString().split(" ")[3]}** gejoint!`, false) 
     
             .setThumbnail(`${mention.user.avatarURL}`)
     
@@ -339,6 +358,7 @@ bot.on("ready", async () => {
             let deleted = await message.channel.bulkDelete(deleteCount, +1);
     
             message.channel.bulkDelete(deleteCount).catch(error => message.reply(`Konnte Nachrichten nicht löschen wegen: ${error}`));
+            setTimeout(async () => {msg1.delete()}, 5000)
     
 
             let msg1 = await message.channel.send(`**${deleted.size}** Nachrichten wurden gelöscht. ${message.author}`)
@@ -516,6 +536,8 @@ bot.on("ready", async () => {
     
             
         }
+
+
     
         //Help-opremoverole
         if(message.content ==`${BotSettings.prefix}help opremoverole`) {
@@ -727,6 +749,7 @@ bot.on("ready", async () => {
             .addField(`${BotSettings.prefix}splatoon2perks`, "zeigt die Vor und Nachteile der Marken in Splatoon 2", false)
             .addField(`${BotSettings.prefix}binNewtox`, "*schaut selber was passiert ( ͡° ͜ʖ ͡°)*", false)
             .addField(`${BotSettings.prefix}Inkling c`,`Zeigt euch einen coolen ${Instagram} Account`)
+            .addField(`${bot.user}`,`Da wird ${bot.user.username} aber sauer sein!`)
             .setDescription("Falls ihr Ideen für weitere lustige Commands habt, dürft ihr euch gerne bei <@402483602094555138> melden.")
             .setThumbnail("https://cdn.discordapp.com/attachments/451007157933047829/457489426784845825/fun.png")
             .setFooter(EmbedFooter, FooterLogo)
@@ -798,7 +821,7 @@ bot.on("ready", async () => {
 
         if(message.content ==`${bot.user}`) {
                 var embed = new Discord.RichEmbed()
-                .setColor("#819bff")
+                .setColor("#7e95eb")
                 .setImage("https://cdn.discordapp.com/attachments/406957187869442048/476102813705830404/ping.jpg")
 
                 message.channel.send(embed)
@@ -931,19 +954,20 @@ bot.on("ready", async () => {
 
 
 
-        //Serverinfo
-        if(message.content ==`${BotSettings.prefix}Serverinfo`) {
+        //serverinfo
+        if(message.content ==`${BotSettings.prefix}serverinfo`) {
 
             var embed = new Discord.RichEmbed()
-            .setTitle(`Server-Info von ${message.guild.name}`)
+            .setTitle(`${message.guild.name}`)
             .addField(`ID`,`${message.guild.id}`,true)
             .addField(`Eigentümer`,`${message.guild.owner}`,true)
-            .addField(`Verification Level`,`${message.guild.verificationLevel}`,true)
+            .addField(`Verification Level`,`${Config.Verification_Name[message.guild.verificationLevel]}`,true)
             .addField(`Mitglieder`,`${message.guild.memberCount}`,true)
             .addField(`Text-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "text").size}`,true)
             .addField(`Sprach-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "voice").size}`,true)
+            .addField(`AFK-Kanal`,`${message.guild.afkChannel}`)
             .addField(`Rollen`,`${message.guild.roles.map(roles => roles).splice(1).join(", ")}`)
-            .addField(`Server erstellt am`,`${message.guild.createdAt.toString().split(" ")[2]} ${message.guild.createdAt.toString().split(" ")[1]} ${message.guild.createdAt.toString().split(" ")[3]}`, true)
+            .addField(`Erstellungsdatum des Servers`,`Der Server wurde am **${message.guild.createdAt.toString().split(" ")[2]}** **${Config.Date_Name[message.guild.createdAt.toString().split(" ")[1]]}** **${message.guild.createdAt.toString().split(" ")[3]}** erstellt!`, true)
             .addField(`Server-Icon`,`${message.guild.iconURL}`,true)
             .setThumbnail(`${message.guild.iconURL}`)
 
@@ -1070,7 +1094,6 @@ bot.on("ready", async () => {
             }
             message.delete();
         }
-
     }
 
 
