@@ -320,7 +320,7 @@ bot.on("message", async message => { })
             embed.addField(`Status`,`${Config.status_ger[mention.presence.status]}`)
             
             if(mention.presence.game) {
-                embed.addField(`Aktivität`,`${Config.Activitytypes[mention.user.presence.game.type]} **${mention.user.presence.game.name}**`)
+                embed.addField(`Aktivität`,`${Config.Activitytypes[mention.presence.game.type]} **${mention.presence.game.name}**`)
             }
             else {
                 embed.addField(`Aktivität`,`-`)
