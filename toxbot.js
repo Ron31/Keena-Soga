@@ -4,6 +4,7 @@ const Discord = require("discord.js"),
       fs = require("fs"),
      profile = JSON.parse(fs.readFileSync("profil/message.json","utf8"))
      Config = require("./config.json")
+     Splatoon = require("./Splatoon_Arrays.json")
 
     
 
@@ -27,16 +28,6 @@ bot.on("ready", async () => {
 });
 
 
-
-
-
-    //Goodbye Message
-    bot.on("guildMemberRemove", async member => { 
-        if(member.guild.id == `406946551538253828`) {
-        bot.channels.get("439880541043425290").send(`${member.user.username}#${member.user.discriminator} hat den ${member.guild.name} verlassen...`)
-        }
-    });
-    bot.on("message", async message => { }) 
 
     // //Welcome Message
     // bot.on("guildMemberAdd", async member => { 
@@ -63,23 +54,23 @@ bot.on("ready", async () => {
     });
     bot.on("message", async message => { })
 
-    
+     //Goodbye Message
+     bot.on("guildMemberRemove", async member => { 
+        if(member.guild.id == `406946551538253828`) {
+        bot.channels.get("439880541043425290").send(`${member.user.username}#${member.user.discriminator} hat den ${member.guild.name} verlassen...`)
+        }
+    });
+    bot.on("message", async message => { }) 
+
+
     //Welcome Message Xami
     bot.on("guildMemberAdd", async member => { 
         if(member.guild.id == `361532938816585730`) { 
-        bot.channels.get("478552771734536192").send(`${member} Willkommen in der ${member.guild.name}! ,Wir wünschen dir hier viel Spaß. Lies dir aber bitte die <#361534673098375169> durch.`)
+        bot.channels.get("478552771734536192").send(`${member} Willkommen in der ${member.guild.name}! ,Wir wünschen dir hier viel Spaß. Lies dir aber bitte die <#478965010920374291> durch.`)
             member.addRole("473485307950530560")
         }
     });
     bot.on("message", async message => { })
-
-    //Welcome Message Nindo
-    bot.on("guildMemberAdd", async member => { 
-        if(member.guild.id == `467038040875991050`) {
-        bot.channels.get("467038040875991053").send(`${member} Willkommen auf dem ${member.guild.name}`)
-       }
-    });
-bot.on("message", async message => { })
 
 
     bot.on("message", async message => {
@@ -142,6 +133,7 @@ bot.on("message", async message => { })
     if(!message.author.bot) {
 
 
+
         //Help
         if(message.content ==`${BotSettings.prefix}help`) { 
             var embed = new Discord.RichEmbed() 
@@ -150,9 +142,9 @@ bot.on("message", async message => { })
             .setTimestamp()
             .setFooter(HelpFooter,NewtoxFooter)
             .setTitle("Hier siehst du alle Commands des Bots.")
-            .addField(`**Info**`,"`userinfo`,`serverinfo`,`messages`,`botinfo`,`botinvite`")
+            .addField(`**Info**`,"`userinfo`,`serverinfo`,`messages`,`botinfo`,`botinvite`,`Fun`")
             .addField(`**Moderation**`,"`kick`,`ban`,`roleID`,`emojiID`,`emojiSearch`,`opgiverole`,`opremoverole`,`rolecolor`,`roleedit`,`clear`")
-            .addField(`**Newtox-Server**`,"`Rollen`,`Team`,`conbotprofil`,`Newtoxinvite`")
+            .addField(`**Newtox-Server**`,"`Rollen`,`Team`,`Newtoxinvite`")
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/476098810460766229/help2.png")
             message.channel.send(embed)
         } 
@@ -736,23 +728,30 @@ bot.on("message", async message => { })
             message.channel.send(embed)
         }
 
+        //Help-Fun
+        if(message.content ==`${BotSettings.prefix}help Fun`) {
+            var embed = new Discord.RichEmbed()
+            .setColor("#7e95eb")
+            .addField(`Fun`,"`Zeigt dir ein bisschen Quatch den man mit dem Bot anstellen kann`",false)
+            message.channel.send(embed)
+        }
+
+
 
         if(message.content == `${BotSettings.prefix}Fun`) {
 
             var embed = new Discord.RichEmbed()
-            .setColor("#71ec07")
+            .setColor("#772d69")
             .setTimestamp()
             .setTitle("Hier seht ihr alle Fun Befehle", true)
             .addBlankField()
-            .addField(`${BotSettings.prefix}Nudes`, "schickt ein lustiges .gif", false)
-            .addField(`${BotSettings.prefix}GiveAF`, "schickt ein lustiges Meme", false)
             .addField(`${BotSettings.prefix}splatoon2perks`, "zeigt die Vor und Nachteile der Marken in Splatoon 2", false)
             .addField(`${BotSettings.prefix}binNewtox`, "*schaut selber was passiert ( ͡° ͜ʖ ͡°)*", false)
             .addField(`${BotSettings.prefix}Inkling c`,`Zeigt euch einen coolen ${Instagram} Account`)
-            .addField(`${bot.user}`,`Da wird ${bot.user.username} aber sauer sein!`)
+            .addField(`${BotSettings.prefix}Xami`,`Zeigt euch die Teammitglieder von **${message.guild.member("227034133447180288").user.username}**#${message.guild.member("227034133447180288").user.discriminator} seinem Server.`,false)
+            .addField(`@${bot.user.username}`,`Da wird ${bot.user.username} aber sauer sein!`)
             .setDescription("Falls ihr Ideen für weitere lustige Commands habt, dürft ihr euch gerne bei <@402483602094555138> melden.")
             .setThumbnail("https://cdn.discordapp.com/attachments/451007157933047829/457489426784845825/fun.png")
-            .setFooter(EmbedFooter, FooterLogo)
 
             message.channel.send(embed)
         }
@@ -767,20 +766,6 @@ bot.on("message", async message => { })
         if(message.content == `${BotSettings.prefix}pingtox`) {
             message.channel.send(`<@402483602094555138> <@402483602094555138> <@402483602094555138> <@402483602094555138> <@402483602094555138>`)
         }
-
-        if(message.content ==`${BotSettings.prefix}Party`) {
-            message.channel.send(`${partyparrot}`)
-        }
-
-        if(message.content == `${BotSettings.prefix}Nudes`) {
-            message.channel.send(`https://www.tenor.co/IQNs.gif`)
-        }
-
-        if(message.content == `${BotSettings.prefix}GiveAF`) {
-            message.channel.send(`https://cdn.discordapp.com/attachments/450318562137997312/453490497567195137/tumblr_oja72hkNPs1vgp6aeo1_500.jpg`)
-        }
-
-
 
         if(message.content == `${BotSettings.prefix}binNewtox`) {
         if(message.author.id == "402483602094555138") {
@@ -831,26 +816,6 @@ bot.on("message", async message => { })
         //     setInterval(async () => { message.channel.send(`<@${BotSettings.OwnerID}>`) }, 1);
         // }
         
-
-        if(message.content == `${BotSettings.prefix}Gaming Area`) {
-
-            if(message.guild.id!= `476141530596507658`) return message.channel.send(`Dieser Command funktioniert nur auf dem Server ${message.guild.member("403540876585861130")}#${message.guild.member("403540876585861130")}`)
-
-            var embed = new Discord.RichEmbed()
-            .setColor("#992D22")
-            .setTimestamp()
-            .setThumbnail(`${message.guild.iconURL}`)
-            .setTitle("Hier seht ihr alle Teammitglieder", true)
-            .addField("Owner",`${message.guild.members.filter(members => members.roles.has("476141654009577482")).map(members => members).join(", ") || `*No Owner available*`}`, false)
-            .addField("Admin",`${message.guild.members.filter(members => members.roles.has("476141904971563008")).map(members => members).join(", ") || `*No Admin available*`}`, false)
-            .addField("Moderator",`${message.guild.members.filter(members => members.roles.has("476372792091082752")).map(members => members).join(", ") || `*No Moderator available*`}`, false)
-            .addField("Supporter",`${message.guild.members.filter(members => members.roles.has("476372912400498698")).map(members => members).join(", ") || `*No Supporter available*`}`, false)
-            
-            message.channel.send(embed)
-        }
-
-        
-
 
         //Rollen Adds
 
@@ -966,7 +931,7 @@ bot.on("message", async message => { })
             .addField(`Text-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "text").size}`,true)
             .addField(`Sprach-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "voice").size}`,true)
             .addField(`AFK-Kanal`,`${message.guild.afkChannel}`)
-            .addField(`Rollen`,`${message.guild.roles.map(roles => roles).splice(1).join(", ")}`)
+            .addField(`Rollen`,`${message.guild.roles.map(roles => roles).slice(1).join(", ")}`)
             .addField(`Erstellungsdatum des Servers`,`Der Server wurde am **${message.guild.createdAt.toString().split(" ")[2]}** **${Config.Date_Name[message.guild.createdAt.toString().split(" ")[1]]}** **${message.guild.createdAt.toString().split(" ")[3]}** erstellt!`, true)
             .addField(`Server-Icon`,`${message.guild.iconURL}`,true)
             .setThumbnail(`${message.guild.iconURL}`)
@@ -976,7 +941,7 @@ bot.on("message", async message => { })
         }
 
         //Help-Serverinfo
-        if(message.content ==`${BotSettings.prefix}help Serverinfo`) {
+        if(message.content ==`${BotSettings.prefix}help serverinfo`) {
             var embed = new Discord.RichEmbed()
             .setColor("#819bff")
             .addField(`Serverinfo`,"`Gibt dir einige Informationen zu dem Server.`",false)
@@ -985,18 +950,10 @@ bot.on("message", async message => { })
 
 
 
-        if(message.content ==`${BotSettings.prefix}conbotprofil`) {
-
-            if(message.guild.id!= BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
-
-            message.channel.send("Hier findest du Hilfe und Beispiele zu deinem Profil. \n FC: ?profile switch 6969-6969-6969 \n Beschreibung: ?profile description (Text) `du fügst eine Beschreinung hinzu!` \n Profil: ?profile rufst du dein Profil auf. Und mit ?profile (Name) das Profil eines anderen.`")
-
-        }
-
         if(message.content ==`${BotSettings.prefix}support`) {
             if(message.guild.id!= BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
 
-            if(message.member.roles.has("406951441182359553")  || message.member.roles.has("406951586326118420")  || message.member.roles.has("409338551990353923")  || message.member.roles.has("406951724612321290") || message.member.hasPermission("ADMINISTRATOR")) {
+            if(message.member.roles.has("406951441182359553")  || message.member.roles.has("406951586326118420") || message.member.roles.has("406951724612321290") || message.member.hasPermission("ADMINISTRATOR")) {
                 message.member.addRole(`406951923477118997`)
                 message.channel.send(`${message.author} Ich habe dir die Support Rolle hinzugefügt`) 
                  
@@ -1009,7 +966,7 @@ bot.on("message", async message => { })
      if(message.content ==`${BotSettings.prefix}supportremove`) {
         if(message.guild.id!= BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
 
-        if(message.member.roles.has("406951441182359553")  || message.member.roles.has("406951586326118420")  || message.member.roles.has("409338551990353923")  || message.member.roles.has("406951724612321290") || message.member.hasPermission("ADMINISTRATOR")) {
+        if(message.member.roles.has("406951441182359553")  || message.member.roles.has("406951586326118420") || message.member.roles.has("406951724612321290") || message.member.hasPermission("ADMINISTRATOR")) {
             message.member.removeRole(`406951923477118997`)
             message.channel.send(`${message.author} Ich habe dir die Support Rolle entfernt`) 
              
@@ -1031,8 +988,6 @@ bot.on("message", async message => { })
             .addField("Owner",`${message.guild.members.filter(members => members.roles.has("406951345460084736")).map(members => members).join(", ") || `*Aktuell gibt es keinen Owner*`}`, false)
             .addField("Admins",`${message.guild.members.filter(members => members.roles.has("406951441182359553")).map(members => members).join(", ") || `*Aktuell gibt es keine Admins*`}`, false)
             .addField("Moderatoren",`${message.guild.members.filter(members => members.roles.has("406951586326118420")).map(members => members).join(", ") || `*Aktuell gibt es keine Moderatoren*`}`, false)
-            .addField("Youtube Moderatoren",`${message.guild.members.filter(members => members.roles.has("454282390999793665")).map(members => members).join(", ") || `*Aktuell gibt es keine Youtube Moderatoren*`}`, false)
-            .addField("Test Moderatoren",`${message.guild.members.filter(members => members.roles.has("409338551990353923")).map(members => members).join(", ") || `*Aktuell gibt es keine Test Moderatoren*`}`, false)
             .addField("Supporter",`${message.guild.members.filter(members => members.roles.has("406951724612321290")).map(members => members).join(", ") || `*Aktuell gibt es keine Supporter*`}`, false)
             .addField("Test Supporter",`${message.guild.members.filter(members => members.roles.has("409019143166099460")).map(members => members).join(", ") || `*Aktuell gibt es keine Test Supporter*, für mehr schau in <#444501822351212556> `}`, false)
 
@@ -1044,7 +999,7 @@ bot.on("message", async message => { })
         if(message.content ==`${BotSettings.prefix}help Team`) {
             var embed = new Discord.RichEmbed()
             .setColor("#819bff")
-            .addField(`Team`,"`Gibt dir Informationen über die aktuellen Teammitglieder der Newtox Community`",false)
+            .addField(`Team`,"`Gibt dir Informationen über die aktuellen Teammitglieder des Newtox Servers`",false)
             message.channel.send(embed)
         }
 
@@ -1094,6 +1049,38 @@ bot.on("message", async message => { })
             }
             message.delete();
         }
+
+        if(message.content ==`${BotSettings.prefix}Xami`) {
+            if(message.guild.id != `361532938816585730`) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server von **${message.guild.member("227034133447180288").user.username}**#${message.guild.member("227034133447180288").user.discriminator}`)
+
+            var embed =  new Discord.RichEmbed()
+            .setColor("#206694")
+            .setTitle(`Das Team der ${message.guild.name}`)
+            .addField("Owner",`${message.guild.members.filter(members => members.roles.has("361534036298170398")).map(members => members).join(", ")}`, false)
+            .addField("Developer",`${message.guild.members.filter(members => members.roles.has("361535544968347648")).map(members => members).join(", ")}`, false)
+            .addField("Moderator",`${message.guild.members.filter(members => members.roles.has("361534180229906432")).map(members => members).join(", ")}`, false)
+            .addField("Bots",`${message.guild.members.filter(members => members.roles.has("361534497990115328")).map(members => members).join(", ")}`, false)
+
+            .setThumbnail(`${message.guild.member("227034133447180288").user.avatarURL}`)
+
+            message.channel.send(embed)
+        }
+
+        // //Alle
+        // if(message.content == `${BotSettings.Prefix}splatoon waffen Alle`) {
+        //     let RandomWaffe = Splatoon.AlleWaffen[Math.floor(Math.random() * Splatoon.AlleWaffen.length)]
+
+        //     var embed = new Discord.RichEmbed()
+        //     .setThumbnail(RandomWaffe.image)
+        //     .setAuthor("Waffenroulette (Alle)")
+        //     .setTitle("Waffe")
+        //     .setDescription(RandomWaffe.name)
+        //     .addField("Sub-Waffe", RandomWaffe.sub, true)
+        //     .addField("Spezial-Waffe", RandomWaffe.special, true)
+
+        //     message.channel.send(embed)
+        // }
+        
     }
 
 
