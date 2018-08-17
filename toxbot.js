@@ -2,9 +2,9 @@ const Discord = require("discord.js"),
       bot = new Discord.Client(),
       BotSettings = require("./botsettings.json"),
       fs = require("fs"),
-     profile = JSON.parse(fs.readFileSync("profil/message.json","utf8"))
-     Config = require("./config.json")
-     Splatoon = require("./Splatoon_Arrays.json")
+      profile = JSON.parse(fs.readFileSync("profil/message.json","utf8")),
+      Config = require("./config.json"),
+      Splatoon = require("./Splatoon_Arrays.json")
 
     
 
@@ -19,7 +19,7 @@ bot.on("ready", async () => {
 
     console.log(`\nBot ist online.\nName + Tag: ${bot.user.username}#${bot.user.discriminator}\nPrefix: ${BotSettings.prefix}`)
     bot.user.setStatus("online")//online, idle, dnd, invisible
-    bot.user.setActivity(`${BotSettings.prefix}help | Version: 1.5 | ${bot.guilds.size} Server!`, {
+    bot.user.setActivity(`${BotSettings.prefix}help | Version: 1.5 |  ${bot.guilds.size} Server!`, {
         type: "PLAYING" //PLAYING, STREAMING, LISTENING, WATCHING
     })
     //Name + Avatar
@@ -28,53 +28,35 @@ bot.on("ready", async () => {
 });
 
 
+//Welcome Message
+bot.on("guildMemberAdd", async member => { 
+    if(member.guild.id == `406946551538253828`) {
+    bot.channels.get("439880541043425290").send(`${member} Willkommen auf dem ${member.guild.name}! Bitte wirf einen Blick auf die <#406946551538253830> und benimm dich. \nWenn du fragen hast kannst du gerne auf die Mods, Supporter oder auch auf Newtox zugehen. \nEs schadet auch nicht einen blick in das <#477222309787205674> zu werfen ${bot.emojis.find("name","Glumanda_Hi")}`)
+        member.addRole("406952857917456395")
+    }
+});
+bot.on("message", async message => { })
 
-    // //Welcome Message
-    // bot.on("guildMemberAdd", async member => { 
-    //     if(member.guild.id == `Deine Server ID`) {
-    //     bot.channels.get("Deine Channel ID").send(embed)
-    //     var embed = new Discord.RichEmbed()
-    //     .setColor("Farbe")
-    //     .setTitle("Server Name")
-    //     .addField("Text")
-    //     .addField("Text")
-        
-    // }
-    // });
-    // bot.on("message", async message => { })
-
-
-
-    //Welcome Message
-    bot.on("guildMemberAdd", async member => { 
-        if(member.guild.id == `406946551538253828`) {
-        bot.channels.get("439880541043425290").send(`${member} Willkommen auf dem ${member.guild.name}! Bitte wirf einen Blick auf die <#406946551538253830> und benimm dich. \nWenn du fragen hast kannst du gerne auf die Mods, Supporter oder auch auf Newtox zugehen. \nEs schadet auch nicht einen blick in das <#477222309787205674> zu werfen ${bot.emojis.find("name","Glumanda_Hi")}`)
-            member.addRole("406952857917456395")
-        }
-    });
-    bot.on("message", async message => { })
-
-     //Goodbye Message
-     bot.on("guildMemberRemove", async member => { 
-        if(member.guild.id == `406946551538253828`) {
-        bot.channels.get("439880541043425290").send(`${member.user.username}#${member.user.discriminator} hat den ${member.guild.name} verlassen...`)
-        }
-    });
-    bot.on("message", async message => { }) 
+ //Goodbye Message
+ bot.on("guildMemberRemove", async member => { 
+    if(member.guild.id == `406946551538253828`) {
+    bot.channels.get("439880541043425290").send(`${member.user.username}#${member.user.discriminator} hat den ${member.guild.name} verlassen...`)
+    }
+});
+bot.on("message", async message => { }) 
 
 
-    //Welcome Message Xami
-    bot.on("guildMemberAdd", async member => { 
-        if(member.guild.id == `361532938816585730`) { 
-        bot.channels.get("478552771734536192").send(`${member} Willkommen in der ${member.guild.name}! ,Wir wünschen dir hier viel Spaß. Lies dir aber bitte die <#478965010920374291> durch.`)
-            member.addRole("473485307950530560")
-        }
-    });
-    bot.on("message", async message => { })
+//Welcome Message Xami
+bot.on("guildMemberAdd", async member => { 
+    if(member.guild.id == `361532938816585730`) { 
+    bot.channels.get("478552771734536192").send(`${member} Willkommen in der ${member.guild.name}! ,Wir wünschen dir hier viel Spaß. Lies dir aber bitte die <#478965010920374291> durch.`)
+        member.addRole("473485307950530560")
+    }
+});
+bot.on("message", async message => { })
 
 
-    bot.on("message", async message => {
-
+bot.on("message", async message => {
 
     //Variablen
     var args = message.content.slice(BotSettings.prefix.length).trim().split(" "),
@@ -98,6 +80,7 @@ bot.on("ready", async () => {
     let twitch = message.guild.emojis.find("name","twitch")
     
 
+
     //Verbotene Zeichen/Wörter
     if(message.content.includes("卍")) {
         message.delete()
@@ -118,21 +101,8 @@ bot.on("ready", async () => {
 
     }
 
-
-
-
-    // if(message.content.includes("discord.gg")) {
-    //     if (!message.member.roles.some(r => ['406951441182359553', '406951345460084736', '406951586326118420'].includes(r.id))) return
-    //     message.delete()
-    //     message.channel.send(`Soforteinladungen sind hier nicht erlaubt! ${message.author}`)
-    //     return
-    // }
-
-   
-
-
-    //Schutz vor Bots
-    if(!message.author.bot) {
+     //Schutz vor Bots
+     if(!message.author.bot) {
 
 
 
@@ -144,44 +114,49 @@ bot.on("ready", async () => {
             .setTimestamp()
             .setFooter(HelpFooter,ToxbotLogo)
             .setTitle("Hier siehst du alle Commands des Bots.")
-            .addField(`**Info**`,"`userinfo`,`serverinfo`,`messages`,`botinfo`,`botinvite`,`Fun`")
+            .addField(`**Info**`,"`userinfo`,`serverinfo`,`serverliste`,`messages`,`botinfo`,`botinvite`,`Fun`")
             .addField(`**Moderation**`,"`kick`,`ban`,`roleID`,`emojiID`,`emojiSearch`,`opgiverole`,`opremoverole`,`rolecolor`,`roleedit`,`clear`")
             .addField(`**Newtox-Server**`,"`Rollen`,`Team`,`Newtoxinvite`")
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/476098810460766229/help2.png")
             message.channel.send(embed)
-        } 
+        }
 
         //Help-messages
+
         if(message.content ==`${BotSettings.prefix}help messages`) {
+
             var embed = new Discord.RichEmbed()
-            .setColor("#7e95eb")
+            .setColor("#819bff")
             .addField(`messages`,"`Zeigt dir die Anzahl der Nachrichten an, die du bis jetzt versendet hast. Du kannst dies auch bei anderen sehen.`",false)
             .addField(`Verwendung`,"`tx!messages \nOder tx!messages [Mitglied]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
+
             message.channel.send(embed)
         }
+
+
 
         //Messagecounter
         if(!profile[message.author.id]) {
             profile[message.author.id] = {Nachricht: 0}
             fs.writeFile("profil/message.json", JSON.stringify(profile),(err)=>{
                 if(err)console.error(err)
-
             })
-
         }
+
+
 
         if(profile [message.author.id]) {
             profile[message.author.id] .Nachricht++
             fs.writeFile("profil/message.json", JSON.stringify(profile),(err)=>{
                 if(err)console.error(err)
-
             })
-
         }   
 
-    
+
+
         if(message.content ==`${BotSettings.prefix}messages`) {            
+
             var embed = new Discord.RichEmbed()
             .setColor(message.member.highestRole.color)
             .setDescription(`${message.author} Du hast bis jetzt **${profile[message.author.id] .Nachricht}** Nachrichten versendet.`)
@@ -190,20 +165,21 @@ bot.on("ready", async () => {
         } 
 
 
-
         if(message.content ==`${BotSettings.prefix}messages ${mention}`) {
+
             var embed = new Discord.RichEmbed()
             .setColor(mention.highestRole.color)
             .setDescription(`**${mention}** hat bis jetzt **${profile[mention.id] .Nachricht}** Nachrichten versendet.`)
 
             message.channel.send(embed)
-        }  
+        }
 
+         
 
         //Help-botinfo
         if(message.content ==`${BotSettings.prefix}help botinfo`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#7e95eb")
+            .setColor("#819bff")
             .addField(`botinfo`,`Gibt euch einige Informationen über den Bot`,false)
             .setFooter(ToxbotFooter, NewtoxFooter)
             message.channel.send(embed)
@@ -234,7 +210,7 @@ bot.on("ready", async () => {
         //Help-userinfo
         if(message.content ==`${BotSettings.prefix}help userinfo`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#7e95eb")
+            .setColor("#819bff")
             .addField(`Userinfo`,"`Gibt dir einige Informationen zu deinem Account. Du kannst dies auch bei anderen sehen.`",false)
             .addField(`Verwendung`,"`tx!userinfo \nOder tx!userinfo [Mitglied]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
@@ -274,32 +250,15 @@ bot.on("ready", async () => {
     
             embed.addField("Erstellungsdatum des Accounts", `Du hast deinen Account am **${message.member.user.createdAt.toString().split(" ")[2]}** **${Config.Date_Name[message.member.user.createdAt.toString().split(" ")[1]]}** **${message.member.user.createdAt.toString().split(" ")[3]}** erstellt.`, false) 
     
-              embed.addField("Joindatum", `Du bist dem Server zuletzt am **${message.member.joinedAt.toString().split(" ")[2]}** **${Config.Date_Name[message.member.joinedAt.toString().split(" ")[1]]}** **${message.member.joinedAt.toString().split(" ")[3]}** gejoint!`, false) 
+            embed.addField("Joindatum", `Du bist dem Server zuletzt am **${message.member.joinedAt.toString().split(" ")[2]}** **${Config.Date_Name[message.member.joinedAt.toString().split(" ")[1]]}** **${message.member.joinedAt.toString().split(" ")[3]}** gejoint!`, false) 
     
             .setThumbnail(`${message.author.avatarURL}`)
     
             message.channel.send(embed)
     
-        } 
-    
-        // if(command === `userinfo`) {
-        
-        //     var embed = new Discord.RichEmbed()
-        //          .setColor("0x1E90FF")
-        //          .setAuthor(`${message.author.username}`)
-        //          .setDescription("Das sind deine Daten:")
-        //          .addField("Username", `${message.author.username}`)
-        //          .addField("ID",`${message.author.id}`)
-        //          .addField("Beigetreten am",`${message.member.user.createdAt.toString().split(" ")[2]} ${message.member.user.createdAt.toString().split(" ")[1]} ${message.member.user.createdAt.toString().split(" ")[3]}`)
-        //          .setFooter('Offizieller Marv Bot©', "https://images-ext-2.discordapp.net/external/pCcO3TTBPGjkn5fGyoBzqrg4r1SNgcdikYH1CzU2aL8/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/476702517963653120/9956cf3e677fcee29e73c471170e4fbe.png");
-     
-        //          message.channel.send(embed)
-     
-        // }
+        }
 
-    
-    
-            if(message.content ==`${BotSettings.prefix}userinfo ${mention}`) {   
+        if(message.content ==`${BotSettings.prefix}userinfo ${mention}`) {   
     
             var embed = new Discord.RichEmbed()
     
@@ -332,7 +291,7 @@ bot.on("ready", async () => {
     
             embed.addField(`Erstellungsdatum des Accounts`,`**${mention.displayName}** hat seinen/ihren Account am **${mention.user.createdAt.toString().split(" ")[2]}** **${Config.Date_Name[mention.user.createdAt.toString().split(" ")[1]]}** **${mention.user.createdAt.toString().split(" ")[3]}** erstellt!`, false) 
     
-             embed.addField(`Joindatum`, `**${mention.displayName}** ist dem Server zuletzt am **${mention.joinedAt.toString().split(" ")[2]}** **${Config.Date_Name[mention.joinedAt.toString().split(" ")[1]]}** **${mention.joinedAt.toString().split(" ")[3]}** gejoint!`, false) 
+            embed.addField(`Joindatum`, `**${mention.displayName}** ist dem Server zuletzt am **${mention.joinedAt.toString().split(" ")[2]}** **${Config.Date_Name[mention.joinedAt.toString().split(" ")[1]]}** **${mention.joinedAt.toString().split(" ")[3]}** gejoint!`, false) 
     
             .setThumbnail(`${mention.user.avatarURL}`)
     
@@ -341,35 +300,29 @@ bot.on("ready", async () => {
     
         }
 
-
         //Clear
         if(command === "clear") {
        
-            if(!message.member.hasPermission("MANAGE_MESSAGES")) 
+            if(message.author.id == BotSettings.OwnerID ||  message.member.hasPermission("MANAGE_MESSAGES"))  {
+
+            var deleteCount = parseInt(args[0], 10);
     
-                return message.reply("Sorry, du hast keine Rechte um diesen Befehl auszuführen");
+            if (!deleteCount || deleteCount < 2 || deleteCount > 100) return message.reply("Bitte gib eine Zahl zwischen 2 und 100 an.");
     
-            const deleteCount = parseInt(args[0], 10);
-    
-            if (!deleteCount || deleteCount < 1 || deleteCount > 100) return message.reply("Bitte gib eine Zahl zwischen 1 und 100 an.");
-            message.delete()
-    
-            let deleted = await message.channel.bulkDelete(deleteCount, +1);
-    
-            message.channel.bulkDelete(deleteCount).catch(error => message.reply(`Konnte Nachrichten nicht löschen wegen: ${error}`));
-            setTimeout(async () => {msg1.delete()}, 5000)
-    
+            let deleted = await message.channel.bulkDelete(deleteCount +1).catch(error => message.reply(`Konnte Nachrichten nicht löschen wegen ${error}`));    
 
             let msg1 = await message.channel.send(`**${deleted.size}** Nachrichten wurden gelöscht. ${message.author}`)
             setTimeout(async () => {msg1.delete()}, 5000)
     
-          }
-    
+          } else {
+            message.channel.send(`Dieser Befehl benötigt die folgenden Server Rechte: **Nachrichten-Verwalten**. ${message.author}`)
+          } 
+        } 
             //Help-clear
             if(message.content ==`${BotSettings.prefix}help clear`) {
                 
             var embed = new Discord.RichEmbed()
-            .setColor("#7e95eb")
+            .setColor("#819bff")
             .addField(`Clear`,"`Löscht eine beliebige Anzahl an Nachrichten`")
             .addField(`Verwendung`,"`tx!clear [Zahl]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
@@ -382,8 +335,7 @@ bot.on("ready", async () => {
             //Kick
             if(command === "kick") {
     
-            if(!message.member.hasPermission("KICK_MEMBERS") )
-              return message.reply(`Sorry, du hast keine Rechte um diesen Befehl auszuführen \nDieser Befehl benötigt die folgenden Server Rechte: **Mitglieder kicken**.`);
+                if(message.author.id == BotSettings.OwnerID ||  message.member.hasPermission("KICK_MEMBERS"))  {
     
             let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     
@@ -404,13 +356,19 @@ bot.on("ready", async () => {
             await member.kick(reason)
     
             message.reply(`${member.user.tag} wurde wegen ${reason} vom Server gekickt`);
-    
+
+            } else {
+                message.channel.send(`Dieser Befehl benötigt die folgenden Server Rechte: **Mitglieder kicken**. ${message.author}`)
+            } 
           }
+
+         
+    
     
             //Help-Kick
             if(message.content ==`${BotSettings.prefix}help kick`) {
                 var embed = new Discord.RichEmbed()
-                .setColor("#7e95eb")
+                .setColor("#819bff")
                 .addField(`kick`,"`Kickt den markierten Nutzer`")
                 .addField(`Verwendung`,"`tx!kick [Mitglied] [Grund]`")
                 .setFooter(ToxbotFooter, NewtoxFooter)
@@ -421,8 +379,7 @@ bot.on("ready", async () => {
             //Bann
             if(command === "ban") {
     
-            if(!message.member.hasPermission("BAN_MEMBERS") )
-              return message.reply(`Sorry, du hast keine Rechte um diesen Befehl auszuführen \nDieser Befehl benötigt die folgenden Server Rechte: **Mitglieder bannen**.`);
+                if(message.author.id == BotSettings.OwnerID ||  message.member.hasPermission("BAN_MEMBERS"))  {
         
             let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     
@@ -445,13 +402,17 @@ bot.on("ready", async () => {
             await member.ban(reason)
         
             message.reply(`${member.user.tag} wurde wegen ${reason} vom Server gebannt`);
-    
-          } 
+
+            } else {
+                message.channel.send(`Dieser Befehl benötigt die folgenden Server Rechte: **Mitglieder kicken**. ${message.author}`)
+            } 
+          }
+         
           
           //Help-ban
           if(message.content ==`${BotSettings.prefix}help ban`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#7e95eb")
+            .setColor("#819bff")
             .addField(`ban`,"`Bannt den markierten Nutzer`")
             .addField(`Verwendung`,"`tx!ban [Mitglied] [Grund]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
@@ -495,8 +456,8 @@ bot.on("ready", async () => {
         //Help-opgiverole
         if(message.content ==`${BotSettings.prefix}help opgiverole`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#7e95eb")
-            .addField(`opgiverole`,"`Gibt euch eine Bestimmte Rollet`")
+            .setColor("#819bff")
+            .addField(`opgiverole`,"`Gibt euch eine Bestimmte Rolle`")
             .addField(`Verwendung`,"`tx!opgiverole [Rolle]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
     
@@ -545,8 +506,8 @@ bot.on("ready", async () => {
         //Help-opremoverole
         if(message.content ==`${BotSettings.prefix}help opremoverole`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#7e95eb")
-            .addField(`opremove`,"`Entfernt euch eine Bestimmte Rollet`")
+            .setColor("#819bff")
+            .addField(`opremove`,"`Entfernt euch eine Bestimmte Rolle`")
             .addField(`Verwendung`,"`tx!opremoverole [Rolle]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
     
@@ -585,7 +546,7 @@ bot.on("ready", async () => {
         //Help-roleID
         if(message.content ==`${BotSettings.prefix}help roleID`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#7e95eb")
+            .setColor("#819bff")
             .addField(`roleID`,"`Gibt dir die ID einer bestimmten Rolle`")
             .addField(`Verwendung`,"`tx!roleID [Rolle]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
@@ -624,7 +585,7 @@ bot.on("ready", async () => {
         //Help-EmojiID
         if(message.content ==`${BotSettings.prefix}help emojiID`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#7e95eb")
+            .setColor("#819bff")
             .addField(`emojiID`,"`Gibt dir die ID eines bestimmten Emoji`")
             .addField(`Verwendung`,"`tx!emojiID [Emoji]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
@@ -663,7 +624,7 @@ bot.on("ready", async () => {
         //Help-emojiSearch
         if(message.content ==`${BotSettings.prefix}help emojiSearch`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#7e95eb")
+            .setColor("#819bff")
             .addField(`emojiSearch`,"`Gibt dir einen bestimmten Emoji als Datei`")
             .addField(`Verwendung`,"`tx!emojiSearch [Emoji]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
@@ -703,9 +664,9 @@ bot.on("ready", async () => {
         //Help-rolecolor
         if(message.content ==`${BotSettings.prefix}help rolecolor`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#7e95eb")
+            .setColor("#819bff")
             .addField(`rolecolor`,"`Gibt euch den Farbencode einer Bestimmten Rolle`")
-            .addField(`Verwendung`,"tx!rolecolor [Rolle]")
+            .addField(`Verwendung`,"`tx!rolecolor [Rolle]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
     
             message.channel.send(embed)
@@ -737,9 +698,9 @@ bot.on("ready", async () => {
         //Help-roleedit
         if(message.content ==`${BotSettings.prefix}help roleedit`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#7e95eb")
-            .addField(`roleedit`,"`Damit könnt ihr die Farbe einer Rolle per Bot ändern lassen")
-            .addField(`Verwendung`,"tx!roleedit [Rolle] [Farbe]`")
+            .setColor("#819bff")
+            .addField(`roleedit`,"`Damit könnt ihr die Farbe einer Rolle per Bot ändern lassen`")
+            .addField(`Verwendung`,"`tx!roleedit [Rolle] [Farbe]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
     
             message.channel.send(embed)
@@ -748,7 +709,7 @@ bot.on("ready", async () => {
         //Help-Fun
         if(message.content ==`${BotSettings.prefix}help Fun`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#7e95eb")
+            .setColor("#819bff")
             .addField(`Fun`,"`Zeigt dir ein bisschen Quatch den man mit dem Bot anstellen kann`",false)
             .setFooter(ToxbotFooter, NewtoxFooter)
 
@@ -766,7 +727,6 @@ bot.on("ready", async () => {
             .addBlankField()
             .addField(`${BotSettings.prefix}splatoon2perks`, "zeigt die Vor und Nachteile der Marken in Splatoon 2", false)
             .addField(`${BotSettings.prefix}binNewtox`, "*schaut selber was passiert ( ͡° ͜ʖ ͡°)*", false)
-            .addField(`${BotSettings.prefix}Inkling c`,`Zeigt euch einen coolen ${Instagram} Account`)
             .addField(`${BotSettings.prefix}Xami`,`Zeigt euch die Teammitglieder von **${message.guild.member("227034133447180288").user.username}**#${message.guild.member("227034133447180288").user.discriminator} seinem Server.`,false)
             .addField(`@${bot.user.username}`,`Da wird ${bot.user.username} aber sauer sein!`)
             .setDescription("Falls ihr Ideen für weitere lustige Commands habt, dürft ihr euch gerne bei <@402483602094555138> melden.")
@@ -782,14 +742,10 @@ bot.on("ready", async () => {
 
         }
 
-        if(message.content == `${BotSettings.prefix}pingtox`) {
-            message.channel.send(`<@402483602094555138> <@402483602094555138> <@402483602094555138> <@402483602094555138> <@402483602094555138>`)
-        }
-
         if(message.content == `${BotSettings.prefix}binNewtox`) {
         if(message.author.id == "402483602094555138") {
 
-            message.channel.send(`Hey ${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}, mein Meister ${linkowo}`)
+            message.channel.send(`Hey ${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}, mein Meister`)
 
         }  else {
             message.channel.send(`${message.author}, was willst du von mir **?!** du bist nicht Newtox qwq`)
@@ -798,29 +754,30 @@ bot.on("ready", async () => {
         }
 
 
-        if(message.content ==`${BotSettings.prefix}Inkling c`) {
-        
-            var embed = new Discord.RichEmbed()
-            .setColor(message.member.highestRole.color)
-            .setTitle(`Instagram Account von ${message.guild.member("406729042717442049").user.username}`)
-            .setDescription("https://www.instagram.com/project_evil_inkling_c/", false)
-            .addField("*bitte alle folgen*",`${GlumandaHi}`, false)
-            .setFooter(EmbedFooter,FooterLogo)
-            .setTimestamp()
-            .setThumbnail(`${message.guild.members.get("406729042717442049").user.avatarURL}`)
-
-
-
-            message.channel.send(embed)
-        }
-
-
         if(message.content ==`${BotSettings.prefix}Newtoxinvite`) {
             message.channel.send(`Hier ist die Einladung zu dem Server von ${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator} **[Meinem Entwickler]** \nhttps://discord.gg/tUfNuD5`)
         }  
 
+        //Help-Newtox
+        if(message.content ==`${BotSettings.prefix}help Newtoxinvite`) {
+            var embed = new Discord.RichEmbed()
+            .setColor("#819bff")
+            .addField(`Newtoxinvite`,"`Gibt euch eine Einladung zu dem Server vom Bot-Owner`",false)
+
+            message.channel.send(embed)
+        }
+
         if(message.content ==`${BotSettings.prefix}botinvite`) {
             message.channel.send(`Ihr wollt mich auf eurem Server haben? \nNutzt diesen Link: \nhttps://discordapp.com/api/oauth2/authorize?client_id=463336117723201546&permissions=8&scope=bot`)
+        }
+
+        //Help-Bot
+        if(message.content ==`${BotSettings.prefix}help botinvite`) {
+            var embed = new Discord.RichEmbed()
+            .setColor("#819bff")
+            .addField(`botinvite`,"`Gibt euch einen Link womit ihr den Bot auf euren Server einladen könnt.`",false)
+
+            message.channel.send(embed)
         }
 
         if(message.content ==`${bot.user}`) {
@@ -832,13 +789,11 @@ bot.on("ready", async () => {
         }
 
         // if(message.content ==`${BotSettings.prefix}spam`) {
-        //     setInterval(async () => { message.channel.send(`<@${BotSettings.OwnerID}>`) }, 1);
+        //     setInterval(async () => { message.channel.send(`<@224084384054116352>`) }, 1);
         // }
         
 
         //Rollen Adds
-
-
 
         if(message.content ==`${BotSettings.prefix}MuteChannel`) {
             if(message.guild.id!== BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
@@ -951,8 +906,8 @@ bot.on("ready", async () => {
             .addField(`Text-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "text").size}`,true)
             .addField(`Sprach-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "voice").size}`,true)
             .addField(`AFK-Kanal`,`${message.guild.afkChannel}`)
-            .addField(`Rollen`,`${message.guild.roles.map(roles => roles).slice(1).join(", ")}`)
-            .addField(`Emojis`,`Der Server hat **${message.guild.emojis.size}** Emojis \n${message.guild.emojis.map(emojis => emojis).join("")}`)
+            .addField(`Rollen`,`Der Server hat **${message.guild.roles.size}** Rollen\n \n${message.guild.roles.map(roles => roles).slice(1).join(", ")}`,true)
+            .addField(`Emojis`,`Der Server hat **${message.guild.emojis.size}** Emojis\n \n${message.guild.emojis.map(emojis => emojis).join("")}`,true)
             .addField(`Erstellungsdatum des Servers`,`Der Server wurde am **${message.guild.createdAt.toString().split(" ")[2]}** **${Config.Date_Name[message.guild.createdAt.toString().split(" ")[1]]}** **${message.guild.createdAt.toString().split(" ")[3]}** erstellt!`, true)
             .addField(`Server-Icon`,`${message.guild.iconURL}`,true)
             .setThumbnail(`${message.guild.iconURL}`)
@@ -973,6 +928,25 @@ bot.on("ready", async () => {
         }
 
 
+        if(message.content ==`${BotSettings.prefix}serverliste`) {
+
+            var embed = new Discord.RichEmbed()
+            .setColor(message.guild.members.get("463336117723201546").highestRole.color)
+            .setDescription(`Der Bot befindet sich auf folgenden Servern: \n \n${bot.guilds.map(members => members).join(",\n")} Server!`)
+            .setFooter(ToxbotFooter, NewtoxFooter)
+
+            message.channel.send(embed)
+        }
+
+
+        //Help-Serverliste
+        if(message.content ==`${BotSettings.prefix}help serverliste`) {
+            var embed = new Discord.RichEmbed()
+            .setColor("#819bff")
+            .addField(`Serverliste`,"`Zeigt dir alle Server auf denen der Bot sich befindet.`",false)
+            message.channel.send(embed)
+        }
+
 
         if(message.content ==`${BotSettings.prefix}support`) {
             if(message.guild.id!= BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
@@ -987,17 +961,17 @@ bot.on("ready", async () => {
      }
 
 
-     if(message.content ==`${BotSettings.prefix}supportremove`) {
-        if(message.guild.id!= BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
+        if(message.content ==`${BotSettings.prefix}supportremove`) {
+            if(message.guild.id!= BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
 
-        if(message.member.roles.has("406951441182359553")  || message.member.roles.has("406951586326118420") || message.member.roles.has("406951724612321290") || message.member.hasPermission("ADMINISTRATOR")) {
+            if(message.member.roles.has("406951441182359553")  || message.member.roles.has("406951586326118420") || message.member.roles.has("406951724612321290") || message.member.hasPermission("ADMINISTRATOR")) {
             message.member.removeRole(`406951923477118997`)
             message.channel.send(`${message.author} Ich habe dir die Support Rolle entfernt`) 
              
-        } else {
-            message.channel.send(`${message.author} Dieser Befehl ist nur für Teammitglieder`)
-        }
- }
+            } else {
+                message.channel.send(`${message.author} Dieser Befehl ist nur für Teammitglieder`)
+            }
+     }
 
 
 
@@ -1026,34 +1000,6 @@ bot.on("ready", async () => {
             .addField(`Team`,"`Gibt dir Informationen über die aktuellen Teammitglieder des Newtox Servers`",false)
             message.channel.send(embed)
         }
-
-        //Alle
-        if(message.content == `${BotSettings.Prefix}splatoon waffen Alle`) {
-            let RandomWaffe = Splatoon.AlleWaffen[Math.floor(Math.random() * Splatoon.AlleWaffen.length)]
-
-            var embed = new Discord.RichEmbed()
-            .setThumbnail(RandomWaffe.image)
-            .setAuthor("Waffenroulette (Alle)")
-            .setTitle("Waffe")
-            .setDescription(RandomWaffe.name)
-            .addField("Sub-Waffe", RandomWaffe.sub, true)
-            .addField("Spezial-Waffe", RandomWaffe.special, true)
-
-            message.channel.send(embed)
-        }
-
-
-        //Musik Feature
-        if(message.content ==`${BotSettings.prefix}join`) {
-            if(message.member.voiceChannel) {
-                const connection = await message.member.voiceChannel.join();
-              } else {
-                message.reply('Du musst zuerst einem Voice Channel joinen!');
-              }
-            }
-            if(message.content ==`${BotSettings.prefix}leave`) {
-                    const connection = await message.member.voiceChannel.leave();
-                  }
 
         //Say-Command
 
@@ -1096,7 +1042,7 @@ bot.on("ready", async () => {
             var embed =  new Discord.RichEmbed()
             .setColor("#206694")
             .setTitle(`Das Team der ${message.guild.name}`)
-            .addField("Owner",`${message.guild.members.filter(members => members.roles.has("361534036298170398")).map(members => members).join(", ")}`, false)
+            .addField("Owner",`${message.guild.members.filter(members => members.roles.has("361534036298170398")).map(members => members).join(", ")}` || `Aktuell gibt es keine/n ${message.guild.members.filter(members => members.roles.has("361534036298170398")).array.name}`, false)
             .addField("Developer",`${message.guild.members.filter(members => members.roles.has("361535544968347648")).map(members => members).join(", ")}`, false)
             .addField("Moderator",`${message.guild.members.filter(members => members.roles.has("361534180229906432")).map(members => members).join(", ")}`, false)
             .addField("Bots",`${message.guild.members.filter(members => members.roles.has("361534497990115328")).map(members => members).join(", ")}`, false)
@@ -1108,7 +1054,7 @@ bot.on("ready", async () => {
             message.channel.send(embed)
         }
 
-        
+
     }
 
 
@@ -1117,4 +1063,4 @@ bot.on("ready", async () => {
 
 
 
-bot.login(BotSettings.token)
+bot.login(process.env.BOT_TOKEN)
