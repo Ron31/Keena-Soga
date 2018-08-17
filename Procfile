@@ -1,1 +1,1 @@
-worker node toxbotHost.js
+worker node toxbot.js
