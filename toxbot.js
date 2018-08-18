@@ -19,7 +19,7 @@ bot.on("ready", async () => {
 
     console.log(`\nBot ist online.\nName + Tag: ${bot.user.username}#${bot.user.discriminator}\nPrefix: ${BotSettings.prefix}`)
     bot.user.setStatus("online")//online, idle, dnd, invisible
-    bot.user.setActivity(`${BotSettings.prefix}help | Version: 1.5 |  ${bot.guilds.size} Server!`, {
+    bot.user.setActivity(`${BotSettings.prefix}help | Version: 1.5`, {
         type: "PLAYING" //PLAYING, STREAMING, LISTENING, WATCHING
     })
     //Name + Avatar
@@ -72,13 +72,17 @@ bot.on("message", async message => {
 
        
 
-    //Emojis | Bei Emojis empfehle ich dir anstat const oder var let zu nutzen.
-    let GlumandaHi = message.guild.emojis.find("name", "Glumanda_Hi")
-    let partyparrot = message.guild.emojis.find("name", "party_parrot") 
-    let Instagram = message.guild.emojis.find("name","instagram")
-    let linkowo = message.guild.emojis.find("name","linkowo")
-    let twitch = message.guild.emojis.find("name","twitch")
-    
+    //Emojis
+    let GlumandaHi = message.guild.emojis.find("name", "Glumanda_Hi") 
+     ONLINE_EMOTE = "<:online:480435603587203118>"
+     IDLE_EMOTE = "<:idle:480435654233423892>"
+     DND_EMOTE = "<:dnd:480435646624694302>"
+     INV_EMOTE = "<:invisible:480435664417194014>"
+
+
+    if(message.content ==`${BotSettings.prefix}icons`) {
+        message.channel.send(`${Online} ${dnd} ${idle} ${Offline}`)
+    }    
 
 
     //Verbotene Zeichen/Wörter
@@ -104,6 +108,25 @@ bot.on("message", async message => {
      //Schutz vor Bots
      if(!message.author.bot) {
 
+        //BotOff
+        if(message.content ==`${BotSettings.prefix}shutdown`) {
+            if(message.author.id == BotSettings.OwnerID) { 
+
+            bot.destroy()    
+            } else {
+                message.channel.send(`Nur der Bot-Owner kann diesen Command nutzen. ${message.author}`)
+            }     
+        }
+
+        //BotOn
+        if(message.content ==`${BotSettings.prefix}setOnline`) {
+            if(message.author.id == BotSettings.OwnerID) { 
+
+            bot.login()    
+            } else {
+                message.channel.send(`Nur der Bot-Owner kann diesen Command nutzen. ${message.author}`)
+            }     
+        }
 
 
         //Help
@@ -112,11 +135,10 @@ bot.on("message", async message => {
 
             .setColor(message.guild.members.get("463336117723201546").highestRole.color)
             .setTimestamp()
-            .setFooter(HelpFooter,ToxbotLogo)
+            .setFooter(HelpFooter)
             .setTitle("Hier siehst du alle Commands des Bots.")
-            .addField(`**Info**`,"`userinfo`,`serverinfo`,`serverliste`,`messages`,`botinfo`,`botinvite`,`Fun`")
-            .addField(`**Moderation**`,"`kick`,`ban`,`roleID`,`emojiID`,`emojiSearch`,`opgiverole`,`opremoverole`,`rolecolor`,`roleedit`,`clear`")
-            .addField(`**Newtox-Server**`,"`Rollen`,`Team`,`Newtoxinvite`")
+            .addField(`**__Info__**`,"`userinfo`,`serverinfo`,`serverliste`,`messages`,`botinfo`,`botinvite`,`Fun`,`Newtoxinvite`")
+            .addField(`**__Moderation__**`,"`kick`,`ban`,`roleID`,`emojiID`,`emojiSearch`,`opgiverole`,`opremoverole`,`rolecolor`,`roleedit`,`clear`")
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/476098810460766229/help2.png")
             message.channel.send(embed)
         }
@@ -758,6 +780,7 @@ bot.on("message", async message => {
             message.channel.send(`Hier ist die Einladung zu dem Server von ${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator} **[Meinem Entwickler]** \nhttps://discord.gg/tUfNuD5`)
         }  
 
+
         //Help-Newtox
         if(message.content ==`${BotSettings.prefix}help Newtoxinvite`) {
             var embed = new Discord.RichEmbed()
@@ -792,107 +815,6 @@ bot.on("message", async message => {
         //     setInterval(async () => { message.channel.send(`<@224084384054116352>`) }, 1);
         // }
         
-
-        //Rollen Adds
-
-        if(message.content ==`${BotSettings.prefix}MuteChannel`) {
-            if(message.guild.id!== BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
-            message.member.addRole(`407089763137486859`)
-            message.channel.send(`${message.author} Ich habe dir die Mute Channel Rolle hinzugefügt`)
-        }
-
-        if(message.content ==`${BotSettings.prefix}Splatoon2`) {
-            if(message.guild.id!= BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
-            message.member.addRole(`417278894069121045`)
-            message.channel.send(`${message.author} Ich habe dir die Splatoon 2 Rolle hinzugefügt`)
-        }
-
-        if(message.content ==`${BotSettings.prefix}RocketLeague`) {
-            if(message.guild.id!== BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
-            message.member.addRole(`417271014146441228`)
-            message.channel.send(`${message.author} Ich habe dir die Rocket League Rolle hinzugefügt`)
-        }
-
-        if(message.content ==`${BotSettings.prefix}Overwatch`) {
-            if(message.guild.id!= BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
-            message.member.addRole(`415897143350657034`)
-            message.channel.send(`${message.author} Ich habe dir die Overwatch Rolle hinzugefügt`)
-        }
-
-        if(message.content ==`${BotSettings.prefix}Fortnite`) {
-            if(message.guild.id!= BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
-            message.member.addRole(`413579568474095626`)
-            message.channel.send(`${message.author} Ich habe dir die Fortnite Rolle hinzugefügt`)
-        }
-
-        //Rollen Removes
-
-        if(message.content ==`${BotSettings.prefix}MuteChannelremove`) {
-            if(message.guild.id!== BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
-              message.member.removeRole(`407089763137486859`)
-              message.channel.send(`${message.author} Ich habe dir die Mute Channel Rolle entfernt`)
-        }
-
-        if(message.content ==`${BotSettings.prefix}Splatoon2remove`) {
-            if(message.guild.id!== BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
-            message.member.removeRole(`417278894069121045`)
-            message.channel.send(`${message.author} Ich habe dir die Splatoon 2 Rolle entfernt`)
-        }
-
-        if(message.content ==`${BotSettings.prefix}RocketLeagueremove`) {
-            if(message.guild.id!== BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
-            message.member.removeRole(`417271014146441228`)
-            message.channel.send(`${message.author} Ich habe dir die Rocket League Rolle entfernt`)
-        }
-
-        if(message.content ==`${BotSettings.prefix}Overwatchremove`) {
-            if(message.guild.id!== BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
-            message.member.removeRole(`415897143350657034`)
-            message.channel.send(`${message.author} Ich habe dir die Overwatch Rolle entfernt`)
-        }
-
-        if(message.content ==`${BotSettings.prefix}Fortniteremove`) {
-            if(message.guild.id!== BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
-            message.member.removeRole(`413579568474095626`)
-            message.channel.send(`${message.author} Ich habe dir die Fortnite Rolle entfernt`)
-
-        }
-
-        if(message.content ==`${BotSettings.prefix}mute ${mention}`) {
-            mention.addRole(`408933646612037632`)
-            message.channel.send(`${mention.user.username} wurde gemutet`)
-        }
-
-        //Wichtige Befehle
-        if(message.content ==`${BotSettings.prefix}Rollen`) { 
-            if(message.guild.id!== BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
-
-            var embed = new Discord.RichEmbed()
-            .setColor("#3E83A7")
-            .setTimestamp()
-            .setTitle("Hier seht ihr alle verfügbaren Rollen")
-            .setDescription(`\n${BotSettings.prefix}MuteChannel \n${BotSettings.prefix}Splatoon2 \n${BotSettings.prefix}RocketLeague \n${BotSettings.prefix}Overwatch \n${BotSettings.prefix}Fortnite`)
-            .addBlankField()
-            .setThumbnail("https://cdn.discordapp.com/attachments/451007157933047829/457499833121636352/Discord.jpg")
-
-            message.channel.send(embed)
-
-        }
-
-        //Help-Rollen
-        if(message.content ==`${BotSettings.prefix}help Rollen`) {
-                
-            var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
-            .addField(`Rollen`,"`Zeig dir alle Rollen die du dir adden kannst.`")
-            .addField(`Verwendung`,"`tx![Rolle]`")
-            .addField("`Um die Rolle wieder zu entfernen gebt ihr genau das selbe wie oben ein, nur mit remove dahinter.`", "Das würde dann so aussehen: `tx!pcremove`")
-            .setFooter(ToxbotFooter, NewtoxFooter)
-    
-            message.channel.send(embed)
-        }
-
-
 
         //serverinfo
         if(message.content ==`${BotSettings.prefix}serverinfo`) {
@@ -932,7 +854,7 @@ bot.on("message", async message => {
 
             var embed = new Discord.RichEmbed()
             .setColor(message.guild.members.get("463336117723201546").highestRole.color)
-            .setDescription(`Der Bot befindet sich auf folgenden Servern: \n \n${bot.guilds.map(members => members).join(",\n")} Server!`)
+            .setDescription(`Der Bot befindet sich auf **${bot.guilds.size}** Servern: \n \n${bot.guilds.map(members => members).join(",\n")} Server!`)
             .setFooter(ToxbotFooter, NewtoxFooter)
 
             message.channel.send(embed)
@@ -948,58 +870,6 @@ bot.on("message", async message => {
         }
 
 
-        if(message.content ==`${BotSettings.prefix}support`) {
-            if(message.guild.id!= BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
-
-            if(message.member.roles.has("406951441182359553")  || message.member.roles.has("406951586326118420") || message.member.roles.has("406951724612321290") || message.member.hasPermission("ADMINISTRATOR")) {
-                message.member.addRole(`406951923477118997`)
-                message.channel.send(`${message.author} Ich habe dir die Support Rolle hinzugefügt`) 
-                 
-            } else {
-                message.channel.send(`${message.author} Dieser Befehl ist nur für Teammitglieder`)
-            }
-     }
-
-
-        if(message.content ==`${BotSettings.prefix}supportremove`) {
-            if(message.guild.id!= BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
-
-            if(message.member.roles.has("406951441182359553")  || message.member.roles.has("406951586326118420") || message.member.roles.has("406951724612321290") || message.member.hasPermission("ADMINISTRATOR")) {
-            message.member.removeRole(`406951923477118997`)
-            message.channel.send(`${message.author} Ich habe dir die Support Rolle entfernt`) 
-             
-            } else {
-                message.channel.send(`${message.author} Dieser Befehl ist nur für Teammitglieder`)
-            }
-     }
-
-
-
-        if(message.content == `${BotSettings.prefix}Team`) {
-
-            if(message.guild.id!= BotSettings.ServerID) return message.channel.send("Dieser Command funktioniert nur auf dem Server vom Bot-Owner.")
-
-            var embed = new Discord.RichEmbed()
-            .setColor("#bb1700")
-            .setTimestamp()
-            .setTitle("Hier seht ihr alle Teammitglieder", true)
-            .addField("Owner",`${message.guild.members.filter(members => members.roles.has("406951345460084736")).map(members => members).join(", ") || `*Aktuell gibt es keinen Owner*`}`, false)
-            .addField("Admins",`${message.guild.members.filter(members => members.roles.has("406951441182359553")).map(members => members).join(", ") || `*Aktuell gibt es keine Admins*`}`, false)
-            .addField("Moderatoren",`${message.guild.members.filter(members => members.roles.has("406951586326118420")).map(members => members).join(", ") || `*Aktuell gibt es keine Moderatoren*`}`, false)
-            .addField("Supporter",`${message.guild.members.filter(members => members.roles.has("406951724612321290")).map(members => members).join(", ") || `*Aktuell gibt es keine Supporter*`}`, false)
-            .addField("Test Supporter",`${message.guild.members.filter(members => members.roles.has("409019143166099460")).map(members => members).join(", ") || `*Aktuell gibt es keine Test Supporter*, für mehr schau in <#444501822351212556> `}`, false)
-
-
-            message.channel.send(embed)
-        }
-
-        //Help-Team
-        if(message.content ==`${BotSettings.prefix}help Team`) {
-            var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
-            .addField(`Team`,"`Gibt dir Informationen über die aktuellen Teammitglieder des Newtox Servers`",false)
-            message.channel.send(embed)
-        }
 
         //Say-Command
 
