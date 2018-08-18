@@ -7,10 +7,10 @@
     },
 
     "status_ger": {
-        "online": "Online",
-        "idle": "Abwesend",
-        "dnd": "Bitte nicht stören",
-        "offline": "Offline"
+        "online": "<:online:480435603587203118> Online",
+        "idle": "<:idle:480435654233423892> Abwesend",
+        "dnd": "<:dnd:480435646624694302> Bitte nicht stören",
+        "offline": "<:invisible:480435664417194014> Offline"
     },
 
     "Date_Name": {
@@ -19,11 +19,11 @@
         "Mar": "März",
         "Apr": "April",
         "May": "Mai",
-        "Jun": "Juni",
+        "July": "Juni",
         "Jul": "Juli",
         "Aug": "August",
-        "Sep": "September",
-        "Okt": "Oktober",
+        "Sept": "September",
+        "Oct": "Oktober",
         "Nov": "November",
         "Dec": "Dezember"
     },
@@ -36,6 +36,5 @@
         "4": "Extrem"
         
     }
-
 
 }
