@@ -1,9 +1,0 @@
-﻿Solltest du den Namen deiner JS-Bot-File ändern wollen, musst du den Dateinamen noch bei Package-Settings unter "main" ändern. Das, was in nodemon.json steht, kannst du selber editieren. Dazu musst du einfach den Name der Datei in die "" fügen und der nodemon ingoriert es, wenn an der File was geändert wird, heißt es startet nicht neu.
-Beispiel dafür:
-{
-    "ignore": [
-        "filename1.json",
-        "filename2.js"
-    ]
-}
-nodemon ingoriert BTW .txt, .bat usw. Files. Heißt, die musst du nicht adden. Vergiss BTW nicht, nodemon zu installieren! (npm install -g nodemon)
