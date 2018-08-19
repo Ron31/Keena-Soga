@@ -5,7 +5,7 @@ const Discord = require("discord.js"),
       profile = JSON.parse(fs.readFileSync("profil/message.json","utf8")),
       Config = require("./config.json"),
       Splatoon = require("./Splatoon_Arrays.json")
-
+  
     
 
    
@@ -19,7 +19,7 @@ bot.on("ready", async () => {
 
     console.log(`\nBot ist online.\nName + Tag: ${bot.user.username}#${bot.user.discriminator}\nPrefix: ${BotSettings.prefix}`)
     bot.user.setStatus("online")//online, idle, dnd, invisible
-    bot.user.setActivity(`${BotSettings.prefix}help | Version: 1.5`, {
+    bot.user.setActivity(`${BotSettings.prefix}help | Version: [1.5] | ${bot.guilds.size} Server!`, {
         type: "PLAYING" //PLAYING, STREAMING, LISTENING, WATCHING
     })
     //Name + Avatar
@@ -33,6 +33,11 @@ bot.on("guildMemberAdd", async member => {
     if(member.guild.id == `406946551538253828`) {
     bot.channels.get("439880541043425290").send(`${member} Willkommen auf dem ${member.guild.name}! Bitte wirf einen Blick auf die <#406946551538253830> und benimm dich. \nWenn du fragen hast kannst du gerne auf die Mods, Supporter oder auch auf Newtox zugehen. \nEs schadet auch nicht einen blick in das <#477222309787205674> zu werfen ${bot.emojis.find("name","Glumanda_Hi")}`)
         member.addRole("406952857917456395")
+
+        if(member.guild.id == `361532938816585730`) { 
+            bot.channels.get("478552771734536192").send(`${member} Willkommen in der ${member.guild.name}! ,Wir wünschen dir hier viel Spaß. Lies dir aber bitte die <#478965010920374291> durch.`)
+                member.addRole("473485307950530560")
+            }
     }
 });
 bot.on("message", async message => { })
@@ -46,14 +51,7 @@ bot.on("message", async message => { })
 bot.on("message", async message => { }) 
 
 
-//Welcome Message Xami
-bot.on("guildMemberAdd", async member => { 
-    if(member.guild.id == `361532938816585730`) { 
-    bot.channels.get("478552771734536192").send(`${member} Willkommen in der ${member.guild.name}! ,Wir wünschen dir hier viel Spaß. Lies dir aber bitte die <#478965010920374291> durch.`)
-        member.addRole("473485307950530560")
-    }
-});
-bot.on("message", async message => { })
+
 
 
 bot.on("message", async message => {
@@ -74,6 +72,10 @@ bot.on("message", async message => {
 
     //Emojis
     let GlumandaHi = message.guild.emojis.find("name", "Glumanda_Hi") 
+    let Balance = message.guild.emojis.find("name", "Balance") 
+    let Brilliance = message.guild.emojis.find("name", "Brilliance") 
+    let Bravery = message.guild.emojis.find("name", "Bravery") 
+
      ONLINE_EMOTE = "<:online:480435603587203118>"
      IDLE_EMOTE = "<:idle:480435654233423892>"
      DND_EMOTE = "<:dnd:480435646624694302>"
@@ -108,26 +110,6 @@ bot.on("message", async message => {
      //Schutz vor Bots
      if(!message.author.bot) {
 
-        //BotOff
-        if(message.content ==`${BotSettings.prefix}shutdown`) {
-            if(message.author.id == BotSettings.OwnerID) { 
-
-            bot.destroy()    
-            } else {
-                message.channel.send(`Nur der Bot-Owner kann diesen Command nutzen. ${message.author}`)
-            }     
-        }
-
-        //BotOn
-        if(message.content ==`${BotSettings.prefix}setOnline`) {
-            if(message.author.id == BotSettings.OwnerID) { 
-
-            bot.login()    
-            } else {
-                message.channel.send(`Nur der Bot-Owner kann diesen Command nutzen. ${message.author}`)
-            }     
-        }
-
 
         //Help
         if(message.content ==`${BotSettings.prefix}help`) { 
@@ -138,7 +120,8 @@ bot.on("message", async message => {
             .setFooter(HelpFooter)
             .setTitle("Hier siehst du alle Commands des Bots.")
             .addField(`**__Info__**`,"`userinfo`,`serverinfo`,`serverliste`,`messages`,`botinfo`,`botinvite`,`Fun`,`Newtoxinvite`")
-            .addField(`**__Moderation__**`,"`kick`,`ban`,`roleID`,`emojiID`,`emojiSearch`,`opgiverole`,`opremoverole`,`rolecolor`,`roleedit`,`clear`")
+            .addField(`**__Moderation__**`,"`kick`,`ban`,`roleID`,`emojiID`,`emojiFile`,`opgiverole`,`opremoverole`,`rolecolor`,`roleedit`,`clear`")
+            .addField(`**Toxbot Developer Hub**`,"`Hypesquad`")
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/476098810460766229/help2.png")
             message.channel.send(embed)
         }
@@ -227,6 +210,7 @@ bot.on("message", async message => {
             message.channel.send(embed)
 
         }
+
 
 
         //Help-userinfo
@@ -575,7 +559,7 @@ bot.on("message", async message => {
     
             message.channel.send(embed)
         }
-    
+
               
         //Emoji-ID
         if(command == "emojiID") {
@@ -616,8 +600,8 @@ bot.on("message", async message => {
         }
     
     
-        //Emoji-Search
-        if(command == "emojiSearch") {
+        //Emoji-File
+        if(command == "emojiFile") {
     
             if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("MANAGE_EMOJIS")) {
         
@@ -643,12 +627,12 @@ bot.on("message", async message => {
             return
         }
     
-        //Help-emojiSearch
-        if(message.content ==`${BotSettings.prefix}help emojiSearch`) {
+        //Help-emojiFile
+        if(message.content ==`${BotSettings.prefix}help emojiFile`) {
             var embed = new Discord.RichEmbed()
             .setColor("#819bff")
-            .addField(`emojiSearch`,"`Gibt dir einen bestimmten Emoji als Datei`")
-            .addField(`Verwendung`,"`tx!emojiSearch [Emoji]`")
+            .addField(`emojiFile`,"`Gibt dir einen bestimmten Emoji als Datei`")
+            .addField(`Verwendung`,"`tx!emojiFile [Emoji]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
     
             message.channel.send(embed)
@@ -750,6 +734,7 @@ bot.on("message", async message => {
             .addField(`${BotSettings.prefix}splatoon2perks`, "zeigt die Vor und Nachteile der Marken in Splatoon 2", false)
             .addField(`${BotSettings.prefix}binNewtox`, "*schaut selber was passiert ( ͡° ͜ʖ ͡°)*", false)
             .addField(`${BotSettings.prefix}Xami`,`Zeigt euch die Teammitglieder von **${message.guild.member("227034133447180288").user.username}**#${message.guild.member("227034133447180288").user.discriminator} seinem Server.`,false)
+            .addField(`${BotSettings.prefix}lööps`,`**__lööps__**`)
             .addField(`@${bot.user.username}`,`Da wird ${bot.user.username} aber sauer sein!`)
             .setDescription("Falls ihr Ideen für weitere lustige Commands habt, dürft ihr euch gerne bei <@402483602094555138> melden.")
             .setThumbnail("https://cdn.discordapp.com/attachments/451007157933047829/457489426784845825/fun.png")
@@ -757,7 +742,6 @@ bot.on("message", async message => {
             message.channel.send(embed)
         }
 
-      
 
         if(message.content ==`${BotSettings.prefix}splatoon2perks`) {
             message.channel.send(`https://pro-rankedboost.netdna-ssl.com/wp-content/uploads/2017/07/Splatoon-2-Abilities-List.png`)
@@ -779,6 +763,10 @@ bot.on("message", async message => {
         if(message.content ==`${BotSettings.prefix}Newtoxinvite`) {
             message.channel.send(`Hier ist die Einladung zu dem Server von ${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator} **[Meinem Entwickler]** \nhttps://discord.gg/tUfNuD5`)
         }  
+
+        if(message.content ==`${BotSettings.prefix}lööps`) {
+            message.channel.send(`https://cdn.discordapp.com/attachments/480022630884311060/480778360205869056/Screenshot_2018-08-17-21-36-51.png`)
+        }
 
 
         //Help-Newtox
@@ -805,14 +793,14 @@ bot.on("message", async message => {
 
         if(message.content ==`${bot.user}`) {
                 var embed = new Discord.RichEmbed()
-                .setColor("#7e95eb")
+                .setColor("#819bff")
                 .setImage("https://cdn.discordapp.com/attachments/406957187869442048/476102813705830404/ping.jpg")
 
                 message.channel.send(embed)
         }
 
         // if(message.content ==`${BotSettings.prefix}spam`) {
-        //     setInterval(async () => { message.channel.send(`<@224084384054116352>`) }, 1);
+        //     setInterval(async () => { message.channel.send(`<@373857433380061184>`) }, 1000);
         // }
         
 
@@ -924,6 +912,94 @@ bot.on("message", async message => {
             message.channel.send(embed)
         }
 
+         //BotOff
+         if(message.content ==`${BotSettings.prefix}shutdown`) {
+            if(message.author.id == BotSettings.OwnerID) { 
+
+            bot.destroy()    
+            } else {
+                message.channel.send(`Nur der Bot-Owner kann diesen Command nutzen. ${message.author}`)
+            }     
+        }
+
+        //BotOn
+        if(message.content ==`${BotSettings.prefix}setOnline`) {
+            if(message.author.id == BotSettings.OwnerID) { 
+
+            bot.login(BotSettings.token)    
+            } else {
+                message.channel.send(`Nur der Bot-Owner kann diesen Command nutzen. ${message.author}`)
+            }     
+        }
+        
+
+        //Hypesquad!
+        if(message.content ==`${BotSettings.prefix}Hypesquad`) {
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
+
+            var embed = new Discord.RichEmbed()
+
+            .setDescription(`Hier seht ihr alle Hypesquad Teams. \nZu denen ihr euch eure jeweilige Rolle adden könnt. \n${Balance} ${BotSettings.prefix}Balance \n${Brilliance} ${BotSettings.prefix}Brilliance \n${Bravery} ${BotSettings.prefix}Bravery`)
+            .addField("Falls ihr euer Team wechseln solltet. Könnt ihr das tun. ","Dafür müsst ihr nur das gleich eingeben wie oben, nur mit einem **leave** dahinter. Das würde dann so aussehen: `tx!Balanceleave`",true)
+            .addField("Falls ihr nicht wisst, was die Hypesquad ist, dann schaut euch gerne folgendes Video an:","https://youtu.be/SWzB1mx2o5k",false)
+    
+            message.channel.send(message.author, embed)
+        }
+
+        //Help-Hypesquad
+
+        if(message.content ==`${BotSettings.prefix}help Hypesquad`) {
+
+            var embed = new Discord.RichEmbed()
+            .setColor("#819bff")
+            .addField(`Hypesquad`,"`Zeigt dir alle Hypesquad Teams, zu denen du dir Rollen adden kannst.`",false)
+            .addField(`Verwendung`,"`tx![Team]`")
+            .setFooter(ToxbotFooter, NewtoxFooter)
+
+            message.channel.send(embed)
+        }
+
+        if(message.content ==`${BotSettings.prefix}Balance`) {
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
+
+            message.member.addRole(`480798479103295490`)
+            message.channel.send(`${message.author} Ich freue mich das ich dich in Team **Balance** begrüßen darf!`)
+        }
+
+        if(message.content ==`${BotSettings.prefix}Balanceleave`) {
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
+
+            message.member.addRole(`480798479103295490`)
+            message.channel.send(`${message.author} Schade das du Team Balance verlassen hast.`)
+        }
+
+        if(message.content ==`${BotSettings.prefix}Brilliance`) {
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
+
+            message.member.addRole(`480798626382086157`)
+            message.channel.send(`${message.author} Ich freue mich das ich dich in Team **Brilliance** begrüßen darf!`)
+        }
+
+        if(message.content ==`${BotSettings.prefix}Brillianceleave`) {
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
+
+            message.member.addRole(`480798626382086157`)
+            message.channel.send(`${message.author} Schade das du Team Brilliance verlassen hast.`)
+        }
+
+        if(message.content ==`${BotSettings.prefix}Bravery`) {
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
+
+            message.member.addRole(`480798562079342593`)
+            message.channel.send(`${message.author} Ich freue mich das ich dich in Team **Bravery** begrüßen darf!`)
+        }
+
+        if(message.content ==`${BotSettings.prefix}Braveryleave`) {
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
+
+            message.member.addRole(`480798562079342593`)
+            message.channel.send(`${message.author} Schade das du Team Bravery verlassen hast.`)
+        }
 
     }
 
