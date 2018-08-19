@@ -121,7 +121,7 @@ bot.on("message", async message => {
             .setTitle("Hier siehst du alle Commands des Bots.")
             .addField(`**__Info__**`,"`userinfo`,`serverinfo`,`serverliste`,`messages`,`botinfo`,`botinvite`,`Fun`,`Newtoxinvite`")
             .addField(`**__Moderation__**`,"`kick`,`ban`,`roleID`,`emojiID`,`emojiFile`,`opgiverole`,`opremoverole`,`rolecolor`,`roleedit`,`clear`")
-            .addField(`**Toxbot Developer Hub**`,"`Hypesquad`")
+            .addField(`**__Toxbot Developer Hub__**`,"`Hypesquad`")
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/476098810460766229/help2.png")
             message.channel.send(embed)
         }
