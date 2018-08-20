@@ -13,20 +13,19 @@ const Discord = require("discord.js"),
 
 
 //Start-Up
-
 bot.on("ready", async () => {
-
-
     console.log(`\nBot ist online.\nName + Tag: ${bot.user.username}#${bot.user.discriminator}\nPrefix: ${BotSettings.prefix}`)
-    bot.user.setStatus("online")//online, idle, dnd, invisible
-    bot.user.setActivity(`${BotSettings.prefix}help | Version: [1.5] | ${bot.guilds.size} Server!`, {
-        type: "PLAYING" //PLAYING, STREAMING, LISTENING, WATCHING
-    })
-    //Name + Avatar
-    // bot.user.setUsername("Toxbot")
-    // bot.user.setAvatar("")
-});
+    bot.user.setStatus("online") //online, idle, dnd, invisible
+})
+setInterval(async function() {
 
+    let status = [`${BotSettings.prefix}help`, `${bot.users.size} members!`,`Version: [1.5]`,`auf ${bot.guilds.size} Servern!`];
+    let chosen = status[Math.floor(Math.random() * status.length)];
+  
+    bot.user.setActivity(chosen, {type: "PLAYING"});
+  
+}, 10000);
+    
 
 //Welcome Message
 bot.on("guildMemberAdd", async member => { 
@@ -39,6 +38,10 @@ bot.on("guildMemberAdd", async member => {
                 member.addRole("473485307950530560")
             }
     }
+
+    if(member.guild.id == `417437075734790174`) { 
+            member.addRole("417770123840061451")
+        }
 });
 bot.on("message", async message => { })
 
@@ -119,11 +122,88 @@ bot.on("message", async message => {
             .setTimestamp()
             .setFooter(HelpFooter)
             .setTitle("Hier siehst du alle Commands des Bots.")
-            .addField(`**__Info__**`,"`userinfo`,`serverinfo`,`serverliste`,`messages`,`botinfo`,`botinvite`,`Fun`,`Newtoxinvite`")
+            .addField(`**__Info__**`,"`userinfo`,`serverinfo`,`serverliste`,`messages`,`botinfo`,`botinvite`,`Fun`,`Newtoxinvite,`,`Hypesquad`")
             .addField(`**__Moderation__**`,"`kick`,`ban`,`roleID`,`emojiID`,`emojiFile`,`opgiverole`,`opremoverole`,`rolecolor`,`roleedit`,`clear`")
-            .addField(`**__Toxbot Developer Hub__**`,"`Hypesquad`")
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/476098810460766229/help2.png")
             message.channel.send(embed)
+        }
+
+        //Hypesquad!
+        if(message.content ==`${BotSettings.prefix}Hypesquad`) {
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
+
+            var embed = new Discord.RichEmbed()
+
+            .setDescription(`Hier seht ihr alle Hypesquad Häuser. \nZu denen ihr euch eure jeweilige Rolle adden könnt. \n${Balance} ${BotSettings.prefix}Balance \n${Brilliance} ${BotSettings.prefix}Brilliance \n${Bravery} ${BotSettings.prefix}Bravery`)
+            .addField("Falls ihr euer Haus wechseln solltet. Könnt ihr das tun. ","Dafür müsst ihr nur das gleich eingeben wie oben, nur mit einem **leave** dahinter. Das würde dann so aussehen: `tx!Balanceleave`",true)
+            .addField("Falls ihr nicht wisst, was die Hypesquad ist, dann schaut euch gerne folgendes Video an:","https://youtu.be/SWzB1mx2o5k",false)
+    
+            message.channel.send(message.author, embed)
+        }
+
+        //Help-Hypesquad
+
+        if(message.content ==`${BotSettings.prefix}help Hypesquad`) {
+
+            var embed = new Discord.RichEmbed()
+            .setColor("#819bff")
+            .addField(`Hypesquad`,"`Zeigt dir alle Hypesquad Häuser, zu denen du dir Rollen adden kannst.`",false)
+            .addField(`Verwendung`,"`tx![Haus]`")
+            .setFooter(ToxbotFooter, NewtoxFooter)
+
+            message.channel.send(embed)
+        }
+
+        if(message.content ==`${BotSettings.prefix}Balance`) {
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
+            if(message.member.roles.has("480798562079342593") || message.member.roles.has("480798626382086157")) return message.channel.send(`${message.author} Du bist aktuell in dem Haus **${message.guild.roles.get("480798562079342593").name}** oder **${message.guild.roles.get("480798626382086157").name}**. Du musst erst dein aktuelles Haus verlassen.`)
+            if(message.member.roles.has("480798479103295490")) return message.channel.send(`${message.author} Du bist bereits im Haus **${message.guild.roles.get("480798479103295490").name}**.`)
+
+            message.member.addRole(`480798479103295490`)
+            message.channel.send(`${message.author} Ich freue mich das ich dich im Haus **Balance** begrüßen darf!`)
+        }
+
+        if(message.content ==`${BotSettings.prefix}Balanceleave`) {
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
+            if(message.member.roles.has("480798562079342593") || message.member.roles.has("480798626382086157")) return message.channel.send(`${message.author} Du kannst kein Haus verlassen, indem du nicht bist.`)
+
+            message.member.removeRole(`480798479103295490`)
+            message.channel.send(`${message.author} Schade das du Haus Balance verlassen hast.`)
+        }
+
+        if(message.content ==`${BotSettings.prefix}Brilliance`) {
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
+            if(message.member.roles.has("480798479103295490") || message.member.roles.has("480798562079342593")) return message.channel.send(`${message.author} Du bist aktuell in dem Haus **${message.guild.roles.get("480798479103295490").name}** oder **${message.guild.roles.get("480798562079342593").name}**. Du musst erst dein aktuelles Haus verlassen.`)
+            if(message.member.roles.has("480798626382086157")) return message.channel.send(`${message.author} Du bist bereits im Haus **${message.guild.roles.get("480798626382086157").name}**.`)
+
+
+            message.member.addRole(`480798626382086157`)
+            message.channel.send(`${message.author} Ich freue mich das ich dich im Haus **Brilliance** begrüßen darf!`)
+        }
+
+        if(message.content ==`${BotSettings.prefix}Brillianceleave`) {
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
+            if(message.member.roles.has("480798479103295490") || message.member.roles.has("480798562079342593")) return message.channel.send(`${message.author} Du kannst kein Haus verlassen, indem du nicht bist.`)
+
+            message.member.removeRole(`480798626382086157`)
+            message.channel.send(`${message.author} Schade das du Haus Brilliance verlassen hast.`)
+        }
+
+        if(message.content ==`${BotSettings.prefix}Bravery`) {
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
+            if(message.member.roles.has("480798479103295490") || message.member.roles.has("480798626382086157")) return message.channel.send(`${message.author} Du bist aktuell in dem Haus **${message.guild.roles.get("480798479103295490").name}** oder **${message.guild.roles.get("480798626382086157").name}**. Du musst erst dein aktuelles Haus verlassen.`)
+            if(message.member.roles.has("480798562079342593")) return message.channel.send(`${message.author} Du bist bereits im Haus **${message.guild.roles.get("480798479103295490").name}**.`)
+
+            message.member.addRole(`480798562079342593`)
+            message.channel.send(`${message.author} Ich freue mich das ich dich im Haus **Bravery** begrüßen darf!`)
+        }
+
+        if(message.content ==`${BotSettings.prefix}Braveryleave`) {
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
+            if(message.member.roles.has("480798479103295490") || message.member.roles.has("480798626382086157")) return message.channel.send(`${message.author} Du kannst kein Haus verlassen, indem du nicht bist.`)
+
+            message.member.removeRole(`480798562079342593`)
+            message.channel.send(`${message.author} Schade das du Haus Bravery verlassen hast.`)
         }
 
         //Help-messages
@@ -816,7 +896,7 @@ bot.on("message", async message => {
             .addField(`Text-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "text").size}`,true)
             .addField(`Sprach-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "voice").size}`,true)
             .addField(`AFK-Kanal`,`${message.guild.afkChannel}`)
-            .addField(`Rollen`,`Der Server hat **${message.guild.roles.size}** Rollen\n \n${message.guild.roles.map(roles => roles).slice(1).join(", ")}`,true)
+            .addField(`Rollen`,`Der Server hat **${message.guild.roles.size}** Rollen\n \n${message.guild.roles.map(roles => roles).splice(1).join(", ")}`,true)
             .addField(`Emojis`,`Der Server hat **${message.guild.emojis.size}** Emojis\n \n${message.guild.emojis.map(emojis => emojis).join("")}`,true)
             .addField(`Erstellungsdatum des Servers`,`Der Server wurde am **${message.guild.createdAt.toString().split(" ")[2]}** **${Config.Date_Name[message.guild.createdAt.toString().split(" ")[1]]}** **${message.guild.createdAt.toString().split(" ")[3]}** erstellt!`, true)
             .addField(`Server-Icon`,`${message.guild.iconURL}`,true)
@@ -932,74 +1012,6 @@ bot.on("message", async message => {
             }     
         }
         
-
-        //Hypesquad!
-        if(message.content ==`${BotSettings.prefix}Hypesquad`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
-
-            var embed = new Discord.RichEmbed()
-
-            .setDescription(`Hier seht ihr alle Hypesquad Teams. \nZu denen ihr euch eure jeweilige Rolle adden könnt. \n${Balance} ${BotSettings.prefix}Balance \n${Brilliance} ${BotSettings.prefix}Brilliance \n${Bravery} ${BotSettings.prefix}Bravery`)
-            .addField("Falls ihr euer Team wechseln solltet. Könnt ihr das tun. ","Dafür müsst ihr nur das gleich eingeben wie oben, nur mit einem **leave** dahinter. Das würde dann so aussehen: `tx!Balanceleave`",true)
-            .addField("Falls ihr nicht wisst, was die Hypesquad ist, dann schaut euch gerne folgendes Video an:","https://youtu.be/SWzB1mx2o5k",false)
-    
-            message.channel.send(message.author, embed)
-        }
-
-        //Help-Hypesquad
-
-        if(message.content ==`${BotSettings.prefix}help Hypesquad`) {
-
-            var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
-            .addField(`Hypesquad`,"`Zeigt dir alle Hypesquad Teams, zu denen du dir Rollen adden kannst.`",false)
-            .addField(`Verwendung`,"`tx![Team]`")
-            .setFooter(ToxbotFooter, NewtoxFooter)
-
-            message.channel.send(embed)
-        }
-
-        if(message.content ==`${BotSettings.prefix}Balance`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
-
-            message.member.addRole(`480798479103295490`)
-            message.channel.send(`${message.author} Ich freue mich das ich dich in Team **Balance** begrüßen darf!`)
-        }
-
-        if(message.content ==`${BotSettings.prefix}Balanceleave`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
-
-            message.member.addRole(`480798479103295490`)
-            message.channel.send(`${message.author} Schade das du Team Balance verlassen hast.`)
-        }
-
-        if(message.content ==`${BotSettings.prefix}Brilliance`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
-
-            message.member.addRole(`480798626382086157`)
-            message.channel.send(`${message.author} Ich freue mich das ich dich in Team **Brilliance** begrüßen darf!`)
-        }
-
-        if(message.content ==`${BotSettings.prefix}Brillianceleave`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
-
-            message.member.addRole(`480798626382086157`)
-            message.channel.send(`${message.author} Schade das du Team Brilliance verlassen hast.`)
-        }
-
-        if(message.content ==`${BotSettings.prefix}Bravery`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
-
-            message.member.addRole(`480798562079342593`)
-            message.channel.send(`${message.author} Ich freue mich das ich dich in Team **Bravery** begrüßen darf!`)
-        }
-
-        if(message.content ==`${BotSettings.prefix}Braveryleave`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server vom Bot-Owner`)
-
-            message.member.addRole(`480798562079342593`)
-            message.channel.send(`${message.author} Schade das du Team Bravery verlassen hast.`)
-        }
 
     }
 
