@@ -8,10 +8,6 @@ const Discord = require("discord.js"),
   
     
 
-   
-
-
-
 //Start-Up
 bot.on("ready", async () => {
     console.log(`\nBot ist online.\nName + Tag: ${bot.user.username}#${bot.user.discriminator}\nPrefix: ${BotSettings.prefix}`)
@@ -22,7 +18,7 @@ setInterval(async function() {
     let status = [`${BotSettings.prefix}help`, `${bot.users.size} members!`,`Version: [1.5]`,`auf ${bot.guilds.size} Servern!`];
     let chosen = status[Math.floor(Math.random() * status.length)];
   
-    bot.user.setActivity(chosen, {type: "PLAYING"});
+    bot.user.setActivity(chosen, {type: "PLAYING"}); //PLAYING, STREAMING, LISTENING, WATCHING
   
 }, 10000);
     
@@ -79,15 +75,16 @@ bot.on("message", async message => {
     let Brilliance = message.guild.emojis.find("name", "Brilliance") 
     let Bravery = message.guild.emojis.find("name", "Bravery") 
 
+
+     dab1 = "<:dabbing1:481144666759102475>"
+     dab2 = "<:dabbing2:481144673746812946>"
+     dab3 = "<:dabbing3:481144682001334272>"
+
+
      ONLINE_EMOTE = "<:online:480435603587203118>"
      IDLE_EMOTE = "<:idle:480435654233423892>"
      DND_EMOTE = "<:dnd:480435646624694302>"
      INV_EMOTE = "<:invisible:480435664417194014>"
-
-
-    if(message.content ==`${BotSettings.prefix}icons`) {
-        message.channel.send(`${Online} ${dnd} ${idle} ${Offline}`)
-    }    
 
 
     //Verbotene Zeichen/Wörter
@@ -136,9 +133,38 @@ bot.on("message", async message => {
 
             .setDescription(`Hier seht ihr alle Hypesquad Häuser. \nZu denen ihr euch eure jeweilige Rolle adden könnt. \n${Balance} ${BotSettings.prefix}Balance \n${Brilliance} ${BotSettings.prefix}Brilliance \n${Bravery} ${BotSettings.prefix}Bravery`)
             .addField("Falls ihr euer Haus wechseln solltet. Könnt ihr das tun. ","Dafür müsst ihr nur das gleich eingeben wie oben, nur mit einem **leave** dahinter. Das würde dann so aussehen: `tx!Balanceleave`",true)
+            .addField("Um zu schauen, welche Mitglieder sich in welchem Haus befinden, nutzt einfach \n`tx![Haus] list`")
             .addField("Falls ihr nicht wisst, was die Hypesquad ist, dann schaut euch gerne folgendes Video an:","https://youtu.be/SWzB1mx2o5k",false)
+            .setThumbnail("https://cdn.discordapp.com/emojis/479789194852565002.png?v=1")
     
             message.channel.send(message.author, embed)
+        }
+
+        if(message.content ==`${BotSettings.prefix}Balance list`) {
+            var embed = new Discord.RichEmbed()
+            .setColor("#45DDC0")
+            .addField("Haus-Balance-Mitglieder",`${message.guild.members.filter(members => members.roles.has("480798479103295490")).map(members => members).join(", ")}` || `Aktuell gibt es keine ${message.guild.roles.get("480798479103295490").name} Mitglieder`, false)
+            .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/481181516370673684/Balance.png")
+
+            message.channel.send(embed)
+        }
+
+        if(message.content ==`${BotSettings.prefix}Brilliance list`) {
+            var embed = new Discord.RichEmbed()
+            .setColor("#F47B67")
+            .addField("Haus-Brilliance-Mitglieder",`${message.guild.members.filter(members => members.roles.has("480798626382086157")).map(members => members).join(", ")}` || `Aktuell gibt es keine ${message.guild.roles.get("480798626382086157").name} Mitglieder`, false)
+            .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/481181549518389249/Brilliance.png")
+
+            message.channel.send(embed)
+        }
+
+        if(message.content ==`${BotSettings.prefix}Bravery list`) {
+            var embed = new Discord.RichEmbed()
+            .setColor("#9C84EF")
+            .addField("Haus-Bravery-Mitglieder",`${message.guild.members.filter(members => members.roles.has("480798562079342593")).map(members => members).join(", ")}` || `Aktuell gibt es keine ${message.guild.roles.get("480798562079342593").name} Mitglieder`, false)
+            .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/481181534276026388/Bravery.png")
+
+            message.channel.send(embed)
         }
 
         //Help-Hypesquad
@@ -146,7 +172,7 @@ bot.on("message", async message => {
         if(message.content ==`${BotSettings.prefix}help Hypesquad`) {
 
             var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
+            .setColor("#7289DA")
             .addField(`Hypesquad`,"`Zeigt dir alle Hypesquad Häuser, zu denen du dir Rollen adden kannst.`",false)
             .addField(`Verwendung`,"`tx![Haus]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
@@ -211,7 +237,7 @@ bot.on("message", async message => {
         if(message.content ==`${BotSettings.prefix}help messages`) {
 
             var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
+            .setColor("#7289DA")
             .addField(`messages`,"`Zeigt dir die Anzahl der Nachrichten an, die du bis jetzt versendet hast. Du kannst dies auch bei anderen sehen.`",false)
             .addField(`Verwendung`,"`tx!messages \nOder tx!messages [Mitglied]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
@@ -264,7 +290,7 @@ bot.on("message", async message => {
         //Help-botinfo
         if(message.content ==`${BotSettings.prefix}help botinfo`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
+            .setColor("#7289DA")
             .addField(`botinfo`,`Gibt euch einige Informationen über den Bot`,false)
             .setFooter(ToxbotFooter, NewtoxFooter)
             message.channel.send(embed)
@@ -296,7 +322,7 @@ bot.on("message", async message => {
         //Help-userinfo
         if(message.content ==`${BotSettings.prefix}help userinfo`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
+            .setColor("#7289DA")
             .addField(`Userinfo`,"`Gibt dir einige Informationen zu deinem Account. Du kannst dies auch bei anderen sehen.`",false)
             .addField(`Verwendung`,"`tx!userinfo \nOder tx!userinfo [Mitglied]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
@@ -408,7 +434,7 @@ bot.on("message", async message => {
             if(message.content ==`${BotSettings.prefix}help clear`) {
                 
             var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
+            .setColor("#7289DA")
             .addField(`Clear`,"`Löscht eine beliebige Anzahl an Nachrichten`")
             .addField(`Verwendung`,"`tx!clear [Zahl]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
@@ -454,7 +480,7 @@ bot.on("message", async message => {
             //Help-Kick
             if(message.content ==`${BotSettings.prefix}help kick`) {
                 var embed = new Discord.RichEmbed()
-                .setColor("#819bff")
+                .setColor("#7289DA")
                 .addField(`kick`,"`Kickt den markierten Nutzer`")
                 .addField(`Verwendung`,"`tx!kick [Mitglied] [Grund]`")
                 .setFooter(ToxbotFooter, NewtoxFooter)
@@ -498,7 +524,7 @@ bot.on("message", async message => {
           //Help-ban
           if(message.content ==`${BotSettings.prefix}help ban`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
+            .setColor("#7289DA")
             .addField(`ban`,"`Bannt den markierten Nutzer`")
             .addField(`Verwendung`,"`tx!ban [Mitglied] [Grund]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
@@ -542,7 +568,7 @@ bot.on("message", async message => {
         //Help-opgiverole
         if(message.content ==`${BotSettings.prefix}help opgiverole`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
+            .setColor("#7289DA")
             .addField(`opgiverole`,"`Gibt euch eine Bestimmte Rolle`")
             .addField(`Verwendung`,"`tx!opgiverole [Rolle]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
@@ -592,7 +618,7 @@ bot.on("message", async message => {
         //Help-opremoverole
         if(message.content ==`${BotSettings.prefix}help opremoverole`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
+            .setColor("#7289DA")
             .addField(`opremove`,"`Entfernt euch eine Bestimmte Rolle`")
             .addField(`Verwendung`,"`tx!opremoverole [Rolle]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
@@ -632,7 +658,7 @@ bot.on("message", async message => {
         //Help-roleID
         if(message.content ==`${BotSettings.prefix}help roleID`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
+            .setColor("#7289DA")
             .addField(`roleID`,"`Gibt dir die ID einer bestimmten Rolle`")
             .addField(`Verwendung`,"`tx!roleID [Rolle]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
@@ -671,7 +697,7 @@ bot.on("message", async message => {
         //Help-EmojiID
         if(message.content ==`${BotSettings.prefix}help emojiID`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
+            .setColor("#7289DA")
             .addField(`emojiID`,"`Gibt dir die ID eines bestimmten Emoji`")
             .addField(`Verwendung`,"`tx!emojiID [Emoji]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
@@ -710,7 +736,7 @@ bot.on("message", async message => {
         //Help-emojiFile
         if(message.content ==`${BotSettings.prefix}help emojiFile`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
+            .setColor("#7289DA")
             .addField(`emojiFile`,"`Gibt dir einen bestimmten Emoji als Datei`")
             .addField(`Verwendung`,"`tx!emojiFile [Emoji]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
@@ -750,7 +776,7 @@ bot.on("message", async message => {
         //Help-rolecolor
         if(message.content ==`${BotSettings.prefix}help rolecolor`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
+            .setColor("#7289DA")
             .addField(`rolecolor`,"`Gibt euch den Farbencode einer Bestimmten Rolle`")
             .addField(`Verwendung`,"`tx!rolecolor [Rolle]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
@@ -784,7 +810,7 @@ bot.on("message", async message => {
         //Help-roleedit
         if(message.content ==`${BotSettings.prefix}help roleedit`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
+            .setColor("#7289DA")
             .addField(`roleedit`,"`Damit könnt ihr die Farbe einer Rolle per Bot ändern lassen`")
             .addField(`Verwendung`,"`tx!roleedit [Rolle] [Farbe]`")
             .setFooter(ToxbotFooter, NewtoxFooter)
@@ -795,7 +821,7 @@ bot.on("message", async message => {
         //Help-Fun
         if(message.content ==`${BotSettings.prefix}help Fun`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
+            .setColor("#7289DA")
             .addField(`Fun`,"`Zeigt dir ein bisschen Quatch den man mit dem Bot anstellen kann`",false)
             .setFooter(ToxbotFooter, NewtoxFooter)
 
@@ -813,9 +839,9 @@ bot.on("message", async message => {
             .addBlankField()
             .addField(`${BotSettings.prefix}splatoon2perks`, "zeigt die Vor und Nachteile der Marken in Splatoon 2", false)
             .addField(`${BotSettings.prefix}binNewtox`, "*schaut selber was passiert ( ͡° ͜ʖ ͡°)*", false)
-            .addField(`${BotSettings.prefix}Xami`,`Zeigt euch die Teammitglieder von **${message.guild.member("227034133447180288").user.username}**#${message.guild.member("227034133447180288").user.discriminator} seinem Server.`,false)
             .addField(`${BotSettings.prefix}lööps`,`**__lööps__**`)
             .addField(`@${bot.user.username}`,`Da wird ${bot.user.username} aber sauer sein!`)
+            .addField(`${BotSettings.prefix}dab`,`Einen Dab kann man immer brauchen.`)
             .setDescription("Falls ihr Ideen für weitere lustige Commands habt, dürft ihr euch gerne bei <@402483602094555138> melden.")
             .setThumbnail("https://cdn.discordapp.com/attachments/451007157933047829/457489426784845825/fun.png")
 
@@ -848,11 +874,15 @@ bot.on("message", async message => {
             message.channel.send(`https://cdn.discordapp.com/attachments/480022630884311060/480778360205869056/Screenshot_2018-08-17-21-36-51.png`)
         }
 
+        if(message.content ==`${BotSettings.prefix}dab`) {
+            message.channel.send(`${dab1}${dab2}${dab3}`)
+        }
+
 
         //Help-Newtox
         if(message.content ==`${BotSettings.prefix}help Newtoxinvite`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
+            .setColor("#7289DA")
             .addField(`Newtoxinvite`,"`Gibt euch eine Einladung zu dem Server vom Bot-Owner`",false)
 
             message.channel.send(embed)
@@ -865,7 +895,7 @@ bot.on("message", async message => {
         //Help-Bot
         if(message.content ==`${BotSettings.prefix}help botinvite`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
+            .setColor("#7289DA")
             .addField(`botinvite`,"`Gibt euch einen Link womit ihr den Bot auf euren Server einladen könnt.`",false)
 
             message.channel.send(embed)
@@ -912,7 +942,7 @@ bot.on("message", async message => {
         //Help-Serverinfo
         if(message.content ==`${BotSettings.prefix}help serverinfo`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
+            .setColor("#7289DA")
             .addField(`Serverinfo`,"`Gibt dir einige Informationen zu dem Server.`",false)
             message.channel.send(embed)
         }
@@ -932,7 +962,7 @@ bot.on("message", async message => {
         //Help-Serverliste
         if(message.content ==`${BotSettings.prefix}help serverliste`) {
             var embed = new Discord.RichEmbed()
-            .setColor("#819bff")
+            .setColor("#7289DA")
             .addField(`Serverliste`,"`Zeigt dir alle Server auf denen der Bot sich befindet.`",false)
             message.channel.send(embed)
         }
