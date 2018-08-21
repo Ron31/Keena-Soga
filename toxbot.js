@@ -20,7 +20,7 @@ setInterval(async function() {
   
     bot.user.setActivity(chosen, {type: "PLAYING"}); //PLAYING, STREAMING, LISTENING, WATCHING
   
-}, 10000);
+}, 15000);
     
 
 //Welcome Message
@@ -305,7 +305,7 @@ bot.on("message", async message => {
             .setTitle("Info über Toxbot")
             .addField("Name und Tag",`**${bot.user.username}**#${bot.user.discriminator}`,false)
             .addField("Entwickler:",`**${message.guild.member("402483602094555138").user.username}**#${message.guild.member("402483602094555138").user.discriminator}`, true)
-            .addField("Programmiert mit:","Discord.js 11.3.2",false)
+            .addField("Programmiert mit:","Discord.js 11.3.2 \nVisual Studio Code",false)
             .addField(`Prefix des Bots`,`Der Prefix des Bots ist **${BotSettings.prefix}**`, false)
             .addField("Erstellungsdatum",`Der Bot wurde am **${bot.user.createdAt.toString().split(" ")[2]}** **${Config.Date_Name[bot.user.createdAt.toString().split(" ")[1]]}** **${bot.user.createdAt.toString().split(" ")[3]}** erstellt!`,false)
             .setTimestamp()
@@ -842,6 +842,7 @@ bot.on("message", async message => {
             .addField(`${BotSettings.prefix}lööps`,`**__lööps__**`)
             .addField(`@${bot.user.username}`,`Da wird ${bot.user.username} aber sauer sein!`)
             .addField(`${BotSettings.prefix}dab`,`Einen Dab kann man immer brauchen.`)
+            .addField(`${BotSettings.prefix}snens`,`*Rufe den dunklen Lord herbei!*`)
             .setDescription("Falls ihr Ideen für weitere lustige Commands habt, dürft ihr euch gerne bei <@402483602094555138> melden.")
             .setThumbnail("https://cdn.discordapp.com/attachments/451007157933047829/457489426784845825/fun.png")
 
@@ -878,6 +879,10 @@ bot.on("message", async message => {
             message.channel.send(`${dab1}${dab2}${dab3}`)
         }
 
+        if(message.content ==`${BotSettings.prefix}snens`) {
+            message.channel.send(`https://cdn.discordapp.com/attachments/473896120917950464/481481773952401457/Darth_Snens.png`)
+        }
+
 
         //Help-Newtox
         if(message.content ==`${BotSettings.prefix}help Newtoxinvite`) {
@@ -910,7 +915,7 @@ bot.on("message", async message => {
         }
 
         // if(message.content ==`${BotSettings.prefix}spam`) {
-        //     setInterval(async () => { message.channel.send(`<@373857433380061184>`) }, 1000);
+        //     setInterval(async () => { message.channel.send(`<@276010682682572800>`) }, 1000);
         // }
         
 
@@ -926,8 +931,8 @@ bot.on("message", async message => {
             .addField(`Text-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "text").size}`,true)
             .addField(`Sprach-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "voice").size}`,true)
             .addField(`AFK-Kanal`,`${message.guild.afkChannel}`)
-            .addField(`Rollen`,`Der Server hat **${message.guild.roles.size}** Rollen\n \n${message.guild.roles.map(roles => roles).splice(1).join(", ")}`,true)
-            .addField(`Emojis`,`Der Server hat **${message.guild.emojis.size}** Emojis\n \n${message.guild.emojis.map(emojis => emojis).join("")}`,true)
+            .addField(`Rollen`,`${message.guild.roles.map(roles => roles).splice(1).join(", ")}`,true)
+            .addField(`Emojis`,`${message.guild.emojis.map(emojis => emojis).join("")}`,true)
             .addField(`Erstellungsdatum des Servers`,`Der Server wurde am **${message.guild.createdAt.toString().split(" ")[2]}** **${Config.Date_Name[message.guild.createdAt.toString().split(" ")[1]]}** **${message.guild.createdAt.toString().split(" ")[3]}** erstellt!`, true)
             .addField(`Server-Icon`,`${message.guild.iconURL}`,true)
             .setThumbnail(`${message.guild.iconURL}`)
@@ -937,7 +942,8 @@ bot.on("message", async message => {
 
             message.channel.send(embed)
 
-        }
+        } 
+
 
         //Help-Serverinfo
         if(message.content ==`${BotSettings.prefix}help serverinfo`) {
@@ -1022,6 +1028,30 @@ bot.on("message", async message => {
             message.channel.send(embed)
         }
 
+        //Musik Feature
+        if(message.content ==`${BotSettings.prefix}join`) {
+            if (message.member.voiceChannel) {
+                const connection = await message.member.voiceChannel.join();
+                message.reply(`Ich bin ${message.member.voiceChannel} beigetreten.`)
+            } else {
+                message.reply(`Du musst zuerst einem Voicechannel joinen!`)
+            }
+        }
+
+        if(message.content ==`${BotSettings.prefix}leave`) {
+                const connection =  message.member.voiceChannel.leave();
+                message.reply(`Ich habe erfolgreich deinen Voicechannel verlassen.`)
+            }
+        
+        if(message.content ==`${BotSettings.prefix}play`) {
+            message.reply(`Bitte gib einen Song an!`)
+        }
+
+        if(message.content ==`${BotSettings.prefix}play PikaSong`) {
+            const connection =  message.member.voiceChannel.join();
+            const dispatcher = playFile('PikaSong.mp3');
+        }
+
          //BotOff
          if(message.content ==`${BotSettings.prefix}shutdown`) {
             if(message.author.id == BotSettings.OwnerID) { 
@@ -1041,7 +1071,7 @@ bot.on("message", async message => {
                 message.channel.send(`Nur der Bot-Owner kann diesen Command nutzen. ${message.author}`)
             }     
         }
-        
+     
 
     }
 
