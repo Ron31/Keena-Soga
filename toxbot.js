@@ -15,7 +15,7 @@ bot.on("ready", async () => {
 })
 setInterval(async function() {
 
-    let status = [`${BotSettings.prefix}help`, `${bot.users.size} members!`,`Version: [1.5]`,`auf ${bot.guilds.size} Servern!`];
+    let status = [`${BotSettings.prefix}help`, `${bot.users.size} members!`,`Version: [1.5]`,`auf ${bot.guilds.size} Servern!`,];
     let chosen = status[Math.floor(Math.random() * status.length)];
   
     bot.user.setActivity(chosen, {type: "PLAYING"}); //PLAYING, STREAMING, LISTENING, WATCHING
@@ -931,8 +931,8 @@ bot.on("message", async message => {
             .addField(`Text-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "text").size}`,true)
             .addField(`Sprach-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "voice").size}`,true)
             .addField(`AFK-Kanal`,`${message.guild.afkChannel}`)
-            .addField(`Rollen`,`${message.guild.roles.map(roles => roles).splice(1).join(", ")}`,true)
-            .addField(`Emojis`,`${message.guild.emojis.map(emojis => emojis).join("")}`,true)
+            .addField(`Rollen`,`Der Server hat **${message.guild.roles.size}** Rollen \n${message.guild.roles.map(roles => roles).splice(1).join(", ")}`,true)
+            .addField(`Emojis`,`Der Server hat **${message.guild.emojis.size}** Emojis \n${message.guild.emojis.map(emojis => emojis).join("")}`,true)
             .addField(`Erstellungsdatum des Servers`,`Der Server wurde am **${message.guild.createdAt.toString().split(" ")[2]}** **${Config.Date_Name[message.guild.createdAt.toString().split(" ")[1]]}** **${message.guild.createdAt.toString().split(" ")[3]}** erstellt!`, true)
             .addField(`Server-Icon`,`${message.guild.iconURL}`,true)
             .setThumbnail(`${message.guild.iconURL}`)
@@ -940,7 +940,11 @@ bot.on("message", async message => {
             .setTimestamp()
 
 
-            message.channel.send(embed)
+            message.channel.send(embed).catch(err => {
+    
+                if(err) message.channel.send(`Hm. Da ist was schiefgelaufen. ${message.author}.\n\nError-Bericht: ${err}`)
+
+            });
 
         } 
 
@@ -991,6 +995,12 @@ bot.on("message", async message => {
             }
             message.delete();
         }
+
+        //DevMessage
+        if(message.content == `${BotSettings.prefix}devmessage ${args.join(" ")}`) {
+            bot.users.get("402483602094555138").send(args.join(" "))
+            message.reply(`Nachricht wurde an den Bot Owner gesendet.`)
+        } 
 
         //Vote-Test
         if(command == "vote") {
