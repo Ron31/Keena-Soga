@@ -15,12 +15,12 @@ bot.on("ready", async () => {
 })
 setInterval(async function() {
 
-    let status = [`${BotSettings.prefix}help`, `${bot.users.size} members!`,`Version: [1.5]`,`auf ${bot.guilds.size} Servern!`,];
+    let status = [`${BotSettings.prefix}help`, `${bot.users.size} members!`,`Version: [1.0]`,`auf ${bot.guilds.size} Servern!`,`Bot-Owner: ${bot.users.get(BotSettings.OwnerID).tag}`];
     let chosen = status[Math.floor(Math.random() * status.length)];
   
     bot.user.setActivity(chosen, {type: "PLAYING"}); //PLAYING, STREAMING, LISTENING, WATCHING
   
-}, 15000);
+}, 10000);
     
 
 //Welcome Message
@@ -63,7 +63,7 @@ bot.on("message", async message => {
         mention = message.mentions.members.first()
         HelpFooter = `Schreibe ${BotSettings.prefix}help <command> für mehr Informationen über einen Command.`
         NewtoxFooter = `${message.guild.member("402483602094555138").user.avatarURL}`
-        ToxbotFooter = `${bot.user.username} | V1.5`
+        ToxbotFooter = `${bot.user.username} | V1.0`
         ToxbotLogo = `${bot.user.avatarURL}`
         
 
@@ -119,7 +119,7 @@ bot.on("message", async message => {
             .setTimestamp()
             .setFooter(HelpFooter)
             .setTitle("Hier siehst du alle Commands des Bots.")
-            .addField(`**__Info__**`,"`userinfo`,`serverinfo`,`serverliste`,`messages`,`botinfo`,`botinvite`,`Fun`,`Newtoxinvite,`,`Hypesquad`")
+            .addField(`**__Info__**`,"`userinfo`,`serverinfo`,`serverliste`,`messages`,`devmessage`,`botinfo`,`botinvite`,`Fun`,`Newtoxinvite,`,`Hypesquad`")
             .addField(`**__Moderation__**`,"`kick`,`ban`,`roleID`,`emojiID`,`emojiFile`,`opgiverole`,`opremoverole`,`rolecolor`,`roleedit`,`clear`")
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/476098810460766229/help2.png")
             message.channel.send(embed)
@@ -939,13 +939,7 @@ bot.on("message", async message => {
             .setFooter(ToxbotFooter)
             .setTimestamp()
 
-
-            message.channel.send(embed).catch(err => {
-    
-                if(err) message.channel.send(`Hm. Da ist was schiefgelaufen. ${message.author}.\n\nError-Bericht: ${err}`)
-
-            });
-
+            message.channel.send(embed)
         } 
 
 
@@ -955,7 +949,7 @@ bot.on("message", async message => {
             .setColor("#7289DA")
             .addField(`Serverinfo`,"`Gibt dir einige Informationen zu dem Server.`",false)
             message.channel.send(embed)
-        }
+        } 
 
 
         if(message.content ==`${BotSettings.prefix}serverliste`) {
@@ -998,8 +992,17 @@ bot.on("message", async message => {
 
         //DevMessage
         if(message.content == `${BotSettings.prefix}devmessage ${args.join(" ")}`) {
-            bot.users.get("402483602094555138").send(args.join(" "))
-            message.reply(`Nachricht wurde an den Bot Owner gesendet.`)
+            bot.users.get(BotSettings.OwnerID).send(args.join(' '))
+            message.channel.send(`Deine Nachricht wurde an den Bot Owner gesendet.`)
+        }
+
+
+        //Help-Devmessage
+        if(message.content ==`${BotSettings.prefix}help devmessage`) {
+            var embed = new Discord.RichEmbed()
+            .setColor("#7289DA")
+            .addField(`devmessage`,"`Sendet eine Nachricht an den Bot Owner`",false)
+            message.channel.send(embed)
         } 
 
         //Vote-Test
@@ -1021,7 +1024,7 @@ bot.on("message", async message => {
         }
 
         if(message.content ==`${BotSettings.prefix}Xami`) {
-            if(message.guild.id != `361532938816585730`) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server von **${message.guild.member("227034133447180288").user.username}**#${message.guild.member("227034133447180288").user.discriminator}`)
+            if(message.guild.id != `361532938816585730`) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server von **${bot.users.get("227034133447180288").user.username}**#${bot.users.get("227034133447180288").user.discriminator}`)
 
             var embed =  new Discord.RichEmbed()
             .setColor("#206694")
@@ -1085,6 +1088,11 @@ bot.on("message", async message => {
 
     }
 
+        //Uptime
+        if(message.content ==`${BotSettings.prefix}uptime`) {
+            message.channel.send(`${bot.uptime.toString().split(" ")[1]} ${bot.uptime.toString().split(" ")[2]} ${bot.uptime.toString().split(" ")[3]}`)
+        }
+        
 
 });
 
