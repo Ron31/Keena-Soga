@@ -51,8 +51,6 @@ bot.on("message", async message => { })
 
 
 
-
-
 bot.on("message", async message => {
 
     //Variablen
@@ -305,16 +303,16 @@ bot.on("message", async message => {
             .setTitle("Info über Toxbot")
             .addField("Name und Tag",`**${bot.user.username}**#${bot.user.discriminator}`,false)
             .addField("Entwickler:",`**${message.guild.member("402483602094555138").user.username}**#${message.guild.member("402483602094555138").user.discriminator}`, true)
-            .addField("Programmiert mit:","Discord.js 11.3.2 \nVisual Studio Code",false)
+            .addField("Programmiert mit:","Discord.js 11.3.2",false)
             .addField(`Prefix des Bots`,`Der Prefix des Bots ist **${BotSettings.prefix}**`, false)
             .addField("Erstellungsdatum",`Der Bot wurde am **${bot.user.createdAt.toString().split(" ")[2]}** **${Config.Date_Name[bot.user.createdAt.toString().split(" ")[1]]}** **${bot.user.createdAt.toString().split(" ")[3]}** erstellt!`,false)
             .setTimestamp()
             .setThumbnail(bot.user.avatarURL)
+        
 
     
 
             message.channel.send(embed)
-
         }
 
 
@@ -784,6 +782,7 @@ bot.on("message", async message => {
             message.channel.send(embed)
         }
     
+
         //Rollen-Edit
         if(command.toLowerCase() == `roleedit`) {
             if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("MANAGE_ROLES")) {
@@ -843,6 +842,7 @@ bot.on("message", async message => {
             .addField(`@${bot.user.username}`,`Da wird ${bot.user.username} aber sauer sein!`)
             .addField(`${BotSettings.prefix}dab`,`Einen Dab kann man immer brauchen.`)
             .addField(`${BotSettings.prefix}snens`,`*Rufe den dunklen Lord herbei!*`)
+            .addField(`${BotSettings.prefix}HateWaffen Newtox`,`Newtox wird sich freuen :stuck_out_tongue_closed_eyes: `)
             .setDescription("Falls ihr Ideen für weitere lustige Commands habt, dürft ihr euch gerne bei <@402483602094555138> melden.")
             .setThumbnail("https://cdn.discordapp.com/attachments/451007157933047829/457489426784845825/fun.png")
 
@@ -927,12 +927,13 @@ bot.on("message", async message => {
             .addField(`ID`,`${message.guild.id}`,true)
             .addField(`Eigentümer`,`${message.guild.owner}`,true)
             .addField(`Verification Level`,`${Config.Verification_Name[message.guild.verificationLevel]}`,true)
+            .addField(`Region`,`${message.guild.region}`,true)
             .addField(`Mitglieder`,`${message.guild.memberCount}`,true)
             .addField(`Text-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "text").size}`,true)
             .addField(`Sprach-Kanäle`,`${message.guild.channels.filter(channels => channels.type == "voice").size}`,true)
-            .addField(`AFK-Kanal`,`${message.guild.afkChannel}`)
-            .addField(`Rollen`,`Der Server hat **${message.guild.roles.size}** Rollen \n${message.guild.roles.map(roles => roles).splice(1).join(", ")}`,true)
-            .addField(`Emojis`,`Der Server hat **${message.guild.emojis.size}** Emojis \n${message.guild.emojis.map(emojis => emojis).join("")}`,true)
+            .addField(`AFK-Kanal`,`${message.guild.afkChannel}`,true)
+            .addField(`Rollen`,`Der Server hat **${message.guild.roles.size}** Rollen\n \n${message.guild.roles.map(roles => roles).splice(1).join(", ")}`,true)
+            .addField(`Emojis`,`Der Server hat **${message.guild.emojis.size}** Emojis\n \n${message.guild.emojis.map(emojis => emojis).join("")}`,true)
             .addField(`Erstellungsdatum des Servers`,`Der Server wurde am **${message.guild.createdAt.toString().split(" ")[2]}** **${Config.Date_Name[message.guild.createdAt.toString().split(" ")[1]]}** **${message.guild.createdAt.toString().split(" ")[3]}** erstellt!`, true)
             .addField(`Server-Icon`,`${message.guild.iconURL}`,true)
             .setThumbnail(`${message.guild.iconURL}`)
@@ -971,6 +972,9 @@ bot.on("message", async message => {
             message.channel.send(embed)
         }
 
+
+        //ServerAll
+    
 
 
         //Say-Command
@@ -1075,25 +1079,18 @@ bot.on("message", async message => {
             }     
         }
 
-        //BotOn
-        if(message.content ==`${BotSettings.prefix}setOnline`) {
-            if(message.author.id == BotSettings.OwnerID) { 
+        if(message.content ==`${BotSettings.prefix}HateWaffen Newtox`) {
+            var embed = new Discord.RichEmbed()
+            .setColor(message.member.highestRole.color)
+            .setDescription(`Blaster \nDual-Platscher \nDual-Platscher-SE \nDynaroller \nDynaroller Tesla \nE-Liter 4K \nHydrant \nKalligraf \nKleckser \nKlecks-Splatling \nKontra-Blaster \nNautilus 47 \nParapluviator \nQuasto \nS3 Tintenwerfer \nSplatling \nSprenkler Fresco \nSchwapper \nWannen-Schwapper`)
+            .setTimestamp()
+            .setFooter(ToxbotFooter,NewtoxFooter)
 
-            bot.login(BotSettings.token)    
-            } else {
-                message.channel.send(`Nur der Bot-Owner kann diesen Command nutzen. ${message.author}`)
-            }     
+            message.channel.send(`Hey ${message.author}, du spielst Splatoon 2 und möchtest den Newtox mal richtig ragen sehen? Dann steht dir hier eine Liste an Waffen zur Verfügung, mit denen du im eine auf die Mütze geben kannst. \nIch wünsche Viel Spaß beim auslachen :smile:`,embed)
         }
-     
+
 
     }
-
-        //Uptime
-        if(message.content ==`${BotSettings.prefix}uptime`) {
-            message.channel.send(`${bot.uptime.toString().split(" ")[1]} ${bot.uptime.toString().split(" ")[2]} ${bot.uptime.toString().split(" ")[3]}`)
-        }
-        
-
 });
 
 
