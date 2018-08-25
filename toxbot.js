@@ -362,7 +362,7 @@ bot.on("message", async message => {
     
             embed.addField("Joindatum", `Du bist dem Server zuletzt am **${message.member.joinedAt.toString().split(" ")[2]}** **${Config.Date_Name[message.member.joinedAt.toString().split(" ")[1]]}** **${message.member.joinedAt.toString().split(" ")[3]}** gejoint!`, false) 
     
-            .setThumbnail(`${message.author.avatarURL}`)
+            .setThumbnail(`${message.author.displayAvatarURL}`)
     
             message.channel.send(embed)
     
@@ -403,7 +403,7 @@ bot.on("message", async message => {
     
             embed.addField(`Joindatum`, `**${mention.displayName}** ist dem Server zuletzt am **${mention.joinedAt.toString().split(" ")[2]}** **${Config.Date_Name[mention.joinedAt.toString().split(" ")[1]]}** **${mention.joinedAt.toString().split(" ")[3]}** gejoint!`, false) 
     
-            .setThumbnail(`${mention.user.avatarURL}`)
+            .setThumbnail(`${mention.user.displayAvatarURL}`)
     
     
             message.channel.send(embed)
@@ -842,7 +842,9 @@ bot.on("message", async message => {
             .addField(`@${bot.user.username}`,`Da wird ${bot.user.username} aber sauer sein!`)
             .addField(`${BotSettings.prefix}dab`,`Einen Dab kann man immer brauchen.`)
             .addField(`${BotSettings.prefix}snens`,`*Rufe den dunklen Lord herbei!*`)
+            .addField(`${BotSettings.prefix}subway`,`Werd wird dich heute bei Subway bedienen?`)
             .addField(`${BotSettings.prefix}HateWaffen Newtox`,`Newtox wird sich freuen :stuck_out_tongue_closed_eyes: `)
+            
             .setDescription("Falls ihr Ideen für weitere lustige Commands habt, dürft ihr euch gerne bei <@402483602094555138> melden.")
             .setThumbnail("https://cdn.discordapp.com/attachments/451007157933047829/457489426784845825/fun.png")
 
@@ -864,6 +866,10 @@ bot.on("message", async message => {
             message.channel.send(`${message.author}, was willst du von mir **?!** du bist nicht Newtox qwq`)
         }
 
+        }
+
+        if(message.content ==`${BotSettings.prefix}subway`) {
+            message.channel.send(`https://cdn.discordapp.com/attachments/419197030104039426/483000826084851742/Screenshot_20180825-215234_Gallery.jpg`)
         }
 
 
