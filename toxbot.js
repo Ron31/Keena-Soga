@@ -15,7 +15,7 @@ bot.on("ready", async () => {
 })
 setInterval(async function() {
 
-    let status = [`${BotSettings.prefix}help`, `${bot.users.size} members!`,`Version: [1.0]`,`on ${bot.guilds.size} Servers!`,`Bot-Owner: ${bot.users.get(BotSettings.OwnerID).discriminator}`];
+    let status = [`${BotSettings.prefix}help`, `${bot.users.size} members!`,`Version: [1.0]`,`on ${bot.guilds.size} Servers!`,`Bot-Owner: ${bot.users.get(BotSettings.OwnerID).tag}`];
     let chosen = status[Math.floor(Math.random() * status.length)];
   
     bot.user.setActivity(chosen, {type: "PLAYING"}); //PLAYING, STREAMING, LISTENING, WATCHING
