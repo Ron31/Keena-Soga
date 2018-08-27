@@ -37,9 +37,9 @@ bot.on("guildMemberAdd", async member => {
             }
     }
         //Sky
-    if(member.guild.id == `425958008263016458`) { 
-        bot.channels.get("483257484849709067").send(`${member} Willkommen in der ${member.guild.name}! Wir wünschen dir hier viel Spaß. Lies dir aber bitte die <#475768698758758401> durch.`)
-            member.addRole("483253645979156483")
+    if(member.guild.id == `480117939287359502`) { 
+        bot.channels.get("480120688150183946").send(`${member} Willkommen in der ${member.guild.name}! Wir wünschen dir hier viel Spaß. Lies dir aber bitte die <#475768698758758401> durch.`)
+            member.addRole("483662517110046722")
         }
 
         //Others
@@ -58,7 +58,7 @@ bot.on("message", async message => { })
  //Goodbye Message
  bot.on("guildMemberRemove", async member => { 
     if(member.guild.id == `406946551538253828`) {
-    bot.channels.get("439880541043425290").send(`${member.user.username}#${member.user.discriminator} hat den ${member.guild.name} verlassen...`)
+    bot.channels.get("439880541043425290").send(`${member.user.username}#${member.user.discriminator} has left the ${member.guild.name}...`)
     }
 });
 bot.on("message", async message => { }) 
@@ -922,9 +922,7 @@ bot.on("message", async message => {
             .setFooter(ToxbotFooter)
             .setTimestamp()
 
-            message.channel.send(embed).catch(error => {
-                message.channel.send(`Hm. Something went wrong. ${message.author.toString()}.\n\nError-Bericht: ${error}`) 
-            });
+            message.channel.send(embed)
         }
 
 
