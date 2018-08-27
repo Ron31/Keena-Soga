@@ -138,7 +138,7 @@ bot.on("message", async message => {
         if(message.content ==`${BotSettings.prefix}Balance list`) {
             var embed = new Discord.RichEmbed()
             .setColor("#45DDC0")
-            .addField("House-Balance-Members",`${message.guild.members.filter(members => members.roles.has("480798479103295490")).map(members => members).join(", ")}` || `Aktuell gibt es keine ${message.guild.roles.get("480798479103295490").name} Mitglieder`, false)
+            .addField("House-Balance-Members",`${message.guild.members.filter(members => members.roles.has("480798479103295490")).map(members => members).join(" \n")}` || `Currently there are no ${message.guild.roles.get("480798479103295490").name} members.`, false)
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/481181516370673684/Balance.png")
 
             message.channel.send(embed)
@@ -147,7 +147,7 @@ bot.on("message", async message => {
         if(message.content ==`${BotSettings.prefix}Brilliance list`) {
             var embed = new Discord.RichEmbed()
             .setColor("#F47B67")
-            .addField("House-Brilliance-Members",`${message.guild.members.filter(members => members.roles.has("480798626382086157")).map(members => members).join(", ")}` || `Aktuell gibt es keine ${message.guild.roles.get("480798626382086157").name} Mitglieder`, false)
+            .addField("House-Brilliance-Members",`${message.guild.members.filter(members => members.roles.has("480798626382086157")).map(members => members).join(" \n")}` || `Currently there are no ${message.guild.roles.get("480798626382086157").name} members.`, false)
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/481181549518389249/Brilliance.png")
 
             message.channel.send(embed)
@@ -156,7 +156,7 @@ bot.on("message", async message => {
         if(message.content ==`${BotSettings.prefix}Bravery list`) {
             var embed = new Discord.RichEmbed()
             .setColor("#9C84EF")
-            .addField("House-Bravery-Members",`${message.guild.members.filter(members => members.roles.has("480798562079342593")).map(members => members).join(", ")}` || `Aktuell gibt es keine ${message.guild.roles.get("480798562079342593").name} Mitglieder`, false)
+            .addField("House-Bravery-Members",`${message.guild.members.filter(members => members.roles.has("480798562079342593")).map(members => members).join(" \n")}` || `Currently there are no ${message.guild.roles.get("480798562079342593").name} members.`, false)
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/481181534276026388/Bravery.png")
 
             message.channel.send(embed)
@@ -356,9 +356,9 @@ bot.on("message", async message => {
     
             embed.addField(`Roles`,`${message.member.roles.map(roles => roles).splice(1).join(", ")}`)
     
-            embed.addField("Account creation Date", `You have created your account at **${message.member.user.createdAt.toString().split(" ")[2]}** **${Config.Date_Name[message.member.user.createdAt.toString().split(" ")[1]]}** **${message.member.user.createdAt.toString().split(" ")[3]}**!`, false) 
+            embed.addField("Account creation Date", `You have created your account on **${Config.Date_Name[message.member.user.createdAt.toString().split(" ")[1]]}** **${message.member.user.createdAt.toString().split(" ")[2]}**, **${message.member.user.createdAt.toString().split(" ")[3]}**!`, false) 
     
-            embed.addField("Joindate", `You have joined the server last at **${message.member.joinedAt.toString().split(" ")[2]}** **${Config.Date_Name[message.member.joinedAt.toString().split(" ")[1]]}** **${message.member.joinedAt.toString().split(" ")[3]}**!`, false) 
+            embed.addField("Joindate", `You have joined the server last on **${Config.Date_Name[message.member.joinedAt.toString().split(" ")[1]]}** **${message.member.joinedAt.toString().split(" ")[2]}**, **${message.member.joinedAt.toString().split(" ")[3]}**!`, false) 
     
             .setThumbnail(`${message.author.displayAvatarURL}`)
     
@@ -397,9 +397,9 @@ bot.on("message", async message => {
     
             embed.addField(`Roles`,`${mention.roles.map(roles => roles).splice(1).join(", ")}`)
     
-            embed.addField(`Account creation Date`,`**${mention.displayName}** created his/her account at **${mention.user.createdAt.toString().split(" ")[2]}** **${Config.Date_Name[mention.user.createdAt.toString().split(" ")[1]]}** **${mention.user.createdAt.toString().split(" ")[3]}**!`, false) 
+            embed.addField(`Account creation Date`,`**${mention.displayName}** created his/her account on **${Config.Date_Name[mention.user.createdAt.toString().split(" ")[1]]}** **${mention.user.createdAt.toString().split(" ")[2]}**, **${mention.user.createdAt.toString().split(" ")[3]}**!`, false) 
     
-            embed.addField(`Joindate`, `**${mention.displayName}** joined the server last on **${mention.joinedAt.toString().split(" ")[2]}** **${Config.Date_Name[mention.joinedAt.toString().split(" ")[1]]}** **${mention.joinedAt.toString().split(" ")[3]}**!`, false) 
+            embed.addField(`Joindate`, `**${mention.displayName}** joined the server last on **${Config.Date_Name[mention.joinedAt.toString().split(" ")[1]]}**  **${mention.joinedAt.toString().split(" ")[2]}**, **${mention.joinedAt.toString().split(" ")[3]}**!`, false) 
     
             .setThumbnail(`${mention.user.displayAvatarURL}`)
     
@@ -836,11 +836,11 @@ bot.on("message", async message => {
             .addBlankField()
             .addField(`${BotSettings.prefix}splatoon2perks`, "Shows the pros and cons of the brands in Splatoon 2", false)
             .addField(`${BotSettings.prefix}lööps`,`**__lööps__**`)
-            .addField(`@${bot.user.username}`,`Da wird ${bot.user.username} aber sauer sein!`)
-            .addField(`${BotSettings.prefix}dab`,`Einen Dab kann man immer brauchen.`)
-            .addField(`${BotSettings.prefix}snens`,`*Rufe den dunklen Lord herbei!*`)
-            .addField(`${BotSettings.prefix}subway`,`Werd wird dich heute bei Subway bedienen?`)
-            .addField(`${BotSettings.prefix}HateWaffen Newtox`,`Newtox wird sich freuen :stuck_out_tongue_closed_eyes: `)
+            .addField(`@${bot.user.username}`,`${bot.user.username} will be angry with you!`)
+            .addField(`${BotSettings.prefix}dab`,`You can always use a dab.`)
+            .addField(`${BotSettings.prefix}snens`,`*Summon the Dark Lord!*`)
+            .addField(`${BotSettings.prefix}subway`,`Who's going to serve you at subway today?`)
+            .addField(`${BotSettings.prefix}HateWaffen Newtox`,`Newtox will be happy :stuck_out_tongue_closed_eyes: `)
             
             .setDescription("If you have any ideas for more funny commands, you may want to contact <@402483602094555138>.")
             .setThumbnail("https://cdn.discordapp.com/attachments/451007157933047829/457489426784845825/fun.png")
@@ -874,14 +874,14 @@ bot.on("message", async message => {
 
 
         if(message.content ==`${BotSettings.prefix}botinvite`) {
-            message.channel.send(`Ihr wollt mich auf eurem Server haben? \nNutzt diesen Link: \nhttps://discordapp.com/api/oauth2/authorize?client_id=463336117723201546&permissions=8&scope=bot`)
+            message.channel.send(`You want me on your server? \nUse this link:  \nhttps://discordapp.com/api/oauth2/authorize?client_id=463336117723201546&permissions=8&scope=bot`)
         }
 
         //Help-Bot
         if(message.content ==`${BotSettings.prefix}help botinvite`) {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
-            .addField(`botinvite`,"`Gibt euch einen Link womit ihr den Bot auf euren Server einladen könnt.`",false)
+            .addField(`botinvite`,"`gives you a link where you can invite the bot to your server.`",false)
 
             message.channel.send(embed)
         }
@@ -903,14 +903,16 @@ bot.on("message", async message => {
         if(message.content ==`${BotSettings.prefix}serverinfo`) {
 
             var embed = new Discord.RichEmbed()
+            .setColor(message.guild.member("463336117723201546").highestRole.color)
             .setTitle(`${message.guild.name}`)
             .addField(`ID`,`${message.guild.id}`,true)
             .addField(`Owner`,`${message.guild.owner}`,true)
             .addField(`Verification Level`,`${Config.Verification_Name[message.guild.verificationLevel]}`,true)
             .addField(`Region`,`${message.guild.region}`,true)
-            .addField(`Members`,`${message.guild.memberCount}`,true)
-            .addField(`Text-Channels`,`${message.guild.channels.filter(channels => channels.type == "text").size}`,true)
-            .addField(`Voice-Channels`,`${message.guild.channels.filter(channels => channels.type == "voice").size}`,true)
+            .addField(`Members`,`**${message.guild.memberCount}**`,true)
+            .addField(`Bots`,`**${message.guild.members.filter(members => members.user.bot).size}**`,true)
+            .addField(`Text-Channels`,`**${message.guild.channels.filter(channels => channels.type == "text").size}**`,true)
+            .addField(`Voice-Channels`,`**${message.guild.channels.filter(channels => channels.type == "voice").size}**`,true)
             .addField(`AFK-Channel`,`${message.guild.afkChannel}`,true)
             .addField(`Roles`,`The server has **${message.guild.roles.size}** Roles\n \n${message.guild.roles.map(roles => roles).splice(1).join(", ")}`,true)
             .addField(`Emojis`,`The server has **${message.guild.emojis.size}** Emojis\n \n${message.guild.emojis.map(emojis => emojis).join("")}`,true)
@@ -920,8 +922,10 @@ bot.on("message", async message => {
             .setFooter(ToxbotFooter)
             .setTimestamp()
 
-            message.channel.send(embed)
-        } 
+            message.channel.send(embed).catch(error => {
+                message.channel.send(`Hm. Something went wrong. ${message.author.toString()}.\n\nError-Bericht: ${error}`) 
+            });
+        }
 
 
         //Help-Serverinfo
@@ -1010,10 +1014,12 @@ bot.on("message", async message => {
         //Vote-Test
         if(command == "vote") {
             if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("ADMINISTRATOR"))  { 
+                if(message.guild.id != `361532938816585730`) return message.channel.send(`Dieser Befehl funktioniert nur auf dem Server von **${bot.users.get("227034133447180288").username}**#${bot.users.get("227034133447180288").discriminator}`)
+
                 var vote = args.join(" ") 
                 if(vote) {
                     await message.channel.send(vote) 
-                    .then(msg => msg.react("476828079424143365").then(msg2 => msg.react("476828092078227459")))
+                    .then(msg => msg.react("430984155984035850").then(msg2 => msg.react("430985269362032642").then(msg3 => msg.react("430985153180073985")).then(msg4 => msg.react("430984548625416198"))))
 
                 } else { 
                     message.channel.send(`Was für eine Abstimmung soll es sein? ${message.author}`)
@@ -1073,7 +1079,6 @@ bot.on("message", async message => {
 
             message.channel.send(`Hey ${message.author}, du spielst Splatoon 2 und möchtest den Newtox mal richtig ragen sehen? Dann steht dir hier eine Liste an Waffen zur Verfügung, mit denen du im eine auf die Mütze geben kannst. \nIch wünsche Viel Spaß beim auslachen :smile:`,embed)
         }
-
 
     }
 });
