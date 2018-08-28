@@ -15,7 +15,7 @@ bot.on("ready", async () => {
 })
 setInterval(async function() {
 
-    let status = [`${BotSettings.prefix}help`, `${bot.users.size} members!`,`Version: [1.5]`,`on ${bot.guilds.size} Servers!`,`Bot-Owner: ${bot.users.get(BotSettings.OwnerID).tag}`];
+    let status = [`${BotSettings.prefix}help`, `${bot.users.size} members!`,`Version: [2.0]`,`on ${bot.guilds.size} Servers!`,`Bot-Owner: ${bot.users.get(BotSettings.OwnerID).tag}`];
     let chosen = status[Math.floor(Math.random() * status.length)];
   
     bot.user.setActivity(chosen, {type: "PLAYING"}); //PLAYING, STREAMING, LISTENING, WATCHING
@@ -84,7 +84,7 @@ bot.on("message", async message => {
         mention = message.mentions.members.first()
         HelpFooter = `Write ${BotSettings.prefix}help <command> For more information about a command.`
         NewtoxFooter = `${message.guild.member("402483602094555138").user.avatarURL}`
-        ToxbotFooter = `${bot.user.username} | V1.5`
+        ToxbotFooter = `${bot.user.username} | V2.0`
         ToxbotLogo = `${bot.user.avatarURL}`
         embedRandom = '#' + ("000000" + Math.random()*0xFFFFFF<<0).toString(16);
         
@@ -125,9 +125,9 @@ bot.on("message", async message => {
             .setFooter(HelpFooter)
             .setTitle("Here you can see every Command of the Bot")
             .addField(`**__Info__**`,"`userinfo` \n`serverinfo` \n`serverlist` \n`serverpartners` \n`messages` \n`devmessage` \n`botinfo` \n`botinvite` \n`Fun` \n`Hypesquad`",true)
-            .addField(`**__Moderation__**`,"`kick` \n`ban` \n`emojiFile` \n`giverole` \n`removerole` \n`clear`",true)
-            .addField(`**__Role Management__**`,"`rolecolor` \n`randomcolor` \n`roleedit`",true)
-            .addField(`**__Fun__**`,"`splatoon2perks` \n`lööps` \n`@Toxbot` \n`dab` \n`snens` \n`subway`",true)
+            .addField(`**__Moderation__**`,"`kick` \n`ban` \n`giverole` \n`removerole`",true)
+            .addField(`**__Management__**`,"`roleedit` \n`clear` \n`emojiFile`",true)
+            .addField(`**__Fun__**`,"`rolecolor` \n`randomcolor` \n`splatoon2perks` \n`lööps` \n`@Toxbot` \n`dab` \n`snens` \n`subway`",true)
             .addField(`**__Developer__**`,"`roleID` \n`emojiID`",true)
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/476098810460766229/help2.png")
             message.channel.send(embed)
@@ -766,7 +766,6 @@ bot.on("message", async message => {
     
           //Rollenfarbe 
             if(command == "rolecolor") {
-            if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("MANAGE_ROLES")) {
     
                 var Rolle = args.join (" ")
     
@@ -783,10 +782,6 @@ bot.on("message", async message => {
                 } else {
                     message.channel.send(`${message.author} Please enter an available role.`)
                 }
-    
-            } else {
-                message.channel.send(`This command requires the following server rights: **Manage-Roles**. ${message.author}`)
-            }
             return
         }
     
@@ -804,7 +799,6 @@ bot.on("message", async message => {
 
         //Randomcolor
         if(message.content ==`${BotSettings.prefix}randomcolor`) {
-            if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("MANAGE_ROLES")) {
 
             var randomcolor = '#' + ("000000" + Math.random()*0xFFFFFF<<0).toString(16);
 
@@ -812,11 +806,7 @@ bot.on("message", async message => {
             .setColor(randomcolor)
             .setDescription(`This is your Color: \n**${randomcolor}** \n \n:arrow_left: You can see the color on the left side of the embed.`)
             
-            message.channel.send(embed)
-
-            } else {
-                message.channel.send(`This command requires the following server rights: **Manage-Roles**. ${message.author}`)
-            }
+            message.channel.send(embed) 
         }
 
         //Help-randomcolor
