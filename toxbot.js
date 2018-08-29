@@ -23,7 +23,7 @@ setInterval(async function() {
 }, 10000);
     
 
-    //Join
+    // Join
     // bot.on("guildCreate", async guild => {
     //     bot.guilds.get(guild.id).channels.first().send("Hi")
     //     console.log(error)
@@ -83,7 +83,7 @@ bot.on("message", async message => {
         msg = message.content.toLowerCase(),
         mention = message.mentions.members.first()
         HelpFooter = `Write ${BotSettings.prefix}help <command> For more information about a command.`
-        NewtoxFooter = `${message.guild.member("402483602094555138").user.avatarURL}`
+        NewtoxFooter = `https://cdn.discordapp.com/attachments/406957187869442048/484411766533652511/yes.png`
         ToxbotFooter = `${bot.user.username} | V2.0`
         ToxbotLogo = `${bot.user.avatarURL}`
         embedRandom = '#' + ("000000" + Math.random()*0xFFFFFF<<0).toString(16);
@@ -351,7 +351,7 @@ bot.on("message", async message => {
 
             var embed = new Discord.RichEmbed()
     
-            .setColor(message.member.highestRole.color)
+            .setColor(message.member.highestRole.color || embedRandom)
             .setTimestamp()
             .setTitle(`Userinfo about ${message.author.username}`)
             .addField(`Name + Tag`, `**${message.author.username}**#${message.author.discriminator}`)
@@ -374,9 +374,14 @@ bot.on("message", async message => {
             }
     
             embed.addField(`ID`,`${message.author.id}`,true)
-    
-            embed.addField(`Roles`,`${message.member.roles.map(roles => roles).splice(1).join(", ")}`)
-    
+        
+            if(message.member.roles.has) {
+                embed.addField(`Roles`,`${message.member.roles.map(roles => roles).splice(1).join(", ")}`)
+            }
+            else {
+                embed.addField(`Roles`,`-`)
+            }
+
             embed.addField("Account creation Date", `You have created your account on **${Config.Date_Name[message.member.user.createdAt.toString().split(" ")[1]]}** **${message.member.user.createdAt.toString().split(" ")[2]}**, **${message.member.user.createdAt.toString().split(" ")[3]}**!`, false) 
     
             embed.addField("Joindate", `You have joined the server last on **${Config.Date_Name[message.member.joinedAt.toString().split(" ")[1]]}** **${message.member.joinedAt.toString().split(" ")[2]}**, **${message.member.joinedAt.toString().split(" ")[3]}**!`, false) 
@@ -391,7 +396,7 @@ bot.on("message", async message => {
     
             var embed = new Discord.RichEmbed()
     
-            .setColor(mention.highestRole.color)
+            .setColor(mention.highestRole.color || embedRandom)
             .setTimestamp()
             .setTitle(`Userinfo about ${mention.user.username}`)
             .addField(`Name + Tag`, `**${mention.user.username}**#${mention.user.discriminator}`)
@@ -416,7 +421,12 @@ bot.on("message", async message => {
     
             embed.addField(`ID`,`${mention.id}`,true)
     
-            embed.addField(`Roles`,`${mention.roles.map(roles => roles).splice(1).join(", ")}`)
+            if(mention.roles.has) {
+                embed.addField(`Roles`,`${mention.roles.map(roles => roles).splice(1).join(", ")}`)
+            }
+            else {
+                embed.addField(`Roles`,`-`)
+            }
     
             embed.addField(`Account creation Date`,`**${mention.displayName}** created his/her account on **${Config.Date_Name[mention.user.createdAt.toString().split(" ")[1]]}** **${mention.user.createdAt.toString().split(" ")[2]}**, **${mention.user.createdAt.toString().split(" ")[3]}**!`, false) 
     
@@ -804,7 +814,7 @@ bot.on("message", async message => {
 
             var embed = new Discord.RichEmbed()
             .setColor(randomcolor)
-            .setDescription(`This is your Color: \n**${randomcolor}** \n \n:arrow_left: You can see the color on the left side of the embed.`)
+            .setDescription(`This is your Color: \n**${randomcolor}** \n \nR: ${Math.round(Math.random()*255)} \nG: ${Math.round(Math.random()*255)} \nB: ${Math.round(Math.random()*255)}\n \n:arrow_left: You can see the color on the left side of the embed.`)
             
             message.channel.send(embed) 
         }
@@ -991,7 +1001,7 @@ bot.on("message", async message => {
             .setTimestamp()
 
             message.channel.send(embed)
-        }
+        } 
 
 
         //Help-Serverinfo
