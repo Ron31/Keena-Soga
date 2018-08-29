@@ -375,13 +375,8 @@ bot.on("message", async message => {
     
             embed.addField(`ID`,`${message.author.id}`,true)
         
-            if(message.member.roles.has) {
-                embed.addField(`Roles`,`${message.member.roles.map(roles => roles).splice(1).join(", ")}`)
-            }
-            else {
-                embed.addField(`Roles`,`-`)
-            }
-
+            embed.addField(`Roles`,`${message.member.roles.map(roles => roles).splice(1).join(", ") || `-`}`)
+        
             embed.addField("Account creation Date", `You have created your account on **${Config.Date_Name[message.member.user.createdAt.toString().split(" ")[1]]}** **${message.member.user.createdAt.toString().split(" ")[2]}**, **${message.member.user.createdAt.toString().split(" ")[3]}**!`, false) 
     
             embed.addField("Joindate", `You have joined the server last on **${Config.Date_Name[message.member.joinedAt.toString().split(" ")[1]]}** **${message.member.joinedAt.toString().split(" ")[2]}**, **${message.member.joinedAt.toString().split(" ")[3]}**!`, false) 
@@ -418,15 +413,9 @@ bot.on("message", async message => {
                 embed.addField(`Activity`,`-`)
             }
         
-    
             embed.addField(`ID`,`${mention.id}`,true)
     
-            if(mention.roles.has) {
-                embed.addField(`Roles`,`${mention.roles.map(roles => roles).splice(1).join(", ")}`)
-            }
-            else {
-                embed.addField(`Roles`,`-`)
-            }
+            embed.addField(`Roles`,`${mention.roles.map(roles => roles).splice(1).join(", ") || `-`}`)
     
             embed.addField(`Account creation Date`,`**${mention.displayName}** created his/her account on **${Config.Date_Name[mention.user.createdAt.toString().split(" ")[1]]}** **${mention.user.createdAt.toString().split(" ")[2]}**, **${mention.user.createdAt.toString().split(" ")[3]}**!`, false) 
     
