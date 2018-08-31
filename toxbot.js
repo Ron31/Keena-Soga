@@ -128,6 +128,7 @@ bot.on("message", async message => {
             .addField(`**__Moderation__**`,"`kick` \n`ban` \n`giverole` \n`removerole`",true)
             .addField(`**__Management__**`,"`roleedit` \n`clear` \n`emojiFile`",true)
             .addField(`**__Fun__**`,"`rolecolor` \n`randomcolor` \n`splatoon2perks` \n`lööps` \n`@Toxbot` \n`dab` \n`snens` \n`subway`",true)
+            .addField(`**__Splatoon__**`,"`random weapons`",true)
             .addField(`**__Developer__**`,"`roleID` \n`emojiID`",true)
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/476098810460766229/help2.png")
             message.channel.send(embed)
@@ -1154,8 +1155,9 @@ bot.on("message", async message => {
         var RandomWaffe = Splatoon.AlleWaffen[Math.floor(Math.random() * Splatoon.AlleWaffen.length)];
 
         var embed = new Discord.RichEmbed()
+        .setColor(embedRandom)
         .setThumbnail(RandomWaffe)
-        .setAuthor("Random Weapon (Alle)")
+        .setAuthor("Random Weapon (All)")
         .setTitle("Weapon")
         .setDescription(RandomWaffe.name)
         .addField("Sub", RandomWaffe.sub, true)
@@ -1166,10 +1168,11 @@ bot.on("message", async message => {
     }
 
     //Schusswaffen
-    if(message.content == `${BotSettings.prefix}random weapon Firearms`) {
+    if(message.content == `${BotSettings.prefix}random weapon Firearm`) {
         var RandomWaffe = Splatoon.Schusswaffen[Math.floor(Math.random() * Splatoon.Schusswaffen.length)];
 
         var embed = new Discord.RichEmbed()
+        .setColor(embedRandom)
         .setThumbnail(RandomWaffe)
         .setAuthor("Random Weapon (Firearms)")
         .setTitle("Weapon")
@@ -1187,6 +1190,7 @@ bot.on("message", async message => {
         var RandomWaffe = Splatoon.Sniper[Math.floor(Math.random() * Splatoon.Sniper.length)];
 
         var embed = new Discord.RichEmbed()
+        .setColor(embedRandom)
         .setThumbnail(RandomWaffe)
         .setAuthor("Random Weapon (Sniper)")
         .setTitle("Weapon")
@@ -1203,6 +1207,7 @@ bot.on("message", async message => {
         var RandomWaffe = Splatoon.Roller[Math.floor(Math.random() * Splatoon.Roller.length)];
 
         var embed = new Discord.RichEmbed()
+        .setColor(embedRandom)
         .setThumbnail(RandomWaffe)
         .setAuthor("Random Weapon (Roller)")
         .setTitle("Weapon")
@@ -1219,6 +1224,7 @@ bot.on("message", async message => {
         var RandomWaffe = Splatoon.Blaster[Math.floor(Math.random() * Splatoon.Blaster.length)];
     
         var embed = new Discord.RichEmbed()
+        .setColor(embedRandom)
         .setThumbnail(RandomWaffe)
         .setAuthor("Random Weapon (Blaster)")
         .setTitle("Weapon")
