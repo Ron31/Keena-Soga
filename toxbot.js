@@ -155,7 +155,7 @@ bot.on("message", async message => {
 
             var embed = new Discord.RichEmbed()
             .setColor("#45DDC0")
-            .addField("House-Balance-Members",`${message.guild.members.filter(members => members.roles.has("480798479103295490")).map(members => members).join(" \n")}` || `Currently there are no ${message.guild.roles.get("480798479103295490").name} members.`, false)
+            .addField(`${message.guild.members.filter(members => members.roles.has("480798479103295490")).size} House-Balance-Members`,`${message.guild.members.filter(members => members.roles.has("480798479103295490")).map(members => members).join(" \n")}` || `Currently there are no ${message.guild.roles.get("480798479103295490").name} members.`, false)
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/481181516370673684/Balance.png")
 
             message.channel.send(embed)
@@ -166,7 +166,7 @@ bot.on("message", async message => {
 
             var embed = new Discord.RichEmbed()
             .setColor("#F47B67")
-            .addField("House-Brilliance-Members",`${message.guild.members.filter(members => members.roles.has("480798626382086157")).map(members => members).join(" \n")}` || `Currently there are no ${message.guild.roles.get("480798626382086157").name} members.`, false)
+            .addField(`${message.guild.members.filter(members => members.roles.has("480798626382086157")).size} House-Brilliance-Members`,`${message.guild.members.filter(members => members.roles.has("480798626382086157")).map(members => members).join(" \n")}` || `Currently there are no ${message.guild.roles.get("480798626382086157").name} members.`, false)
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/481181549518389249/Brilliance.png")
 
             message.channel.send(embed)
@@ -177,7 +177,7 @@ bot.on("message", async message => {
 
             var embed = new Discord.RichEmbed()
             .setColor("#9C84EF")
-            .addField("House-Bravery-Members",`${message.guild.members.filter(members => members.roles.has("480798562079342593")).map(members => members).join(" \n")}` || `Currently there are no ${message.guild.roles.get("480798562079342593").name} members.`, false)
+            .addField(`${message.guild.members.filter(members => members.roles.has("480798562079342593")).size} House-Bravery-Members`,`${message.guild.members.filter(members => members.roles.has("480798562079342593")).map(members => members).join(" \n")}` || `Currently there are no ${message.guild.roles.get("480798562079342593").name} members.`, false)
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/481181534276026388/Bravery.png")
 
             message.channel.send(embed)
@@ -191,7 +191,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`Hypesquad`,"`Show you all the Hypesquad houses you can be adden to.`",false)
-            .addField(`Verwendung`,"`tx![house]`")
+            .addField(`Use`,`**__${BotSettings.prefix}[house]__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
 
             message.channel.send(embed)
@@ -256,7 +256,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`messages`,"`Shows you the number of messages you've sent so far. You can also see this in others.`",false)
-            .addField(`Use`,"`tx!messages \nOder tx!messages [Mitglied]`")
+            .addField(`Use`,`**__${BotSettings.prefix}messages__** or **__${BotSettings.prefix}messages [member]__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
 
             message.channel.send(embed)
@@ -300,7 +300,7 @@ bot.on("message", async message => {
             .setDescription(`**${mention}** has sent **${profile[mention.id] .Nachricht}** Messages until now.`)
 
             message.channel.send(embed)
-        }
+        } 
 
          
 
@@ -341,7 +341,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`Userinfo`,"`Gives you some information about your account. You can also see this in others.`",false)
-            .addField(`Verwendung`,"`tx!userinfo \nor tx!userinfo [Member]`")
+            .addField(`Verwendung`,`**__${BotSettings.prefix}userinfo__** or **__${BotSettings.prefix}userinfo [Member]__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
             message.channel.send(embed)
         }
@@ -452,7 +452,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`Clear`,"`Deletes any number of messages`")
-            .addField(`Use`,"`tx!clear [number]`")
+            .addField(`Use`,`**__${BotSettings.prefix}clear [number]__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
     
             message.channel.send(embed)
@@ -498,7 +498,7 @@ bot.on("message", async message => {
                 var embed = new Discord.RichEmbed()
                 .setColor("#7289DA")
                 .addField(`kick`,"`Kicks the selected user`")
-                .addField(`Verwendung`,"`tx!kick [member] [reason]`")
+                .addField(`Verwendung`,`**__${BotSettings.prefix}kick [member] [reason]__**`)
                 .setFooter(ToxbotFooter, NewtoxFooter)
     
                 message.channel.send(embed)
@@ -542,7 +542,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`ban`,"`Bans the selected user`")
-            .addField(`Use`,"`tx!ban [member] [reason]`")
+            .addField(`Use`,`**__${BotSettings.prefix}ban [member] [reason]__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
     
             message.channel.send(embed)
@@ -586,7 +586,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`giverole`,"`gives you a specific role`")
-            .addField(`Use`,"`tx!giverole [Role]`")
+            .addField(`Use`,`**__${BotSettings.prefix}giverole [Role]__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
     
             message.channel.send(embed)
@@ -636,7 +636,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`removerole`,"`removes you a specific role`")
-            .addField(`Use`,"`tx!removerole [Role]`")
+            .addField(`Use`,`**__${BotSettings.prefix}removerole [Role]__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
     
             message.channel.send(embed)
@@ -676,7 +676,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`roleID`,"`Gives you the ID of a specific role`")
-            .addField(`Use`,"`tx!roleID [Role]`")
+            .addField(`Use`,`**__${BotSettings.prefix}roleID [Role]__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
     
             message.channel.send(embed)
@@ -715,7 +715,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`emojiID`,"`Gives you the ID of a specific emoji`")
-            .addField(`Use`,"`tx!emojiID [Emoji]`")
+            .addField(`Use`,`**__${BotSettings.prefix}emojiID [Emoji]__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
     
             message.channel.send(embed)
@@ -754,7 +754,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`emojiFile`,"`Gives you a specific emoji as a file`")
-            .addField(`Use`,"`tx!emojiFile [Emoji]`")
+            .addField(`Use`,`**__${BotSettings.prefix}emojiFile [Emoji]__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
     
             message.channel.send(embed)
@@ -789,7 +789,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`rolecolor`,"`gives you the color code of a specific role`")
-            .addField(`Use`,"`tx!rolecolor [Role]`")
+            .addField(`Use`,`**__${BotSettings.prefix}rolecolor [Role]__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
     
             message.channel.send(embed)
@@ -813,7 +813,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`randomcolor`,"`gives you a random color code`")
-            .addField(`Use`,"`tx!randomcolor`")
+            .addField(`Use`,`**__${BotSettings.prefix}randomcolor__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
     
             message.channel.send(embed)
@@ -848,7 +848,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`roleedit`,"`So you can change the color of a role by bot`")
-            .addField(`Use`,"`tx!roleedit [Role] [Color]`")
+            .addField(`Use`,`**__${BotSettings.prefix}roleedit [Role] [Color]__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
     
             message.channel.send(embed)
@@ -1135,6 +1135,102 @@ bot.on("message", async message => {
 
             message.channel.send(`Hey ${message.author}, du spielst Splatoon 2 und möchtest den Newtox mal richtig ragen sehen? Dann steht dir hier eine Liste an Waffen zur Verfügung, mit denen du im eine auf die Mütze geben kannst. \nIch wünsche Viel Spaß beim auslachen :smile:`,embed)
         }
+
+        //Splatoon
+        if(message.content == `${BotSettings.prefix}random weapons`) {
+            var embed = new Discord.RichEmbed()
+            .setColor(embedRandom)
+            .setDescription(`The Random Weapons command has 5 different categories. These are "All, Firearm, Sniper, Blaster and Roller". The command will used like this: **__${BotSettings.prefix}random weapon all__**`)
+            .setImage(`https://cdn.discordapp.com/attachments/406957187869442048/485184865130643468/Weapons.jpg`)
+            .setFooter(ToxbotFooter,NewtoxFooter)
+
+            message.channel.send(message.author, embed)
+        }
+
+
+
+      //Alle
+      if(message.content == `${BotSettings.prefix}random weapon all`) {
+        var RandomWaffe = Splatoon.AlleWaffen[Math.floor(Math.random() * Splatoon.AlleWaffen.length)];
+
+        var embed = new Discord.RichEmbed()
+        .setThumbnail(RandomWaffe)
+        .setAuthor("Random Weapon (Alle)")
+        .setTitle("Weapon")
+        .setDescription(RandomWaffe.name)
+        .addField("Sub", RandomWaffe.sub, true)
+        .addField("Special", RandomWaffe.special, true)
+        .setThumbnail(RandomWaffe.image)
+
+        message.channel.send(message.author,embed)
+    }
+
+    //Schusswaffen
+    if(message.content == `${BotSettings.prefix}random weapon Firearms`) {
+        var RandomWaffe = Splatoon.Schusswaffen[Math.floor(Math.random() * Splatoon.Schusswaffen.length)];
+
+        var embed = new Discord.RichEmbed()
+        .setThumbnail(RandomWaffe)
+        .setAuthor("Random Weapon (Firearms)")
+        .setTitle("Weapon")
+        .setDescription(RandomWaffe.name)
+        .addField("Sub", RandomWaffe.sub, true)
+        .addField("Special", RandomWaffe.special, true)
+        .setThumbnail(RandomWaffe.image)
+
+        message.channel.send(message.author,embed)
+    }
+
+
+    //Sniper
+    if(message.content == `${BotSettings.prefix}random weapon Sniper`) {
+        var RandomWaffe = Splatoon.Sniper[Math.floor(Math.random() * Splatoon.Sniper.length)];
+
+        var embed = new Discord.RichEmbed()
+        .setThumbnail(RandomWaffe)
+        .setAuthor("Random Weapon (Sniper)")
+        .setTitle("Weapon")
+        .setDescription(RandomWaffe.name)
+        .addField("Sub", RandomWaffe.sub, true)
+        .addField("Special", RandomWaffe.special, true)
+        .setThumbnail(RandomWaffe.image)
+
+        message.channel.send(message.author,embed)
+    }
+
+    //Roller
+    if(message.content == `${BotSettings.prefix}random weapon Roller`) {
+        var RandomWaffe = Splatoon.Roller[Math.floor(Math.random() * Splatoon.Roller.length)];
+
+        var embed = new Discord.RichEmbed()
+        .setThumbnail(RandomWaffe)
+        .setAuthor("Random Weapon (Roller)")
+        .setTitle("Weapon")
+        .setDescription(RandomWaffe.name)
+        .addField("Sub", RandomWaffe.sub, true)
+        .addField("Special", RandomWaffe.special, true)
+        .setThumbnail(RandomWaffe.image)
+
+        message.channel.send(message.author,embed)
+    }
+
+    //Blaster
+    if(message.content == `${BotSettings.prefix}random weapon Blaster`) {
+        var RandomWaffe = Splatoon.Blaster[Math.floor(Math.random() * Splatoon.Blaster.length)];
+    
+        var embed = new Discord.RichEmbed()
+        .setThumbnail(RandomWaffe)
+        .setAuthor("Random Weapon (Blaster)")
+        .setTitle("Weapon")
+        .setDescription(RandomWaffe.name)
+        .addField("Sub", RandomWaffe.sub, true)
+        .addField("Special", RandomWaffe.special, true)
+        .setThumbnail(RandomWaffe.image)
+    
+            message.channel.send(message.author,embed)
+        }
+
+
 
     }
 });
