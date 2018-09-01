@@ -130,8 +130,8 @@ bot.on("message", async message => {
             .addField(`**__Moderation__**`,"`kick` \n`ban` \n`giverole` \n`removerole`",true)
             .addField(`**__Management__**`,"`roleedit` \n`clear` \n`emojiFile`",true)
             .addField(`**__Fun__**`,"`rolecolor` \n`randomcolor` \n`splatoon2perks` \n`lööps` \n`@Toxbot` \n`dab` \n`snens` \n`subway`",true)
-            .addField(`**__Splatoon__**`,"`random weapons` \n`random battle`",true)
-            .addField(`**__Overwatch__**`,"`random heroes`",true)
+            .addField(`**__Splatoon__**`,"` splatoon random weapons` \n` splatoon random battle`",true)
+            .addField(`**__Overwatch__**`,"` ow random heroes`",true)
             .addField(`**__Developer__**`,"`roleID` \n`emojiID`",true)
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/476098810460766229/help2.png")
             message.channel.send(embed)
@@ -501,7 +501,7 @@ bot.on("message", async message => {
             if(message.content ==`${BotSettings.prefix}help kick`) {
                 var embed = new Discord.RichEmbed()
                 .setColor("#7289DA")
-                .addField(`kick`,"`Kicks the selected user`")
+                .addField(`kick`,"`Kick the selected user`")
                 .addField(`Verwendung`,`**__${BotSettings.prefix}kick [member] [reason]__**`)
                 .setFooter(ToxbotFooter, NewtoxFooter)
     
@@ -539,13 +539,13 @@ bot.on("message", async message => {
                 message.channel.send(`This command requires the following server rights: **Ban-Members**. ${message.author}`)
             } 
           }
-         
+
           
           //Help-ban
           if(message.content ==`${BotSettings.prefix}help ban`) {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
-            .addField(`ban`,"`Bans the selected user`")
+            .addField(`ban`,"`Ban the selected user`")
             .addField(`Use`,`**__${BotSettings.prefix}ban [member] [reason]__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
     
@@ -563,7 +563,7 @@ bot.on("message", async message => {
     
                         message.member.addRole(message.guild.roles.find("name", Rolle).id).catch(err => {
     
-                            if(err) message.channel.send(`Hm. Something went wrong. ${message.author}.\n\nError-Bericht: ${err}`)
+                            if(err) message.channel.send(`Hm. Something went wrong. ${message.author}.\n\nError-message: ${err}`)
     
                         });
     
@@ -612,11 +612,11 @@ bot.on("message", async message => {
     
                         message.member.removeRole(message.guild.roles.find("name", Rolle).id).catch(err => {
     
-                            if(err) message.channel.send(`Hm. Something went wrong. ${message.author}.\n\nError-Bericht: ${err}`)
+                            if(err) message.channel.send(`Hm. Something went wrong. ${message.author}.\n\nError-message: ${err}`)
     
                         });
     
-                        message.channel.send(`You have been removed the role ${Rolle}. ${message.author} `)
+                        message.channel.send(`You have been removed from the role  ${Rolle}. ${message.author} `)
     
                     } else {
                         message.channel.send(`This role does not exist on the server. ${message.author}`)
@@ -639,7 +639,7 @@ bot.on("message", async message => {
         if(message.content ==`${BotSettings.prefix}help removerole`) {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
-            .addField(`removerole`,"`removes you a specific role`")
+            .addField(`removerole`,"`Removes a specific role`")
             .addField(`Use`,`**__${BotSettings.prefix}removerole [Role]__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
     
@@ -792,7 +792,7 @@ bot.on("message", async message => {
         if(message.content ==`${BotSettings.prefix}help rolecolor`) {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
-            .addField(`rolecolor`,"`gives you the color code of a specific role`")
+            .addField(`rolecolor`,"`Gives you the color code of a particular role`")
             .addField(`Use`,`**__${BotSettings.prefix}rolecolor [Role]__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
     
@@ -816,7 +816,7 @@ bot.on("message", async message => {
         if(message.content ==`${BotSettings.prefix}help randomcolor`) {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
-            .addField(`randomcolor`,"`gives you a random color code`")
+            .addField(`randomcolor`,"`Gives you a random color code`")
             .addField(`Use`,`**__${BotSettings.prefix}randomcolor__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
     
@@ -851,7 +851,7 @@ bot.on("message", async message => {
         if(message.content ==`${BotSettings.prefix}help roleedit`) {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
-            .addField(`roleedit`,"`So you can change the color of a role by bot`")
+            .addField(`roleedit`,"`So you can change the color of a role by bot.")
             .addField(`Use`,`**__${BotSettings.prefix}roleedit [Role] [Color]__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
     
@@ -994,7 +994,7 @@ bot.on("message", async message => {
             .setTimestamp()
 
             message.channel.send(embed)
-        } 
+        }
 
 
         //Help-Serverinfo
@@ -1130,10 +1130,10 @@ bot.on("message", async message => {
 
 
         //Splatoon
-        if(message.content == `${BotSettings.prefix}random weapons`) {
+        if(message.content == `${BotSettings.prefix}splatoon random weapons`) {
             var embed = new Discord.RichEmbed()
             .setColor(embedRandom)
-            .setDescription(`The Random Weapons command has 5 different categories. These are "All, Firearm, Sniper, Blaster and Roller". The command will used like this: **__${BotSettings.prefix}random weapon all__**`)
+            .setDescription(`The Splatoon Random Weapons command has 5 different categories. These are "All, Firearm, Sniper, Blaster and Roller". The command will used like this: **__${BotSettings.prefix}random weapon all__**`)
             .setImage(`https://cdn.discordapp.com/attachments/406957187869442048/485184865130643468/Weapons.jpg`)
             .setFooter(ToxbotFooter,NewtoxFooter)
 
@@ -1141,10 +1141,10 @@ bot.on("message", async message => {
         }
 
         //Splatoon Help
-        if(message.content == `${BotSettings.prefix}help random weapons`) {
+        if(message.content == `${BotSettings.prefix}splatoon help random weapons`) {
             var embed = new Discord.RichEmbed()
             .setColor(embedRandom)
-            .addField(`Random Weapons`,"`Gives you a random weapon from Splatoon 2`")
+            .addField(`Splatoon Random Weapons`,"`Gives you a random weapon from Splatoon 2`")
 
             message.channel.send(embed)
         }
@@ -1152,7 +1152,7 @@ bot.on("message", async message => {
 
 
       //Alle
-      if(message.content == `${BotSettings.prefix}random weapon All`) {
+      if(message.content == `${BotSettings.prefix}splatoon random weapon All`) {
         var RandomWaffe = Splatoon.AlleWaffen[Math.floor(Math.random() * Splatoon.AlleWaffen.length)];
 
         var embed = new Discord.RichEmbed()
@@ -1169,7 +1169,7 @@ bot.on("message", async message => {
     }
 
     //Schusswaffen
-    if(message.content == `${BotSettings.prefix}random weapon Firearm`) {
+    if(message.content == `${BotSettings.prefix}splatoon random weapon Firearm`) {
         var RandomWaffe = Splatoon.Schusswaffen[Math.floor(Math.random() * Splatoon.Schusswaffen.length)];
 
         var embed = new Discord.RichEmbed()
@@ -1187,7 +1187,7 @@ bot.on("message", async message => {
 
 
     //Sniper
-    if(message.content == `${BotSettings.prefix}random weapon Sniper`) {
+    if(message.content == `${BotSettings.prefix}splatoon random weapon Sniper`) {
         var RandomWaffe = Splatoon.Sniper[Math.floor(Math.random() * Splatoon.Sniper.length)];
 
         var embed = new Discord.RichEmbed()
@@ -1204,7 +1204,7 @@ bot.on("message", async message => {
     }
 
     //Roller
-    if(message.content == `${BotSettings.prefix}random weapon Roller`) {
+    if(message.content == `${BotSettings.prefix}splatoon random weapon Roller`) {
         var RandomWaffe = Splatoon.Roller[Math.floor(Math.random() * Splatoon.Roller.length)];
 
         var embed = new Discord.RichEmbed()
@@ -1221,7 +1221,7 @@ bot.on("message", async message => {
     }
 
     //Blaster
-    if(message.content == `${BotSettings.prefix}random weapon Blaster`) {
+    if(message.content == `${BotSettings.prefix}splatoon random weapon Blaster`) {
         var RandomWaffe = Splatoon.Blaster[Math.floor(Math.random() * Splatoon.Blaster.length)];
     
         var embed = new Discord.RichEmbed()
@@ -1238,7 +1238,7 @@ bot.on("message", async message => {
         }
 
     //Battle
-    if(message.content == `${BotSettings.prefix}random battle`) {
+    if(message.content == `${BotSettings.prefix}splatoon random battle`) {
         var RMap = Splatoon.Maps[Math.floor(Math.random() * Splatoon.Maps.length)];
         var Mode = Splatoon.Modis[Math.floor(Math.random() * Splatoon.Modis.length)];
 
@@ -1254,10 +1254,10 @@ bot.on("message", async message => {
     }
 
      //Splatoon Help 2
-     if(message.content == `${BotSettings.prefix}help random battle`) {
+     if(message.content == `${BotSettings.prefix}help splatoon random battle`) {
         var embed = new Discord.RichEmbed()
         .setColor(embedRandom)
-        .addField(`Random Weapons`,"`Gives you random instructions for a private battle in Splatoon 2`")
+        .addField(`Splatoon Random Weapons`,"`Gives you random instructions for a private battle in Splatoon 2`")
 
         message.channel.send(embed)
     }
@@ -1265,10 +1265,10 @@ bot.on("message", async message => {
 
     //Overwatch
 
-    if(message.content == `${BotSettings.prefix}random heroes`) {
+    if(message.content == `${BotSettings.prefix}ow random heroes`) {
         var embed = new Discord.RichEmbed()
         .setColor(embedRandom)
-        .setDescription(`The Random Heroes command has 3 different categories. These are "All, Tank, Support". The command will used like this: **__${BotSettings.prefix}random hero all__**`)
+        .setDescription(`The Overwatch Random Heroes command has 3 different categories. These are "All, Tank, Support". The command will used like this: **__${BotSettings.prefix}random hero all__**`)
         .setImage(`https://cdn.discordapp.com/attachments/406957187869442048/485439364814340097/800px-Heroes-theatrical.png`)
         .setFooter(ToxbotFooter,NewtoxFooter)
 
@@ -1276,17 +1276,17 @@ bot.on("message", async message => {
     }
 
     //Overwatch Help
-    if(message.content == `${BotSettings.prefix}help random heroes`) {
+    if(message.content == `${BotSettings.prefix}help ow random heroes`) {
         var embed = new Discord.RichEmbed()
         .setColor("#7289DA")
-        .addField(`Random Heroes`,"`Gives you a random Hero from Overwatch`")
+        .addField(`Overwatch Random Heroes`,"`Gives you a random Hero from Overwatch`")
 
         message.channel.send(embed)
     }
 
 
       //Alle
-      if(message.content == `${BotSettings.prefix}random hero All`) {
+      if(message.content == `${BotSettings.prefix}ow random hero All`) {
         var All = Overwatch.All[Math.floor(Math.random() * Overwatch.All.length)];
 
         var embed = new Discord.RichEmbed()
@@ -1302,7 +1302,7 @@ bot.on("message", async message => {
     }
 
     //Tank
-    if(message.content == `${BotSettings.prefix}random hero Tank`) {
+    if(message.content == `${BotSettings.prefix}ow random hero Tank`) {
         var Tank = Overwatch.Tank[Math.floor(Math.random() * Overwatch.Tank.length)];
 
         var embed = new Discord.RichEmbed()
@@ -1318,7 +1318,7 @@ bot.on("message", async message => {
     }
 
      //Support
-     if(message.content == `${BotSettings.prefix}random hero Support`) {
+     if(message.content == `${BotSettings.prefix}ow random hero Support`) {
         var Support = Overwatch.Support[Math.floor(Math.random() * Overwatch.Support.length)];
 
         var embed = new Discord.RichEmbed()
@@ -1332,8 +1332,6 @@ bot.on("message", async message => {
 
         message.channel.send(message.author,embed)
     }
-
-
 
     }
 });
