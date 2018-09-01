@@ -990,7 +990,7 @@ bot.on("message", async message => {
             .addField(`Server creation Date`,`The server was created on **${Config.Date_Name[message.guild.createdAt.toString().split(" ")[1]]}** **${message.guild.createdAt.toString().split(" ")[2]}**, **${message.guild.createdAt.toString().split(" ")[3]}**!`, true)
             .addField(`Server-Icon`,`${message.guild.iconURL}`,true)
             .setThumbnail(`${message.guild.iconURL}`)
-            .setFooter(ToxbotFooter)
+            .setFooter(ToxbotFooter, NewtoxFooter)
             .setTimestamp()
 
             message.channel.send(embed)
@@ -1268,7 +1268,7 @@ bot.on("message", async message => {
     if(message.content == `${BotSettings.prefix}ow random heroes`) {
         var embed = new Discord.RichEmbed()
         .setColor(embedRandom)
-        .setDescription(`The Overwatch Random Heroes command has 3 different categories. These are "All, Tank, Support". The command will used like this: **__${BotSettings.prefix}random hero all__**`)
+        .setDescription(`The Overwatch Random Heroes command has 3 different categories. These are "All, Tank, Support". The command will used like this: **__${BotSettings.prefix}ow random hero All__**`)
         .setImage(`https://cdn.discordapp.com/attachments/406957187869442048/485439364814340097/800px-Heroes-theatrical.png`)
         .setFooter(ToxbotFooter,NewtoxFooter)
 
