@@ -4,7 +4,9 @@ const Discord = require("discord.js"),
       fs = require("fs"),
       profile = JSON.parse(fs.readFileSync("profil/message.json","utf8")),
       Config = require("./config.json"),
-      Splatoon = require("./Splatoon_Arrays.json")
+      Splatoon = require("./Splatoon_Arrays.json"),
+      Overwatch = require("./overwatch.json")
+
   
     
 
@@ -128,7 +130,8 @@ bot.on("message", async message => {
             .addField(`**__Moderation__**`,"`kick` \n`ban` \n`giverole` \n`removerole`",true)
             .addField(`**__Management__**`,"`roleedit` \n`clear` \n`emojiFile`",true)
             .addField(`**__Fun__**`,"`rolecolor` \n`randomcolor` \n`splatoon2perks` \n`lööps` \n`@Toxbot` \n`dab` \n`snens` \n`subway`",true)
-            .addField(`**__Splatoon__**`,"`random weapons`",true)
+            .addField(`**__Splatoon__**`,"`random weapons` \n`random battle`",true)
+            .addField(`**__Overwatch__**`,"`random heroes`",true)
             .addField(`**__Developer__**`,"`roleID` \n`emojiID`",true)
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/476098810460766229/help2.png")
             message.channel.send(embed)
@@ -1125,17 +1128,6 @@ bot.on("message", async message => {
             }     
         }
 
-        if(message.content ==`${BotSettings.prefix}HateWaffen Newtox`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the bot-owner server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
-            
-            var embed = new Discord.RichEmbed()
-            .setColor(message.member.highestRole.color)
-            .setDescription(`Blaster \nDual-Platscher \nDual-Platscher-SE \nDynaroller \nDynaroller Tesla \nE-Liter 4K \nHydrant \nKalligraf \nKleckser \nKlecks-Splatling \nKontra-Blaster \nNautilus 47 \nParapluviator \nQuasto \nS3 Tintenwerfer \nSplatling \nSprenkler Fresco \nSchwapper \nWannen-Schwapper`)
-            .setTimestamp()
-            .setFooter(ToxbotFooter,NewtoxFooter)
-
-            message.channel.send(`Hey ${message.author}, du spielst Splatoon 2 und möchtest den Newtox mal richtig ragen sehen? Dann steht dir hier eine Liste an Waffen zur Verfügung, mit denen du im eine auf die Mütze geben kannst. \nIch wünsche Viel Spaß beim auslachen :smile:`,embed)
-        }
 
         //Splatoon
         if(message.content == `${BotSettings.prefix}random weapons`) {
@@ -1148,10 +1140,19 @@ bot.on("message", async message => {
             message.channel.send(message.author, embed)
         }
 
+        //Splatoon Help
+        if(message.content == `${BotSettings.prefix}help random weapons`) {
+            var embed = new Discord.RichEmbed()
+            .setColor(embedRandom)
+            .addField(`Random Weapons`,"`Gives you a random weapon from Splatoon 2`")
+
+            message.channel.send(embed)
+        }
+
 
 
       //Alle
-      if(message.content == `${BotSettings.prefix}random weapon all`) {
+      if(message.content == `${BotSettings.prefix}random weapon All`) {
         var RandomWaffe = Splatoon.AlleWaffen[Math.floor(Math.random() * Splatoon.AlleWaffen.length)];
 
         var embed = new Discord.RichEmbed()
@@ -1235,6 +1236,102 @@ bot.on("message", async message => {
     
             message.channel.send(message.author,embed)
         }
+
+    //Battle
+    if(message.content == `${BotSettings.prefix}random battle`) {
+        var RMap = Splatoon.Maps[Math.floor(Math.random() * Splatoon.Maps.length)];
+        var Mode = Splatoon.Modis[Math.floor(Math.random() * Splatoon.Modis.length)];
+
+        var embed = new Discord.RichEmbed()
+        .setColor(embedRandom)
+        .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/485414621038116876/Private_Lobby_2.png")
+        .setImage(RMap.image)
+        .setAuthor("Random Battle")
+        .addField(`Stage`,RMap.name)
+        .addField(`Mode`,Mode)
+
+        message.channel.send(message.author, embed)
+    }
+
+     //Splatoon Help 2
+     if(message.content == `${BotSettings.prefix}help random battle`) {
+        var embed = new Discord.RichEmbed()
+        .setColor(embedRandom)
+        .addField(`Random Weapons`,"`Gives you random instructions for a private battle in Splatoon 2`")
+
+        message.channel.send(embed)
+    }
+
+
+    //Overwatch
+
+    if(message.content == `${BotSettings.prefix}random heroes`) {
+        var embed = new Discord.RichEmbed()
+        .setColor(embedRandom)
+        .setDescription(`The Random Heroes command has 3 different categories. These are "All, Tank, Support". The command will used like this: **__${BotSettings.prefix}random hero all__**`)
+        .setImage(`https://cdn.discordapp.com/attachments/406957187869442048/485439364814340097/800px-Heroes-theatrical.png`)
+        .setFooter(ToxbotFooter,NewtoxFooter)
+
+        message.channel.send(message.author, embed)
+    }
+
+    //Overwatch Help
+    if(message.content == `${BotSettings.prefix}help random heroes`) {
+        var embed = new Discord.RichEmbed()
+        .setColor("#7289DA")
+        .addField(`Random Heroes`,"`Gives you a random Hero from Overwatch`")
+
+        message.channel.send(embed)
+    }
+
+
+      //Alle
+      if(message.content == `${BotSettings.prefix}random hero All`) {
+        var All = Overwatch.All[Math.floor(Math.random() * Overwatch.All.length)];
+
+        var embed = new Discord.RichEmbed()
+        .setColor(embedRandom)
+        .setThumbnail(All)
+        .setAuthor("Random Hero (All)")
+        .setTitle("Hero")
+        .setDescription(All.name)
+        .addField("Role", All.Role, true)
+        .setThumbnail(All.image)
+
+        message.channel.send(message.author,embed)
+    }
+
+    //Tank
+    if(message.content == `${BotSettings.prefix}random hero Tank`) {
+        var Tank = Overwatch.Tank[Math.floor(Math.random() * Overwatch.Tank.length)];
+
+        var embed = new Discord.RichEmbed()
+        .setColor(embedRandom)
+        .setThumbnail(Tank)
+        .setAuthor("Random Hero (Tank)")
+        .setTitle("Hero")
+        .setDescription(Tank.name)
+        .addField("Role", Tank.Role, true)
+        .setThumbnail(Tank.image)
+
+        message.channel.send(message.author,embed)
+    }
+
+     //Support
+     if(message.content == `${BotSettings.prefix}random hero Support`) {
+        var Support = Overwatch.Support[Math.floor(Math.random() * Overwatch.Support.length)];
+
+        var embed = new Discord.RichEmbed()
+        .setColor(embedRandom)
+        .setThumbnail(Support)
+        .setAuthor("Random Hero (Support)")
+        .setTitle("Hero")
+        .setDescription(Support.name)
+        .addField("Role", Support.Role, true)
+        .setThumbnail(Support.image)
+
+        message.channel.send(message.author,embed)
+    }
 
 
 
