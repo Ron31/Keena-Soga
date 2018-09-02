@@ -1133,7 +1133,7 @@ bot.on("message", async message => {
         if(message.content == `${BotSettings.prefix}splatoon random weapons`) {
             var embed = new Discord.RichEmbed()
             .setColor(embedRandom)
-            .setDescription(`The Splatoon Random Weapons command has 5 different categories. These are "All, Firearm, Sniper, Blaster and Roller". The command will used like this: **__${BotSettings.prefix}random weapon all__**`)
+            .setDescription(`The Splatoon Random Weapons command has 5 different categories. These are "All, Firearm, Sniper, Blaster and Roller". The command will used like this: **__${BotSettings.prefix}random weapon All__**`)
             .setImage(`https://cdn.discordapp.com/attachments/406957187869442048/485184865130643468/Weapons.jpg`)
             .setFooter(ToxbotFooter,NewtoxFooter)
 
