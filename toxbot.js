@@ -970,7 +970,7 @@ bot.on("message", async message => {
         // }
         
 
-        //serverinfo
+        //serverinfoserverinfo
         if(message.content ==`${BotSettings.prefix}serverinfo`) {
 
             var embed = new Discord.RichEmbed()
@@ -1332,11 +1332,10 @@ bot.on("message", async message => {
 
         message.channel.send(message.author,embed)
     }
+    
 
     }
 });
-
-
 
 
 bot.login(process.env.BOT_TOKEN)
