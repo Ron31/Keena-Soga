@@ -809,7 +809,7 @@ bot.on("message", async message => {
             .setColor(randomcolor)
             .setDescription(`This is your Color: \n**${randomcolor}** \n \nR: ${Math.round(Math.random()*255)} \nG: ${Math.round(Math.random()*255)} \nB: ${Math.round(Math.random()*255)}\n \n:arrow_left: You can see the color on the left side of the embed.`)
             
-            message.channel.send(embed) 
+            message.channel.send(message.author, embed) 
         }
 
         //Help-randomcolor
