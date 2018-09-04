@@ -17,7 +17,7 @@ bot.on("ready", async () => {
 })
 setInterval(async function() {
 
-    let status = [`${BotSettings.prefix}help`, `${bot.users.size} members!`,`Version: [2.0]`,`on ${bot.guilds.size} Servers!`,`Bot-Owner: ${bot.users.get(BotSettings.OwnerID).tag}`];
+    let status = [`${BotSettings.prefix}help`, `${bot.users.size} members!`,`Version: [2.0]`,`on ${bot.guilds.size} Servers!`,`Developer: ${bot.users.get(BotSettings.OwnerID).tag}`];
     let chosen = status[Math.floor(Math.random() * status.length)];
   
     bot.user.setActivity(chosen, {type: "PLAYING"}); //PLAYING, STREAMING, LISTENING, WATCHING
@@ -129,7 +129,7 @@ bot.on("message", async message => {
             .addField(`**__Info__**`,"`userinfo` \n`serverinfo` \n`serverlist` \n`serverpartners` \n`messages` \n`devmessage` \n`botinfo` \n`botinvite` \n`Fun` \n`Hypesquad`",true)
             .addField(`**__Moderation__**`,"`kick` \n`ban` \n`giverole` \n`removerole`",true)
             .addField(`**__Management__**`,"`roleedit` \n`clear` \n`emojiFile`",true)
-            .addField(`**__Fun__**`,"`rolecolor` \n`randomcolor` \n`lööps` \n`@Toxbot` \n`dab` \n`snens` \n`subway`",true)
+            .addField(`**__Fun__**`,"`rolecolor` \n`randomcolor` \n`lööps` \n`dab` \n`snens` \n`subway`",true)
             .addField(`**__Splatoon__**`,"\n`splatoon2perks` \n`splatoon random weapons` \n` splatoon random battle`",true)
             .addField(`**__Overwatch__**`,"` ow random heroes`",true)
             .addField(`**__Developer__**`,"`roleID` \n`emojiID`",true)
@@ -141,7 +141,7 @@ bot.on("message", async message => {
 
         //Hypesquad!
         if(message.content ==`${BotSettings.prefix}Hypesquad`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the bot-owner server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**`)
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**`)
 
             var embed = new Discord.RichEmbed()
 
@@ -155,7 +155,7 @@ bot.on("message", async message => {
         }
 
         if(message.content ==`${BotSettings.prefix}Balance list`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the bot-owner server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**`)
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**`)
 
             var embed = new Discord.RichEmbed()
             .setColor("#45DDC0")
@@ -166,7 +166,7 @@ bot.on("message", async message => {
         }
 
         if(message.content ==`${BotSettings.prefix}Brilliance list`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the bot-owner server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**`)
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**`)
 
             var embed = new Discord.RichEmbed()
             .setColor("#F47B67")
@@ -177,7 +177,7 @@ bot.on("message", async message => {
         }
 
         if(message.content ==`${BotSettings.prefix}Bravery list`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the bot-owner server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**`)
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**`)
 
             var embed = new Discord.RichEmbed()
             .setColor("#9C84EF")
@@ -190,7 +190,7 @@ bot.on("message", async message => {
         //Help-Hypesquad
 
         if(message.content ==`${BotSettings.prefix}help Hypesquad`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the bot-owner server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
 
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
@@ -202,7 +202,7 @@ bot.on("message", async message => {
         }
 
         if(message.content ==`${BotSettings.prefix}Balance`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the bot-owner server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
             if(message.member.roles.has("480798562079342593") || message.member.roles.has("480798626382086157")) return message.channel.send(`${message.author} You are currently in the house **${message.guild.roles.get("480798562079342593").name}** or **${message.guild.roles.get("480798626382086157").name}**. You have to leave your current house.`)
             if(message.member.roles.has("480798479103295490")) return message.channel.send(`${message.author} You are already in the house **${message.guild.roles.get("480798479103295490").name}**.`)
 
@@ -211,7 +211,7 @@ bot.on("message", async message => {
         }
 
         if(message.content ==`${BotSettings.prefix}Balanceleave`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the bot-owner server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
             if(message.member.roles.has("480798562079342593") || message.member.roles.has("480798626382086157")) return message.channel.send(`${message.author} You can't leave a house by not being.`)
 
             message.member.removeRole(`480798479103295490`)
@@ -219,7 +219,7 @@ bot.on("message", async message => {
         }
 
         if(message.content ==`${BotSettings.prefix}Brilliance`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the bot-owner server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
             if(message.member.roles.has("480798479103295490") || message.member.roles.has("480798562079342593")) return message.channel.send(`${message.author} You are currently in the house **${message.guild.roles.get("480798479103295490").name}** or **${message.guild.roles.get("480798562079342593").name}**. You have to leave your current house.`)
             if(message.member.roles.has("480798626382086157")) return message.channel.send(`${message.author} You are already in the house **${message.guild.roles.get("480798626382086157").name}**.`)
 
@@ -229,7 +229,7 @@ bot.on("message", async message => {
         }
 
         if(message.content ==`${BotSettings.prefix}Brillianceleave`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the bot-owner server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
             if(message.member.roles.has("480798479103295490") || message.member.roles.has("480798562079342593")) return message.channel.send(`${message.author} You can't leave a house by not being.`)
 
             message.member.removeRole(`480798626382086157`)
@@ -237,7 +237,7 @@ bot.on("message", async message => {
         }
 
         if(message.content ==`${BotSettings.prefix}Bravery`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the bot-owner server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
             if(message.member.roles.has("480798479103295490") || message.member.roles.has("480798626382086157")) return message.channel.send(`${message.author} You are currently in the house **${message.guild.roles.get("480798479103295490").name}** or **${message.guild.roles.get("480798626382086157").name}**. You have to leave your current house.`)
             if(message.member.roles.has("480798562079342593")) return message.channel.send(`${message.author} You are already in the house **${message.guild.roles.get("480798479103295490").name}**.`)
 
@@ -246,7 +246,7 @@ bot.on("message", async message => {
         }
 
         if(message.content ==`${BotSettings.prefix}Braveryleave`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the bot-owner server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
             if(message.member.roles.has("480798479103295490") || message.member.roles.has("480798626382086157")) return message.channel.send(`${message.author} You can't leave a house by not being.`)
 
             message.member.removeRole(`480798562079342593`)
@@ -325,7 +325,7 @@ bot.on("message", async message => {
             .setColor("#ff9564")
             .setTitle("About Toxbot")
             .addField("Name and Tag",`**${bot.user.username}**#${bot.user.discriminator}`,false)
-            .addField("Bot-Owner:",`**${message.guild.member("402483602094555138").user.username}**#${message.guild.member("402483602094555138").user.discriminator}`, true)
+            .addField("Developer:",`**${message.guild.member("402483602094555138").user.username}**#${message.guild.member("402483602094555138").user.discriminator}`, true)
             .addField("Coded with:","Discord.js 11.3.2",false)
             .addField(`Prefix`,`The prefix of the bot is **${BotSettings.prefix}**`, false)
             .addField("Creation date of the bot",`The bot was created on **${Config.Date_Name[bot.user.createdAt.toString().split(" ")[1]]}** **${bot.user.createdAt.toString().split(" ")[2]}**, **${bot.user.createdAt.toString().split(" ")[3]}**!`,false)
@@ -483,7 +483,7 @@ bot.on("message", async message => {
     
             if(!reason) reason = `${message.author} Please give a reason!`;
     
-            if(member.user.id == BotSettings.OwnerID) return message.channel.send(`The Bot-Owner cannot be kicked!`)
+            if(member.user.id == BotSettings.OwnerID) return message.channel.send(`The Developer cannot be kicked!`)
     
             await member.kick(reason)
     
@@ -529,7 +529,7 @@ bot.on("message", async message => {
     
             if(!reason) reason = `${message.author} Please give a reason!`;
     
-            if(member.user.id == BotSettings.OwnerID) return message.channel.send(`The Bot-Owner cannot be banned!`)
+            if(member.user.id == BotSettings.OwnerID) return message.channel.send(`The Developer cannot be banned!`)
     
             await member.ban(reason)
         
@@ -670,7 +670,7 @@ bot.on("message", async message => {
                 }
     
             } else {
-                message.channel.send(`Only the Bot-Owner can use this command. ${message.author}`)
+                message.channel.send(`Only the Developer can use this command. ${message.author}`)
             }
             return
         }
@@ -709,7 +709,7 @@ bot.on("message", async message => {
             }
     
         } else {
-            message.channel.send(`Only the Bot-Owner can use this command. ${message.author}`)
+            message.channel.send(`Only the Developer can use this command. ${message.author}`)
         }
         return
     }
@@ -957,24 +957,26 @@ bot.on("message", async message => {
             message.channel.send(embed)
         }
 
-        if(message.content ==`${bot.user}`) {
-                var embed = new Discord.RichEmbed()
-                .setColor(embedRandom)
-                .setImage("https://cdn.discordapp.com/attachments/406957187869442048/476102813705830404/ping.jpg")
+        // if(mention.user.username.id == bot.user.username.id) {
 
-                message.channel.send(embed)
-        }
+        //         var embed = new Discord.RichEmbed()
+        //         .setColor(embedRandom)
+        //         .setImage("https://cdn.discordapp.com/attachments/406957187869442048/476102813705830404/ping.jpg")
+
+        //         message.channel.send(embed)
+        // }
 
         // if(message.content ==`${BotSettings.prefix}spam`) {
         //     setInterval(async () => { message.channel.send(`<@276010682682572800>`) }, 1000);
         // }
         
 
-        //serverinfoserverinfo
+        //serverinfo
         if(message.content ==`${BotSettings.prefix}serverinfo`) {
 
             var embed = new Discord.RichEmbed()
             .setColor(embedRandom)
+            .setDescription("`If something is not displayed correctly, it may be because there are too many roles or emojis on the server, I apologize for that`")
             .setTitle(`${message.guild.name}`)
             .addField(`ID`,`${message.guild.id}`,true)
             .addField(`Owner`,`${message.guild.owner}`,true)
@@ -984,9 +986,9 @@ bot.on("message", async message => {
             .addField(`Bots`,`**${message.guild.members.filter(members => members.user.bot).size}**`,true)
             .addField(`Text-Channels`,`**${message.guild.channels.filter(channels => channels.type == "text").size}**`,true)
             .addField(`Voice-Channels`,`**${message.guild.channels.filter(channels => channels.type == "voice").size}**`,true)
-            .addField(`AFK-Channel`,`${message.guild.afkChannel}`,true)
-            .addField(`Roles`,`The server has **${message.guild.roles.size}** Roles\n \n${message.guild.roles.map(roles => roles).splice(1).join(", ")}`,true)
-            .addField(`Emojis`,`The server has **${message.guild.emojis.size}** Emojis\n \n${message.guild.emojis.map(emojis => emojis).join("")}`,true)
+            .addField(`AFK-Channel`, message.guild.afkChannel || "`There is no AFK channel on this server`",true)
+            .addField(`Roles`,`The server has **${message.guild.roles.size}** Roles\n \n${message.guild.roles.map(roles => roles).splice(1).join(", ").substr(0, 900)}`,true)
+            .addField(`Emojis`,`The server has **${message.guild.emojis.size}** Emojis\n \n${message.guild.emojis.map(emojis => emojis).join("").substr(0, 900)}`,true)
             .addField(`Server creation Date`,`The server was created on **${Config.Date_Name[message.guild.createdAt.toString().split(" ")[1]]}** **${message.guild.createdAt.toString().split(" ")[2]}**, **${message.guild.createdAt.toString().split(" ")[3]}**!`, true)
             .addField(`Server-Icon`,`${message.guild.iconURL}`,true)
             .setThumbnail(`${message.guild.iconURL}`)
@@ -1059,7 +1061,7 @@ bot.on("message", async message => {
                     message.channel.send(`What do you want me to say? ${message.author}`)
                 }
             } else { 
-                message.channel.send(`Only the Bot-Owner can use this command. ${message.author}`)
+                message.channel.send(`Only the Developer can use this command. ${message.author}`)
 
             }
             message.delete();
@@ -1068,7 +1070,7 @@ bot.on("message", async message => {
         //DevMessage
         if(message.content == `${BotSettings.prefix}devmessage ${args.join(" ")}`) {
             bot.users.get(BotSettings.OwnerID).send(args.join(' '))
-            message.channel.send(`Your message was sent to the Bot-Owner.`)
+            message.channel.send(`Your message was sent to the Developer.`)
         }
 
 
@@ -1076,7 +1078,7 @@ bot.on("message", async message => {
         if(message.content ==`${BotSettings.prefix}help devmessage`) {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
-            .addField(`devmessage`,"`Sends a message to the Bot-Owner`",false)
+            .addField(`devmessage`,"`Sends a message to the Developer`",false)
             message.channel.send(embed)
         } 
 
@@ -1088,14 +1090,13 @@ bot.on("message", async message => {
                 var vote = args.join(" ") 
                 if(vote) {
                     await message.channel.send(vote) 
-                    .then(msg => msg.react("430984155984035850").then(msg2 => msg.react("430985269362032642").then(msg3 => msg.react("430985153180073985")).then(msg4 => msg.react("430984548625416198"))))
+                    .then(msg => msg.react(":one:").then(msg2 => msg.react(":two:").then(msg3 => msg.react(":three:")).then(msg4 => msg.react(":four:"))))
 
                 } else { 
                     message.channel.send(`Was für eine Abstimmung soll es sein? ${message.author}`)
                 }
             } else { 
-                message.channel.send(`Nur eine Person mit Admin Rechten oder der Bot-Owner können diesen Befehl nutzen. ${message.author}`)
-
+                message.channel.send(`Nur eine Person mit Admin Rechten oder der Developer können diesen Befehl nutzen. ${message.author}`)
             }
             message.delete();
         }
@@ -1124,7 +1125,7 @@ bot.on("message", async message => {
 
             bot.destroy()    
             } else {
-                message.channel.send(`Nur der Bot-Owner kann diesen Command nutzen. ${message.author}`)
+                message.channel.send(`Nur der Developer kann diesen Command nutzen. ${message.author}`)
             }     
         }
 
