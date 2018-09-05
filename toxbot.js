@@ -126,7 +126,7 @@ bot.on("message", async message => {
             .setTimestamp()
             .setFooter(HelpFooter)
             .setTitle("Here you can see every Command of the Bot")
-            .addField(`**__Info__**`,"`userinfo` \n`serverinfo` \n`serverlist` \n`serverpartners` \n`messages` \n`devmessage` \n`botinfo` \n`botinvite` \n`Fun` \n`Hypesquad`",true)
+            .addField(`**__Info__**`,"`userinfo` \n`serverinfo` \n`serverlist` \n`serverpartners` \n`userafk` \n`messages` \n`devmessage` \n`botinfo` \n`botinvite` \n`Fun` \n`Hypesquad`",true)
             .addField(`**__Moderation__**`,"`kick` \n`ban` \n`giverole` \n`removerole`",true)
             .addField(`**__Management__**`,"`roleedit` \n`clear` \n`emojiFile`",true)
             .addField(`**__Fun__**`,"`rolecolor` \n`randomcolor` \n`lööps` \n`dab` \n`snens` \n`subway`",true)
@@ -194,7 +194,7 @@ bot.on("message", async message => {
 
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
-            .addField(`Hypesquad`,"`Show you all the Hypesquad houses you can be adden to.`",false)
+            .addField(`Hypesquad`,"`Shows you all the Hypesquad Houses to which you can attach roles.`",false)
             .addField(`Use`,`**__${BotSettings.prefix}[house]__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
 
@@ -259,7 +259,7 @@ bot.on("message", async message => {
 
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
-            .addField(`messages`,"`Shows you the number of messages you've sent so far. You can also see this in others.`",false)
+            .addField(`messages`,"`Shows you the number of messages you have sent so far. You can also see this with others.`",false)
             .addField(`Use`,`**__${BotSettings.prefix}messages__** or **__${BotSettings.prefix}messages [member]__**`)
             .setFooter(ToxbotFooter, NewtoxFooter)
 
@@ -306,7 +306,50 @@ bot.on("message", async message => {
             message.channel.send(embed)
         } 
 
-         
+        
+         //AFK_Set
+        if(message.content == (`${BotSettings.prefix}afk`)) {
+        if (!message.member.displayName.includes("[AFK]")) {
+
+            message.member.setNickname("[AFK] " + message.member.displayName);
+            message.channel.send(`I have set your status to AFK, ${message.author}`)
+
+        } else if (message.member.displayName.includes("[AFK]")) {
+            message.channel.send(`You are already AFK, ${message.author}`);
+        };
+    };
+
+    //AFk_Reset
+    if(message.content ==`${BotSettings.prefix}afkreset`) {
+        if(message.member.displayName.includes("[AFK]")) {
+            message.member.setNickname(message.member.user.username);
+            message.channel.send(`Your AFK status has been reset, ${message.author}`);
+        }
+        else if(!message.member.displayName.includes("[AFK]")) {
+            message.channel.send(`You are already no longer AFK, ${message.author}`);
+        };
+    };
+
+    if(message.content ==`${BotSettings.prefix}userafk`) {
+        var embed = new Discord.RichEmbed()
+        .setColor(embedRandom)
+        .setTitle(`Userafk`)
+        .setDescription(`**__${BotSettings.prefix}afk__** \nChange your name to AFK, on the server you are on. \n \n**__${BotSettings.prefix}afkreset__** \nReset your name to your username.`)
+        .setFooter(ToxbotFooter, NewtoxFooter)
+        .setTimestamp()
+        .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/486907453829545984/afk.png")
+
+        message.channel.send(embed)
+    }
+
+        //Help-botinfo
+        if(message.content ==`${BotSettings.prefix}help userafk`) {
+            var embed = new Discord.RichEmbed()
+            .setColor("#7289DA")
+            .addField(`userafk`,`Shows you how to change your status via Bot to AFK.`,false)
+            .setFooter(ToxbotFooter, NewtoxFooter)
+            message.channel.send(embed)
+        }
 
         //Help-botinfo
         if(message.content ==`${BotSettings.prefix}help botinfo`) {
@@ -1333,9 +1376,12 @@ bot.on("message", async message => {
 
         message.channel.send(message.author,embed)
     }
+
     
 
-    }
+
+}
+
 });
 
 
