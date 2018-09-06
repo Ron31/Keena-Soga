@@ -1,5 +1,4 @@
 const Discord = require("discord.js"),
-     jquery = require("jquery"),
       bot = new Discord.Client(),
       BotSettings = require("./botsettings.json"),
       fs = require("fs"),
