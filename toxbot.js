@@ -1,4 +1,5 @@
 const Discord = require("discord.js"),
+     jquery = require("jquery"),
       bot = new Discord.Client(),
       BotSettings = require("./botsettings.json"),
       fs = require("fs"),
@@ -126,7 +127,7 @@ bot.on("message", async message => {
             .setTimestamp()
             .setFooter(HelpFooter)
             .setTitle("Here you can see every Command of the Bot")
-            .addField(`**__Info__**`,"`userinfo` \n`serverinfo` \n`serverlist` \n`serverpartners` \n`userafk` \n`messages` \n`devmessage` \n`botinfo` \n`botinvite` \n`Fun` \n`Hypesquad`",true)
+            .addField(`**__Info__**`,"`userinfo` \n`serverinfo` \n`serverlist` \n`serverpartners` \n`nicknames` \n`userafk` \n`messages` \n`devmessage` \n`botinfo` \n`botinvite` \n`Fun` \n`Hypesquad`",true)
             .addField(`**__Moderation__**`,"`kick` \n`ban` \n`giverole` \n`removerole`",true)
             .addField(`**__Management__**`,"`roleedit` \n`clear` \n`emojiFile`",true)
             .addField(`**__Fun__**`,"`rolecolor` \n`randomcolor` \n`lööps` \n`dab` \n`snens` \n`subway`",true)
@@ -145,7 +146,7 @@ bot.on("message", async message => {
 
             var embed = new Discord.RichEmbed()
 
-            .setDescription(`Here you see all the Hypesquad houses. \nTo which you can be adden your respective role. \n${Balance} ${BotSettings.prefix}Balance \n${Brilliance} ${BotSettings.prefix}Brilliance \n${Bravery} ${BotSettings.prefix}Bravery`)
+            .setDescription(`Here you see all the Hypesquad houses. \nTo which you can be adden your respective role.  \n${Bravery} ${BotSettings.prefix}Bravery  \n${Brilliance} ${BotSettings.prefix}Brilliance \n${Balance} ${BotSettings.prefix}Balance`)
             .addField("If you want to change your house. Can you do that. ","All you have to do is type the same as above, only with a **leave** behind. That would look like that: `tx!Balanceleave`",true)
             .addField("To see which members are in which house", "simply use \n`tx![House] list`")
             .addField("If you don't know what the Hypesquad is, Then please watch the following video:","https://youtu.be/SWzB1mx2o5k",false)
@@ -154,6 +155,19 @@ bot.on("message", async message => {
             message.channel.send(message.author, embed)
         }
 
+        //Bravery_List
+        if(message.content ==`${BotSettings.prefix}Bravery list`) {
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**`)
+
+            var embed = new Discord.RichEmbed()
+            .setColor("#9C84EF")
+            .addField(`${message.guild.members.filter(members => members.roles.has("480798562079342593")).size} House-Bravery-Members`,`${message.guild.members.filter(members => members.roles.has("480798562079342593")).map(members => members).join(" \n")}` || `Currently there are no ${message.guild.roles.get("480798562079342593").name} members.`, false)
+            .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/481181534276026388/Bravery.png")
+
+            message.channel.send(embed)
+        }
+
+        //Brilliance_List
         if(message.content ==`${BotSettings.prefix}Balance list`) {
             if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**`)
 
@@ -165,6 +179,7 @@ bot.on("message", async message => {
             message.channel.send(embed)
         }
 
+        //Balance_List
         if(message.content ==`${BotSettings.prefix}Brilliance list`) {
             if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**`)
 
@@ -176,16 +191,6 @@ bot.on("message", async message => {
             message.channel.send(embed)
         }
 
-        if(message.content ==`${BotSettings.prefix}Bravery list`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**`)
-
-            var embed = new Discord.RichEmbed()
-            .setColor("#9C84EF")
-            .addField(`${message.guild.members.filter(members => members.roles.has("480798562079342593")).size} House-Bravery-Members`,`${message.guild.members.filter(members => members.roles.has("480798562079342593")).map(members => members).join(" \n")}` || `Currently there are no ${message.guild.roles.get("480798562079342593").name} members.`, false)
-            .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/481181534276026388/Bravery.png")
-
-            message.channel.send(embed)
-        }
 
         //Help-Hypesquad
 
@@ -201,6 +206,25 @@ bot.on("message", async message => {
             message.channel.send(embed)
         }
 
+        //Bravery
+        if(message.content ==`${BotSettings.prefix}Bravery`) {
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
+            if(message.member.roles.has("480798479103295490") || message.member.roles.has("480798626382086157")) return message.channel.send(`${message.author} You are currently in the house **${message.guild.roles.get("480798479103295490").name}** or **${message.guild.roles.get("480798626382086157").name}**. You have to leave your current house.`)
+            if(message.member.roles.has("480798562079342593")) return message.channel.send(`${message.author} You are already in the house **${message.guild.roles.get("480798562079342593").name}**.`)
+
+            message.member.addRole(`480798562079342593`)
+            message.channel.send(`${message.author} I am happy to welcome you in the house **Bravery**!`)
+        }
+
+        if(message.content ==`${BotSettings.prefix}Braveryleave`) {
+            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
+            if(message.member.roles.has("480798479103295490") || message.member.roles.has("480798626382086157")) return message.channel.send(`${message.author} You can't leave a house by not being.`)
+
+            message.member.removeRole(`480798562079342593`)
+            message.channel.send(`${message.author} Too bad you left house bravery.`)
+        }
+
+        //Balance
         if(message.content ==`${BotSettings.prefix}Balance`) {
             if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
             if(message.member.roles.has("480798562079342593") || message.member.roles.has("480798626382086157")) return message.channel.send(`${message.author} You are currently in the house **${message.guild.roles.get("480798562079342593").name}** or **${message.guild.roles.get("480798626382086157").name}**. You have to leave your current house.`)
@@ -218,6 +242,7 @@ bot.on("message", async message => {
             message.channel.send(`${message.author} Too bad you left house balance.`)
         }
 
+        //Brilliance
         if(message.content ==`${BotSettings.prefix}Brilliance`) {
             if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
             if(message.member.roles.has("480798479103295490") || message.member.roles.has("480798562079342593")) return message.channel.send(`${message.author} You are currently in the house **${message.guild.roles.get("480798479103295490").name}** or **${message.guild.roles.get("480798562079342593").name}**. You have to leave your current house.`)
@@ -236,22 +261,7 @@ bot.on("message", async message => {
             message.channel.send(`${message.author} Too bad you left house brilliance.`)
         }
 
-        if(message.content ==`${BotSettings.prefix}Bravery`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
-            if(message.member.roles.has("480798479103295490") || message.member.roles.has("480798626382086157")) return message.channel.send(`${message.author} You are currently in the house **${message.guild.roles.get("480798479103295490").name}** or **${message.guild.roles.get("480798626382086157").name}**. You have to leave your current house.`)
-            if(message.member.roles.has("480798562079342593")) return message.channel.send(`${message.author} You are already in the house **${message.guild.roles.get("480798479103295490").name}**.`)
-
-            message.member.addRole(`480798562079342593`)
-            message.channel.send(`${message.author} I am happy to welcome you in the house **Bravery**!`)
-        }
-
-        if(message.content ==`${BotSettings.prefix}Braveryleave`) {
-            if(message.guild.id != BotSettings.ServerID) return message.channel.send(`This command only works on the Developer server. \n[**${message.guild.member("402483602094555138").user.username}#${message.guild.member("402483602094555138").user.discriminator}**]`)
-            if(message.member.roles.has("480798479103295490") || message.member.roles.has("480798626382086157")) return message.channel.send(`${message.author} You can't leave a house by not being.`)
-
-            message.member.removeRole(`480798562079342593`)
-            message.channel.send(`${message.author} Too bad you left house bravery.`)
-        }
+        
 
         //Help-messages
 
@@ -342,7 +352,7 @@ bot.on("message", async message => {
         message.channel.send(embed)
     }
 
-        //Help-botinfo
+        //Help-userafk
         if(message.content ==`${BotSettings.prefix}help userafk`) {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
@@ -350,6 +360,44 @@ bot.on("message", async message => {
             .setFooter(ToxbotFooter, NewtoxFooter)
             message.channel.send(embed)
         }
+
+
+        //Help-Nicknames
+        if(message.content ==`${BotSettings.prefix}nicknames`) {
+            var embed = new Discord.RichEmbed()
+            .setColor(embedRandom)
+            .setTitle(`Nicknames`)
+            .setDescription(`**__${BotSettings.prefix}setnick__** \nChange your name to the name you want to be on the server you are on. \n \n**__${BotSettings.prefix}resetnick__** \nReset your name to your username.`)
+            .setFooter(ToxbotFooter, NewtoxFooter)
+            .setTimestamp()
+
+            message.channel.send(embed)
+        }
+
+        //SetNick
+        if(message.content ==`${BotSettings.prefix}setnick ${args.join(" ")}`) {
+            if(message.author.username == message.member.displayName) {
+            message.member.setNickname(args.join(" "))
+
+            message.channel.send(`${message.author}, your Nickname changed to **${args.join(" ")}** .`)
+
+        } else if(message.author.username == message.member.displayName) {
+            message.reply(`What should your name be?`)
+        }
+    }
+    
+
+        //ResetNick
+        if(message.content ==`${BotSettings.prefix}resetnick`) {
+            if(message.author.username != message.member.displayName) {
+
+            message.member.setNickname(message.member.user.username)
+            message.channel.send(`${message.author}, your Nickname got reset.`)
+
+        } else if(message.author.username == message.member.displayName) {
+            message.reply(`How should I reset your nickname if you do not have one?`)
+        }
+    }
 
         //Help-botinfo
         if(message.content ==`${BotSettings.prefix}help botinfo`) {
@@ -767,7 +815,8 @@ bot.on("message", async message => {
     
             message.channel.send(embed)
         }
-    
+
+
     
         //Emoji-File
         if(command == "emojiFile") {
@@ -1017,6 +1066,11 @@ bot.on("message", async message => {
         //serverinfo
         if(message.content ==`${BotSettings.prefix}serverinfo`) {
 
+        //     var member_status= {online:0,offline:0,idle:0,dnd:0}
+        //     jquery(message.guild.members, function(i, object) {
+        //     member_status[object.user.presence.status]++
+        // });
+
             var embed = new Discord.RichEmbed()
             .setColor(embedRandom)
             .setDescription("`If something is not displayed correctly, it may be because there are too many roles or emojis on the server, I apologize for that`")
@@ -1051,6 +1105,7 @@ bot.on("message", async message => {
         } 
 
 
+        //Serverlist
         if(message.content ==`${BotSettings.prefix}serverlist`) {
 
             var embed = new Discord.RichEmbed()
