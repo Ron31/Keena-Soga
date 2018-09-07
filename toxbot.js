@@ -202,7 +202,7 @@ bot.on("message", async message => {
             .setColor("#7289DA")
             .addField(`Hypesquad`,"`Shows you all the Hypesquad Houses to which you can attach roles.`",false)
             .addField(`Use`,`**__${BotSettings.prefix}[house]__**`)
-            .setFooter(NewtoxDev, yes)
+            .setFooter(NewtoxDev, NewtoxLogo)
 
             message.channel.send(embed)
         }
@@ -358,7 +358,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`userafk`,`Shows you how to change your status via Bot to AFK.`,false)
-            .setFooter(NewtoxDev, yes)
+            .setFooter(NewtoxDev, NewtoxLogo)
             message.channel.send(embed)
         }
 
@@ -369,7 +369,7 @@ bot.on("message", async message => {
             .setColor(embedRandom)
             .setTitle(`Nicknames`)
             .setDescription(`**__${BotSettings.prefix}setnick__** \nChange your name to the name you want to be on the server you are on. \n \n**__${BotSettings.prefix}resetnick__** \nReset your name to your username.`)
-            .setFooter(NewtoxDev, yes)
+            .setFooter(NewtoxDev, NewtoxLogo)
             .setTimestamp()
 
             message.channel.send(embed)
@@ -405,7 +405,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`botinfo`,`Gives you some information about the Bot`,false)
-            .setFooter(NewtoxDev, yes)
+            .setFooter(NewtoxDev, NewtoxLogo)
             message.channel.send(embed)
         }
 
@@ -923,7 +923,11 @@ bot.on("message", async message => {
             if(args[0] && args[1]) {
                 if(Number(parseInt(args[1].toString(10), 16)) < 16777215) {
                     if(message.guild.roles.find("name", args[0])) {
-                        await message.guild.roles.find("name", args[0]).setColor(`#${args[1].toUpperCase()}`)
+                        await message.guild.roles.find("name", args[0]).setColor(`#${args[1].toUpperCase()}`).catch(err => {
+    
+                            if(err) message.channel.send(`Hm. Something went wrong. ${message.author}.\n\nError-message: ${err}`)
+    
+                        });
                         message.channel.send(`The color of the role **${args[0]}** became **#${args[1]}**. ${message.author}`)
                     } else {
                         message.channel.send(`This role does not exist on the server. ${message.author}`)
@@ -981,7 +985,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor(embedRandom)
             .addField(`splatoon2perks`,"`Shows the pros and cons of the brands in Splatoon 2`",false)
-            .setFooter(NewtoxDev, yes)
+            .setFooter(NewtoxDev, NewtoxLogo)
 
             message.channel.send(embed)
         }   
@@ -991,7 +995,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`splatoon2perks`,"`Shows the pros and cons of the brands in Splatoon 2`",false)
-            .setFooter(NewtoxDev, yes)
+            .setFooter(NewtoxDev, NewtoxLogo)
 
             message.channel.send(embed)
         } 
@@ -1001,7 +1005,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`Toxbot`,"`Toxbot will be angry with you`",false)
-            .setFooter(NewtoxDev, yes)
+            .setFooter(NewtoxDev, NewtoxLogo)
 
             message.channel.send(embed)
         }
@@ -1011,7 +1015,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`dab`,"`You can always use a dab`",false)
-            .setFooter(NewtoxDev, yes)
+            .setFooter(NewtoxDev, NewtoxLogo)
 
             message.channel.send(embed)
         }
@@ -1021,7 +1025,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`snens`,"*Summon the Dark Lord!*",false)
-            .setFooter(NewtoxDev, yes)
+            .setFooter(NewtoxDev, NewtoxLogo)
 
             message.channel.send(embed)
         }
@@ -1031,7 +1035,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`subway`,"`Who's going to serve you at subway today?`",false)
-            .setFooter(NewtoxDev, yes)
+            .setFooter(NewtoxDev, NewtoxLogo)
 
             message.channel.send(embed)
         }
@@ -1046,6 +1050,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`botinvite`,"`gives you a link where you can invite the bot to your server.`",false)
+            .setFooter(NewtoxDev, NewtoxLogo)
 
             message.channel.send(embed)
         }
@@ -1102,6 +1107,8 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`Serverinfo`,"`Gives you some information about the server.`",false)
+            .setFooter(NewtoxDev, NewtoxLogo)
+
             message.channel.send(embed)
         } 
 
@@ -1112,7 +1119,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor(embedRandom)
             .setDescription(`The bot is located on **${bot.guilds.size}** Servers: \n \n${bot.guilds.map(members => members).join(",\n")}`)
-            .setFooter(NewtoxDev, NewtoxLogo)
+            .setFooter(NewtoxDev, yes)
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/487662163637305359/Discord_Icon.jpg")
 
 
@@ -1125,6 +1132,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`Serverliste`,"`Shows you all the servers on which the bot is located.`",false)
+            .setFooter(NewtoxDev, NewtoxLogo)
 
             message.channel.send(embed)
         }
@@ -1135,7 +1143,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor(embedRandom)
             .setTitle(`Here you can see all server partners from the Toxbot development hub`,)
-            .addField(`*Currently there are no partners*`,true)
+            .addField(`Partners`,`**0**`,true)
             .setTimestamp()
             .setFooter(NewtoxDev, yes)
 
@@ -1147,6 +1155,8 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`Serverpartners`,"`Shows you all server partners from the Toxbot development hub`",false)
+            .setFooter(NewtoxDev, NewtoxLogo)
+
             message.channel.send(embed)
         } 
 
@@ -1180,6 +1190,8 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`devmessage`,"`Sends a message to the Developer`",false)
+            .setFooter(NewtoxDev, NewtoxLogo)
+
             message.channel.send(embed)
         } 
 
@@ -1277,7 +1289,7 @@ bot.on("message", async message => {
         var embed = new Discord.RichEmbed()
         .setColor(embedRandom)
         .setThumbnail(RandomWaffe)
-        .setAuthor("Random Weapon (Firearms)")
+        .setAuthor("Random Weapon (Firearm)")
         .setTitle("Weapon")
         .setDescription(RandomWaffe.name)
         .addField("Sub", RandomWaffe.sub, true)
@@ -1435,8 +1447,7 @@ bot.on("message", async message => {
         message.channel.send(message.author,embed)
     }
 
-    
-
+   
 
 }
 
