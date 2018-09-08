@@ -408,11 +408,13 @@ bot.on("message", async message => {
         if(message.content == `${BotSettings.prefix}botinfo`) {
 
             let totalSeconds = (bot.uptime / 1000);
+            let days = Math.round(totalSeconds / 86400);
             let hours = Math.round(totalSeconds / 3600);
             let minutes = Math.floor(totalSeconds / 60);
             let seconds = Math.floor(totalSeconds - (60*(Math.floor(totalSeconds/60))))
 
-            let uptime = ` **${hours}** hours, **${minutes}** minutes and **${seconds}** seconds`;
+
+            let uptime = `**${days}** days, **${hours}** hours, **${minutes}** minutes and **${seconds}** seconds`;
 
             var embed = new Discord.RichEmbed() 
 
@@ -823,6 +825,7 @@ bot.on("message", async message => {
         if(message.content ==`${BotSettings.prefix}uptime`) {
             
             let totalSeconds = (bot.uptime / 1000);
+            let days = Math.round(totalSeconds / 86400);
             let hours = Math.round(totalSeconds / 3600);
             let minutes = Math.floor(totalSeconds / 60);
             let seconds = Math.floor(totalSeconds - (60*(Math.floor(totalSeconds/60))))
