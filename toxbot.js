@@ -17,7 +17,7 @@ bot.on("ready", async () => {
 })
 setInterval(async function() {
 
-    let status = [`${BotSettings.prefix}help`, `${bot.users.size} members!`,`Version: [2.0]`,`on ${bot.guilds.size} Servers!`,`Developer: ${bot.users.get(BotSettings.OwnerID).tag}`];
+    let status = [`${BotSettings.prefix}help`, `${bot.users.size} members!`,`Version: [2.0]`,`on ${bot.guilds.size} Servers!`,`Developer: ${bot.users.get(BotSettings.OwnerID).username}#${bot.users.get(BotSettings.OwnerID).discriminator}`];
     let chosen = status[Math.floor(Math.random() * status.length)];
   
     bot.user.setActivity(chosen, {type: "PLAYING"}); //PLAYING, STREAMING, LISTENING, WATCHING
@@ -47,12 +47,7 @@ bot.on("guildMemberAdd", async member => {
                 member.addRole("473485307950530560")
             }
     }
-        //Sky
-    if(member.guild.id == `480117939287359502`) { 
-        bot.channels.get("480120688150183946").send(`${member} Willkommen in der ${member.guild.name}! Wir wünschen dir hier viel Spaß. Lies dir aber bitte die <#475768698758758401> durch.`)
-            member.addRole("483662517110046722")
-        }
-
+       
         //Others
     if(member.guild.id == `361532938816585730`) { 
         bot.channels.get("478552771734536192").send(`${member} Willkommen in der ${member.guild.name}! Wir wünschen dir hier viel Spaß. Lies dir aber bitte die <#478965010920374291> durch.`)
@@ -86,7 +81,7 @@ bot.on("message", async message => {
         mention = message.mentions.members.first()
         HelpFooter = `Write ${BotSettings.prefix}help <command> For more information about a command.`
         yes = `https://cdn.discordapp.com/attachments/406957187869442048/484411766533652511/yes.png`
-        NewtoxDev = `Developer: ${bot.users.get(BotSettings.OwnerID).tag}`
+        NewtoxDev = `Developer: ${bot.users.get(BotSettings.OwnerID).username}#${bot.users.get(BotSettings.OwnerID).discriminator}`
         NewtoxLogo = `https://cdn.discordapp.com/attachments/406957187869442048/487664376292311053/GitBag.jpg`
         ToxbotLogo = `${bot.user.avatarURL}`
         embedRandom = '#' + ("000000" + Math.random()*0xFFFFFF<<0).toString(16);
@@ -133,7 +128,7 @@ bot.on("message", async message => {
             .addField(`**__Fun__**`,"`rolecolor` \n`randomcolor` \n`lööps` \n`dab` \n`snens` \n`subway`",true)
             .addField(`**__Splatoon__**`,"\n`splatoon2perks` \n`splatoon random weapons` \n` splatoon random battle`",true)
             .addField(`**__Overwatch__**`,"` ow random heroes`",true)
-            .addField(`**__Developer__**`,"`roleID` \n`emojiID`",true)
+            .addField(`**__Developer__**`,"`roleID` \n`emojiID` \n`uptime`",true)
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/476098810460766229/help2.png")
             message.channel.send(embed)
         }
@@ -412,6 +407,13 @@ bot.on("message", async message => {
         //Botinfo
         if(message.content == `${BotSettings.prefix}botinfo`) {
 
+            let totalSeconds = (bot.uptime / 1000);
+            let hours = Math.round(totalSeconds / 3600);
+            let minutes = Math.floor(totalSeconds / 60);
+            let seconds = Math.floor(totalSeconds - (60*(Math.floor(totalSeconds/60))))
+
+            let uptime = ` **${hours}** hours, **${minutes}** minutes and **${seconds}** seconds`;
+
             var embed = new Discord.RichEmbed() 
 
             .setColor("#ff9564")
@@ -420,17 +422,17 @@ bot.on("message", async message => {
             .addField("Developer:",`**${message.guild.member("402483602094555138").user.username}**#${message.guild.member("402483602094555138").user.discriminator}`, true)
             .addField("Coded with:","Discord.js 11.3.2",false)
             .addField(`Prefix`,`The prefix of the bot is **${BotSettings.prefix}**`, false)
+            .addField(`Uptime`,`Online since ${uptime}`)
             .addField("Creation date of the bot",`The bot was created on **${Config.Date_Name[bot.user.createdAt.toString().split(" ")[1]]}** **${bot.user.createdAt.toString().split(" ")[2]}**, **${bot.user.createdAt.toString().split(" ")[3]}**!`,false)
             .setTimestamp()
             .setThumbnail(bot.user.avatarURL)
+            .setFooter(NewtoxDev,NewtoxLogo)
         
 
     
 
             message.channel.send(embed)
         }
-
-
 
         //Help-userinfo
         if(message.content ==`${BotSettings.prefix}help userinfo`) {
@@ -579,7 +581,7 @@ bot.on("message", async message => {
     
             await member.kick(reason)
     
-            message.reply(`${member.user.tag} was kicked off the server for ${reason}`);
+            message.reply(`${member.user.username}#${member.user.discriminator} was kicked off the server for ${reason}`);
 
             } else {
                 message.channel.send(`This command requires the following server rights: **Kick-Members**. ${message.author}`)
@@ -625,7 +627,7 @@ bot.on("message", async message => {
     
             await member.ban(reason)
         
-            message.reply(`${member.user.tag} was banned off the server for ${reason}`);
+            message.reply(`${member.user.username}#${member.user.discriminator} was banned off the server for ${reason}`);
 
             } else {
                 message.channel.send(`This command requires the following server rights: **Ban-Members**. ${message.author}`)
@@ -813,6 +815,35 @@ bot.on("message", async message => {
             .addField(`emojiID`,"`Gives you the ID of a specific emoji`")
             .addField(`Use`,`**__${BotSettings.prefix}emojiID [Emoji]__**`)
             .setFooter(NewtoxDev, yes)
+    
+            message.channel.send(embed)
+        }
+
+        //Uptime
+        if(message.content ==`${BotSettings.prefix}uptime`) {
+            
+            let totalSeconds = (bot.uptime / 1000);
+            let hours = Math.round(totalSeconds / 3600);
+            let minutes = Math.floor(totalSeconds / 60);
+            let seconds = Math.floor(totalSeconds - (60*(Math.floor(totalSeconds/60))))
+
+            let uptime = ` **${hours}** hours, **${minutes}** minutes and **${seconds}** seconds`;
+
+            if(message.author.id == BotSettings.OwnerID) {
+                message.channel.send(`Online since ${uptime}`)
+            } else {
+                message.channel.send(`Only the Developer can use this command. ${message.author}`)
+            }
+            return
+        }
+
+        
+        //Help-Uptime
+        if(message.content ==`${BotSettings.prefix}help uptime`) {
+            var embed = new Discord.RichEmbed()
+            .setColor("#7289DA")
+            .addField(`uptime`,"`Shows you the Uptime of the bot`")
+            .setFooter(NewtoxDev, ToxbotLogo)
     
             message.channel.send(embed)
         }
@@ -1073,7 +1104,7 @@ bot.on("message", async message => {
         if(message.content ==`${BotSettings.prefix}serverinfo`) {
 
         //     var member_status= {online:0,offline:0,idle:0,dnd:0}
-        //     jquery(message.guild.members, function(i, object) {
+        //     jQuery(message.guild.members, function(i, object) {
         //     member_status[object.user.presence.status]++
         // });
 
@@ -1131,7 +1162,7 @@ bot.on("message", async message => {
         if(message.content ==`${BotSettings.prefix}help serverlist`) {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
-            .addField(`Serverliste`,"`Shows you all the servers on which the bot is located.`",false)
+            .addField(`Serverlist`,"`Shows you all the servers on which the bot is located.`",false)
             .setFooter(NewtoxDev, NewtoxLogo)
 
             message.channel.send(embed)
@@ -1189,7 +1220,7 @@ bot.on("message", async message => {
         if(message.content ==`${BotSettings.prefix}help devmessage`) {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
-            .addField(`devmessage`,"`Sends a message to the Developer`",false)
+            .addField(`Devmessage`,"`Sends a message to the Developer`",false)
             .setFooter(NewtoxDev, NewtoxLogo)
 
             message.channel.send(embed)
