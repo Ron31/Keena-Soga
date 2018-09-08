@@ -830,7 +830,7 @@ bot.on("message", async message => {
             let minutes = Math.floor(totalSeconds / 60);
             let seconds = Math.floor(totalSeconds - (60*(Math.floor(totalSeconds/60))))
 
-            let uptime = ` **${hours}** hours, **${minutes}** minutes and **${seconds}** seconds`;
+            let uptime = `**${days}** days, **${hours}** hours, **${minutes}** minutes and **${seconds}** seconds`;
 
             if(message.author.id == BotSettings.OwnerID) {
                 message.channel.send(`Online since ${uptime}`)
