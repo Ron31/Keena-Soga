@@ -409,7 +409,7 @@ bot.on("message", async message => {
 
             let totalSeconds = (bot.uptime / 1000);
             let days = Math.floor(totalSeconds / 86400);
-            let hours = Math.floor(totalSeconds / 3600);
+            let hours = Math.round(totalSeconds / 3600);
             let minutes = Math.floor(totalSeconds / 60);
             let seconds = Math.floor(totalSeconds - (60*(Math.floor(totalSeconds/60))))
 
@@ -826,7 +826,7 @@ bot.on("message", async message => {
             
             let totalSeconds = (bot.uptime / 1000);
             let days = Math.floor(totalSeconds / 86400);
-            let hours = Math.floor(totalSeconds / 3600);
+            let hours = Math.round(totalSeconds / 3600);
             let minutes = Math.floor(totalSeconds / 60);
             let seconds = Math.floor(totalSeconds - (60*(Math.floor(totalSeconds/60))))
 
