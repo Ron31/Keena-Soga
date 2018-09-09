@@ -1,2 +1,0 @@
-nodemon toxbot.js
-pause
