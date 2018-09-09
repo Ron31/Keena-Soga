@@ -82,8 +82,9 @@ bot.on("message", async message => {
         HelpFooter = `Write ${BotSettings.prefix}help <command> For more information about a command.`
         yes = `https://cdn.discordapp.com/attachments/406957187869442048/484411766533652511/yes.png`
         NewtoxDev = `Developer: ${bot.users.get(BotSettings.OwnerID).username}#${bot.users.get(BotSettings.OwnerID).discriminator}`
-        NewtoxLogo = `https://cdn.discordapp.com/attachments/406957187869442048/487664376292311053/GitBag.jpg`
+        NewtoxLogo = `${bot.users.get(BotSettings.OwnerID).avatarURL}`
         KiyomiLogo = `${bot.user.avatarURL}`
+        AuthorFooter = `${message.author.avatarURL}`
         embedRandom = '#' + ("000000" + Math.random()*0xFFFFFF<<0).toString(16);
         
 
@@ -120,7 +121,7 @@ bot.on("message", async message => {
 
             .setColor(embedRandom)
             .setTimestamp()
-            .setFooter(HelpFooter)
+            .setFooter(HelpFooter,AuthorFooter)
             .setTitle("Here you can see every Command of the Bot")
             .addField(`**__Info__**`,"`userinfo` \n`serverinfo` \n`serverlist` \n`serverpartners` \n`nicknames` \n`userafk` \n`messages` \n`devmessage` \n`botinfo` \n`botinvite` \n`Fun` \n`Hypesquad`",true)
             .addField(`**__Moderation__**`,"`kick` \n`ban` \n`giverole` \n`removerole`",true)
@@ -1488,4 +1489,4 @@ bot.on("message", async message => {
 });
 
 
-bot.login(BotSettings.token)
+bot.login(process.env.BOT_TOKEN)
