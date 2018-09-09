@@ -1154,7 +1154,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor(embedRandom)
             .setDescription(`The bot is located on **${bot.guilds.size}** Servers: \n \n${bot.guilds.map(members => members).join(",\n")}`)
-            .setFooter(NewtoxDev, yes)
+            .setFooter(NewtoxDev, KiyomiLogo)
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/487662163637305359/Discord_Icon.jpg")
 
 
@@ -1180,7 +1180,7 @@ bot.on("message", async message => {
             .setTitle(`Here you can see all server partners from the Toxbot development hub`,)
             .addField(`Partners`,`**0**`,true)
             .setTimestamp()
-            .setFooter(NewtoxDev, yes)
+            .setFooter(NewtoxDev, KiyomiLogo)
 
             message.channel.send(embed)
         }
