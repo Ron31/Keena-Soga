@@ -143,8 +143,8 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
 
             .setDescription(`Here you see all the Hypesquad houses. \nTo which you can be adden your respective role.  \n${Bravery} ${BotSettings.prefix}Bravery  \n${Brilliance} ${BotSettings.prefix}Brilliance \n${Balance} ${BotSettings.prefix}Balance`)
-            .addField("If you want to change your house. Can you do that. ","All you have to do is type the same as above, only with a **leave** behind. That would look like that: `tx!Balanceleave`",true)
-            .addField("To see which members are in which house", "simply use \n`tx![House] list`")
+            .addField("If you want to change your house. Can you do that. ","All you have to do is type the same as above, only with a **leave** behind. That would look like that: `ky!Balanceleave`",true)
+            .addField("To see which members are in which house", "simply use \n`ky![House] list`")
             .addField("If you don't know what the Hypesquad is, Then please watch the following video:","https://youtu.be/SWzB1mx2o5k",false)
             .setThumbnail("https://cdn.discordapp.com/emojis/479789194852565002.png?v=1")
             .setImage("https://cdn.discordapp.com/attachments/406957187869442048/487662270986453003/All_Houses.png")
@@ -411,7 +411,7 @@ bot.on("message", async message => {
             let totalSeconds = (bot.uptime / 1000);
             let days = Math.round(totalSeconds / 86400);
             let hours = Math.round(totalSeconds / 3600);
-            let minutes = Math.floor(totalSeconds / 60);
+            let minutes = Math.fround(totalSeconds / 60);
             let seconds = Math.floor(totalSeconds - (60*(Math.floor(totalSeconds/60))))
 
 
@@ -496,7 +496,7 @@ bot.on("message", async message => {
             .setTimestamp()
             .setTitle(`Userinfo about ${mention.user.username}`)
             .addField(`Name + Tag`, `**${mention.user.username}**#${mention.user.discriminator}`)
-            .setFooter(NewtoxDev)
+            .setFooter(NewtoxDev,NewtoxLogo)
     
             
             if(mention.user.username != mention.displayName) {
