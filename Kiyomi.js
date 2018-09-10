@@ -426,7 +426,7 @@ bot.on("message", async message => {
             .addField("Developer:",`**${message.guild.member("402483602094555138").user.username}**#${message.guild.member("402483602094555138").user.discriminator}`, true)
             .addField("Coded with:","Discord.js 11.3.2",false)
             .addField(`Prefix`,`The prefix of the bot is **${BotSettings.prefix}**`, false)
-            .addField(`Uptime`,`${Config.status_ger[bot.user.presence.status]} ${uptime}`)
+            .addField(`Uptime`,`${uptime}`)
             .addField("Creation date of the bot",`The bot was created on **${Config.Date_Name[bot.user.createdAt.toString().split(" ")[1]]}** **${bot.user.createdAt.toString().split(" ")[2]}**, **${bot.user.createdAt.toString().split(" ")[3]}**!`,false)
             .setTimestamp()
             .setThumbnail(bot.user.avatarURL)
