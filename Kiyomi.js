@@ -17,12 +17,12 @@ bot.on("ready", async () => {
 })
 setInterval(async function() {
 
-    let status = [`${BotSettings.prefix}help`, `${bot.users.size} members!`,`Version: [2.0]`,`on ${bot.guilds.size} Servers!`,`Developer: ${bot.users.get(BotSettings.OwnerID).username}#${bot.users.get(BotSettings.OwnerID).discriminator}`];
+    let status = [`${BotSettings.prefix}help`, `${bot.users.size} members!`,`on ${bot.guilds.size} Servers!`,`Developer: ${bot.users.get(BotSettings.OwnerID).username}#${bot.users.get(BotSettings.OwnerID).discriminator}`];
     let chosen = status[Math.floor(Math.random() * status.length)];
   
     bot.user.setActivity(chosen, {type: "PLAYING"}); //PLAYING, STREAMING, LISTENING, WATCHING
   
-}, 10000);
+}, 20000);
     
 
     // Join
@@ -455,7 +455,7 @@ bot.on("message", async message => {
             .setTimestamp()
             .setTitle(`Userinfo about ${message.author.username}`)
             .addField(`Name + Tag`, `**${message.author.username}**#${message.author.discriminator}`)
-            .setFooter(NewtoxDev,NewtoxLogo)
+            .setFooter(NewtoxDev,AuthorFooter)
     
             if(message.author.username != message.member.displayName) {
                 embed.addField(`Nickname`, `${message.member.displayName}`)
@@ -495,7 +495,7 @@ bot.on("message", async message => {
             .setTimestamp()
             .setTitle(`Userinfo about ${mention.user.username}`)
             .addField(`Name + Tag`, `**${mention.user.username}**#${mention.user.discriminator}`)
-            .setFooter(NewtoxDev,NewtoxLogo)
+            .setFooter(NewtoxDev,KiyomiLogo)
     
             
             if(mention.user.username != mention.displayName) {
@@ -827,7 +827,8 @@ bot.on("message", async message => {
             let totalSeconds = (bot.uptime / 1000);
             let days = Math.round(totalSeconds / 86400);
             let hours = Math.floor(totalSeconds / 3600);
-            let minutes = Math.round(totalSeconds / 60);
+            totalSeconds %= 3600;
+            let minutes = Math.floor(totalSeconds / 60);
             let seconds = Math.floor(totalSeconds - (60*(Math.floor(totalSeconds/60))))
 
 
@@ -1130,7 +1131,7 @@ bot.on("message", async message => {
             .addField(`Server creation Date`,`The server was created on **${Config.Date_Name[message.guild.createdAt.toString().split(" ")[1]]}** **${message.guild.createdAt.toString().split(" ")[2]}**, **${message.guild.createdAt.toString().split(" ")[3]}**!`, true)
             .addField(`Server-Icon`,`${message.guild.iconURL}`,true)
             .setThumbnail(`${message.guild.iconURL}`)
-            .setFooter(NewtoxDev, NewtoxLogo)
+            .setFooter(NewtoxDev, AuthorFooter)
             .setTimestamp()
 
             message.channel.send(embed)
