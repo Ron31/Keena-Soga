@@ -408,14 +408,15 @@ bot.on("message", async message => {
         //Botinfo
         if(message.content == `${BotSettings.prefix}botinfo`) {
 
-            // let totalSeconds = (bot.uptime / 1000);
-            // let days = Math.round(totalSeconds / 86400);
-            // let hours = Math.floor(totalSeconds / 3600);
-            // let minutes = Math.round(totalSeconds / 60);
-            // let seconds = Math.floor(totalSeconds - (60*(Math.floor(totalSeconds/60))))
+            let totalSeconds = (bot.uptime / 1000);
+            let days = Math.round(totalSeconds / 86400);
+            let hours = Math.floor(totalSeconds / 3600);
+            totalSeconds %= 3600;
+            let minutes = Math.floor(totalSeconds / 60);
+            let seconds = Math.floor(totalSeconds - (60*(Math.floor(totalSeconds/60))))
 
 
-            // let uptime = `**${days}** days, **${hours}** hours, **${minutes}** minutes and **${seconds}** seconds`;
+            let uptime = `**${days}** days, **${hours}** hours, **${minutes}** minutes and **${seconds}** seconds`;
 
             var embed = new Discord.RichEmbed() 
 
@@ -425,6 +426,7 @@ bot.on("message", async message => {
             .addField("Developer:",`**${message.guild.member("402483602094555138").user.username}**#${message.guild.member("402483602094555138").user.discriminator}`, true)
             .addField("Coded with:","Discord.js 11.3.2",false)
             .addField(`Prefix`,`The prefix of the bot is **${BotSettings.prefix}**`, false)
+            .addField(`Uptime`,`${ONLINE_EMOTE} ${uptime}`)
             .addField("Creation date of the bot",`The bot was created on **${Config.Date_Name[bot.user.createdAt.toString().split(" ")[1]]}** **${bot.user.createdAt.toString().split(" ")[2]}**, **${bot.user.createdAt.toString().split(" ")[3]}**!`,false)
             .setTimestamp()
             .setThumbnail(bot.user.avatarURL)
