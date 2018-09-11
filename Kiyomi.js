@@ -1107,8 +1107,9 @@ bot.on("message", async message => {
         // }
         
 
-        //serverinfo
-        if(message.content ==`${BotSettings.prefix}serverinfo`) {
+       //serverinfo
+
+       if(message.content ==`${BotSettings.prefix}serverinfo`) {
 
         //     var member_status= {online:0,offline:0,idle:0,dnd:0}
         //     jQuery(message.guild.members, function(i, object) {
@@ -1128,14 +1129,13 @@ bot.on("message", async message => {
             .addField(`Text-Channels`,`**${message.guild.channels.filter(channels => channels.type == "text").size}**`,true)
             .addField(`Voice-Channels`,`**${message.guild.channels.filter(channels => channels.type == "voice").size}**`,true)
             .addField(`AFK-Channel`, message.guild.afkChannel || "`There is no AFK channel on this server`",true)
-            .addField(`Roles`,`The server has **${message.guild.roles.size}** Roles\n \n${message.guild.roles.map(roles => roles).splice(1).join(", ").substr(0, 900)}`,true)
-            .addField(`Emojis`,`The server has **${message.guild.emojis.size}** Emojis\n \n${message.guild.emojis.map(emojis => emojis).join("").substr(0, 900)}`,true)
+            .addField(`Roles`,`The server has **${message.guild.roles.size}** Roles\n \n${message.guild.roles.map(roles => roles).splice(1).join(", ").substr(0, 900)}` || "`There are no Roles on this server`",true)
+            .addField(`Emojis`,`The server has **${message.guild.emojis.size}** Emojis\n \n${message.guild.emojis.map(emojis => emojis).join("").substr(0, 900)}` || "`There are no Emojis on this server`",true)
             .addField(`Server creation Date`,`The server was created on **${Config.Date_Name[message.guild.createdAt.toString().split(" ")[1]]}** **${message.guild.createdAt.toString().split(" ")[2]}**, **${message.guild.createdAt.toString().split(" ")[3]}**!`, true)
             .addField(`Server-Icon`,`${message.guild.iconURL}`,true)
             .setThumbnail(`${message.guild.iconURL}`)
             .setFooter(NewtoxDev, AuthorFooter)
             .setTimestamp()
-
             message.channel.send(embed)
         }
 
@@ -1485,7 +1485,6 @@ bot.on("message", async message => {
         message.channel.send(message.author,embed)
     }
 
-   
 
 }
 
