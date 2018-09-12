@@ -134,7 +134,7 @@ bot.on("message", async message => {
             .addField(`**__Fun__**`,"`rolecolor` \n`randomcolor` \n`lööps` \n`dab` \n`snens` \n`subway`",true)
             .addField(`**__Splatoon__**`,"\n`splatoon2perks` \n`splatoon random weapons` \n` splatoon random battle`",true)
             .addField(`**__Overwatch__**`,"` ow random heroes`",true)
-            .addField(`**__Developer__**`,"`roleID` \n`emojiID` \n`uptime`",true)
+            .addField(`**__Developer__**`,"`devinvite` \n`roleID` \n`emojiID` \n`uptime`",true)
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/476098810460766229/help2.png")
             message.channel.send(embed)
         }
@@ -856,6 +856,21 @@ bot.on("message", async message => {
             .setColor("#7289DA")
             .addField(`uptime`,"`Shows you the Uptime of the bot`")
             .setFooter(NewtoxDev, KiyomiLogo)
+    
+            message.channel.send(embed)
+        }
+
+        //DevInvite
+        if(message.content ==`${BotSettings.prefix}devinvite`) {
+            message.channel.send(`Here is the Invite to the Server of my Developer \nhttps://discord.gg/tUfNuD5`)
+        }
+
+        //Help-DevInvite
+        if(message.content ==`${BotSettings.prefix}help devinvite`) {
+            var embed = new Discord.RichEmbed()
+            .setColor("#7289DA")
+            .addField(`devinvite`,"`Gives you an Invite to the server of my Developer`")
+            .setFooter(NewtoxDev, ServerFooter)
     
             message.channel.send(embed)
         }
