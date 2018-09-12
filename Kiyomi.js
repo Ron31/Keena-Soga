@@ -85,6 +85,11 @@ bot.on("message", async message => {
         NewtoxLogo = `${bot.users.get(BotSettings.OwnerID).avatarURL}`
         KiyomiLogo = `${bot.user.avatarURL}`
         AuthorFooter = `${message.author.avatarURL}`
+        ServerFooter = `https://cdn.discordapp.com/attachments/406957187869442048/489472697839910912/GitBag.jpg`
+        SplatFooter = `https://cdn.discordapp.com/attachments/406957187869442048/489473134190264330/Splat.jpg`
+        SplatWeb = `splatoonwiki.org`
+        OWFooter = `https://cdn.discordapp.com/attachments/406957187869442048/489474913334329345/Overwatch_circle_logo.svg.png`
+        OWWeb = `overwatch.gamepedia.com`
         embedRandom = '#' + ("000000" + Math.random()*0xFFFFFF<<0).toString(16);
         
 
@@ -354,7 +359,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`userafk`,`Shows you how to change your status via Bot to AFK.`,false)
-            .setFooter(NewtoxDev, NewtoxLogo)
+            .setFooter(NewtoxDev, AuthorFooter)
             message.channel.send(embed)
         }
 
@@ -365,7 +370,7 @@ bot.on("message", async message => {
             .setColor(embedRandom)
             .setTitle(`Nicknames`)
             .setDescription(`**__${BotSettings.prefix}setnick__** \nChange your name to the name you want to be on the server you are on. \n \n**__${BotSettings.prefix}resetnick__** \nReset your name to your username.`)
-            .setFooter(NewtoxDev, NewtoxLogo)
+            .setFooter(NewtoxDev, AuthorFooter)
             .setTimestamp()
 
             message.channel.send(embed)
@@ -401,7 +406,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`botinfo`,`Gives you some information about the Bot`,false)
-            .setFooter(NewtoxDev, yes)
+            .setFooter(NewtoxDev, KiyomiLogo)
             message.channel.send(embed)
         }
 
@@ -444,7 +449,7 @@ bot.on("message", async message => {
             .setColor("#7289DA")
             .addField(`Userinfo`,"`Gives you some information about your account. You can also see this in others.`",false)
             .addField(`Verwendung`,`**__${BotSettings.prefix}userinfo__** or **__${BotSettings.prefix}userinfo [Member]__**`)
-            .setFooter(NewtoxDev, yes)
+            .setFooter(NewtoxDev, AuthorFooter)
             message.channel.send(embed)
         }
 
@@ -497,7 +502,7 @@ bot.on("message", async message => {
             .setTimestamp()
             .setTitle(`Userinfo about ${mention.user.username}`)
             .addField(`Name + Tag`, `**${mention.user.username}**#${mention.user.discriminator}`)
-            .setFooter(NewtoxDev,KiyomiLogo)
+            .setFooter(NewtoxDev,AuthorFooter)
     
             
             if(mention.user.username != mention.displayName) {
@@ -1023,7 +1028,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor(embedRandom)
             .addField(`splatoon2perks`,"`Shows the pros and cons of the brands in Splatoon 2`",false)
-            .setFooter(NewtoxDev, NewtoxLogo)
+            .setFooter(NewtoxDev, SplatFooter)
 
             message.channel.send(embed)
         }   
@@ -1033,7 +1038,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`splatoon2perks`,"`Shows the pros and cons of the brands in Splatoon 2`",false)
-            .setFooter(NewtoxDev, NewtoxLogo)
+            .setFooter(NewtoxDev, AuthorFooter)
 
             message.channel.send(embed)
         } 
@@ -1043,7 +1048,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`Toxbot`,"`Toxbot will be angry with you`",false)
-            .setFooter(NewtoxDev, NewtoxLogo)
+            .setFooter(NewtoxDev, AuthorFooter)
 
             message.channel.send(embed)
         }
@@ -1053,7 +1058,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`dab`,"`You can always use a dab`",false)
-            .setFooter(NewtoxDev, NewtoxLogo)
+            .setFooter(NewtoxDev, AuthorFooter)
 
             message.channel.send(embed)
         }
@@ -1063,7 +1068,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`snens`,"*Summon the Dark Lord!*",false)
-            .setFooter(NewtoxDev, NewtoxLogo)
+            .setFooter(NewtoxDev, AuthorFooter)
 
             message.channel.send(embed)
         }
@@ -1073,7 +1078,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`subway`,"`Who's going to serve you at subway today?`",false)
-            .setFooter(NewtoxDev, NewtoxLogo)
+            .setFooter(NewtoxDev, AuthorFooter)
 
             message.channel.send(embed)
         }
@@ -1088,7 +1093,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`botinvite`,"`gives you a link where you can invite the bot to your server.`",false)
-            .setFooter(NewtoxDev, NewtoxLogo)
+            .setFooter(NewtoxDev, ServerFooter)
 
             message.channel.send(embed)
         }
@@ -1129,11 +1134,11 @@ bot.on("message", async message => {
             .addField(`Text-Channels`,`**${message.guild.channels.filter(channels => channels.type == "text").size}**`,true)
             .addField(`Voice-Channels`,`**${message.guild.channels.filter(channels => channels.type == "voice").size}**`,true)
             .addField(`AFK-Channel`, message.guild.afkChannel || "`There is no AFK channel on this server`",true)
-            .addField(`Roles`,`The server has **${message.guild.roles.size}** Roles\n \n${message.guild.roles.map(roles => roles).splice(1).join(", ").substr(0, 900)}` || "`There are no Roles on this server`",true)
-            .addField(`Emojis`,`The server has **${message.guild.emojis.size}** Emojis\n \n${message.guild.emojis.map(emojis => emojis).join("").substr(0, 900)}` || "`There are no Emojis on this server`",true)
+            .addField(`Roles`,`The server has **${message.guild.roles.size}** Roles\n \n${message.guild.roles.map(roles => roles).splice(1).join(", ").substr(0, 900)}`,true)
+            .addField(`Emojis`,`The server has **${message.guild.emojis.size}** Emojis\n \n${message.guild.emojis.map(emojis => emojis).join("").substr(0, 900)}`,true)
             .addField(`Server creation Date`,`The server was created on **${Config.Date_Name[message.guild.createdAt.toString().split(" ")[1]]}** **${message.guild.createdAt.toString().split(" ")[2]}**, **${message.guild.createdAt.toString().split(" ")[3]}**!`, true)
-            .addField(`Server-Icon`,`${message.guild.iconURL}` || "This Server got no Server-Icon",true)
-            .setThumbnail(`${message.guild.iconURL}` || "https://cdn.discordapp.com/attachments/406957187869442048/489454261655175197/Err.png")
+            .addField(`Server-Icon`,`${message.guild.iconURL}`,true)
+            .setThumbnail(`${message.guild.iconURL}`)
             .setFooter(NewtoxDev, AuthorFooter)
             .setTimestamp()
             message.channel.send(embed)
@@ -1145,7 +1150,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`Serverinfo`,"`Gives you some information about the server.`",false)
-            .setFooter(NewtoxDev, NewtoxLogo)
+            .setFooter(NewtoxDev, ServerFooter)
 
             message.channel.send(embed)
         } 
@@ -1170,7 +1175,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`Serverlist`,"`Shows you all the servers on which the bot is located.`",false)
-            .setFooter(NewtoxDev, NewtoxLogo)
+            .setFooter(NewtoxDev, ServerFooter)
 
             message.channel.send(embed)
         }
@@ -1193,7 +1198,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`Serverpartners`,"`Shows you all server partners from the Toxbot development hub`",false)
-            .setFooter(NewtoxDev, NewtoxLogo)
+            .setFooter(NewtoxDev, ServerFooter)
 
             message.channel.send(embed)
         } 
@@ -1228,7 +1233,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .addField(`Devmessage`,"`Sends a message to the Developer`",false)
-            .setFooter(NewtoxDev, NewtoxLogo)
+            .setFooter(NewtoxDev, ServerFooter)
 
             message.channel.send(embed)
         } 
@@ -1287,7 +1292,8 @@ bot.on("message", async message => {
             .setColor(embedRandom)
             .setDescription(`The Splatoon Random Weapons command has 5 different categories. These are "All, Firearm, Sniper, Blaster and Roller". The command will used like this: **__${BotSettings.prefix}splatoon random weapon All__**`)
             .setImage(`https://cdn.discordapp.com/attachments/406957187869442048/485184865130643468/Weapons.jpg`)
-            .setFooter(NewtoxDev,yes)
+            .setFooter(SplatWeb,SplatFooter)
+            .setTimestamp()
 
             message.channel.send(message.author, embed)
         }
@@ -1297,6 +1303,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
             .setColor(embedRandom)
             .addField(`Splatoon Random Weapons`,"`Gives you a random weapon from Splatoon 2`")
+            .setFooter(SplatWeb,SplatFooter)
 
             message.channel.send(embed)
         }
@@ -1316,6 +1323,7 @@ bot.on("message", async message => {
         .addField("Sub", RandomWaffe.sub, true)
         .addField("Special", RandomWaffe.special, true)
         .setThumbnail(RandomWaffe.image)
+        .setFooter(SplatWeb,SplatFooter)
 
         message.channel.send(message.author,embed)
     }
@@ -1333,6 +1341,7 @@ bot.on("message", async message => {
         .addField("Sub", RandomWaffe.sub, true)
         .addField("Special", RandomWaffe.special, true)
         .setThumbnail(RandomWaffe.image)
+        .setFooter(SplatWeb,SplatFooter)
 
         message.channel.send(message.author,embed)
     }
@@ -1351,6 +1360,7 @@ bot.on("message", async message => {
         .addField("Sub", RandomWaffe.sub, true)
         .addField("Special", RandomWaffe.special, true)
         .setThumbnail(RandomWaffe.image)
+        .setFooter(SplatWeb,SplatFooter)
 
         message.channel.send(message.author,embed)
     }
@@ -1368,6 +1378,7 @@ bot.on("message", async message => {
         .addField("Sub", RandomWaffe.sub, true)
         .addField("Special", RandomWaffe.special, true)
         .setThumbnail(RandomWaffe.image)
+        .setFooter(SplatWeb,SplatFooter)
 
         message.channel.send(message.author,embed)
     }
@@ -1385,6 +1396,7 @@ bot.on("message", async message => {
         .addField("Sub", RandomWaffe.sub, true)
         .addField("Special", RandomWaffe.special, true)
         .setThumbnail(RandomWaffe.image)
+        .setFooter(SplatWeb,SplatFooter)
     
             message.channel.send(message.author,embed)
         }
@@ -1401,6 +1413,7 @@ bot.on("message", async message => {
         .setAuthor("Random Battle")
         .addField(`Stage`,RMap.name)
         .addField(`Mode`,Mode)
+        .setFooter(SplatWeb,SplatFooter)
 
         message.channel.send(message.author, embed)
     }
@@ -1409,7 +1422,10 @@ bot.on("message", async message => {
      if(message.content == `${BotSettings.prefix}help splatoon random battle`) {
         var embed = new Discord.RichEmbed()
         .setColor(embedRandom)
+        .setFooter(SplatWeb,SplatFooter)
         .addField(`Splatoon Random Weapons`,"`Gives you random instructions for a private battle in Splatoon 2`")
+        .setFooter(SplatWeb,SplatFooter)
+
 
         message.channel.send(embed)
     }
@@ -1432,6 +1448,7 @@ bot.on("message", async message => {
         var embed = new Discord.RichEmbed()
         .setColor("#7289DA")
         .addField(`Overwatch Random Heroes`,"`Gives you a random Hero from Overwatch`")
+        .setFooter(OWWeb,OWFooter)
 
         message.channel.send(embed)
     }
@@ -1449,6 +1466,7 @@ bot.on("message", async message => {
         .setDescription(All.name)
         .addField("Role", All.Role, true)
         .setThumbnail(All.image)
+        .setFooter(OWWeb,OWFooter)
 
         message.channel.send(message.author,embed)
     }
@@ -1465,6 +1483,7 @@ bot.on("message", async message => {
         .setDescription(Tank.name)
         .addField("Role", Tank.Role, true)
         .setThumbnail(Tank.image)
+        .setFooter(OWWeb,OWFooter)
 
         message.channel.send(message.author,embed)
     }
@@ -1481,6 +1500,7 @@ bot.on("message", async message => {
         .setDescription(Support.name)
         .addField("Role", Support.Role, true)
         .setThumbnail(Support.image)
+        .setFooter(OWWeb,OWFooter)
 
         message.channel.send(message.author,embed)
     }
