@@ -1453,7 +1453,7 @@ bot.on("message", async message => {
         .setColor(embedRandom)
         .setDescription(`The Overwatch Random Heroes command has 3 different categories. These are "All, Tank, Support". The command will used like this: **__${BotSettings.prefix}ow random hero All__**`)
         .setImage(`https://cdn.discordapp.com/attachments/406957187869442048/485439364814340097/800px-Heroes-theatrical.png`)
-        .setFooter(NewtoxDev,yes)
+        .setFooter(OWWeb,OWFooter)
 
         message.channel.send(message.author, embed)
     }
@@ -1520,11 +1520,9 @@ bot.on("message", async message => {
         message.channel.send(message.author,embed)
     }
 
-    
-
 }
 
 });
 
 
-bot.login(BotSettings.token)
+bot.login(process.env.BOT_TOKEN)
