@@ -1299,7 +1299,7 @@ bot.on("message", async message => {
         }
 
         //Splatoon Help
-        if(message.content == `${BotSettings.prefix}splatoon help random weapons`) {
+        if(message.content == `${BotSettings.prefix}help splatoon random weapons`) {
             var embed = new Discord.RichEmbed()
             .setColor(embedRandom)
             .addField(`Splatoon Random Weapons`,"`Gives you a random weapon from Splatoon 2`")
