@@ -1,8 +1,8 @@
 {
-  "name": "Kiyomi",
+  "name": "Lucy",
   "version": "1.0.0",
   "description": "Bot von Newtox",
-  "main": "Kiyomi.js",
+  "main": "Lucy.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
