@@ -423,7 +423,7 @@ bot.on("message", async message => {
             .setColor("#ff9564")
             .setTitle(`Information about ${bot.user.username}`)
             .addField("Name and Tag",`**${bot.user.username}**#${bot.user.discriminator}`,false)
-            .addField("Developer:",`**${message.guild.member("402483602094555138").user.username}**#${message.guild.member("402483602094555138").user.discriminator}`, true)
+            .addField("Developer:",`**${message.guild.member(BotSettings.OwnerID).user.username}**#${message.guild.member(BotSettings.OwnerID).user.discriminator}`, true)
             .addField("Coded with:","Discord.js 11.3.2",false)
             .addField(`Prefix`,`The prefix of the bot is **${BotSettings.prefix}**`, false)
             .addField(`Uptime`,`${uptime}`)
@@ -823,14 +823,14 @@ bot.on("message", async message => {
             message.channel.send(embed)
         }
 
-        //UptimeUptime
+        //Uptime-BOT
         if(message.content ==`${BotSettings.prefix}uptime`) {
             
             let totalSeconds = (bot.uptime / 1000);
             let days = Math.round(totalSeconds / 86400);
             let hours = Math.floor(totalSeconds / 3600);
             totalSeconds %= 3600;
-            let minutes = Math.floor(totalSeconds / 60);
+            let minutes = Math.floor(totalSeconds / 60); 
             let seconds = Math.floor(totalSeconds - (60*(Math.floor(totalSeconds/60))))
 
 
@@ -1485,6 +1485,7 @@ bot.on("message", async message => {
         message.channel.send(message.author,embed)
     }
 
+    
 
 }
 
