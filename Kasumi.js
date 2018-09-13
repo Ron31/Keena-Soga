@@ -534,7 +534,7 @@ bot.on("message", async message => {
         }
 
         //Clear
-        if(message.content ==`${BotSettings.prefix}clear`) {
+        if(command == "clear" ) {
        
             if(message.author.id == BotSettings.OwnerID ||  message.member.hasPermission("MANAGE_MESSAGES"))  {
 
@@ -566,7 +566,7 @@ bot.on("message", async message => {
     
     
             //Kick
-            if(message.content ==`${BotSettings.prefix}kick`) {
+            if(command == "kick") {
     
                 if(message.author.id == BotSettings.OwnerID ||  message.member.hasPermission("KICK_MEMBERS"))  {
     
@@ -610,7 +610,7 @@ bot.on("message", async message => {
             }
     
             //Bann
-            if(message.content ==`${BotSettings.prefix}ban`) {
+            if(command == "ban") {
     
                 if(message.author.id == BotSettings.OwnerID ||  message.member.hasPermission("BAN_MEMBERS"))  {
         
@@ -655,7 +655,7 @@ bot.on("message", async message => {
 
 
         //OPadd
-        if(message.content ==`${BotSettings.prefix}giverole`) {
+        if(command == "giverole") {
             if(message.author.id == BotSettings.OwnerID ||  message.member.hasPermission("ADMINISTRATOR"))  {
     
                 var Rolle = args.join(" ")
@@ -700,7 +700,7 @@ bot.on("message", async message => {
     
     
         //Opremove
-        if(message.content ==`${BotSettings.prefix}removerole`) {
+        if(command == "removerole") {
         if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("ADMINISTRATOR")) {
     
     
@@ -750,7 +750,7 @@ bot.on("message", async message => {
     
     
             //Rollen-ID
-            if(message.content ==`${BotSettings.prefix}roleID`) {
+            if(command == "roleID") {
     
             if(message.author.id == BotSettings.OwnerID) {
     
@@ -789,7 +789,7 @@ bot.on("message", async message => {
 
               
         //Emoji-ID
-        if(message.content ==`${BotSettings.prefix}emojiID`) {
+        if(command == "emojiID") {
     
             if(message.author.id == BotSettings.OwnerID) {
     
@@ -876,7 +876,7 @@ bot.on("message", async message => {
 
     
         //Emoji-File
-        if(message.content ==`${BotSettings.prefix}emojiFile`) {
+        if(command == "emojiFile") {
     
             if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("MANAGE_EMOJIS")) {
         
@@ -917,7 +917,7 @@ bot.on("message", async message => {
              
     
           //Rollenfarbe 
-            if(message.content ==`${BotSettings.prefix}rolecolor`) {
+            if(command == "rolecolor") {
     
                 var Rolle = args.join (" ")
     
