@@ -1,1 +1,1 @@
-worker node Lucy.js
+worker node Luanna.js
