@@ -534,7 +534,7 @@ bot.on("message", async message => {
         }
 
         //Clear
-        if(command == "clear" ) {
+        if(command == "clear") {
        
             if(message.author.id == BotSettings.OwnerID ||  message.member.hasPermission("MANAGE_MESSAGES"))  {
 
@@ -876,7 +876,7 @@ bot.on("message", async message => {
 
     
         //Emoji-File
-        if(command == "emojiFile") {
+        if(message.content ==`${BotSettings.prefix}emojiFile`) {
     
             if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("MANAGE_EMOJIS")) {
         
@@ -917,7 +917,7 @@ bot.on("message", async message => {
              
     
           //Rollenfarbe 
-            if(command == "rolecolor") {
+            if(message.content ==`${BotSettings.prefix}rolecolor`) {
     
                 var Rolle = args.join (" ")
     
