@@ -917,7 +917,7 @@ bot.on("message", async message => {
              
     
           //Rollenfarbe 
-            if(message.content ==`${BotSettings.prefix}rolecolor`) {
+            if(command == "rolecolor") {
     
                 var Rolle = args.join (" ")
     
@@ -1515,4 +1515,4 @@ bot.on("message", async message => {
 });
 
 
-bot.login(process.env.BOT_TOKEN)
+bot.login(BotSettings.token)
