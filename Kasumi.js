@@ -211,7 +211,7 @@ bot.on("message", async message => {
             if(message.member.roles.has("480798562079342593")) return message.channel.send(`${message.author} You are already in the house **${message.guild.roles.get("480798562079342593").name}**.`)
 
             message.member.addRole(`480798562079342593`)
-            message.channel.send(`${message.author} I am happy to welcome you in the house **Bravery**!`)
+            message.channel.send(`${message.author} I am pleased to welcome you in the house **Bravery**!`)
         }
 
         if(message.content ==`${BotSettings.prefix}Braveryleave`) {
@@ -229,7 +229,7 @@ bot.on("message", async message => {
             if(message.member.roles.has("480798479103295490")) return message.channel.send(`${message.author} You are already in the house **${message.guild.roles.get("480798479103295490").name}**.`)
 
             message.member.addRole(`480798479103295490`)
-            message.channel.send(`${message.author} I am happy to welcome you in the house **Balance**!`)
+            message.channel.send(`${message.author} I am pleased to welcome you in the house **Balance**!`)
         }
 
         if(message.content ==`${BotSettings.prefix}Balanceleave`) {
@@ -248,7 +248,7 @@ bot.on("message", async message => {
 
 
             message.member.addRole(`480798626382086157`)
-            message.channel.send(`${message.author} I am happy to welcome you in the house **Brilliance**!`)
+            message.channel.send(`${message.author} I am pleased to welcome you in the house **Brilliance**!`)
         }
 
         if(message.content ==`${BotSettings.prefix}Brillianceleave`) {
@@ -876,7 +876,7 @@ bot.on("message", async message => {
 
     
         //Emoji-File
-        if(message.content ==`${BotSettings.prefix}emojiFile`) {
+        if(command === "emojiFile") {
     
             if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("MANAGE_EMOJIS")) {
         
@@ -941,7 +941,7 @@ bot.on("message", async message => {
         if(message.content ==`${BotSettings.prefix}help rolecolor`) {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
-            .addField(`rolecolor`,"`Gives you the color code of a particular role`")
+            .addField(`rolecolor`,"`Gives you the color code of a specific role`")
             .addField(`Use`,`**__${BotSettings.prefix}rolecolor [Role]__**`)
             .setFooter(Help, KasumiLogo)
     
@@ -984,7 +984,7 @@ bot.on("message", async message => {
                             if(err) message.channel.send(`Hm. Something went wrong. ${message.author}.\n\nError-message: ${err}`)
     
                         });
-                        message.channel.send(`The color of the role **${args[0]}** became **#${args[1]}**. ${message.author}`)
+                        message.channel.send(`The color of the role **${args[0]}** was changed to **#${args[1]}**. ${message.author}`)
                     } else {
                         message.channel.send(`This role does not exist on the server. ${message.author}`)
                     }
@@ -1060,7 +1060,7 @@ bot.on("message", async message => {
         if(message.content ==`${BotSettings.prefix}help dab`) {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
-            .addField(`dab`,"`You can always use a dab`",false)
+            .addField(`dab`,"`You can always need a dab`",false)
             .setFooter(Help, AuthorFooter)
 
             message.channel.send(embed)
@@ -1179,7 +1179,7 @@ bot.on("message", async message => {
         if(message.content ==`${BotSettings.prefix}help serverlist`) {
             var embed = new Discord.RichEmbed()
             .setColor("#7289DA")
-            .addField(`Serverlist`,"`Shows you all the servers on which the bot is located.`",false)
+            .addField(`Serverlist`,"`Shows you all the servers the bot is on`",false)
             .setFooter(Help, ServerIcon)
 
             message.channel.send(embed)
