@@ -566,7 +566,7 @@ bot.on("message", async message => {
     
     
             //Kick
-            if(command == "kick") {
+            if(command === "kick") {
     
                 if(message.author.id == BotSettings.OwnerID ||  message.member.hasPermission("KICK_MEMBERS"))  {
     
@@ -610,7 +610,7 @@ bot.on("message", async message => {
             }
     
             //Bann
-            if(command == "ban") {
+            if(command === "ban") {
     
                 if(message.author.id == BotSettings.OwnerID ||  message.member.hasPermission("BAN_MEMBERS"))  {
         
@@ -655,7 +655,7 @@ bot.on("message", async message => {
 
 
         //OPadd
-        if(command == "giverole") {
+        if(command === "giverole") {
             if(message.author.id == BotSettings.OwnerID ||  message.member.hasPermission("ADMINISTRATOR"))  {
     
                 var Rolle = args.join(" ")
@@ -700,7 +700,7 @@ bot.on("message", async message => {
     
     
         //Opremove
-        if(command == "removerole") {
+        if(command === "removerole") {
         if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("ADMINISTRATOR")) {
     
     
@@ -750,7 +750,7 @@ bot.on("message", async message => {
     
     
             //Rollen-ID
-            if(command == "roleID") {
+            if(command === "roleID") {
     
             if(message.author.id == BotSettings.OwnerID) {
     
@@ -789,7 +789,7 @@ bot.on("message", async message => {
 
               
         //Emoji-ID
-        if(command == "emojiID") {
+        if(command === "emojiID") {
     
             if(message.author.id == BotSettings.OwnerID) {
     
@@ -917,7 +917,7 @@ bot.on("message", async message => {
              
     
           //Rollenfarbe 
-            if(command == "rolecolor") {
+            if(command === "rolecolor") {
     
                 var Rolle = args.join (" ")
     
@@ -974,7 +974,7 @@ bot.on("message", async message => {
 
 
         //Rollen-Edit
-        if(message.content ==`${BotSettings.prefix}roleedit`) {
+        if(command === "roleedit") {
             if(message.author.id == BotSettings.OwnerID || message.member.hasPermission("MANAGE_ROLES")) {
             if(args[0] && args[1]) {
                 if(Number(parseInt(args[1].toString(10), 16)) < 16777215) {
@@ -992,7 +992,7 @@ bot.on("message", async message => {
                     message.channel.send(`This is not an RGB value. ${message.author}`)
                 }
             } else {
-                message.channel.send(`Please enter a **available** role and a color. ${message.author}`)
+                message.channel.send(`Please enter an **available** role and a color. ${message.author}`)
             }
         } else {
              message.channel.send(`This command requires the following server rights: **Manage-Roles**. ${message.author}`)
@@ -1212,7 +1212,7 @@ bot.on("message", async message => {
 
         //Say-Command
 
-        if(command == "say") {
+        if(command === "say") {
             if(message.author.id == BotSettings.OwnerID) { 
                 var Say = args.join(" ") 
                 if(Say) {
