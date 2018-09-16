@@ -124,13 +124,13 @@ bot.on("message", async message => {
             .setTimestamp()
             .setFooter(HelpFooter,KasumiLogo)
             .setTitle("Here you can see every Command of the Bot")
-            .addField(`**__Info__**`,"`userinfo` \n`serverinfo` \n`serverlist` \n`serverpartners` \n`nicknames` \n`userafk` \n`messages` \n`devmessage` \n`botinfo` \n`botinvite` \n`Fun` \n`Hypesquad`",true)
-            .addField(`**__Moderation__**`,"`kick` \n`ban` \n`giverole` \n`removerole`",true)
-            .addField(`**__Management__**`,"`roleedit` \n`clear` \n`emojiFile`",true)
-            .addField(`**__Fun__**`,"`rolecolor` \n`randomcolor` \n`lööps` \n`dab` \n`snens` \n`subway`",true)
-            .addField(`**__Splatoon__**`,"\n`splatoon2perks` \n`splatoon random weapons` \n` splatoon random battle`",true)
+            .addField(`**__Info__**`,"`userinfo`,`serverinfo`,`serverlist`,`serverpartners`,`nicknames`,`userafk`,`messages`,`devmessage`,`botinfo`,`botinvite`,`Fun`,`Hypesquad`",true)
+            .addField(`**__Moderation__**`,"`kick`,`ban`,`giverole`,`removerole`",true)
+            .addField(`**__Management__**`,"`roleedit`,`clear`,`emojiFile`",true)
+            .addField(`**__Fun__**`,"`rolecolor`,`randomcolor`,`lööps`,`dab`,`snens`,`subway`",true)
+            .addField(`**__Splatoon__**`,"`splatoon2perks`,`splatoon random weapons`,` splatoon random battle`",true)
             .addField(`**__Overwatch__**`,"` ow random heroes`",true)
-            .addField(`**__Developer__**`,"`devinvite` \n`roleID` \n`emojiID` \n`uptime`",true)
+            .addField(`**__Developer__**`,"`devinvite`,`roleID`,`emojiID`,`uptime`",true)
             .setThumbnail("https://cdn.discordapp.com/attachments/406957187869442048/476098810460766229/help2.png")
             message.channel.send(embed)
         }
@@ -455,7 +455,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
     
             .setColor(message.member.highestRole.color || embedRandom)
-            .setDescription("`If something is not displayed correctly, it may be because you are assigned too many roles, I apologize for that`")
+            .setDescription("`If something is not displayed correctly, it may be because you are assigned too many roles.`")
             .setTimestamp()
             .setTitle(`Userinfo about ${message.author.username}`)
             .addField(`Name + Tag`, `**${message.author.username}**#${message.author.discriminator}`)
@@ -496,7 +496,7 @@ bot.on("message", async message => {
             var embed = new Discord.RichEmbed()
     
             .setColor(mention.highestRole.color || embedRandom)
-            .setDescription("`If something is displayed incorrectly, it may be because the user mentioned is assigned too many roles. I apologize for that`")
+            .setDescription("`If something is displayed incorrectly, it may be because the user mentioned is assigned too many roles.`")
             .setTimestamp()
             .setTitle(`Userinfo about ${mention.user.username}`)
             .addField(`Name + Tag`, `**${mention.user.username}**#${mention.user.discriminator}`)
@@ -531,9 +531,7 @@ bot.on("message", async message => {
     
             message.channel.send(embed)
     
-        } else if(mention == message.member.user.bot) {
-            message.channel.send(`I'm not collecting Data from Bots.`)
-        }
+        } 
 
         //Clear
         if(command == "clear") {
