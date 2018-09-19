@@ -1510,7 +1510,7 @@ bot.on("message", async message => {
     if(message.content == `${BotSettings.prefix}ow random heroes`) {
         var embed = new Discord.RichEmbed()
         .setColor(embedRandom)
-        .setDescription(`The Overwatch Random Heroes command has 4 different categories. These are "All, Damage, Tank, Support". The command will used like this: **__${BotSettings.prefix}ow random hero All__**`)
+        .setDescription(`The Overwatch Random Heroes command has 3 different categories. These are "All, Tank, Support". The command will used like this: **__${BotSettings.prefix}ow random hero All__**`)
         .setImage(`https://cdn.discordapp.com/attachments/406957187869442048/485439364814340097/800px-Heroes-theatrical.png`)
         .setFooter(OWWeb,OWFooter)
 
@@ -1545,23 +1545,6 @@ bot.on("message", async message => {
         message.channel.send(message.author,embed)
     }
            
-    //Damage 
-    if(message.content == `${BotSettings.prefix}ow random hero Damage`) {
-        var Damage = Overwatch.Damage[Math.floor(Math.random() * Overwatch Damage.length)];
-          var embed = new Discord.RichEmbed()
-          
-          var embed = new Discord.RichEmbed()
-          .setColor(embedRandom)
-          .setAuthor("Random Hero (Damage)") 
-          .setTitle("Hero") 
-          .setDescription(Damage.name)
-          .addField("Role", Damage.Role, true) 
-          .setThumbnail(Damage.image)
-          .setFooter(OWWeb,OWFooter) 
-          
-          message.channel.send(message.author, embed)
-          
-     } 
 
         
     //Tank
