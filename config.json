@@ -1,0 +1,40 @@
+{
+    "Activitytypes": {
+        "0": "Playing",
+        "1": "Streaming",
+        "2": "Listening to",
+        "3": "Watching"
+    },
+
+    "Usertypes": {
+        "online": "<:online:480435603587203118> Online",
+        "idle": "<:idle:480435654233423892> Idle",
+        "dnd": "<:dnd:480435646624694302> Do Not Disturb",
+        "offline": "<:invisible:480435664417194014> Offline"
+    },
+
+    "Date_Name": {
+        "Jan": "January",
+        "Feb": "February",
+        "Mar": "March",
+        "Apr": "April",
+        "May": "May",
+        "Jun": "June",
+        "Jul": "July",
+        "Aug": "August",
+        "Sep": "September",
+        "Oct": "Oktober",
+        "Nov": "November",
+        "Dec": "December"
+    },
+
+    "Verification_Name": {
+        "0": "None",
+        "1": "Low",
+        "2": "Medium",
+        "3": "Hard",
+        "4": "Extreme"
+        
+    }
+
+}
