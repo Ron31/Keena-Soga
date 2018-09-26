@@ -759,13 +759,16 @@ bot.on("message", async message => {
 
         //Uptime-BOT
         if(message.content.startsWith(`${BotSettings.prefix}uptime`)) {
-            
-            let days = Math.floor(bot.uptime / 86400000);
-            let hours = Math.floor(bot.uptime / 3600000) % 24;
-            let minutes = Math.floor(bot.uptime / 60000) % 60;
-            let seconds = Math.floor(bot.uptime / 1000) % 60;
+              
+              
+            let totalSeconds = (bot.uptime / 1000);
+            let days = Math.floor(totalSeconds / 86400);
+            let hours = Math.floor(totalSeconds / 3600);
+            totalSeconds %= 3600;
+            let minutes = Math.floor(totalSeconds / 60);
+            let seconds = Math.floor(totalSeconds - (60*(Math.floor(totalSeconds/60))))
 
-            let uptime = `**${days}** days, **${hours}** hours, **${minutes}** minutes and **${seconds}** seconds`;
+            uptime = `**${days}** days, **${hours}** hours, **${minutes}** minutes and **${seconds}** seconds`;
 
             if(message.author.id == BotSettings.OwnerID) {
                 message.channel.send(`Online since ${uptime}`)
