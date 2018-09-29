@@ -1,0 +1,66 @@
+{
+    "All": [
+        {"name":"D.Va","Role":"Tank", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436554811277312/Icon-D.Va.png"},
+        {"name":"Orisa","Role":"Tank", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436633064275969/Icon-Orisa.png"},
+        {"name":"Reinhardt ","Role":"Tank", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436656019832850/Icon-Reinhardt.png"},
+        {"name":"Roadhog ","Role":"Tank", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436664945049600/Icon-Roadhog.png"},
+        {"name":"Winston","Role":"Tank", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436718669889566/Icon-Winston.png"},
+        {"name":"Wrecking Ball ","Role":"Tank", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436723757711375/Icon-Wrecking_Ball.png"},
+        {"name":"Zarya","Role":"Tank", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436730003161108/Icon-Zarya.png"},
+        {"name":"Bastion","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436542354194442/Icon-Bastion.png"},
+        {"name":"Doomfist","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436562469814282/Icon-Doomfist.png"},
+        {"name":"Genji","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436574029578270/Icon-Genji.png"},
+        {"name":"Hanzo","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436579960324117/Icon-Hanzo.png"},
+        {"name":"Junkrat","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436587451351051/Icon-Junkrat.png"},
+        {"name":"McCree","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436604773826561/Icon-McCree.png"},
+        {"name":"Mei","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436612646535169/Icon-Mei.png"},
+        {"name":"Pharah","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436640639320075/Icon-Pharah.png"},
+        {"name":"Reaper","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436647157268481/Icon-Reaper.png"},
+        {"name":"Soldier: 76","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436673744961536/Icon-Soldier_76.png"},
+        {"name":"Sombra","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436682410131456/Icon-Sombra.png"},
+        {"name":"Symmetra","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436690287034388/Icon-Symmetra.png"},
+        {"name":"Torbjörn","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436697124012037/Icon-Torbjorn.png"},
+        {"name":"Tracer","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436705986445327/Icon-Tracer.png"},
+        {"name":"Widowmaker","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436711552155649/Icon-Widowmaker.png"},
+        {"name":"Ana","Role":"Support", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436536943280178/Icon-Ana.png"},
+        {"name":"Brigitte","Role":"Support", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436548720885760/Icon-Brigitte.png"},
+        {"name":"Lúcio","Role":"Support", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436596808712192/Icon-Lucio.png"},
+        {"name":"Mercy","Role":"Support", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436620699598898/Icon-Mercy.png"},
+        {"name":"Moira","Role":"Support", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436626596790272/Icon-Moira.png"},
+        {"name":"Zenyatta","Role":"Support", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436737103855626/Icon-Zenyatta.png"}
+
+    ], "Tank": [
+        {"name":"D.Va","Role":"Tank", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436554811277312/Icon-D.Va.png"},
+        {"name":"Orisa","Role":"Tank", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436633064275969/Icon-Orisa.png"},
+        {"name":"Reinhardt ","Role":"Tank", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436656019832850/Icon-Reinhardt.png"},
+        {"name":"Roadhog ","Role":"Tank", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436664945049600/Icon-Roadhog.png"},
+        {"name":"Winston","Role":"Tank", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436718669889566/Icon-Winston.png"},
+        {"name":"Wrecking Ball ","Role":"Tank", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436723757711375/Icon-Wrecking_Ball.png"},
+        {"name":"Zarya","Role":"Tank", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436730003161108/Icon-Zarya.png"}
+
+    ], "Damage": [
+        {"name":"Bastion","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436542354194442/Icon-Bastion.png"},
+        {"name":"Doomfist","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436562469814282/Icon-Doomfist.png"},
+        {"name":"Genji","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436574029578270/Icon-Genji.png"},
+        {"name":"Hanzo","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436579960324117/Icon-Hanzo.png"},
+        {"name":"Junkrat","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436587451351051/Icon-Junkrat.png"},
+        {"name":"McCree","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436604773826561/Icon-McCree.png"},
+        {"name":"Mei","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436612646535169/Icon-Mei.png"},
+        {"name":"Pharah","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436640639320075/Icon-Pharah.png"},
+        {"name":"Reaper","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436647157268481/Icon-Reaper.png"},
+        {"name":"Soldier: 76","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436673744961536/Icon-Soldier_76.png"},
+        {"name":"Sombra","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436682410131456/Icon-Sombra.png"},
+        {"name":"Symmetra","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436690287034388/Icon-Symmetra.png"},
+        {"name":"Torbjörn","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436697124012037/Icon-Torbjorn.png"},
+        {"name":"Tracer","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436705986445327/Icon-Tracer.png"},
+        {"name":"Widowmaker","Role":"Damage", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436711552155649/Icon-Widowmaker.png"}
+
+    ], "Support": [
+        {"name":"Ana","Role":"Support", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436536943280178/Icon-Ana.png"},
+        {"name":"Brigitte","Role":"Support", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436548720885760/Icon-Brigitte.png"},
+        {"name":"Lúcio","Role":"Support", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436596808712192/Icon-Lucio.png"},
+        {"name":"Mercy","Role":"Support", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436620699598898/Icon-Mercy.png"},
+        {"name":"Moira","Role":"Support", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436626596790272/Icon-Moira.png"},
+        {"name":"Zenyatta","Role":"Support", "image":"https://cdn.discordapp.com/attachments/406957187869442048/485436737103855626/Icon-Zenyatta.png"}
+    ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Yuki",
+  "version": "1.0.0",
+  "description": "Bot von Newtox",
+  "main": "Yuki.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Newtox",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "discord.js-lavalink": "^2.1.3",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-binaries": "^3.2.2",
+    "jquery": "^3.3.1",
+    "js": "^0.1.0",
+    "node": "^10.9.0",
+    "opusscript": "0.0.6"
+  }
+}
