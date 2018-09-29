@@ -3,7 +3,6 @@ const Discord = require("discord.js"),
       BotSettings = require("./botsettings.json"),
       fs = require("fs"),
       Config = require("./config.json"),
-      profile = JSON.parse(fs.readFileSync("profil/message.json","utf8")),
       Splatoon = require("./Splatoon_Arrays.json"),
       Overwatch = require("./overwatch.json")
 
@@ -1322,4 +1321,4 @@ bot.on("message", async message => {
 });
 
 
-bot.login(BotSettings.token)
+bot.login(process.env.BOT_TOKEN)
