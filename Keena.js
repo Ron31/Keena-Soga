@@ -216,7 +216,7 @@ bot.on("message", async message => {
 
             var embed = new Discord.RichEmbed() 
 
-            .setColor("#43c0bb")
+            .setColor("#E74C3C")
             .setTitle(`Information about ${bot.user.username}`)
             .addField("Name and Tag",`**${bot.user.username}**#${bot.user.discriminator}`,false)
             .addField("Developer:",`**${message.guild.member(BotSettings.OwnerID).user.username}**#${message.guild.member(BotSettings.OwnerID).user.discriminator}`, true)
