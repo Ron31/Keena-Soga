@@ -212,7 +212,7 @@ bot.on("message", async message => {
             // let seconds = Math.floor(totalSeconds - (60*(Math.floor(totalSeconds/60))))
 
 
-            let uptime = `**${days}** days, **${hours}** hours, **${minutes}** minutes and **${seconds}** seconds`;
+//             let uptime = `**${days}** days, **${hours}** hours, **${minutes}** minutes and **${seconds}** seconds`;
 
             var embed = new Discord.RichEmbed() 
 
