@@ -1,8 +1,8 @@
 {
-  "name": "Yuki",
+  "name": "Keena",
   "version": "1.0.0",
   "description": "Bot von Newtox",
-  "main": "Yuki.js",
+  "main": "Keena.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
