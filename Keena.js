@@ -220,7 +220,7 @@ bot.on("message", async message => {
             .setTitle(`Information about ${bot.user.username}`)
             .addField("Name and Tag",`**${bot.user.username}**#${bot.user.discriminator}`,false)
             .addField("Developer:",`**${message.guild.member(BotSettings.OwnerID).user.username}**#${message.guild.member(BotSettings.OwnerID).user.discriminator}`, true)
-            .addField("Coded with:","Discord.js 11.3.2",false)
+            .addField("Coded with:","Discord.js 11.4.2",false)
             .addField(`Prefix`,`The prefix of the bot is **${BotSettings.prefix}**`, false)
             // .addField(`Uptime`,`${uptime}`)
             .addField("Creation date of the bot",`The bot was created on **${Config.Date_Name[bot.user.createdAt.toString().split(" ")[1]]}** **${bot.user.createdAt.toString().split(" ")[2]}**, **${bot.user.createdAt.toString().split(" ")[3]}**!`,false)
