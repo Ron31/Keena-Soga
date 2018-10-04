@@ -100,7 +100,9 @@
         {"name": "Kensa Splattershot", "sub": "Suction Bomb", "special": "Tenta Missiles", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/8/8f/S2_Weapon_Main_Kensa_Splattershot.png"},
         {"name": "Kensa Splat Roller", "sub": "Splat Bomb", "special": "Bubble Blower", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/c/c2/S2_Weapon_Main_Kensa_Splat_Roller.png"},
         {"name": "Kensa Charger", "sub": "Sprinkler", "special": "Baller", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/e/ee/S2_Weapon_Main_Kensa_Charger.png"},
-        {"name": "Kensa Splatterscope", "sub": "Sprinkler", "special": "Baller", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/e/e2/S2_Weapon_Main_Kensa_Splatterscope.png"}
+        {"name": "Kensa Splatterscope", "sub": "Sprinkler", "special": "Baller", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/e/e2/S2_Weapon_Main_Kensa_Splatterscope.png"},
+        {"name": "Kensa Splattershot Pro", "sub": "Splat Bomb", "special": " Booyah Bomb", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/3/38/S2_Weapon_Main_Kensa_Splattershot_Pro.png"},
+
     ],
 
     "Schusswaffen": [
@@ -155,7 +157,8 @@
         {"name": "Tentatek Splattershot", "sub": "Splat Bomb", "special": "Inkjet", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/b/b6/S2_Weapon_Main_Tentatek_Splattershot.png/60px-S2_Weapon_Main_Tentatek_Splattershot.png"},
         {"name": "Undercover Brella", "sub": "Ink Mine", "special": "Splashdown", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/e/e6/S2_Weapon_Main_Undercover Brella_Brella.png/60px-S2_Weapon_Main_Undercover Brella_Brella.png"},
         {"name": "Kensa Splat Dualies", "sub": "Suction Bomb", "special": "Baller", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/a/a5/S2_Weapon_Main_Kensa_Splat_Dualies.png"},
-        {"name": "Kensa Splattershot", "sub": "Suction Bomb", "special": "Tenta Missiles", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/8/8f/S2_Weapon_Main_Kensa_Splattershot.png"}
+        {"name": "Kensa Splattershot", "sub": "Suction Bomb", "special": "Tenta Missiles", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/8/8f/S2_Weapon_Main_Kensa_Splattershot.png"},
+        {"name": "Kensa Splattershot Pro", "sub": "Splat Bomb", "special": " Booyah Bomb", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/3/38/S2_Weapon_Main_Kensa_Splattershot_Pro.png"},
     ],
 
     "Sniper": [
