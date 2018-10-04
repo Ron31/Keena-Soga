@@ -75,9 +75,9 @@
         {"name": "New Squiffer", "sub": "Autobomb", "special": "Baller", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/2/21/S2_Weapon_Main_New_Squiffer.png/60px-S2_Weapon_Main_New_Squiffer.png"},
         {"name": "Heavy Splatling", "sub": "Sprinkler", "special": "Sting Ray", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/2/2f/S2_Weapon_Main_Heavy_Heavy Splatling.png/60px-S2_Weapon_Main_Heavy_Heavy Splatling.png"},
         {"name": "Heavy Splatling Deco", "sub": "Splash Wall", "special": " Bubble Blower", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/9/9a/S2_Weapon_Main_Heavy_Heavy Splatling_Deco.png/60px-S2_Weapon_Main_Heavy_Heavy Splatling_Deco.png"},
-        {"name": "Sorella-Tenta Brella", "sub": "Squid Beakon", "special": " Curling-Bomb Launcher", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/8/8e/S2_Weapon_Main_Tenta_Sorella_Brella.png/60px-S2_Weapon_Main_Tenta_Sorella_Brella.png"},
+        {"name": "Tenta Sorella Brella", "sub": "Splash Wall", "special": " Curling-Bomb Launcher", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/8/8e/S2_Weapon_Main_Tenta_Sorella_Brella.png/60px-S2_Weapon_Main_Tenta_Sorella_Brella.png"},
         {"name": "Sorella Brella", "sub": "Autobomb", "special": " Splat-Bomb Launcher", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/c/c3/S2_Weapon_Main_Sorella_Brella.png/60px-S2_Weapon_Main_Sorella_Brella.png"},
-        {"name": "Undercover Brella Brella", "sub": "Splat Bomb", "special": "Baller", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/9/93/S2_Weapon_Main_Undercover Brella_Sorella_Brella.png/60px-S2_Weapon_Main_Undercover Brella_Sorella_Brella.png"},
+        {"name": "Undercover Brella", "sub": "Splat Bomb", "special": "Baller", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/9/93/S2_Weapon_Main_Undercover Brella_Sorella_Brella.png/60px-S2_Weapon_Main_Undercover Brella_Sorella_Brella.png"},
         {"name": "Dapple Dualies", "sub": "Squid Beakon", "special": "Suction-Bomb Launcher", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/6/69/S2_Weapon_Main_Dapple_Dualies.png/60px-S2_Weapon_Main_Dapple_Dualies.png"},
         {"name": "Dapple Dualies Nouveau", "sub": "Toxic Mist", "special": "Ink Storm", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/2/20/S2_Weapon_Main_Dapple_Dualies_Nouveau.png/60px-S2_Weapon_Main_Dapple_Dualies_Nouveau.png"},
         {"name": "Slosher", "sub": "Suction Bomb", "special": "Tenta Missiles", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/a/aa/S2_Weapon_Main_Slosher.png/60px-S2_Weapon_Main_Slosher.png"},
@@ -104,7 +104,7 @@
         {"name": "Kensa Splattershot Pro", "sub": "Splat Bomb", "special": " Booyah Bomb", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/3/38/S2_Weapon_Main_Kensa_Splattershot_Pro.png"},
         {"name": "Kensa Luna Blaster", "sub": "Fizzy Bomb", "special": "Ink Storm", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/9/90/S2_Weapon_Main_Kensa_Luna_Blaster.png"},
         {"name": "Kensa Dynamo Roller", "sub": "Sprinkler", "special": "Booyah Bomb", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/6/6b/S2_Weapon_Main_Kensa_Dynamo_Roller.png"},
-        {"name": "Kensa Sloshing Machine", "sub": "Fizzy Bomb", "special": "Splashdown", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/c/cf/S2_Weapon_Main_Kensa_Sloshing_Machine.png"},
+        {"name": "Kensa Sloshing Machine", "sub": "Fizzy Bomb", "special": "Splashdown", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/c/cf/S2_Weapon_Main_Kensa_Sloshing_Machine.png"}
 
     ],
 
@@ -161,7 +161,7 @@
         {"name": "Undercover Brella", "sub": "Ink Mine", "special": "Splashdown", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/e/e6/S2_Weapon_Main_Undercover Brella_Brella.png/60px-S2_Weapon_Main_Undercover Brella_Brella.png"},
         {"name": "Kensa Splat Dualies", "sub": "Suction Bomb", "special": "Baller", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/a/a5/S2_Weapon_Main_Kensa_Splat_Dualies.png"},
         {"name": "Kensa Splattershot", "sub": "Suction Bomb", "special": "Tenta Missiles", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/8/8f/S2_Weapon_Main_Kensa_Splattershot.png"},
-        {"name": "Kensa Splattershot Pro", "sub": "Splat Bomb", "special": " Booyah Bomb", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/3/38/S2_Weapon_Main_Kensa_Splattershot_Pro.png"},
+        {"name": "Kensa Splattershot Pro", "sub": "Splat Bomb", "special": " Booyah Bomb", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/3/38/S2_Weapon_Main_Kensa_Splattershot_Pro.png"}
     ],
 
     "Sniper": [
