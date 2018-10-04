@@ -103,6 +103,7 @@
         {"name": "Kensa Splatterscope", "sub": "Sprinkler", "special": "Baller", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/e/e2/S2_Weapon_Main_Kensa_Splatterscope.png"},
         {"name": "Kensa Splattershot Pro", "sub": "Splat Bomb", "special": " Booyah Bomb", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/3/38/S2_Weapon_Main_Kensa_Splattershot_Pro.png"},
         {"name": "Kensa Luna Blaster", "sub": "Fizzy Bomb", "special": "Ink Storm", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/9/90/S2_Weapon_Main_Kensa_Luna_Blaster.png"},
+        {"name": "Kensa Dynamo Roller", "sub": "Sprinkler", "special": "Booyah Bomb", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/6/6b/S2_Weapon_Main_Kensa_Dynamo_Roller.png"},
 
     ],
 
@@ -194,7 +195,8 @@
         {"name": "Krak-On Splat Roller", "sub": "Squid Beakon", "special": "Baller", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/6/62/S2_Weapon_Main_Krak-On_Splat_Roller.png/60px-S2_Weapon_Main_Krak-On_Splat_Roller.png"},
         {"name": "Inkbrush", "sub": "Splat Bomb", "special": "Splashdown", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/c/cb/S2_Weapon_Main_Inkbrush.png/60px-S2_Weapon_Main_Inkbrush.png"},
         {"name": "Inkbrush Nouveau", "sub": "Ink Mine", "special": "Baller", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/e/ef/S2_Weapon_Main_Inkbrush_Nouveau.png/60px-S2_Weapon_Main_Inkbrush_Nouveau.png"},
-        {"name": "Kensa Splat Roller", "sub": "Splat Bomb", "special": "Bubble Blower", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/c/c2/S2_Weapon_Main_Kensa_Splat_Roller.png"}
+        {"name": "Kensa Splat Roller", "sub": "Splat Bomb", "special": "Bubble Blower", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/c/c2/S2_Weapon_Main_Kensa_Splat_Roller.png"},
+        {"name": "Kensa Dynamo Roller", "sub": "Sprinkler", "special": "Booyah Bomb", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/6/6b/S2_Weapon_Main_Kensa_Dynamo_Roller.png"}
     ],
 
     "Blaster": [
@@ -210,7 +212,7 @@
         {"name": "Rapid Blaster Deco", "sub": "Suction Bomb", "special": "Inkjet", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/2/29/S2_Weapon_Main_Rapid_Blaster_Deco.png/60px-S2_Weapon_Main_Rapid_Blaster_Deco.png"},
         {"name": "Rapid Blaster Pro", "sub": "Toxic Mist", "special": "Ink Storm", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/e/e6/S2_Weapon_Main_Rapid_Blaster_Pro.png/60px-S2_Weapon_Main_Rapid_Blaster_Pro.png"},
         {"name": "Rapid Blaster Pro Deco", "sub": "Splash Wall", "special": "Ink Armor", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/thumb/5/59/S2_Weapon_Main_Rapid_Blaster_Pro_Deco.png/60px-S2_Weapon_Main_Rapid_Blaster_Pro_Deco.png"},
-        {"name": "Kensa Luna Blaster", "sub": "Fizzy Bomb", "special": "Ink Storm", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/9/90/S2_Weapon_Main_Kensa_Luna_Blaster.png"},
+        {"name": "Kensa Luna Blaster", "sub": "Fizzy Bomb", "special": "Ink Storm", "image": "https://cdn.wikimg.net/en/splatoonwiki/images/9/90/S2_Weapon_Main_Kensa_Luna_Blaster.png"}
     ],
 
     "Maps": [
