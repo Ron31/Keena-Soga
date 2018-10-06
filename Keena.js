@@ -329,7 +329,7 @@ bot.on("message", async message => {
     
             embed.addField(`Account creation Date`,`**${mention.displayName}** created his/her account on **${Config.Date_Name[mention.user.createdAt.toString().split(" ")[1]]}** **${mention.user.createdAt.toString().split(" ")[2]}**, **${mention.user.createdAt.toString().split(" ")[3]}**!`, false) 
     
-            embed.addField(`Joindate`, `**${mention.displayName}** joined the server last on **${Config.Date_Name[mention.joinedAt.toString().split(" ")[1]]}**  **${mention.joinedAt.toString().split(" ")[2]}**, **${mention.joinedAt.toString().split(" ")[3]}**!`, false) 
+            embed.addField(`Joindate`, `**${mention.displayName}** joined the server last on **${Config.Date_Name[mention.joinedAt.toString().split(" ")[1]]}** **${mention.joinedAt.toString().split(" ")[2]}**, **${mention.joinedAt.toString().split(" ")[3]}**!`, false) 
     
             .setThumbnail(`${mention.user.displayAvatarURL}`)
     
