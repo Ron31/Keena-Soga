@@ -172,6 +172,20 @@ bot.on("message", async message => {
 
             message.channel.send(embed)
         }
+        if(message.content.startsWith == `${BotSetting.prefix}eval`) {
+              if(message.author.id != "DeineIDNewTox") return message.channel.send('Keine rechte');
+              befehl = args.join(' ');
+                  if (befehl.includes('token')) {
+                        return msg.channel.send(':no_entry_sign: Token is blacklisted!')
+                  }
+                  try {
+                        let ergebniss = await eval(befehl)
+                        msg.channel.send('Evaled!! Ergebnis: ' + ergebniss)
+                  } catch(e) {
+                        msg.channel.send('Error: ' + e.message)
+                  }
+
+        }
       
 
         //Leave-Music
